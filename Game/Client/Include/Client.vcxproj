@@ -24,6 +24,7 @@
     <ClInclude Include="Core\PhysicsConfig.h" />
     <ClInclude Include="Core\Utils\ColliderUtils.h" />
     <ClInclude Include="Core\Utils\PhysicsUtils.h" />
+    <ClInclude Include="Scene\MenuScene.h" />
     <ClInclude Include="Resource\Sound\BGM.h" />
     <ClInclude Include="Resource\Font.h" />
     <ClInclude Include="Manager\Resource\FontManager.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\MenuScene.cpp" />
     <ClCompile Include="Resource\Sound\BGM.cpp" />
     <ClCompile Include="Resource\Font.cpp" />
     <ClCompile Include="Manager\Resource\FontManager.cpp" />

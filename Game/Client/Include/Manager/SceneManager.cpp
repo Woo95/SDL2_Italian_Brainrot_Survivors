@@ -1,5 +1,5 @@
 #include "SceneManager.h"
-#include "../Scene/Scene.h"
+#include "../Scene/MenuScene.h"
 #include "MemoryPoolManager.h"
 #include "../Core/Transform.h"
 
@@ -27,6 +27,8 @@ CSceneManager::~CSceneManager()
 
 bool CSceneManager::Init()
 {
+	ApplyChange(EScene::State::MENU);
+
 	return true;
 }
 
@@ -96,6 +98,7 @@ CScene* CSceneManager::GetSceneFromState(EScene::State state)
 	switch (state)
 	{
 	case EScene::MENU:
+		newScene = new CMenuScene;
 		break;
 	case EScene::PLAY:
 		break;
