@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\External\SDL\SDL_mixer.h" />
+    <ClInclude Include="Core\External\SDL\SDL_ttf.h" />
+    <ClInclude Include="Core\PhysicsConfig.h" />
+    <ClInclude Include="Core\Utils\ColliderUtils.h" />
+    <ClInclude Include="Core\Utils\PhysicsUtils.h" />
+    <ClInclude Include="Resource\Sound\BGM.h" />
+    <ClInclude Include="Resource\Font.h" />
+    <ClInclude Include="Manager\Resource\FontManager.h" />
+    <ClInclude Include="Manager\Resource\SpriteManager.h" />
+    <ClInclude Include="Entity\Component\WidgetComponent.h" />
+    <ClInclude Include="Manager\Resource\SoundManager.h" />
+    <ClInclude Include="Resource\Sound\SFX.h" />
+    <ClInclude Include="Entity\Component\Rigidbody.h" />
+    <ClInclude Include="Manager\PhysicsManager.h" />
+    <ClInclude Include="Widget\AllWidgets.h" />
+    <ClInclude Include="Widget\Slider.h" />
+    <ClInclude Include="Widget\TextBlock.h" />
+    <ClInclude Include="Widget\ProgressBar.h" />
+    <ClInclude Include="Widget\AnimatedImage.h" />
+    <ClInclude Include="Core\Utils\WidgetUtils.h" />
+    <ClInclude Include="Widget\Image.h" />
+    <ClInclude Include="Manager\Resource\UIManager.h" />
+    <ClInclude Include="Widget\Button.h" />
+    <ClInclude Include="Core\Utils\InputUtils.h" />
+    <ClInclude Include="Manager\Resource\DataManager.h" />
+    <ClInclude Include="Scene\UI\SceneUI.h" />
+    <ClInclude Include="Scene\Camera.h" />
+    <ClInclude Include="Core\Utils\AniUtils.h" />
+    <ClInclude Include="Core\Utils\LayerUtils.h" />
+    <ClInclude Include="Scene\Layer.h" />
+    <ClInclude Include="Manager\Resource\AnimationManager.h" />
+    <ClInclude Include="Resource\Animation.h" />
+    <ClInclude Include="Core\External\SDL\SDL_image.h" />
+    <ClInclude Include="Manager\Resource\AssetManager.h" />
+    <ClInclude Include="Core\ColliderPair.h" />
+    <ClInclude Include="Core\RefCounter.h" />
+    <ClInclude Include="Core\SharedPtr.h" />
+    <ClInclude Include="Entity\Component\Collider\CircleCollider.h" />
+    <ClInclude Include="Entity\Component\Collider\BoxCollider.h" />
+    <ClInclude Include="Manager\CollisionManager.h" />
+    <ClInclude Include="Entity\Component\Collider\Collider.h" />
+    <ClInclude Include="Core\CollisionProfile.h" />
+    <ClInclude Include="Core\External\SDL\begin_code.h" />
+    <ClInclude Include="Core\External\SDL\close_code.h" />
+    <ClInclude Include="Core\External\SDL\SDL.h" />
+    <ClInclude Include="Core\External\SDL\SDL_assert.h" />
+    <ClInclude Include="Core\External\SDL\SDL_atomic.h" />
+    <ClInclude Include="Core\External\SDL\SDL_audio.h" />
+    <ClInclude Include="Core\External\SDL\SDL_bits.h" />
+    <ClInclude Include="Core\External\SDL\SDL_blendmode.h" />
+    <ClInclude Include="Core\External\SDL\SDL_clipboard.h" />
+    <ClInclude Include="Core\External\SDL\SDL_config.h" />
+    <ClInclude Include="Core\External\SDL\SDL_cpuinfo.h" />
+    <ClInclude Include="Core\External\SDL\SDL_egl.h" />
+    <ClInclude Include="Core\External\SDL\SDL_endian.h" />
+    <ClInclude Include="Core\External\SDL\SDL_error.h" />
+    <ClInclude Include="Core\External\SDL\SDL_events.h" />
+    <ClInclude Include="Core\External\SDL\SDL_filesystem.h" />
+    <ClInclude Include="Core\External\SDL\SDL_gamecontroller.h" />
+    <ClInclude Include="Core\External\SDL\SDL_gesture.h" />
+    <ClInclude Include="Core\External\SDL\SDL_guid.h" />
+    <ClInclude Include="Core\External\SDL\SDL_haptic.h" />
+    <ClInclude Include="Core\External\SDL\SDL_hidapi.h" />
+    <ClInclude Include="Core\External\SDL\SDL_hints.h" />
+    <ClInclude Include="Core\External\SDL\SDL_joystick.h" />
+    <ClInclude Include="Core\External\SDL\SDL_keyboard.h" />
+    <ClInclude Include="Core\External\SDL\SDL_keycode.h" />
+    <ClInclude Include="Core\External\SDL\SDL_loadso.h" />
+    <ClInclude Include="Core\External\SDL\SDL_locale.h" />
+    <ClInclude Include="Core\External\SDL\SDL_log.h" />
+    <ClInclude Include="Core\External\SDL\SDL_main.h" />
+    <ClInclude Include="Core\External\SDL\SDL_messagebox.h" />
+    <ClInclude Include="Core\External\SDL\SDL_metal.h" />
+    <ClInclude Include="Core\External\SDL\SDL_misc.h" />
+    <ClInclude Include="Core\External\SDL\SDL_mouse.h" />
+    <ClInclude Include="Core\External\SDL\SDL_mutex.h" />
+    <ClInclude Include="Core\External\SDL\SDL_name.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengl.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengles.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengles2.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_gl2.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_gl2ext.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_gl2platform.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_khrplatform.h" />
+    <ClInclude Include="Core\External\SDL\SDL_opengl_glext.h" />
+    <ClInclude Include="Core\External\SDL\SDL_pixels.h" />
+    <ClInclude Include="Core\External\SDL\SDL_platform.h" />
+    <ClInclude Include="Core\External\SDL\SDL_power.h" />
+    <ClInclude Include="Core\External\SDL\SDL_quit.h" />
+    <ClInclude Include="Core\External\SDL\SDL_rect.h" />
+    <ClInclude Include="Core\External\SDL\SDL_render.h" />
+    <ClInclude Include="Core\External\SDL\SDL_revision.h" />
+    <ClInclude Include="Core\External\SDL\SDL_rwops.h" />
+    <ClInclude Include="Core\External\SDL\SDL_scancode.h" />
+    <ClInclude Include="Core\External\SDL\SDL_sensor.h" />
+    <ClInclude Include="Core\External\SDL\SDL_shape.h" />
+    <ClInclude Include="Core\External\SDL\SDL_stdinc.h" />
+    <ClInclude Include="Core\External\SDL\SDL_surface.h" />
+    <ClInclude Include="Core\External\SDL\SDL_system.h" />
+    <ClInclude Include="Core\External\SDL\SDL_syswm.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_assert.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_common.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_compare.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_crc32.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_font.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_fuzzer.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_harness.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_images.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_log.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_md5.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_memory.h" />
+    <ClInclude Include="Core\External\SDL\SDL_test_random.h" />
+    <ClInclude Include="Core\External\SDL\SDL_thread.h" />
+    <ClInclude Include="Core\External\SDL\SDL_timer.h" />
+    <ClInclude Include="Core\External\SDL\SDL_touch.h" />
+    <ClInclude Include="Core\External\SDL\SDL_types.h" />
+    <ClInclude Include="Core\External\SDL\SDL_version.h" />
+    <ClInclude Include="Core\External\SDL\SDL_video.h" />
+    <ClInclude Include="Core\External\SDL\SDL_vulkan.h" />
+    <ClInclude Include="Core\GameInfo.h" />
+    <ClInclude Include="Core\Input.h" />
+    <ClInclude Include="Core\Utils\SceneUtils.h" />
+    <ClInclude Include="Core\StaticMemoryPool.h" />
+    <ClInclude Include="Core\Timer.h" />
+    <ClInclude Include="Entity\EntityBase.h" />
+    <ClInclude Include="Entity\Component\Component.h" />
+    <ClInclude Include="Entity\Object\Object.h" />
+    <ClInclude Include="Manager\GameManager.h" />
+    <ClInclude Include="Manager\MemoryPoolManager.h" />
+    <ClInclude Include="Manager\SceneManager.h" />
+    <ClInclude Include="Entity\Component\MovementComponent.h" />
+    <ClInclude Include="Manager\Resource\PathManager.h" />
+    <ClInclude Include="Scene\Collision\QTNode.h" />
+    <ClInclude Include="Scene\Collision\QuadTree.h" />
+    <ClInclude Include="Scene\Collision\SceneCollision.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Core\Transform.h" />
+    <ClInclude Include="Core\Vector2D.h" />
+    <ClInclude Include="Manager\Resource\TextureManager.h" />
+    <ClInclude Include="Resource\Texture.h" />
+    <ClInclude Include="Entity\Component\SpriteComponent.h" />
+    <ClInclude Include="Widget\WidgetBase.h" />
+    <ClInclude Include="Widget\UserWidget.h" />
+    <ClInclude Include="Widget\Widget.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Resource\Sound\BGM.cpp" />
+    <ClCompile Include="Resource\Font.cpp" />
+    <ClCompile Include="Manager\Resource\FontManager.cpp" />
+    <ClCompile Include="Entity\Component\WidgetComponent.cpp" />
+    <ClCompile Include="Manager\Resource\SoundManager.cpp" />
+    <ClCompile Include="Resource\Sound\SFX.cpp" />
+    <ClCompile Include="Entity\Component\Rigidbody.cpp" />
+    <ClCompile Include="Manager\PhysicsManager.cpp" />
+    <ClCompile Include="Widget\Slider.cpp" />
+    <ClCompile Include="Widget\TextBlock.cpp" />
+    <ClCompile Include="Widget\ProgressBar.cpp" />
+    <ClCompile Include="Widget\AnimatedImage.cpp" />
+    <ClCompile Include="Widget\Image.cpp" />
+    <ClCompile Include="Widget\Button.cpp" />
+    <ClCompile Include="Manager\Resource\DataManager.cpp" />
+    <ClCompile Include="Scene\UI\SceneUI.cpp" />
+    <ClCompile Include="Scene\Camera.cpp" />
+    <ClCompile Include="Scene\Layer.cpp" />
+    <ClCompile Include="Manager\Resource\AnimationManager.cpp" />
+    <ClCompile Include="Resource\Animation.cpp" />
+    <ClCompile Include="Manager\Resource\AssetManager.cpp" />
+    <ClCompile Include="Entity\Component\Collider\CircleCollider.cpp" />
+    <ClCompile Include="Entity\Component\Collider\BoxCollider.cpp" />
+    <ClCompile Include="Manager\CollisionManager.cpp" />
+    <ClCompile Include="Entity\Component\Collider\Collider.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Core\Input.cpp" />
+    <ClCompile Include="Core\Timer.cpp" />
+    <ClCompile Include="Core\Vector2D.cpp" />
+    <ClCompile Include="Entity\Component\Component.cpp" />
+    <ClCompile Include="Entity\Object\Object.cpp" />
+    <ClCompile Include="Manager\GameManager.cpp" />
+    <ClCompile Include="Manager\MemoryPoolManager.cpp" />
+    <ClCompile Include="Manager\SceneManager.cpp" />
+    <ClCompile Include="Entity\Component\MovementComponent.cpp" />
+    <ClCompile Include="Manager\Resource\PathManager.cpp" />
+    <ClCompile Include="Scene\Collision\QTNode.cpp" />
+    <ClCompile Include="Scene\Collision\QuadTree.cpp" />
+    <ClCompile Include="Scene\Collision\SceneCollision.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Core\Transform.cpp" />
+    <ClCompile Include="Manager\Resource\TextureManager.cpp" />
+    <ClCompile Include="Resource\Texture.cpp" />
+    <ClCompile Include="Entity\Component\SpriteComponent.cpp" />
+    <ClCompile Include="Widget\UserWidget.cpp" />
+    <ClCompile Include="Widget\Widget.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5d0f5e59-6296-468c-a21e-1be3a00c5fa3}</ProjectGuid>
+    <RootNamespace>Client</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>../Bin/</OutDir>
+    <IntDir>../BinObj/</IntDir>
+    <TargetName>$(ProjectName)_Debug</TargetName>
+    <LibraryPath>../Bin/;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>../Bin/</OutDir>
+    <IntDir>../BinObj/</IntDir>
+    <LibraryPath>../Bin/;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DisableSpecificWarnings>4819;26819</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DisableSpecificWarnings>4819;26819</DisableSpecificWarnings>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

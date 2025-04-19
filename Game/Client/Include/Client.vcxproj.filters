@@ -1,0 +1,681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{a19df8b6-f4b5-4a1b-8157-ca46205625a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\05. Resource">
+      <UniqueIdentifier>{6ca350ca-fbac-4558-a30b-dd3800174ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity">
+      <UniqueIdentifier>{d5738d80-d9e6-41f0-8741-9bbca96ceb12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\01. Object">
+      <UniqueIdentifier>{2bd23e26-200b-4f59-9112-ca3337cf5a98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component">
+      <UniqueIdentifier>{3a4f77f1-cc7d-447f-8739-ed7a255c9874}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\00. Transform">
+      <UniqueIdentifier>{4e2e1bc0-ebc8-4017-93bd-261d56a11148}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components">
+      <UniqueIdentifier>{d73926d9-e7b5-45e3-908e-ffd769448284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\Collider">
+      <UniqueIdentifier>{783763d1-3903-4704-a6a1-963de9c0ceb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\Texture">
+      <UniqueIdentifier>{a10ffb53-357d-45c4-8031-fdbed8dcfc90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\Movement">
+      <UniqueIdentifier>{8102eb54-174c-4063-806e-ce0f8103b673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\03. Scene">
+      <UniqueIdentifier>{605f8d33-accc-441c-920e-f3b614dfdfd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager">
+      <UniqueIdentifier>{2ca341f6-ad67-423f-b335-7b88c3472463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager\01. Resource">
+      <UniqueIdentifier>{5228a399-eda5-4edc-89b6-9fbe2f5701bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core">
+      <UniqueIdentifier>{45893dea-8266-40b1-b6ce-64534ea7e696}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\External">
+      <UniqueIdentifier>{66d3e6b7-4451-4bb1-a87e-577d7a935af5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\External\SDL">
+      <UniqueIdentifier>{22cdc5d0-8f3b-4fae-a1e2-ec194de482ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{38b047cb-938c-4f2d-8b89-fc10f226dc3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib">
+      <UniqueIdentifier>{07aa822c-a6bd-4517-8029-44de9e5d5528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\Timer">
+      <UniqueIdentifier>{b988f21a-2a7e-45be-84c2-a6a6a6dec500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\Input">
+      <UniqueIdentifier>{3e84e11b-3d68-4517-98e3-38767547663b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\Math">
+      <UniqueIdentifier>{b34f2160-b592-483e-bfc2-5322bb366b9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\SmartPtr">
+      <UniqueIdentifier>{78525eff-63d9-470a-9434-564f2a326435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\03. Scene\01. Collision">
+      <UniqueIdentifier>{5f949429-47db-4625-860f-1c3d6575c0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\06. Widget">
+      <UniqueIdentifier>{da9c17e3-b3ba-47ea-9466-274356354b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\06. Widget\01. Widgets">
+      <UniqueIdentifier>{7097eb5a-ad77-4391-a116-6c28c10a1dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\06. Widget\02. UserWidgets">
+      <UniqueIdentifier>{fbe36ed1-71f1-4f6b-a349-312f74e091f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\Widget">
+      <UniqueIdentifier>{b40e51fc-55c0-4e85-ae1c-35cf81ba079a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\05. Resource\Sound">
+      <UniqueIdentifier>{da8f1731-e4b8-4b9a-bb31-714cfd9c64b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\Utils">
+      <UniqueIdentifier>{864f2210-c647-41c2-8d5a-56af69addf9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\Rigidbody">
+      <UniqueIdentifier>{fad9dcaa-8d17-4a1f-8e22-6207d29226b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\03. Scene\03. Camera">
+      <UniqueIdentifier>{825e3b1d-8348-4dbc-90c3-9d9b09cc2e77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\03. Scene\04. UI">
+      <UniqueIdentifier>{81d21286-dc7b-475b-91d0-cb58d4517747}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\Timer.h">
+      <Filter>Framework\01. Core\Lib\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Input.h">
+      <Filter>Framework\01. Core\Lib\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\GameInfo.h">
+      <Filter>Framework\01. Core\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\close_code.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_assert.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_atomic.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_audio.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_bits.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_blendmode.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_clipboard.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_config.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_cpuinfo.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_egl.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_endian.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_error.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_events.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_filesystem.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_gamecontroller.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_gesture.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_guid.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_haptic.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_hidapi.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_hints.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_joystick.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_keyboard.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_keycode.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_loadso.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_locale.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_log.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_main.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_messagebox.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_metal.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_misc.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_mouse.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_mutex.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_name.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengl.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengl_glext.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengles.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengles2.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_gl2.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_gl2ext.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_gl2platform.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_opengles2_khrplatform.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_pixels.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_platform.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_power.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_quit.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_rect.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_render.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_revision.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_rwops.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_scancode.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_sensor.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_shape.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_stdinc.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_surface.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_system.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_syswm.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_assert.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_common.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_compare.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_crc32.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_font.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_fuzzer.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_harness.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_images.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_log.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_md5.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_memory.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_test_random.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_thread.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_timer.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_touch.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_types.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_version.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_video.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_vulkan.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\begin_code.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Framework\03. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\SceneManager.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\StaticMemoryPool.h">
+      <Filter>Framework\01. Core\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\MemoryPoolManager.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Object.h">
+      <Filter>Framework\04. Entity\01. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\Component.h">
+      <Filter>Framework\04. Entity\02. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Transform.h">
+      <Filter>Framework\04. Entity\02. Component\00. Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Vector2D.h">
+      <Filter>Framework\01. Core\Lib\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\CollisionProfile.h">
+      <Filter>Framework\01. Core\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\CollisionManager.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Collision\QuadTree.h">
+      <Filter>Framework\03. Scene\01. Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Collision\SceneCollision.h">
+      <Filter>Framework\03. Scene\01. Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Collision\QTNode.h">
+      <Filter>Framework\03. Scene\01. Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameManager.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\RefCounter.h">
+      <Filter>Framework\01. Core\Lib\SmartPtr</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\SharedPtr.h">
+      <Filter>Framework\01. Core\Lib\SmartPtr</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ColliderPair.h">
+      <Filter>Framework\01. Core\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\EntityBase.h">
+      <Filter>Framework\04. Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\AssetManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\PathManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\TextureManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Texture.h">
+      <Filter>Framework\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_image.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\SpriteComponent.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\AnimationManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\Collider\BoxCollider.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\Collider\CircleCollider.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\Collider\Collider.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Animation.h">
+      <Filter>Framework\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\MovementComponent.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Movement</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Layer.h">
+      <Filter>Framework\03. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Camera.h">
+      <Filter>Framework\03. Scene\03. Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\DataManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\UserWidget.h">
+      <Filter>Framework\06. Widget\02. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\Widget.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\UI\SceneUI.h">
+      <Filter>Framework\03. Scene\04. UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\Button.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\WidgetBase.h">
+      <Filter>Framework\06. Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\Image.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\AnimatedImage.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\UIManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\SpriteManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\ProgressBar.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_ttf.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\FontManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Font.h">
+      <Filter>Framework\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\TextBlock.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\WidgetComponent.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Widget</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\External\SDL\SDL_mixer.h">
+      <Filter>Framework\01. Core\External\SDL</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Resource\SoundManager.h">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Sound\BGM.h">
+      <Filter>Framework\05. Resource\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\Sound\SFX.h">
+      <Filter>Framework\05. Resource\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\InputUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\SceneUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\LayerUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\WidgetUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\AniUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\Slider.h">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\Rigidbody.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Rigidbody</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\PhysicsConfig.h">
+      <Filter>Framework\01. Core\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\PhysicsUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\PhysicsManager.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\ColliderUtils.h">
+      <Filter>Framework\01. Core\Lib\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\AllWidgets.h">
+      <Filter>Framework\06. Widget</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Core\Timer.cpp">
+      <Filter>Framework\01. Core\Lib\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Input.cpp">
+      <Filter>Framework\01. Core\Lib\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>Framework\03. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\SceneManager.cpp">
+      <Filter>Framework\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\MemoryPoolManager.cpp">
+      <Filter>Framework\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Object.cpp">
+      <Filter>Framework\04. Entity\01. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\Component.cpp">
+      <Filter>Framework\04. Entity\02. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Transform.cpp">
+      <Filter>Framework\04. Entity\02. Component\00. Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Vector2D.cpp">
+      <Filter>Framework\01. Core\Lib\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\CollisionManager.cpp">
+      <Filter>Framework\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Collision\QuadTree.cpp">
+      <Filter>Framework\03. Scene\01. Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Collision\SceneCollision.cpp">
+      <Filter>Framework\03. Scene\01. Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Collision\QTNode.cpp">
+      <Filter>Framework\03. Scene\01. Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameManager.cpp">
+      <Filter>Framework\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\AssetManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\PathManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\TextureManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Texture.cpp">
+      <Filter>Framework\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\SpriteComponent.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\AnimationManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\Collider\BoxCollider.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\Collider\CircleCollider.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\Collider\Collider.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Animation.cpp">
+      <Filter>Framework\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\MovementComponent.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Movement</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Layer.cpp">
+      <Filter>Framework\03. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Camera.cpp">
+      <Filter>Framework\03. Scene\03. Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\DataManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\UserWidget.cpp">
+      <Filter>Framework\06. Widget\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\Widget.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\UI\SceneUI.cpp">
+      <Filter>Framework\03. Scene\04. UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\Button.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\Image.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\AnimatedImage.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\ProgressBar.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\FontManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Font.cpp">
+      <Filter>Framework\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\TextBlock.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\WidgetComponent.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Widget</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Resource\SoundManager.cpp">
+      <Filter>Framework\02. Manager\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Sound\BGM.cpp">
+      <Filter>Framework\05. Resource\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\Sound\SFX.cpp">
+      <Filter>Framework\05. Resource\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\Slider.cpp">
+      <Filter>Framework\06. Widget\01. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\Rigidbody.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Rigidbody</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\PhysicsManager.cpp">
+      <Filter>Framework\02. Manager</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+</Project>
