@@ -1,7 +1,9 @@
 #include "MenuUI.h"
 #include "../../Widget/AllWidgets.h"
 
-CMenuUI::CMenuUI()
+CMenuUI::CMenuUI() :
+    mCurrentState(EMenuUIState::PressToStart),
+    mPressToStart(nullptr)
 {
 }
 
@@ -17,5 +19,29 @@ bool CMenuUI::Init()
     background->SetFrame("IntroBG");
     AddWidget(background);
 
+    mPressToStart = CWidgetUtils::AllocateWidget<CPressToStartWidget, 1>("PressToStart");
+    AddWidget(mPressToStart);
+
     return true;
+}
+
+void CMenuUI::SetMenuState(EMenuUIState newState)
+{
+    mCurrentState = newState;
+
+    switch (newState)
+    {
+    case EMenuUIState::PressToStart:
+        mPressToStart->Enable();
+        break;
+    case EMenuUIState::MainMenu:
+        mPressToStart->Disable();
+        break;
+    case EMenuUIState::Options:
+        break;
+    case EMenuUIState::Start:
+        break;
+    case EMenuUIState::PowerUp:
+        break;
+    }
 }

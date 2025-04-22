@@ -103,6 +103,9 @@
     <Filter Include="Game\01. Scenes\01. Menu">
       <UniqueIdentifier>{804796d2-4f80-4bfd-9481-ea3c881619f6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\02. Widgets">
+      <UniqueIdentifier>{e569e8fb-ad9d-4334-ae14-1f64ad2abb66}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -543,6 +546,12 @@
     <ClInclude Include="Scene\MenuScene.h">
       <Filter>Game\01. Scenes\01. Menu</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\UI\MenuUI.h">
+      <Filter>Game\01. Scenes\01. Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PressToStartWidget.h">
+      <Filter>Game\02. Widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -685,6 +694,12 @@
     </ClCompile>
     <ClCompile Include="Scene\MenuScene.cpp">
       <Filter>Game\01. Scenes\01. Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\UI\MenuUI.cpp">
+      <Filter>Game\01. Scenes\01. Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PressToStartWidget.cpp">
+      <Filter>Game\02. Widgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
