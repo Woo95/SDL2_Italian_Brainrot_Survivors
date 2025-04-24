@@ -22,6 +22,12 @@ bool CMenuUI::Init()
     mPressToStart = CWidgetUtils::AllocateWidget<CPressToStartWidget, 1>("PressToStart");
     AddWidget(mPressToStart);
 
+    mMainMenu = CWidgetUtils::AllocateWidget<CMainMenuWidget, 1>("MainMenu");
+    AddWidget(mMainMenu);
+
+
+    SetMenuState(EMenuUIState::PressToStart);
+
     return true;
 }
 
@@ -29,13 +35,16 @@ void CMenuUI::SetMenuState(EMenuUIState newState)
 {
     mCurrentState = newState;
 
+    mPressToStart->Disable();
+    mMainMenu->Disable();
+
     switch (newState)
     {
     case EMenuUIState::PressToStart:
         mPressToStart->Enable();
         break;
     case EMenuUIState::MainMenu:
-        mPressToStart->Disable();
+        mMainMenu->Enable();
         break;
     case EMenuUIState::Options:
         break;

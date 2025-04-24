@@ -552,6 +552,9 @@
     <ClInclude Include="Widget\PressToStartWidget.h">
       <Filter>Game\02. Widgets</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\MainMenuWidget.h">
+      <Filter>Game\02. Widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -699,6 +702,9 @@
       <Filter>Game\01. Scenes\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PressToStartWidget.cpp">
+      <Filter>Game\02. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\MainMenuWidget.cpp">
       <Filter>Game\02. Widgets</Filter>
     </ClCompile>
   </ItemGroup>
