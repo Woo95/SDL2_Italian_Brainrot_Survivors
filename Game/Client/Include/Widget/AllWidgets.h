@@ -8,3 +8,4 @@
 #include "Slider.h"
 
 #include "PressToStartWidget.h"
+#include "MainMenuWidget.h"
