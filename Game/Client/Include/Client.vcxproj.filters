@@ -555,6 +555,9 @@
     <ClInclude Include="Widget\MainMenuWidget.h">
       <Filter>Game\02. Widgets</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\MoneyHUDWidget.h">
+      <Filter>Game\02. Widgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -705,6 +708,9 @@
       <Filter>Game\02. Widgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\MainMenuWidget.cpp">
+      <Filter>Game\02. Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\MoneyHUDWidget.cpp">
       <Filter>Game\02. Widgets</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,6 +5,7 @@
 class CImage;
 class CButton;
 class CTextBlock;
+class CMoneyHUDWidget;
 
 class CMainMenuWidget : public CUserWidget
 {
@@ -15,6 +16,7 @@ public:
 private:
 	CImage* mMenuTopBar;
 	CTextBlock* mName;
+	CMoneyHUDWidget* mMoneyHUD;
 
 	CButton* mBtnQuit;
 	CButton* mBtnOption;
@@ -26,5 +28,5 @@ protected:
 	virtual void Release() override;
 
 private:
-	CButton* CreateButton(const std::string& name, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
+	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
 };
