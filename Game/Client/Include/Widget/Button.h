@@ -16,6 +16,7 @@ private:
 	SDL_Rect  mFrames[EButton::State::STATE_MAX] = {};
 	SDL_Color mColor = { 255, 255, 255, 255 };
 
+	// for the 9Slice
 	FVector2D mSrcCorner = FVector2D::ZERO;
 	float mCornerRatio = 0.0f;
 
@@ -34,7 +35,7 @@ private:
 public:
 	void Render9Slice(SDL_Renderer* Renderer, const SDL_Rect& renderRect);
 
-	void Set9SliceCorner(const FVector2D& srcCorner)
+	void Set9SlicingCorner(const FVector2D& srcCorner)
 	{
 		mSrcCorner = srcCorner;
 	}

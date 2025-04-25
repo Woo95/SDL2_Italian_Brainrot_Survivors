@@ -117,7 +117,7 @@ void CButton::Render9Slice(SDL_Renderer* Renderer, const SDL_Rect& renderRect)
 	{
 		for (int col = 0; col < 3; col++)
 		{
-			SDL_Rect srcPart = 
+			SDL_Rect srcPart =
 			{
 				srcRect.x + (col == 0 ? 0 : (col == 1 ? srcCornerW : srcRect.w - srcCornerW)),
 				srcRect.y + (row == 0 ? 0 : (row == 1 ? srcCornerH : srcRect.h - srcCornerH)),
@@ -125,7 +125,7 @@ void CButton::Render9Slice(SDL_Renderer* Renderer, const SDL_Rect& renderRect)
 				(row == 1 ? srcRect.h - srcCornerH * 2 : srcCornerH)
 			};
 
-			SDL_Rect dstPart = 
+			SDL_Rect dstPart =
 			{
 				renderRect.x + (col == 0 ? 0 : (col == 1 ? dstCornerW : renderRect.w - dstCornerW)),
 				renderRect.y + (row == 0 ? 0 : (row == 1 ? dstCornerH : renderRect.h - dstCornerH)),
@@ -146,13 +146,8 @@ void CButton::SetFrame(const std::string& key)
 {
 	const std::vector<SDL_Rect>* const framesPtr = CAssetManager::GetInst()->GetUIManager()->GetUIFrames(key);
 
-	if (framesPtr)
-	{
-		for (size_t i = 0; i < EButton::State::STATE_MAX; i++)
-		{
-			mFrames[i] = (*framesPtr)[i];
-		}
-	}
+	for (size_t i = 0; i < EButton::State::STATE_MAX; i++)
+		mFrames[i] = (*framesPtr)[i];
 }
 
 void CButton::SetColor(Uint8 r, Uint8 g, Uint8 b)
