@@ -33,8 +33,8 @@ void CMenuScene::LoadResources()
     LoadTexture("Texture_IntroBG", "IntroBG.png");
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
 
-    LoadFont("Font32_Cormorant", "Cormorant.ttf", 32);
-    LoadFont("Font32_Cormorant_Bold", "Cormorant_Bold.ttf", 32);
+    LoadFont("Font32_CourierPrime_Regular", "CourierPrime_Regular.ttf", 32);
+    LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);
 
     LoadSFX("SFX_TitleIntro", "sfx_titleIntro.wav");
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");

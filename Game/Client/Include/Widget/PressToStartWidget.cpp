@@ -23,10 +23,9 @@ void CPressToStartWidget::Construct()
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 
     mText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PressToStart");
-    mText->GetTransform()->SetWorldScale(300.f, 50.f);
+    mText->GetTransform()->SetWorldScale(300.f, 40.f);
     mText->GetTransform()->SetWorldPos((parentScale.x - mText->GetTransform()->GetWorldScale().x) * 0.5f, parentScale.y * 0.7f);
-    mText->EnableShadow(true);
-    mText->SetFont("Font32_Cormorant");
+    mText->SetFont("Font32_CourierPrime_Regular");
     mText->SetText("PRESS TO START");
 
     AddChild(mText);
