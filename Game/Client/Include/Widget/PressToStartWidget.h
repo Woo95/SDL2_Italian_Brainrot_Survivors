@@ -17,7 +17,7 @@ private:
 
 protected:
 	virtual void Construct() override;
-	virtual void Update(float DeltaTime) override;
+	virtual void Update(float deltaTime) override;
 	virtual void Release() override;
 
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) override;

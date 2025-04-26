@@ -31,11 +31,11 @@ void CPressToStartWidget::Construct()
     AddChild(mText);
 }
 
-void CPressToStartWidget::Update(float DeltaTime)
+void CPressToStartWidget::Update(float deltaTime)
 {
-    CUserWidget::Update(DeltaTime);
+    CUserWidget::Update(deltaTime);
 
-    mBlinkTimer += DeltaTime;
+    mBlinkTimer += deltaTime;
 
     if (mBlinkTimer >= 0.5f)
     {
