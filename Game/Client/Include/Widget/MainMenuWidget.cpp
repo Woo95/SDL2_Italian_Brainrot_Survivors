@@ -1,5 +1,7 @@
 #include "MainMenuWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/Resource/AssetManager.h"
+#include "../Manager/Resource/SoundManager.h"
 
 CMainMenuWidget::CMainMenuWidget()
 {
@@ -38,19 +40,23 @@ void CMainMenuWidget::Construct()
 
     mBtnQuit = CreateButton("Quit", "RedButton", FVector2D(109.f, 60.f), "QUIT", FVector2D(55.f, 25.f));
     mBtnQuit->GetTransform()->SetWorldPos(parentScale.x * 0.5f - 200.f, mMenuTopBar->GetTransform()->GetWorldScale().y * 0.5f);
+    mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
 
     mBtnOption = CreateButton("Option", "BlueButton", FVector2D(109.f, 60.f), "OPTIONS", FVector2D(80.f, 25.f));
     mBtnOption->GetTransform()->SetWorldPos(parentScale.x * 0.5f + 200.f, mMenuTopBar->GetTransform()->GetWorldScale().y * 0.5f );
+    mBtnOption->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
 
     mStart = CreateButton("Start", "BlueButton", FVector2D(225.f, 65.f), "START", FVector2D(120.f, 40.f));
     mStart->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 277.f);
     mStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mStart->SetCornerRatio(2.0f);
+    mStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
 
     mPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(182.f, 64.f), "POWER UP", FVector2D(150.f, 35.f));
     mPowerUp->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 138.f);
     mPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mPowerUp->SetCornerRatio(2.0f);
+    mPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
 }
 
 void CMainMenuWidget::Release()

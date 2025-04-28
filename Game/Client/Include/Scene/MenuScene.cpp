@@ -38,4 +38,5 @@ void CMenuScene::LoadResources()
 
     LoadSFX("SFX_TitleIntro", "sfx_titleIntro.wav");
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");
+    LoadSFX("SFX_PressOut", "sfx_pressOut.wav");
 }

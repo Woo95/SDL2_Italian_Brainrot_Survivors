@@ -3,7 +3,8 @@
 
 CMenuUI::CMenuUI() :
     mCurrentState(EMenuUIState::PressToStart),
-    mPressToStart(nullptr)
+    mPressToStart(nullptr),
+    mMainMenu(nullptr)
 {
 }
 
