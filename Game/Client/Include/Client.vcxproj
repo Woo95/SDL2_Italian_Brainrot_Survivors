@@ -24,6 +24,7 @@
     <ClInclude Include="Core\PhysicsConfig.h" />
     <ClInclude Include="Core\Utils\ColliderUtils.h" />
     <ClInclude Include="Core\Utils\PhysicsUtils.h" />
+    <ClInclude Include="Scene\PlayScene.h" />
     <ClInclude Include="Widget\MainMenuWidget.h" />
     <ClInclude Include="Widget\MoneyHUDWidget.h" />
     <ClInclude Include="Widget\PressToStartWidget.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\PlayScene.cpp" />
     <ClCompile Include="Widget\MainMenuWidget.cpp" />
     <ClCompile Include="Widget\MoneyHUDWidget.cpp" />
     <ClCompile Include="Widget\PressToStartWidget.cpp" />

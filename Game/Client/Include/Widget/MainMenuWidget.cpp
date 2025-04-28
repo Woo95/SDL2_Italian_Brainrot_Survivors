@@ -2,6 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Resource/AssetManager.h"
 #include "../Manager/Resource/SoundManager.h"
+#include "../Manager/SceneManager.h"
 
 CMainMenuWidget::CMainMenuWidget()
 {
@@ -51,6 +52,7 @@ void CMainMenuWidget::Construct()
     mStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mStart->SetCornerRatio(2.0f);
     mStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY);});
 
     mPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(182.f, 64.f), "POWER UP", FVector2D(150.f, 35.f));
     mPowerUp->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 138.f);
