@@ -582,6 +582,9 @@
     <ClInclude Include="Widget\UserWidget.h">
       <Filter>Framework\06. Widget\00. UserWidget</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\OptionPanelWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -739,6 +742,9 @@
     </ClCompile>
     <ClCompile Include="Widget\UserWidget.cpp">
       <Filter>Framework\06. Widget\00. UserWidget</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\OptionPanelWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

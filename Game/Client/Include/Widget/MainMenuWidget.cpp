@@ -20,50 +20,82 @@ void CMainMenuWidget::Construct()
 
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 
-    mMenuTopBar = CWidgetUtils::AllocateWidget<CImage>("Image_MenuTopBar");
-    mMenuTopBar->GetTransform()->SetWorldScale(parentScale.x, 77.f);
-    mMenuTopBar->SetTexture("Texture_UIAtlas");
-    mMenuTopBar->SetFrame("MenuTopBar");
-    mMenuTopBar->SetAlpha(180);
-    AddChild(mMenuTopBar);
+    CImage* menuTopBar = CWidgetUtils::AllocateWidget<CImage>("Image_MenuTopBar");
+    menuTopBar->GetTransform()->SetWorldScale(parentScale.x, 77.f);
+    menuTopBar->SetTexture("Texture_UIAtlas");
+    menuTopBar->SetFrame("MenuTopBar");
+    menuTopBar->SetAlpha(180);
+    AddChild(menuTopBar);
 
-    mName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_name");
-    mName->GetTransform()->SetWorldScale(200.f, 40.f);
-    mName->GetTransform()->SetWorldPos(parentScale.x * 0.03f, mMenuTopBar->GetTransform()->GetWorldScale().y * 0.25f);
-    mName->SetFont("Font64_CourierPrime_Regular");
-    mName->SetText("Chaewan Woo");
-    AddChild(mName);
+    CTextBlock* name = CWidgetUtils::AllocateWidget<CTextBlock>("Text_Name");
+    name->GetTransform()->SetWorldScale(200.f, 40.f);
+    name->GetTransform()->SetWorldPos(parentScale.x * 0.03f, menuTopBar->GetTransform()->GetWorldScale().y * 0.25f);
+    name->SetAlignment(ETextBlock::Alignment::CENTER);
+    name->SetCharWidth(15.f);
+    name->SetFont("Font64_CourierPrime_Regular");
+    name->SetText("Chaewan Woo");
+    AddChild(name);
 
-    mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUDWidget, 1>("UserWidget_MoneyHUD");
-    mMoneyHUD->GetTransform()->SetWorldScale(225.f, 64.f);
-    mMoneyHUD->GetTransform()->SetWorldPos((parentScale.x - mMoneyHUD->GetTransform()->GetWorldScale().x) * 0.5f, mMenuTopBar->GetTransform()->GetWorldScale().y * 0.1f);
-    AddChild(mMoneyHUD);
+    CMoneyHUDWidget* moneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUDWidget, 1>("UserWidget_MoneyHUD");
+    moneyHUD->GetTransform()->SetWorldScale(225.f, 64.f);
+    moneyHUD->GetTransform()->SetWorldPos((parentScale.x - moneyHUD->GetTransform()->GetWorldScale().x) * 0.5f, menuTopBar->GetTransform()->GetWorldScale().y * 0.1f);
+    AddChild(moneyHUD);
 
-    mBtnQuit = CreateButton("Quit", "RedButton", FVector2D(109.f, 60.f), "QUIT", FVector2D(55.f, 25.f));
-    mBtnQuit->GetTransform()->SetWorldPos(parentScale.x * 0.5f - 200.f, mMenuTopBar->GetTransform()->GetWorldScale().y * 0.5f);
+    mBtnQuit = CreateButton("Quit", "RedButton", FVector2D(109.f, 60.f), "QUIT", FVector2D(55.f, 20.f));
+    mBtnQuit->GetTransform()->SetWorldPos(parentScale.x * 0.5f - 200.f, menuTopBar->GetTransform()->GetWorldScale().y * 0.5f);
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
 
-    mBtnOption = CreateButton("Option", "BlueButton", FVector2D(109.f, 60.f), "OPTIONS", FVector2D(80.f, 25.f));
-    mBtnOption->GetTransform()->SetWorldPos(parentScale.x * 0.5f + 200.f, mMenuTopBar->GetTransform()->GetWorldScale().y * 0.5f );
+    mBtnOption = CreateButton("Option", "BlueButton", FVector2D(109.f, 60.f), "OPTIONS", FVector2D(80.f, 20.f));
+    mBtnOption->GetTransform()->SetWorldPos(parentScale.x * 0.5f + 200.f, menuTopBar->GetTransform()->GetWorldScale().y * 0.5f );
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
+    mBtnOption->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mOptionPanel);});
 
-    mStart = CreateButton("Start", "BlueButton", FVector2D(225.f, 65.f), "START", FVector2D(120.f, 40.f));
-    mStart->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 277.f);
-    mStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
-    mStart->SetCornerRatio(2.0f);
-    mStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    mStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY);});
+    mBtnBack = CreateButton("Back", "RedButton", FVector2D(109.f, 60.f), "BACK", FVector2D(50.f, 20.f));
+    mBtnBack->GetTransform()->SetWorldPos(parentScale.x * 0.5f + 200.f, menuTopBar->GetTransform()->GetWorldScale().y * 0.5f);
+    mBtnBack->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
+    mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
 
-    mPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(182.f, 64.f), "POWER UP", FVector2D(150.f, 35.f));
-    mPowerUp->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 138.f);
-    mPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
-    mPowerUp->SetCornerRatio(2.0f);
-    mPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    CButton* btnStart = CreateButton("Start", "BlueButton", FVector2D(225.f, 65.f), "START", FVector2D(120.f, 40.f));
+    btnStart->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 277.f);
+    btnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    btnStart->SetCornerRatio(2.0f);
+    btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY);});
+
+    CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(182.f, 64.f), "POWER UP", FVector2D(150.f, 35.f));
+    btnPowerUp->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 138.f);
+    btnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    btnPowerUp->SetCornerRatio(2.0f);
+    btnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+
+    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_COptionPanel");
+    mOptionPanel->GetTransform()->SetWorldScale(parentScale.x * 0.46f, (parentScale.y - menuTopBar->GetTransform()->GetWorldScale().y) * 0.99f);
+    mOptionPanel->GetTransform()->SetWorldPos((parentScale.x - mOptionPanel->GetTransform()->GetWorldScale().x) * 0.5f, 
+        (menuTopBar->GetTransform()->GetWorldScale().y + parentScale.y - mOptionPanel->GetTransform()->GetWorldScale().y) * 0.5f);
+    AddChild(mOptionPanel);
+
+    HidePanel();
 }
 
 void CMainMenuWidget::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CMainMenuWidget>(this);
+}
+
+void CMainMenuWidget::ShowPanel(CWidget* panel)
+{
+    mBtnQuit->Disable();
+    mBtnOption->Disable();
+    mBtnBack->Enable();
+    panel->Enable();
+}
+
+void CMainMenuWidget::HidePanel()
+{
+    mBtnQuit->Enable();
+    mBtnOption->Enable();
+    mBtnBack->Disable();
+    mOptionPanel->Disable();
 }
 
 CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)

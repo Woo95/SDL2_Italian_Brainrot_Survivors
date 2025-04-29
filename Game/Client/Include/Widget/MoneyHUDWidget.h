@@ -2,7 +2,6 @@
 
 #include "UserWidget.h"
 
-class CImage;
 class CTextBlock;
 
 class CMoneyHUDWidget : public CUserWidget
@@ -12,9 +11,7 @@ public:
 	virtual ~CMoneyHUDWidget();
 
 private:
-	CImage* mBackgroundBox;
-	CImage* mMoneyIcon;
-	CTextBlock* mBalanceText;
+	CTextBlock* mBalanceText = nullptr;
 
 protected:
 	virtual void Construct() override;

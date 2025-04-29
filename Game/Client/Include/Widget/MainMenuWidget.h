@@ -2,10 +2,8 @@
 
 #include "UserWidget.h"
 
-class CImage;
 class CButton;
-class CTextBlock;
-class CMoneyHUDWidget;
+class COptionPanelWidget;
 
 class CMainMenuWidget : public CUserWidget
 {
@@ -14,19 +12,19 @@ public:
 	virtual ~CMainMenuWidget();
 
 private:
-	CImage* mMenuTopBar;
-	CTextBlock* mName;
-	CMoneyHUDWidget* mMoneyHUD;
+	CButton* mBtnQuit   = nullptr;
+	CButton* mBtnOption = nullptr;
+	CButton* mBtnBack   = nullptr;
 
-	CButton* mBtnQuit;
-	CButton* mBtnOption;
-	CButton* mStart;
-	CButton* mPowerUp;
+	COptionPanelWidget* mOptionPanel = nullptr;
 
 protected:
 	virtual void Construct() override;
 	virtual void Release() override;
 
 private:
+	void ShowPanel(CWidget* panel);
+	void HidePanel();
+
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
 };

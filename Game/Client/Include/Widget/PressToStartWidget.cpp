@@ -4,9 +4,7 @@
 #include "../Manager/Resource/SoundManager.h"
 #include "../Scene/UI/MenuUI.h"
 
-CPressToStartWidget::CPressToStartWidget() :
-    mBlinkTimer(0.0f),
-    mText(nullptr)
+CPressToStartWidget::CPressToStartWidget()
 {
     Construct();
 }
@@ -27,7 +25,6 @@ void CPressToStartWidget::Construct()
     mText->GetTransform()->SetWorldPos((parentScale.x - mText->GetTransform()->GetWorldScale().x) * 0.5f, parentScale.y * 0.7f);
     mText->SetFont("Font32_CourierPrime_Regular");
     mText->SetText("PRESS TO START");
-
     AddChild(mText);
 }
 

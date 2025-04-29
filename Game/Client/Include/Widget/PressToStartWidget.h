@@ -11,9 +11,9 @@ public:
 	virtual ~CPressToStartWidget();
 
 private:
-	float mBlinkTimer;
+	float mBlinkTimer = 0.0f;
 
-	CTextBlock* mText;
+	CTextBlock* mText = nullptr;
 
 protected:
 	virtual void Construct() override;

@@ -1,10 +1,7 @@
 #include "MenuUI.h"
 #include "../../Widget/AllWidgets.h"
 
-CMenuUI::CMenuUI() :
-    mCurrentState(EMenuUIState::PressToStart),
-    mPressToStart(nullptr),
-    mMainMenu(nullptr)
+CMenuUI::CMenuUI()
 {
 }
 
@@ -26,32 +23,22 @@ bool CMenuUI::Init()
     mMainMenu = CWidgetUtils::AllocateWidget<CMainMenuWidget, 1>("UserWidget_MainMenu");
     AddWidget(mMainMenu);
 
-
     SetMenuState(EMenuUIState::PressToStart);
 
     return true;
 }
 
-void CMenuUI::SetMenuState(EMenuUIState newState)
+void CMenuUI::SetMenuState(EMenuUIState state)
 {
-    mCurrentState = newState;
-
-    mPressToStart->Disable();
-    mMainMenu->Disable();
-
-    switch (newState)
+    switch (state)
     {
     case EMenuUIState::PressToStart:
         mPressToStart->Enable();
+        mMainMenu->Disable();
         break;
     case EMenuUIState::MainMenu:
         mMainMenu->Enable();
-        break;
-    case EMenuUIState::Options:
-        break;
-    case EMenuUIState::Start:
-        break;
-    case EMenuUIState::PowerUp:
+        mPressToStart->Disable();
         break;
     }
 }

@@ -5,7 +5,7 @@
 class CPressToStartWidget;
 class CMainMenuWidget;
 
-enum class EMenuUIState : unsigned char { PressToStart, MainMenu, Options, Start, PowerUp };
+enum class EMenuUIState : unsigned char { PressToStart, MainMenu };
 
 class CMenuUI : public CSceneUI
 {
@@ -14,10 +14,8 @@ public:
 	virtual ~CMenuUI();
 
 private:
-	EMenuUIState mCurrentState;
-
-	CPressToStartWidget* mPressToStart;
-	CMainMenuWidget* mMainMenu;
+	CPressToStartWidget* mPressToStart = nullptr;
+	CMainMenuWidget* mMainMenu = nullptr;
 
 public:
 	virtual bool Init() override;

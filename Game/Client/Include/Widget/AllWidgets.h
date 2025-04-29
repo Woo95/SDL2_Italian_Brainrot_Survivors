@@ -10,3 +10,4 @@
 #include "PressToStartWidget.h"
 #include "MainMenuWidget.h"
 #include "MoneyHUDWidget.h"
+#include "OptionPanelWidget.h"
