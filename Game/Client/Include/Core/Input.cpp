@@ -29,6 +29,16 @@ CInput::~CInput()
 // 각 오브젝트 클래스에서 입력 값에 호출 할 함수를 추가 및 수정한다.
 bool CInput::Init()
 {
+	CreateKey(SDL_SCANCODE_W);
+	CreateKey(SDL_SCANCODE_A);
+	CreateKey(SDL_SCANCODE_S);
+	CreateKey(SDL_SCANCODE_D);
+
+	CreateKey(SDL_SCANCODE_UP);
+	CreateKey(SDL_SCANCODE_DOWN);
+	CreateKey(SDL_SCANCODE_LEFT);
+	CreateKey(SDL_SCANCODE_RIGHT);
+
 	return true;
 }
 
