@@ -1,5 +1,6 @@
 #include "PressToStartWidget.h"
 #include "TextBlock.h"
+#include "../Manager/GameManager.h"
 #include "../Manager/Resource/AssetManager.h"
 #include "../Manager/Resource/SoundManager.h"
 #include "../Scene/UI/MenuUI.h"
@@ -16,7 +17,7 @@ CPressToStartWidget::~CPressToStartWidget()
 void CPressToStartWidget::Construct()
 {
     SetInteractable(true);
-    GetTransform()->SetWorldScale(1280.f, 800.f);
+    GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 

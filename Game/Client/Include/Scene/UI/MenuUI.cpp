@@ -1,4 +1,5 @@
 #include "MenuUI.h"
+#include "../../Manager/GameManager.h"
 #include "../../Widget/AllWidgets.h"
 
 CMenuUI::CMenuUI()
@@ -12,7 +13,7 @@ CMenuUI::~CMenuUI()
 bool CMenuUI::Init()
 {
     CImage* background = CWidgetUtils::AllocateWidget<CImage>("Image_BGImage");
-    background->GetTransform()->SetWorldScale(1280.f, 800.f);
+    background->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     background->SetTexture("Texture_IntroBG");
     background->SetFrame("IntroBG");
     AddWidget(background);

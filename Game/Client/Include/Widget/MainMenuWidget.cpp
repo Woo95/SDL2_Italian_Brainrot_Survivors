@@ -1,5 +1,6 @@
 #include "MainMenuWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/GameManager.h"
 #include "../Manager/Resource/AssetManager.h"
 #include "../Manager/Resource/SoundManager.h"
 #include "../Manager/SceneManager.h"
@@ -16,7 +17,7 @@ CMainMenuWidget::~CMainMenuWidget()
 void CMainMenuWidget::Construct()
 {
     SetInteractable(true);
-    GetTransform()->SetWorldScale(1280.f, 800.f);
+    GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
 
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 

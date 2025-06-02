@@ -42,7 +42,7 @@ bool CGameManager::Init()
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         return false;
 
-    mWindow = SDL_CreateWindow("Vampire Survivors - Chaewan Woo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 800, SDL_WINDOW_SHOWN);
+    mWindow = SDL_CreateWindow("Italian Brainrot Survivors - Chaewan Woo", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 800, SDL_WINDOW_SHOWN);
     if (!mWindow)
         return false;
 
