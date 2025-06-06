@@ -17,12 +17,12 @@ CPressToStartWidget::~CPressToStartWidget()
 void CPressToStartWidget::Construct()
 {
     SetInteractable(true);
+
     GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
-    
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 
     mText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PressToStart");
-    mText->GetTransform()->SetWorldScale(300.f, 40.f);
+    mText->GetTransform()->SetWorldScale(parentScale * FVector2D(0.234375f, 0.05f));
     mText->GetTransform()->SetWorldPos((parentScale.x - mText->GetTransform()->GetWorldScale().x) * 0.5f, parentScale.y * 0.7f);
     mText->SetFont("Font32_CourierPrime_Regular");
     mText->SetText("PRESS TO START");

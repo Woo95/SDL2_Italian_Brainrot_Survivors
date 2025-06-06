@@ -4,6 +4,7 @@
 
 class CButton;
 class COptionPanelWidget;
+class CCharSelectPanelWidget;
 
 class CMainMenuWidget : public CUserWidget
 {

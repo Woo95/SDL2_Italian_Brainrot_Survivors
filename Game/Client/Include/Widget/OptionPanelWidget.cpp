@@ -40,19 +40,21 @@ void COptionPanelWidget::Construct()
     AddChild(soundIcon);
 
     CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("Text_OptionCategory");
-    category->GetTransform()->SetRelativeScale(1.0f - innerPanel->GetTransform()->GetRelativeScale().x, 0.065f);
-    category->GetTransform()->SetRelativePos(0.5f + (innerPanel->GetTransform()->GetRelativeScale().x - category->GetTransform()->GetRelativeScale().x) * 0.5f, 0.05f);
+    category->GetTransform()->SetRelativeScale(innerPanel->GetTransform()->GetRelativeScale() * FVector2D(1.25f, 0.065f));
+    category->GetTransform()->SetRelativePos(0.5f + (innerPanel->GetTransform()->GetRelativeScale().x - category->GetTransform()->GetRelativeScale().x) * 0.5f, 
+        category->GetTransform()->GetRelativeScale().y * 0.5f);
     category->SetAlignment(ETextBlock::Alignment::CENTER);
-    category->SetCharWidth(22.f);
+    category->SetCharWidth(50.f);
     category->SetFont("Font64_CourierPrime_Regular");
     category->SetText("Sound");
     AddChild(category);
 
     CTextBlock* sounds = CWidgetUtils::AllocateWidget<CTextBlock>("Text_OptionSFX");
-    sounds->GetTransform()->SetRelativeScale(category->GetTransform()->GetRelativeScale().x * 0.15f, category->GetTransform()->GetRelativeScale().y * 0.55f);
-    sounds->GetTransform()->SetRelativePos(category->GetTransform()->GetRelativePos().x * 1.3f, category->GetTransform()->GetRelativePos().y * 3.0f);
+    sounds->GetTransform()->SetRelativeScale(category->GetTransform()->GetRelativeScale() * FVector2D(0.65f, 0.65f));
+    sounds->GetTransform()->SetRelativePos(FVector2D(innerPanel->GetTransform()->GetRelativeScale().x * 1.3f,
+            category->GetTransform()->GetRelativePos().y + category->GetTransform()->GetRelativeScale().y * 1.75f));
     sounds->SetAlignment(ETextBlock::Alignment::CENTER);
-    sounds->SetCharWidth(15.f);
+    sounds->SetCharWidth(25.f);
     sounds->SetFont("Font64_CourierPrime_Regular");
     sounds->SetText("Sounds");
     AddChild(sounds);
@@ -72,7 +74,7 @@ void COptionPanelWidget::Construct()
     music->GetTransform()->SetRelativeScale(sounds->GetTransform()->GetRelativeScale());
     music->GetTransform()->SetRelativePos(sounds->GetTransform()->GetRelativePos().x, sounds->GetTransform()->GetRelativePos().y * 1.75f);
     music->SetAlignment(ETextBlock::Alignment::CENTER);
-    music->SetCharWidth(15.f);
+    music->SetCharWidth(25.f);
     music->SetFont("Font64_CourierPrime_Regular");
     music->SetText("Music");
     AddChild(music);

@@ -17,62 +17,61 @@ CMainMenuWidget::~CMainMenuWidget()
 void CMainMenuWidget::Construct()
 {
     SetInteractable(true);
-    GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
 
+    GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 
     CImage* menuTopBar = CWidgetUtils::AllocateWidget<CImage>("Image_MenuTopBar");
-    menuTopBar->GetTransform()->SetWorldScale(parentScale.x, 77.f);
+    menuTopBar->GetTransform()->SetWorldScale(parentScale * FVector2D(1.0f, 0.09625f));
     menuTopBar->SetTexture("Texture_UIAtlas");
     menuTopBar->SetFrame("MenuTopBar");
     menuTopBar->SetAlpha(180);
     AddChild(menuTopBar);
 
     CTextBlock* name = CWidgetUtils::AllocateWidget<CTextBlock>("Text_Name");
-    name->GetTransform()->SetWorldScale(200.f, 40.f);
-    name->GetTransform()->SetWorldPos(parentScale.x * 0.03f, menuTopBar->GetTransform()->GetWorldScale().y * 0.25f);
+    name->GetTransform()->SetWorldScale(parentScale * FVector2D(0.15625f, 0.05f));
+    name->GetTransform()->SetWorldPos(parentScale * FVector2D(0.03f, 0.024f));
     name->SetAlignment(ETextBlock::Alignment::CENTER);
-    name->SetCharWidth(15.f);
+    name->SetCharWidth(50.f);
     name->SetFont("Font64_CourierPrime_Regular");
     name->SetText("Chaewan Woo");
     AddChild(name);
 
     CMoneyHUDWidget* moneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUDWidget, 1>("UserWidget_MoneyHUD");
-    moneyHUD->GetTransform()->SetWorldScale(225.f, 64.f);
-    moneyHUD->GetTransform()->SetWorldPos((parentScale.x - moneyHUD->GetTransform()->GetWorldScale().x) * 0.5f, menuTopBar->GetTransform()->GetWorldScale().y * 0.1f);
+    moneyHUD->GetTransform()->SetWorldScale(parentScale * FVector2D(0.1758f, 0.08f));
+    moneyHUD->GetTransform()->SetWorldPos(parentScale * FVector2D(0.4121f, 0.009625f));
     AddChild(moneyHUD);
 
-    mBtnQuit = CreateButton("Quit", "RedButton", FVector2D(109.f, 60.f), "QUIT", FVector2D(55.f, 20.f));
-    mBtnQuit->GetTransform()->SetWorldPos(parentScale.x * 0.5f - 200.f, menuTopBar->GetTransform()->GetWorldScale().y * 0.5f);
+    mBtnQuit = CreateButton("Quit", "RedButton", parentScale * FVector2D(0.08515f, 0.075f), "QUIT", FVector2D(0.5f, 0.4f));
+    mBtnQuit->GetTransform()->SetWorldPos(parentScale * FVector2D(0.34375f, 0.048f));
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
 
-    mBtnOption = CreateButton("Option", "BlueButton", FVector2D(109.f, 60.f), "OPTIONS", FVector2D(80.f, 20.f));
-    mBtnOption->GetTransform()->SetWorldPos(parentScale.x * 0.5f + 200.f, menuTopBar->GetTransform()->GetWorldScale().y * 0.5f );
+    mBtnOption = CreateButton("Option", "BlueButton", parentScale * FVector2D(0.08515f, 0.075f), "OPTIONS", FVector2D(0.733f, 0.4f));
+    mBtnOption->GetTransform()->SetWorldPos(parentScale * FVector2D(0.65625f, 0.048f));
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mOptionPanel);});
 
-    mBtnBack = CreateButton("Back", "RedButton", FVector2D(109.f, 60.f), "BACK", FVector2D(50.f, 20.f));
-    mBtnBack->GetTransform()->SetWorldPos(parentScale.x * 0.5f + 200.f, menuTopBar->GetTransform()->GetWorldScale().y * 0.5f);
+    mBtnBack = CreateButton("Back", "RedButton", parentScale * FVector2D(0.08515f, 0.075f), "BACK", FVector2D(0.45f, 0.4f));
+    mBtnBack->GetTransform()->SetWorldPos(parentScale * FVector2D(0.65625f, 0.048f));
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
 
-    CButton* btnStart = CreateButton("Start", "BlueButton", FVector2D(225.f, 65.f), "START", FVector2D(120.f, 40.f));
-    btnStart->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 277.f);
+    CButton* btnStart = CreateButton("Start", "BlueButton", parentScale * FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.533f, 0.625f));
+    btnStart->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.653125f));
     btnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnStart->SetCornerRatio(2.0f);
     btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY);});
+    btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY); });
 
-    CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(182.f, 64.f), "POWER UP", FVector2D(150.f, 35.f));
-    btnPowerUp->GetTransform()->SetWorldPos(parentScale.x * 0.5f, parentScale.y - 138.f);
+    CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", parentScale * FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.823f, 0.575f));
+    btnPowerUp->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.8275f));
     btnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnPowerUp->SetCornerRatio(2.0f);
     btnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
 
-    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_COptionPanel");
-    mOptionPanel->GetTransform()->SetWorldScale(parentScale.x * 0.46f, (parentScale.y - menuTopBar->GetTransform()->GetWorldScale().y) * 0.99f);
-    mOptionPanel->GetTransform()->SetWorldPos((parentScale.x - mOptionPanel->GetTransform()->GetWorldScale().x) * 0.5f, 
-        (menuTopBar->GetTransform()->GetWorldScale().y + parentScale.y - mOptionPanel->GetTransform()->GetWorldScale().y) * 0.5f);
+    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
+    mOptionPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.853625f));
+    mOptionPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.27f, 0.119f));
     AddChild(mOptionPanel);
 
     HidePanel();
@@ -110,9 +109,9 @@ CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std:
 
     CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
     button->AddChild(text);
-    text->GetTransform()->SetWorldScale(textSize);
+    text->GetTransform()->SetRelativeScale(textSize);
     text->GetTransform()->SetPivot(0.5f, 0.5f);
-    text->GetTransform()->SetRelativePos(0.f, 0.f);
+    text->GetTransform()->SetRelativePos(0.0f, 0.0f);
     text->SetFont("Font64_CourierPrime_Regular");
     text->SetText(textLabel);
 
