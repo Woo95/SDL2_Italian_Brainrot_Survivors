@@ -6,5 +6,3 @@
 #include "SpriteComponent.h"
 #include "WidgetComponent.h"
 #include "Rigidbody.h"
-
-#include "ScrollMapComponent.h"
