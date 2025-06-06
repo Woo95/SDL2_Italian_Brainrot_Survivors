@@ -18,6 +18,7 @@ private:
 	CButton* mBtnBack   = nullptr;
 
 	COptionPanelWidget* mOptionPanel = nullptr;
+	CCharSelectPanelWidget* mCharSelectPanel = nullptr;
 
 protected:
 	virtual void Construct() override;

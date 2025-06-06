@@ -11,3 +11,4 @@
 #include "MainMenuWidget.h"
 #include "MoneyHUDWidget.h"
 #include "OptionPanelWidget.h"
+#include "CharSelectPanelWidget.h"

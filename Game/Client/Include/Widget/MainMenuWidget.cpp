@@ -3,7 +3,6 @@
 #include "../Manager/GameManager.h"
 #include "../Manager/Resource/AssetManager.h"
 #include "../Manager/Resource/SoundManager.h"
-#include "../Manager/SceneManager.h"
 
 CMainMenuWidget::CMainMenuWidget()
 {
@@ -16,8 +15,6 @@ CMainMenuWidget::~CMainMenuWidget()
 
 void CMainMenuWidget::Construct()
 {
-    SetInteractable(true);
-
     GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     const FVector2D& parentScale = GetTransform()->GetWorldScale();
 
@@ -61,7 +58,7 @@ void CMainMenuWidget::Construct()
     btnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnStart->SetCornerRatio(2.0f);
     btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY); });
+    btnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel); });
 
     CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", parentScale * FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.823f, 0.575f));
     btnPowerUp->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.8275f));
@@ -73,6 +70,11 @@ void CMainMenuWidget::Construct()
     mOptionPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.853625f));
     mOptionPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.27f, 0.119f));
     AddChild(mOptionPanel);
+
+    mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharSelectPanelWidget, 1>("UserWidget_CharSelectPanel");
+    mCharSelectPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(1.0f, 0.853625f));
+    mCharSelectPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.0f, 0.119f));
+    AddChild(mCharSelectPanel);
 
     HidePanel();
 }
@@ -96,6 +98,7 @@ void CMainMenuWidget::HidePanel()
     mBtnOption->Enable();
     mBtnBack->Disable();
     mOptionPanel->Disable();
+    mCharSelectPanel->Disable();
 }
 
 CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
