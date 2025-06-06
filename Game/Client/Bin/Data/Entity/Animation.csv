@@ -1,0 +1,2 @@
+#Name,"#Type {NONE, TIME, MOVE}","#State {NONE, IDLE, WALK, JUMP}",#Loop (TRUE/FALSE),#IntervalPerFrame (float),#FrameCount (int)
+Sahur,2,2,1,150,4,"5,1,30,45","49,2,29,44","87,2,32,44","130,3,32,44"
