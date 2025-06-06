@@ -22,6 +22,11 @@ CCollisionManager::~CCollisionManager()
 
 bool CCollisionManager::Init()
 {
+	CreateProfile("Player", ECollision::Channel::PLAYER, ECollision::Interaction::BLOCK);
+	CreateProfile("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
+
+	SetCollisionInteraction("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
+
 	return true;
 }
 

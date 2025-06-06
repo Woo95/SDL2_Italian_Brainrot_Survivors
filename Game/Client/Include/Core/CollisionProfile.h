@@ -10,7 +10,7 @@ namespace ECollision
 		DEFAULT,
 		PLAYER,
 		MONSTER,
-		BULLET,
+		ENVIRONMENT,
 		END
 	};
 
