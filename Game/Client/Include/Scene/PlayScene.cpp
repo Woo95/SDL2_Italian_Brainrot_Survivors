@@ -4,7 +4,7 @@
 #include "../Manager/Resource/SoundManager.h"
 #include "../Scene/Camera.h"
 #include "Collision/SceneCollision.h"
-#include "../Entity/Object/Player.h"
+#include "../Entity/Object/AllObjects.h"
 
 CPlayScene::CPlayScene()
 {
@@ -28,7 +28,9 @@ bool CPlayScene::Enter()
     SM->GetSound<CBGM>("BGM_MadForest")->Play();
 
     // Entity //
-    CObject* player = InstantiateObject<CPlayer, 1>("Object_Player", ELayer::OBJECT);
+    InstantiateObject<CMadForest, 1>("Object_MadForest", ELayer::BACKGROUND);
+
+    CObject* player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
 
     mCamera->SetTarget(player);
 
@@ -44,6 +46,8 @@ void CPlayScene::LoadResources()
 {
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
+
+    LoadTexture("Texture_Sahur", "Sahur.png");
 
     LoadBGM("BGM_MadForest", "bgm_italian_brainrot.wav");
 

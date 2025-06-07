@@ -19,16 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Widget\CharSelectPanelWidget.h" />
     <ClInclude Include="Entity\Component\AllComponents.h" />
     <ClInclude Include="Core\External\SDL\SDL_mixer.h" />
     <ClInclude Include="Core\External\SDL\SDL_ttf.h" />
     <ClInclude Include="Core\PhysicsConfig.h" />
     <ClInclude Include="Core\Utils\ColliderUtils.h" />
     <ClInclude Include="Core\Utils\PhysicsUtils.h" />
+    <ClInclude Include="Entity\Object\AllObjects.h" />
     <ClInclude Include="Entity\Object\MadForest.h" />
-    <ClInclude Include="Entity\Object\Stage.h" />
     <ClInclude Include="Entity\Object\Player.h" />
     <ClInclude Include="Entity\Component\ScrollMapComponent.h" />
+    <ClInclude Include="Entity\Object\Sahur.h" />
     <ClInclude Include="Widget\OptionPanelWidget.h" />
     <ClInclude Include="Scene\PlayScene.h" />
     <ClInclude Include="Widget\MainMenuWidget.h" />
@@ -178,10 +180,11 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Widget\CharSelectPanelWidget.cpp" />
     <ClCompile Include="Entity\Object\MadForest.cpp" />
-    <ClCompile Include="Entity\Object\Stage.cpp" />
     <ClCompile Include="Entity\Object\Player.cpp" />
     <ClCompile Include="Entity\Component\ScrollMapComponent.cpp" />
+    <ClCompile Include="Entity\Object\Sahur.cpp" />
     <ClCompile Include="Widget\OptionPanelWidget.cpp" />
     <ClCompile Include="Scene\PlayScene.cpp" />
     <ClCompile Include="Widget\MainMenuWidget.cpp" />

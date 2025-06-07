@@ -136,11 +136,11 @@
     <Filter Include="Game\03. Entity\02. Component">
       <UniqueIdentifier>{9ceeea20-6648-49f5-9302-5290fbbba191}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\03. Entity\01. Object\Stage">
-      <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\03. Entity\01. Object\Player">
       <UniqueIdentifier>{e2280d53-d31c-44c4-8522-9dfeeb7cdebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. Entity\01. Object\Map">
+      <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -600,11 +600,8 @@
     <ClInclude Include="Widget\OptionPanelWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Object\Stage.h">
-      <Filter>Game\03. Entity\01. Object\Stage</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Object\MadForest.h">
-      <Filter>Game\03. Entity\01. Object\Stage</Filter>
+      <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\AllComponents.h">
       <Filter>Framework\04. Entity\02. Component</Filter>
@@ -614,6 +611,15 @@
     </ClInclude>
     <ClInclude Include="Entity\Object\Player.h">
       <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Sahur.h">
+      <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\AllObjects.h">
+      <Filter>Framework\04. Entity\01. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CharSelectPanelWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -776,17 +782,20 @@
     <ClCompile Include="Widget\OptionPanelWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Object\Stage.cpp">
-      <Filter>Game\03. Entity\01. Object\Stage</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Object\MadForest.cpp">
-      <Filter>Game\03. Entity\01. Object\Stage</Filter>
+      <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\ScrollMapComponent.cpp">
       <Filter>Game\03. Entity\02. Component</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Player.cpp">
       <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Sahur.cpp">
+      <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CharSelectPanelWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

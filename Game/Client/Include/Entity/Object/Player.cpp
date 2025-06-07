@@ -27,12 +27,7 @@ bool CPlayer::Init()
 {
 	mMovement = AllocateComponent<CMovementComponent>("MovementComponent_Player");
 
-	CCollider* collider = AllocateComponent<CBoxCollider>("BoxCollider_Player");
-	collider->GetTransform()->SetWorldScale(50.f, 75.f);
-	collider->GetTransform()->SetPivot(0.5f, 0.5f);
-
 	mRootComponent->AddChild(mMovement);
-	mRootComponent->AddChild(collider);
 
 	BindInput();
 
@@ -78,8 +73,8 @@ void CPlayer::MoveDir(const FVector2D& dir)
 	if (mSprite)
 	{
 		if (dir == FVector2D::LEFT)
-			mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
-		else if (dir == FVector2D::RIGHT)
 			mSprite->SetFlip(SDL_FLIP_NONE);
+		else if (dir == FVector2D::RIGHT)
+			mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	}
 }
