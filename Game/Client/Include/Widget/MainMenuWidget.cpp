@@ -67,12 +67,12 @@ void CMainMenuWidget::Construct()
     btnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
 
     mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
-    mOptionPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.853625f));
+    mOptionPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.85f));
     mOptionPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.27f, 0.119f));
     AddChild(mOptionPanel);
 
     mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharSelectPanelWidget, 1>("UserWidget_CharSelectPanel");
-    mCharSelectPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(1.0f, 0.853625f));
+    mCharSelectPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(1.0f, 0.85f));
     mCharSelectPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.0f, 0.119f));
     AddChild(mCharSelectPanel);
 

@@ -35,6 +35,30 @@ void CCharSelectPanelWidget::Construct()
     category->SetText("Character Selection");
     AddChild(category);
 
+    const FVector2D slotScale = FVector2D(0.1f, 0.1882f);
+    const FVector2D offsetX = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.0869565f, 0.0f);
+
+    CCharSlotWidget* tralalaSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("SelectSlot_TralalaSlot");
+    tralalaSlot->GetTransform()->SetRelativeScale(slotScale);
+    tralalaSlot->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() + offsetX + FVector2D(0.0f, 0.15f));
+    tralalaSlot->SetName("Tralala");
+    tralalaSlot->SetSFX("SFX_Character_Tralala");
+    AddChild(tralalaSlot);
+
+    CCharSlotWidget* sahurSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_SahurSlot");
+    sahurSlot->GetTransform()->SetRelativeScale(slotScale);
+    sahurSlot->GetTransform()->SetRelativePos(tralalaSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
+    sahurSlot->SetName("Sahur");
+    sahurSlot->SetSFX("SFX_Character_Sahur");
+    AddChild(sahurSlot);
+
+    CCharSlotWidget* bananiniSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_BananiniSlot");
+    bananiniSlot->GetTransform()->SetRelativeScale(slotScale);
+    bananiniSlot->GetTransform()->SetRelativePos(sahurSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
+    bananiniSlot->SetName("Bananini");
+    bananiniSlot->SetSFX("SFX_Character_Bananini");
+    AddChild(bananiniSlot);
+
     //CButton* btnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
     //btnConfirm->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
     //btnConfirm->Set9SlicingCorner(FVector2D(10.f, 7.f));
