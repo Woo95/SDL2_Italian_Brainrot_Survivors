@@ -16,13 +16,13 @@ void CCharSlotWidget::Construct()
 {
     SetInteractable(true);
 
-    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("Image_CharSlot");
-    outerPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
-    outerPanel->SetTexture("Texture_UIAtlas");
-    outerPanel->SetFrame("SelectSlot");
-    outerPanel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
-    outerPanel->SetCornerRatio(1.25f);
-    AddChild(outerPanel);
+    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("Image_CharSlot");
+    panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
+    panel->SetTexture("Texture_UIAtlas");
+    panel->SetFrame("SelectSlot");
+    panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
+    panel->SetCornerRatio(1.25f);
+    AddChild(panel);
 
     mName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
     mName->GetTransform()->SetRelativeScale(0.9f, 0.175f);

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Widget\CharDetailWidget.h" />
+    <ClInclude Include="Widget\CharSlotWidget.h" />
     <ClInclude Include="Widget\CharSelectPanelWidget.h" />
     <ClInclude Include="Entity\Component\AllComponents.h" />
     <ClInclude Include="Core\External\SDL\SDL_mixer.h" />
@@ -180,6 +182,8 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Widget\CharDetailWidget.cpp" />
+    <ClCompile Include="Widget\CharSlotWidget.cpp" />
     <ClCompile Include="Widget\CharSelectPanelWidget.cpp" />
     <ClCompile Include="Entity\Object\MadForest.cpp" />
     <ClCompile Include="Entity\Object\Player.cpp" />

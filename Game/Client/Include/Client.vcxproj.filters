@@ -621,6 +621,12 @@
     <ClInclude Include="Widget\CharSelectPanelWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\CharSlotWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CharDetailWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -795,6 +801,12 @@
       <Filter>Game\03. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharSelectPanelWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CharSlotWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CharDetailWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>

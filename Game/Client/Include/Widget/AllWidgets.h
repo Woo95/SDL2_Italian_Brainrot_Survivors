@@ -13,3 +13,4 @@
 #include "OptionPanelWidget.h"
 #include "CharSelectPanelWidget.h"
 #include "CharSlotWidget.h"
+#include "CharDetailWidget.h"

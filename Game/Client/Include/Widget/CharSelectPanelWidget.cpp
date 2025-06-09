@@ -59,6 +59,11 @@ void CCharSelectPanelWidget::Construct()
     bananiniSlot->SetSFX("SFX_Character_Bananini");
     AddChild(bananiniSlot);
 
+    CCharDetailWidget* charDetail = CWidgetUtils::AllocateWidget<CCharDetailWidget, 1>("SelectSlot_BananiniSlot");
+    charDetail->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.1765f));
+    charDetail->GetTransform()->SetRelativePos(FVector2D(0.28f, 0.805f));
+    AddChild(charDetail);
+
     //CButton* btnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
     //btnConfirm->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
     //btnConfirm->Set9SlicingCorner(FVector2D(10.f, 7.f));
