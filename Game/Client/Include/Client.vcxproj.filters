@@ -627,7 +627,7 @@
     <ClInclude Include="Widget\CharSlotWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\CharDetailWidget.h">
+    <ClInclude Include="Widget\CharInfoWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CreditsPanelWidget.h">
@@ -824,7 +824,7 @@
     <ClCompile Include="Widget\CharSlotWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\CharDetailWidget.cpp">
+    <ClCompile Include="Widget\CharInfoWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CreditsPanelWidget.cpp">

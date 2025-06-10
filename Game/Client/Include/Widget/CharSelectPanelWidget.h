@@ -5,7 +5,7 @@
 class CButton;
 class CCharSlotWidget;
 class CSelectHighlightWidget;
-class CCharDetailWidget;
+class CCharInfoWidget;
 
 // CharacterSelectionPanelWidget
 class CCharSelectPanelWidget : public CUserWidget
@@ -15,13 +15,17 @@ public:
 	virtual ~CCharSelectPanelWidget();
 
 private:
-	CCharSlotWidget* mSelectedSlot;
-	CSelectHighlightWidget* mHighlight;
-	CCharDetailWidget* mDetail;
+	CCharSlotWidget* mPrevSlot = nullptr;
+	CSelectHighlightWidget* mHighlight = nullptr;
+	CCharInfoWidget* mDetail = nullptr;
+	CButton* mBtnStart = nullptr;
 
 protected:
 	virtual void Construct() override;
 	virtual void Release() override;
+
+public:
+	void OnBackButton();
 
 private:
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);

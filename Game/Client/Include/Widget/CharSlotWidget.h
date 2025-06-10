@@ -11,7 +11,7 @@ public:
 	virtual ~CCharSlotWidget();
 
 private:
-	CTextBlock* mName;
+	CTextBlock* mCharName = nullptr;
 	std::string mSFX;
 
 	std::function<void(CCharSlotWidget*)> mOnClickCallback = nullptr;
@@ -23,7 +23,9 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
-	void SetName(const std::string& name);
+	void SetText(const std::string& name);
 	void SetSFX(const std::string& sfx);
 	void SetOnClick(std::function<void(CCharSlotWidget*)> callback);
+
+	void StopSFX();
 };

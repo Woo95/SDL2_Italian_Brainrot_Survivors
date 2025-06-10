@@ -53,6 +53,7 @@ void CMainMenuWidget::Construct()
     mBtnBack->GetTransform()->SetWorldPos(parentScale * FVector2D(0.65625f, 0.048f));
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
+    mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->mCharSelectPanel->OnBackButton();});
 
     CButton* btnStart = CreateButton("Start", "BlueButton", parentScale * FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.533f, 0.625f));
     btnStart->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.653125f));

@@ -24,13 +24,13 @@ void CCharSlotWidget::Construct()
     panel->SetCornerRatio(1.25f);
     AddChild(panel);
 
-    mName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
-    mName->GetTransform()->SetRelativeScale(0.9f, 0.175f);
-    mName->GetTransform()->SetRelativePos(0.05f, 0.1f);
-    mName->SetAlignment(ETextBlock::Alignment::LEFT);
-    mName->SetCharWidth(12.5f);
-    mName->SetFont("Font64_CourierPrime_Regular");
-    AddChild(mName);
+    mCharName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
+    mCharName->GetTransform()->SetRelativeScale(0.9f, 0.175f);
+    mCharName->GetTransform()->SetRelativePos(0.05f, 0.1f);
+    mCharName->SetAlignment(ETextBlock::Alignment::LEFT);
+    mCharName->SetCharWidth(12.5f);
+    mCharName->SetFont("Font64_CourierPrime_Regular");
+    AddChild(mCharName);
 }
 
 void CCharSlotWidget::Release()
@@ -52,9 +52,10 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
     }
 }
 
-void CCharSlotWidget::SetName(const std::string& name)
+void CCharSlotWidget::SetText(const std::string& name)
 {
-    mName->SetText(name);
+    mCharName->SetText(name);
+    SetName(name);
 }
 
 void CCharSlotWidget::SetSFX(const std::string& sfx)
@@ -65,4 +66,10 @@ void CCharSlotWidget::SetSFX(const std::string& sfx)
 void CCharSlotWidget::SetOnClick(std::function<void(CCharSlotWidget*)> callback)
 {
     mOnClickCallback = callback;
+}
+
+void CCharSlotWidget::StopSFX()
+{
+    std::shared_ptr<CSFX> sfx = CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>(mSFX);
+    sfx->Stop();
 }
