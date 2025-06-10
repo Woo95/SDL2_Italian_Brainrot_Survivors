@@ -42,6 +42,7 @@ void CMainMenuWidget::Construct()
     mBtnQuit = CreateButton("Quit", "RedButton", parentScale * FVector2D(0.08515f, 0.075f), "QUIT", FVector2D(0.5f, 0.4f));
     mBtnQuit->GetTransform()->SetWorldPos(parentScale * FVector2D(0.34375f, 0.048f));
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
+    mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {SDL_Event quitEvent; quitEvent.type = SDL_QUIT; SDL_PushEvent(&quitEvent);});
 
     mBtnOption = CreateButton("Option", "BlueButton", parentScale * FVector2D(0.08515f, 0.075f), "OPTIONS", FVector2D(0.733f, 0.4f));
     mBtnOption->GetTransform()->SetWorldPos(parentScale * FVector2D(0.65625f, 0.048f));
@@ -58,7 +59,7 @@ void CMainMenuWidget::Construct()
     btnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnStart->SetCornerRatio(2.0f);
     btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    btnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel); });
+    btnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel);});
 
     CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", parentScale * FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.823f, 0.575f));
     btnPowerUp->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.8275f));
@@ -71,8 +72,8 @@ void CMainMenuWidget::Construct()
     btnCredits->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.945f));
     btnCredits->Set9SlicingCorner(FVector2D(7.f, 7.f));
     btnCredits->SetCornerRatio(2.0f);
-    btnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play(); });
-    btnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel); });
+    btnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    btnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel);});
 
     mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
     mOptionPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.85f));
