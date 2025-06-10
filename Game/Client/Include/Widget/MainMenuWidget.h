@@ -5,6 +5,7 @@
 class CButton;
 class COptionPanelWidget;
 class CCharSelectPanelWidget;
+class CCreditsPanelWidget;
 
 class CMainMenuWidget : public CUserWidget
 {
@@ -19,6 +20,7 @@ private:
 
 	COptionPanelWidget* mOptionPanel = nullptr;
 	CCharSelectPanelWidget* mCharSelectPanel = nullptr;
+	CCreditsPanelWidget* mCreditsPanel = nullptr;
 
 protected:
 	virtual void Construct() override;

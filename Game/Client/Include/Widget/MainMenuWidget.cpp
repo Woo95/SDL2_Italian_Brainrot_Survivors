@@ -66,6 +66,14 @@ void CMainMenuWidget::Construct()
     btnPowerUp->SetCornerRatio(2.0f);
     btnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
 
+    CButton* btnCredits = CreateButton("Credits", "BlueCircularButton", parentScale * FVector2D(0.12f, 0.035f), "credits", FVector2D(0.6f, 0.8f));
+    btnCredits->FindWidget(std::hash<std::string>()("Text_Credits"))->GetTransform()->SetRelativePos(0.0f, 2.5f);
+    btnCredits->GetTransform()->SetWorldPos(parentScale * FVector2D(0.5f, 0.945f));
+    btnCredits->Set9SlicingCorner(FVector2D(7.f, 7.f));
+    btnCredits->SetCornerRatio(2.0f);
+    btnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play(); });
+    btnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel); });
+
     mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
     mOptionPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.85f));
     mOptionPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.27f, 0.119f));
@@ -75,6 +83,11 @@ void CMainMenuWidget::Construct()
     mCharSelectPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(1.0f, 0.85f));
     mCharSelectPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.0f, 0.119f));
     AddChild(mCharSelectPanel);
+
+    mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanelWidget, 1>("UserWidget_CreditsPanel");
+    mCreditsPanel->GetTransform()->SetWorldScale(parentScale * FVector2D(0.46f, 0.85f));
+    mCreditsPanel->GetTransform()->SetWorldPos(parentScale * FVector2D(0.27f, 0.119f));
+    AddChild(mCreditsPanel);
 
     HidePanel();
 }
@@ -99,6 +112,7 @@ void CMainMenuWidget::HidePanel()
     mBtnBack->Disable();
     mOptionPanel->Disable();
     mCharSelectPanel->Disable();
+    mCreditsPanel->Disable();
 }
 
 CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)

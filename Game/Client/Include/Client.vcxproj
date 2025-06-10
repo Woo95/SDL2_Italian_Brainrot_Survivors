@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Widget\CreditsPanelWidget.h" />
     <ClInclude Include="Widget\CharDetailWidget.h" />
     <ClInclude Include="Widget\CharSlotWidget.h" />
     <ClInclude Include="Widget\CharSelectPanelWidget.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Widget\CreditsPanelWidget.cpp" />
     <ClCompile Include="Widget\CharDetailWidget.cpp" />
     <ClCompile Include="Widget\CharSlotWidget.cpp" />
     <ClCompile Include="Widget\CharSelectPanelWidget.cpp" />
