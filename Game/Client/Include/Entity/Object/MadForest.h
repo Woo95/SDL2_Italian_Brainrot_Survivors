@@ -12,5 +12,8 @@ public:
 	virtual bool Init() final;
 
 private:
-	virtual void Release();
+	virtual void Release() final;
+
+private:
+	void SetEnvObjects();
 };

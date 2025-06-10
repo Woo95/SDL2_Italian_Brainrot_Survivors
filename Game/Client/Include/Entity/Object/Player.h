@@ -3,6 +3,9 @@
 #include "Object.h"
 #include "../../Core/Vector2D.h"
 
+class CMovementComponent;
+class CSpriteComponent;
+
 class CPlayer abstract : public CObject
 {
 public:
@@ -10,8 +13,8 @@ public:
 	virtual ~CPlayer();
 
 protected:
-	class CMovementComponent* mMovement;
-	class CSpriteComponent* mSprite;
+	CMovementComponent* mMovement;
+	CSpriteComponent* mSprite;
 
 public:
 	virtual bool Init() override;

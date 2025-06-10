@@ -645,6 +645,9 @@
     <ClInclude Include="Manager\GameData\GameDataManager.h">
       <Filter>Game\04. Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\EnvObj.h">
+      <Filter>Game\03. Entity\01. Object\Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -835,6 +838,9 @@
     </ClCompile>
     <ClCompile Include="Manager\GameData\GameDataManager.cpp">
       <Filter>Game\04. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\EnvObj.cpp">
+      <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
