@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Manager\GameData\DetailManager.h" />
     <ClInclude Include="Widget\SlotWidget.h" />
     <ClInclude Include="Widget\SelectHighlightWidget.h" />
     <ClInclude Include="Widget\CreditsPanelWidget.h" />
@@ -62,7 +63,7 @@
     <ClInclude Include="Manager\Resource\UIManager.h" />
     <ClInclude Include="Widget\Button.h" />
     <ClInclude Include="Core\Utils\InputUtils.h" />
-    <ClInclude Include="Manager\Resource\DataManager.h" />
+    <ClInclude Include="Manager\DataManager.h" />
     <ClInclude Include="Scene\UI\SceneUI.h" />
     <ClInclude Include="Scene\Camera.h" />
     <ClInclude Include="Core\Utils\AniUtils.h" />
@@ -215,7 +216,7 @@
     <ClCompile Include="Widget\AnimatedImage.cpp" />
     <ClCompile Include="Widget\Image.cpp" />
     <ClCompile Include="Widget\Button.cpp" />
-    <ClCompile Include="Manager\Resource\DataManager.cpp" />
+    <ClCompile Include="Manager\DataManager.cpp" />
     <ClCompile Include="Scene\UI\SceneUI.cpp" />
     <ClCompile Include="Scene\Camera.cpp" />
     <ClCompile Include="Scene\Layer.cpp" />

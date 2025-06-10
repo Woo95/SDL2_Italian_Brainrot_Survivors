@@ -5,8 +5,8 @@
 #include "MemoryPoolManager.h"
 #include "CollisionManager.h"
 #include "PhysicsManager.h"
-#include "Resource/AssetManager.h"
 #include "Resource/PathManager.h"
+#include "Resource/AssetManager.h"
 
 CGameManager* CGameManager::mInst = nullptr;
 
@@ -58,6 +58,9 @@ bool CGameManager::Init()
     if (!CAssetManager::GetInst()->Init())
         return false;
 
+    if (!mDataManager.Init())
+        return false;
+    
     if (!CInput::GetInst()->Init())
         return false;
 

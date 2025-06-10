@@ -1,10 +1,10 @@
 #include "DataManager.h"
-#include "PathManager.h"
-#include "AssetManager.h"
-#include "SpriteManager.h"
-#include "AnimationManager.h"
-#include "UIManager.h"
-#include "../../Resource/Animation.h"
+#include "Resource/PathManager.h"
+#include "Resource/AssetManager.h"
+#include "Resource/SpriteManager.h"
+#include "Resource/AnimationManager.h"
+#include "Resource/UIManager.h"
+#include "../Resource/Animation.h"
 #include <fstream> // for file input/output
 #include <sstream> // for stringstream
 

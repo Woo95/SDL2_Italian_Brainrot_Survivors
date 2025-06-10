@@ -1,10 +1,10 @@
 #pragma once
 
-#include "../../Core/GameInfo.h"
+#include "../Core/GameInfo.h"
 
 class CDataManager
 {
-    friend class CAssetManager;
+    friend class CGameManager;
 
 private:
     CDataManager();

@@ -142,6 +142,9 @@
     <Filter Include="Game\03. Entity\01. Object\Map">
       <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\04. Manager">
+      <UniqueIdentifier>{18494aaa-50d5-4b20-927a-4c6642a2469b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -480,7 +483,7 @@
     <ClInclude Include="Scene\Camera.h">
       <Filter>Framework\03. Scene\03. Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Resource\DataManager.h">
+    <ClInclude Include="Manager\DataManager.h">
       <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\SceneUI.h">
@@ -636,6 +639,9 @@
     <ClInclude Include="Widget\SlotWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
+    <ClInclude Include="Manager\GameData\DetailManager.h">
+      <Filter>Game\04. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -719,7 +725,7 @@
     <ClCompile Include="Scene\Camera.cpp">
       <Filter>Framework\03. Scene\03. Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\Resource\DataManager.cpp">
+    <ClCompile Include="Manager\DataManager.cpp">
       <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\SceneUI.cpp">
