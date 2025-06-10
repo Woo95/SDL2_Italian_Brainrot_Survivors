@@ -18,4 +18,6 @@ private:
     void LoadAllEntityFrameData();
     void LoadAllEntityAnimationData();
     void LoadAllWidgetData();
+
+    void LoadAllCharacterInfo();
 };

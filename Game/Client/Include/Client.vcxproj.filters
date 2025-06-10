@@ -639,7 +639,10 @@
     <ClInclude Include="Widget\SlotWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\GameData\DetailManager.h">
+    <ClInclude Include="Manager\GameData\InfoManager.h">
+      <Filter>Game\04. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\GameData\GameDataManager.h">
       <Filter>Game\04. Manager</Filter>
     </ClInclude>
   </ItemGroup>
@@ -829,6 +832,9 @@
     </ClCompile>
     <ClCompile Include="Widget\SelectHighlightWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\GameData\GameDataManager.cpp">
+      <Filter>Game\04. Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

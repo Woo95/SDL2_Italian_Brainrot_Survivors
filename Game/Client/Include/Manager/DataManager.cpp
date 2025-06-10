@@ -5,6 +5,8 @@
 #include "Resource/AnimationManager.h"
 #include "Resource/UIManager.h"
 #include "../Resource/Animation.h"
+#include "GameData/GameDataManager.h"
+#include "GameData/InfoManager.h"
 #include <fstream> // for file input/output
 #include <sstream> // for stringstream
 
@@ -21,6 +23,8 @@ bool CDataManager::Init()
 	LoadAllEntityFrameData();
 	LoadAllEntityAnimationData();
 	LoadAllWidgetData();
+
+	LoadAllCharacterInfo();
 
 	return true;
 }
@@ -172,6 +176,46 @@ void CDataManager::LoadAllWidgetData()
 			int h = std::stoi(row[6 + i].substr(1, row[6 + i].length() - 1));
 
 			UIM->mUIs[key].emplace_back(SDL_Rect{ x,y,w,h });
+		}
+		row.clear();
+	}
+	file.close();
+}
+
+void CDataManager::LoadAllCharacterInfo()
+{
+	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
+	filePath += "GameData\\Info\\Characters.csv";
+
+	std::ifstream file(filePath);
+
+	if (!file.is_open())
+	{
+		std::cerr << "Cannot open file at: " << filePath << "\n";
+		return;
+	}
+
+	CInfoManager* IM = CGameDataManager::GetInst()->GetInfoManager();
+
+	std::string line;
+	while (std::getline(file, line))
+	{
+		if (line[0] == '#')
+			continue;
+
+		std::vector<std::string> row = Split(line, ',');
+
+		const std::string& key = row[0];
+
+		{
+			FCharacterInfo info;
+			info.name = row[1];
+			info.description1 = row[2];
+			info.description2 = row[3];
+			info.character = row[4];
+			info.weapon = row[5];
+
+			IM->mCharacterInfo[key] = info;
 		}
 		row.clear();
 	}

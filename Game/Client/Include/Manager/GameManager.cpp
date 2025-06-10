@@ -7,6 +7,7 @@
 #include "PhysicsManager.h"
 #include "Resource/PathManager.h"
 #include "Resource/AssetManager.h"
+#include "GameData/GameDataManager.h"
 
 CGameManager* CGameManager::mInst = nullptr;
 
@@ -23,6 +24,8 @@ CGameManager::~CGameManager()
     CCollisionManager::DestroyInst();
 
     CInput::DestroyInst();
+    
+    CGameDataManager::DestroyInst();
 
     CAssetManager::DestroyInst();
 
@@ -56,6 +59,9 @@ bool CGameManager::Init()
         return false;
 
     if (!CAssetManager::GetInst()->Init())
+        return false;
+
+    if (!CGameDataManager::GetInst()->Init())
         return false;
 
     if (!mDataManager.Init())

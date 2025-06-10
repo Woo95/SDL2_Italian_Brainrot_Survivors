@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Manager\GameData\DetailManager.h" />
+    <ClInclude Include="Manager\GameData\GameDataManager.h" />
+    <ClInclude Include="Manager\GameData\InfoManager.h" />
     <ClInclude Include="Widget\SlotWidget.h" />
     <ClInclude Include="Widget\SelectHighlightWidget.h" />
     <ClInclude Include="Widget\CreditsPanelWidget.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Manager\GameData\GameDataManager.cpp" />
     <ClCompile Include="Widget\SelectHighlightWidget.cpp" />
     <ClCompile Include="Widget\CreditsPanelWidget.cpp" />
     <ClCompile Include="Widget\CharDetailWidget.cpp" />
