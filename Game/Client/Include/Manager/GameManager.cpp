@@ -8,6 +8,7 @@
 #include "Resource/PathManager.h"
 #include "Resource/AssetManager.h"
 #include "GameData/GameDataManager.h"
+#include "DataManager.h"
 
 CGameManager* CGameManager::mInst = nullptr;
 
@@ -25,6 +26,8 @@ CGameManager::~CGameManager()
 
     CInput::DestroyInst();
     
+    CDataManager::DestroyInst();
+
     CGameDataManager::DestroyInst();
 
     CAssetManager::DestroyInst();
@@ -64,7 +67,7 @@ bool CGameManager::Init()
     if (!CGameDataManager::GetInst()->Init())
         return false;
 
-    if (!mDataManager.Init())
+    if (!CDataManager::GetInst()->Init())
         return false;
     
     if (!CInput::GetInst()->Init())

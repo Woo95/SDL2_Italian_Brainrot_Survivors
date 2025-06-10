@@ -10,6 +10,8 @@
 #include <fstream> // for file input/output
 #include <sstream> // for stringstream
 
+CDataManager* CDataManager::mInst = nullptr;
+
 CDataManager::CDataManager()
 {
 }

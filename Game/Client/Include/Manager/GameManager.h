@@ -2,7 +2,6 @@
 
 #include "../Core/GameInfo.h"
 #include "../Core/Vector2D.h"
-#include "DataManager.h"
 
 class CGameManager
 {
@@ -14,8 +13,6 @@ private:
 	SDL_Window* mWindow = nullptr;
 	SDL_Renderer* mRenderer = nullptr;
 	bool mLoop = true;
-
-	CDataManager mDataManager;
 
 	static CGameManager* mInst;
 
