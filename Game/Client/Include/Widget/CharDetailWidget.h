@@ -3,6 +3,8 @@
 #include "UserWidget.h"
 
 class CTextBlock;
+class CImage;
+class CSlotWidget;
 
 class CCharDetailWidget : public CUserWidget
 {
@@ -16,4 +18,11 @@ protected:
 
 private:
     CTextBlock* mName;
+    CTextBlock* mDescription;
+    CImage* mCharacter;
+    CImage* mWeaponBox;
+    CImage* mWeapon;
+
+public:
+    void ShowDetail(CSlotWidget* slot);
 };

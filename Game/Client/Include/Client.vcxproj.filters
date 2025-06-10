@@ -630,6 +630,12 @@
     <ClInclude Include="Widget\CreditsPanelWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\SelectHighlightWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\SlotWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -813,6 +819,9 @@
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CreditsPanelWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\SelectHighlightWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>

@@ -15,3 +15,4 @@
 #include "CharSelectPanelWidget.h"
 #include "CharSlotWidget.h"
 #include "CharDetailWidget.h"
+#include "SelectHighlightWidget.h"

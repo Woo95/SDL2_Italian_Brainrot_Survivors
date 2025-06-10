@@ -1,10 +1,10 @@
 #pragma once
 
-#include "UserWidget.h"
+#include "SlotWidget.h"
 
 class CTextBlock;
 
-class CCharSlotWidget : public CUserWidget
+class CCharSlotWidget : public CSlotWidget
 {
 public:
 	CCharSlotWidget();
@@ -13,6 +13,8 @@ public:
 private:
 	CTextBlock* mName;
 	std::string mSFX;
+
+	std::function<void(CCharSlotWidget*)> mOnClickCallback = nullptr;
 
 protected:
 	virtual void Construct() override;
@@ -23,4 +25,5 @@ protected:
 public:
 	void SetName(const std::string& name);
 	void SetSFX(const std::string& sfx);
+	void SetOnClick(std::function<void(CCharSlotWidget*)> callback);
 };

@@ -46,6 +46,9 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
 
         if (!sfx->IsPlaying())
             sfx->Play();
+
+        if (mOnClickCallback)
+            mOnClickCallback(this);
     }
 }
 
@@ -57,4 +60,9 @@ void CCharSlotWidget::SetName(const std::string& name)
 void CCharSlotWidget::SetSFX(const std::string& sfx)
 {
     mSFX = sfx;
+}
+
+void CCharSlotWidget::SetOnClick(std::function<void(CCharSlotWidget*)> callback)
+{
+    mOnClickCallback = callback;
 }
