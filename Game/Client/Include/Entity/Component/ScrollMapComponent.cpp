@@ -8,6 +8,7 @@
 #include "../../Scene/Camera.h"
 
 CScrollMapComponent::CScrollMapComponent() :
+	mCamera(nullptr),
 	mTexture(nullptr),
 	mFrame({})
 {
@@ -24,12 +25,14 @@ bool CScrollMapComponent::Init()
 	if (!mTexture)
 		return false;
 
+	mCamera = CSceneManager::GetInst()->GetCurrentScene()->GetCamera();
+
 	return CComponent::Init();
 }
 
 void CScrollMapComponent::Render(SDL_Renderer* renderer)
 {
-	const SDL_Rect viewRect = CSceneManager::GetInst()->GetCurrentScene()->GetCamera()->GetViewRect();
+	const SDL_Rect viewRect = mCamera->GetViewRect();
 	const SDL_Rect& texRect = mTexture->GetTextureFrame();
 	const FVector2D& mapScale = mTransform->GetWorldScale();
 

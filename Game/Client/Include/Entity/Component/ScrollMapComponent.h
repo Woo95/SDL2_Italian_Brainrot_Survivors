@@ -2,6 +2,7 @@
 
 #include "Component.h"
 
+class CCamera;
 class CTexture;
 
 class CScrollMapComponent : public CComponent
@@ -11,6 +12,8 @@ public:
 	virtual ~CScrollMapComponent();
 
 private:
+	CCamera* mCamera;
+
 	std::shared_ptr<CTexture> mTexture;
 	SDL_Rect mFrame;
 
