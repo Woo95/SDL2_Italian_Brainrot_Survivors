@@ -8,7 +8,7 @@ class CPlayScene : public CScene
 
 private:
     CPlayScene();
-    ~CPlayScene();
+    virtual ~CPlayScene();
 
 public:
     virtual bool Enter() final;

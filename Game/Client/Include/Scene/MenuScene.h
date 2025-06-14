@@ -8,7 +8,7 @@ class CMenuScene : public CScene
 
 private:
     CMenuScene();
-    ~CMenuScene();
+    virtual ~CMenuScene();
 
 public:
     virtual bool Enter() final;
