@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Entity\Object\EnvObj.h" />
+    <ClInclude Include="Entity\Object\ScrollEnvObj.h" />
     <ClInclude Include="Manager\GameData\GameDataManager.h" />
     <ClInclude Include="Manager\GameData\InfoManager.h" />
     <ClInclude Include="Widget\SlotWidget.h" />
@@ -188,7 +188,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Entity\Object\EnvObj.cpp" />
+    <ClCompile Include="Entity\Object\ScrollEnvObj.cpp" />
     <ClCompile Include="Manager\GameData\GameDataManager.cpp" />
     <ClCompile Include="Widget\SelectHighlightWidget.cpp" />
     <ClCompile Include="Widget\CreditsPanelWidget.cpp" />

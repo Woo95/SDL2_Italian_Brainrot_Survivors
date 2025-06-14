@@ -645,7 +645,7 @@
     <ClInclude Include="Manager\GameData\GameDataManager.h">
       <Filter>Game\04. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Object\EnvObj.h">
+    <ClInclude Include="Entity\Object\ScrollEnvObj.h">
       <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClInclude>
   </ItemGroup>
@@ -839,7 +839,7 @@
     <ClCompile Include="Manager\GameData\GameDataManager.cpp">
       <Filter>Game\04. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Object\EnvObj.cpp">
+    <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
       <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClCompile>
   </ItemGroup>
