@@ -32,7 +32,10 @@ bool CScrollMapComponent::Init()
 
 void CScrollMapComponent::Render(SDL_Renderer* renderer)
 {
-	const SDL_Rect viewRect = mCamera->GetViewRect();
+	SDL_Rect viewRect = mCamera->GetViewRect();
+	viewRect.x = (int)roundf((float)viewRect.x);
+	viewRect.y = (int)roundf((float)viewRect.y);
+
 	const SDL_Rect& texRect = mTexture->GetTextureFrame();
 	const FVector2D& mapScale = mTransform->GetWorldScale();
 
@@ -54,10 +57,10 @@ void CScrollMapComponent::Render(SDL_Renderer* renderer)
 	{
 		SDL_Rect srcRect =
 		{
-			(int)(offsetX * texWidthPerWorld),
-			(int)(offsetY * texHeightPerWorld),
-			(int)(viewRect.w * texWidthPerWorld),
-			(int)(viewRect.h * texHeightPerWorld)
+			(int)roundf(offsetX * texWidthPerWorld),
+			(int)roundf(offsetY * texHeightPerWorld),
+			(int)roundf(viewRect.w * texWidthPerWorld),
+			(int)roundf(viewRect.h * texHeightPerWorld)
 		};
 		SDL_Rect dstRect = { 0, 0, viewRect.w, viewRect.h };
 
@@ -79,10 +82,10 @@ void CScrollMapComponent::Render(SDL_Renderer* renderer)
 			{
 				SDL_Rect srcRect =
 				{
-					(int)(offsetX * texWidthPerWorld),
-					(int)(offsetY * texHeightPerWorld),
-					(int)(innerW * texWidthPerWorld),
-					(int)(innerH * texHeightPerWorld)
+					(int)roundf(offsetX * texWidthPerWorld),
+					(int)roundf(offsetY * texHeightPerWorld),
+					(int)roundf(innerW * texWidthPerWorld),
+					(int)roundf(innerH * texHeightPerWorld)
 				};
 				SDL_Rect dstRect = { 0, 0, innerW, innerH };
 
@@ -93,9 +96,9 @@ void CScrollMapComponent::Render(SDL_Renderer* renderer)
 				SDL_Rect srcRect =
 				{
 					0,
-					(int)(offsetY * texHeightPerWorld),
-					(int)(outerW * texWidthPerWorld),
-					(int)(innerH * texHeightPerWorld)
+					(int)roundf(offsetY * texHeightPerWorld),
+					(int)roundf(outerW * texWidthPerWorld),
+					(int)roundf(innerH * texHeightPerWorld)
 				};
 				SDL_Rect dstRect = { innerW, 0, outerW, innerH };
 
@@ -108,10 +111,10 @@ void CScrollMapComponent::Render(SDL_Renderer* renderer)
 			{
 				SDL_Rect srcRect =
 				{
-					(int)(offsetX * texWidthPerWorld),
+					(int)roundf(offsetX * texWidthPerWorld),
 					0,
-					(int)(innerW * texWidthPerWorld),
-					(int)(outerH * texHeightPerWorld)
+					(int)roundf(innerW * texWidthPerWorld),
+					(int)roundf(outerH * texHeightPerWorld)
 				};
 				SDL_Rect dstRect = { 0, innerH, innerW, outerH };
 
@@ -123,8 +126,8 @@ void CScrollMapComponent::Render(SDL_Renderer* renderer)
 				{
 					0,
 					0,
-					(int)(outerW * texWidthPerWorld),
-					(int)(outerH * texHeightPerWorld)
+					(int)roundf(outerW * texWidthPerWorld),
+					(int)roundf(outerH * texHeightPerWorld)
 				};
 				SDL_Rect dstRect = { innerW, innerH, outerW, outerH };
 
