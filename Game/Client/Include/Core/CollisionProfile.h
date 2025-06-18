@@ -8,7 +8,8 @@ namespace ECollision
 	enum Channel : unsigned char
 	{
 		DEFAULT,
-		PLAYER,
+		PLAYER_HITBOX,
+		PLAYER_FOOT,
 		MONSTER,
 		ENVIRONMENT,
 		END

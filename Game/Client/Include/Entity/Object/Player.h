@@ -5,6 +5,7 @@
 
 class CMovementComponent;
 class CSpriteComponent;
+class CRigidbody;
 
 class CPlayer abstract : public CObject
 {
@@ -15,6 +16,7 @@ public:
 protected:
 	CMovementComponent* mMovement;
 	CSpriteComponent* mSprite;
+	CRigidbody* mRigidbody;
 
 public:
 	virtual bool Init() override;

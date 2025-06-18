@@ -4,7 +4,8 @@
 
 CPlayer::CPlayer() :
 	mMovement(nullptr),
-	mSprite(nullptr)
+	mSprite(nullptr),
+	mRigidbody(nullptr)
 {
 }
 
@@ -25,10 +26,6 @@ CPlayer::~CPlayer()
 
 bool CPlayer::Init()
 {
-	mMovement = AllocateComponent<CMovementComponent>("MovementComponent_Player");
-
-	mRootComponent->AddChild(mMovement);
-
 	BindInput();
 
 	return CObject::Init();

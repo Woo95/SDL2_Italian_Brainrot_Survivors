@@ -22,10 +22,12 @@ CCollisionManager::~CCollisionManager()
 
 bool CCollisionManager::Init()
 {
-	CreateProfile("Player", ECollision::Channel::PLAYER, ECollision::Interaction::BLOCK);
+	CreateProfile("PlayerHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::BLOCK);
+	CreateProfile("PlayerFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::IGNORE);
 	CreateProfile("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
 
-	SetCollisionInteraction("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
 
 	return true;
 }
