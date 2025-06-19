@@ -48,6 +48,7 @@ void CPlayScene::LoadResources()
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
 
     LoadTexture("Texture_Sahur", "Sahur.png");
+    LoadTexture("Texture_Bananini", "Bananini.png");
 
     LoadBGM("BGM_MadForest", "bgm_italian_brainrot.wav");
 

@@ -32,7 +32,7 @@ bool CSahur::Init()
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_SahurFoot");
 	foot->SetProfile("PlayerFoot");
-	foot->GetTransform()->SetWorldScale(20.f, 10.f);
+	foot->GetTransform()->SetWorldScale(23.f, 10.f);
 	foot->GetTransform()->SetWorldPos(0.0f, 30.f);
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);

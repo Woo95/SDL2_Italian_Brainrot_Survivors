@@ -44,6 +44,4 @@ void CMenuScene::LoadResources()
     LoadSFX("SFX_Character_Tralala", "sfx_character_tralalero_tralala.mp3");
     LoadSFX("SFX_Character_Sahur", "sfx_character_tung_tung_tung_sahur.mp3");
     LoadSFX("SFX_Character_Bananini", "sfx_character_chimpanzini_bananini.mp3");
-
-    LoadBGM("BGM_MadForest", "bgm_italian_brainrot.wav");
 }
