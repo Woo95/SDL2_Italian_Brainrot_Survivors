@@ -22,6 +22,7 @@ bool CScrollEnvObj::Init()
     mCamera = CSceneManager::GetInst()->GetCurrentScene()->GetCamera();
 
     mSprite = AllocateComponent<CSpriteComponent>("Sprite_EvnObj");
+
     mCollider = AllocateComponent<CBoxCollider>("BoxCollider_EvnObj");
     mCollider->SetProfile("Environment");
 

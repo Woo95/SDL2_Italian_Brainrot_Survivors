@@ -28,6 +28,7 @@ bool CCollisionManager::Init()
 
 	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
+	SetCollisionInteraction("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
 
 	return true;
 }
