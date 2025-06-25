@@ -651,6 +651,9 @@
     <ClInclude Include="Entity\Object\Bananini.h">
       <Filter>Game\03. Entity\01. Object\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\Tralala.h">
+      <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -846,6 +849,9 @@
       <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Bananini.cpp">
+      <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Tralala.cpp">
       <Filter>Game\03. Entity\01. Object\Player</Filter>
     </ClCompile>
   </ItemGroup>

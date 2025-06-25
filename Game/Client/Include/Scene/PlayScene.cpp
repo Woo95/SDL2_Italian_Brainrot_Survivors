@@ -47,6 +47,7 @@ void CPlayScene::LoadResources()
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
 
+    LoadTexture("Texture_Tralala", "Tralala.png");
     LoadTexture("Texture_Sahur", "Sahur.png");
     LoadTexture("Texture_Bananini", "Bananini.png");
 
