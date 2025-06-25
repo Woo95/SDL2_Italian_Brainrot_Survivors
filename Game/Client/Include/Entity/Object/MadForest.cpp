@@ -43,33 +43,36 @@ void CMadForest::SetEnvObjects()
 #pragma region Gravestone
 	evnObj = mScene->InstantiateObject<CScrollEnvObj, 40>("EvnObj_Gravestone1", ELayer::OBJECT);
 	evnObj->SetMapScale(mapScale);
-	evnObj->GetTransform()->SetWorldScale(34.0f, 53.0f);
-	evnObj->GetTransform()->SetWorldPos(340.38f, 111.6f);
+	evnObj->GetTransform()->SetWorldScale(31.75f, 50.35f);
+	evnObj->GetTransform()->SetWorldPos(355.0f, 127.5f);
 	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Gravestone1");
-	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(0.93f, 0.95f);
-	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(0.95f, 0.33f);
-	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativePos(-1.0f, 33.f);
+	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
+	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.3f);
+	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(1.0f, 0.345f);
+	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetPivot(0.5f, -1.0f);
 
 	evnObj = mScene->InstantiateObject<CScrollEnvObj, 40>("EvnObj_Gravestone2", ELayer::OBJECT);
 	evnObj->SetMapScale(mapScale);
-	evnObj->GetTransform()->SetWorldScale(34.0f, 53.0f);
-	evnObj->GetTransform()->SetWorldPos(395.15f, 111.6f);
+	evnObj->GetTransform()->SetWorldScale(31.75f, 50.35f);
+	evnObj->GetTransform()->SetWorldPos(410.0f, 127.5f);
 	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Gravestone1");
-	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(0.93f, 0.95f);
-	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(0.95f, 0.33f);
-	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativePos(-1.0f, 33.0f);
+	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
+	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.3f);
+	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(1.0f, 0.345f);
+	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetPivot(0.5f, -1.0f);
 
 	evnObj = mScene->InstantiateObject<CScrollEnvObj>("EvnObj_Gravestone3", ELayer::OBJECT);
 	evnObj->SetMapScale(mapScale);
-	evnObj->GetTransform()->SetWorldScale(31.0f, 53.0f);
-	evnObj->GetTransform()->SetWorldPos(506.84f, 114.39f);
+	evnObj->GetTransform()->SetWorldScale(29.2f, 51.0f);
+	evnObj->GetTransform()->SetWorldPos(518.0f, 118.0f);
 	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Gravestone2");
-	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(0.94f, 0.96f);
-	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(0.85f, 0.41f);
-	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativePos(0.5f, 28.0f);
+	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
+	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.1f);
+	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(0.92f, 0.45f);
+	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetPivot(0.5f, -1.0f);
 #pragma endregion
 
 #pragma region Column
