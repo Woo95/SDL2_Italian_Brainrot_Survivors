@@ -648,6 +648,9 @@
     <ClInclude Include="Entity\Object\ScrollEnvObj.h">
       <Filter>Game\03. Entity\01. Object\Map</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\Bananini.h">
+      <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -841,6 +844,9 @@
     </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
       <Filter>Game\03. Entity\01. Object\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Bananini.cpp">
+      <Filter>Game\03. Entity\01. Object\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
