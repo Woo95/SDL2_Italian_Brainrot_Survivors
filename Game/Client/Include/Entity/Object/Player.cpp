@@ -67,11 +67,5 @@ void CPlayer::MoveDir(const FVector2D& dir)
 {
 	mMovement->AddMoveDir(dir);
 
-	if (mSprite)
-	{
-		if (dir == FVector2D::LEFT)
-			mSprite->SetFlip(SDL_FLIP_NONE);
-		else if (dir == FVector2D::RIGHT)
-			mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
-	}
+	OnMoveDirChanged(dir);
 }

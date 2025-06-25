@@ -23,6 +23,7 @@ public:
 
 private:
 	virtual void Release() = 0;
+	virtual void OnMoveDirChanged(const FVector2D& dir) = 0;
 
 private:
 	void BindInput();
