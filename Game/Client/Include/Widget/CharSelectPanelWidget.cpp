@@ -85,7 +85,7 @@ void CCharSelectPanelWidget::Construct()
     mBtnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mBtnStart->SetCornerRatio(2.0f);
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->PendingChange(EScene::State::PLAY);});
+    mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::PLAY);});
     mBtnStart->Disable();
 
     OnSlotClicked(tralalaSlot);
