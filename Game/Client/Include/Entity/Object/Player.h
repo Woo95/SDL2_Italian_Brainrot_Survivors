@@ -5,6 +5,7 @@
 
 class CMovementComponent;
 class CSpriteComponent;
+class CInputComponent;
 class CRigidbody;
 
 class CPlayer abstract : public CObject
@@ -16,6 +17,7 @@ public:
 protected:
 	CMovementComponent* mMovement;
 	CSpriteComponent* mSprite;
+	CInputComponent* mInput;
 	CRigidbody* mRigidbody;
 
 public:

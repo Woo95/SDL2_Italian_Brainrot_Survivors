@@ -22,6 +22,7 @@
     <ClInclude Include="Entity\Object\Bananini.h" />
     <ClInclude Include="Entity\Object\ScrollEnvObj.h" />
     <ClInclude Include="Entity\Object\Tralala.h" />
+    <ClInclude Include="Entity\Component\InputComponent.h" />
     <ClInclude Include="Manager\GameData\GameDataManager.h" />
     <ClInclude Include="Manager\GameData\InfoManager.h" />
     <ClInclude Include="Widget\SlotWidget.h" />
@@ -192,6 +193,7 @@
   <ItemGroup>
     <ClCompile Include="Entity\Object\Bananini.cpp" />
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp" />
+    <ClCompile Include="Entity\Component\InputComponent.cpp" />
     <ClCompile Include="Manager\GameData\GameDataManager.cpp" />
     <ClCompile Include="Entity\Object\Tralala.cpp" />
     <ClCompile Include="Widget\SelectHighlightWidget.cpp" />

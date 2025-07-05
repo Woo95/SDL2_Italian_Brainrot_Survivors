@@ -145,6 +145,9 @@
     <Filter Include="Game\04. Manager">
       <UniqueIdentifier>{18494aaa-50d5-4b20-927a-4c6642a2469b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\Input">
+      <UniqueIdentifier>{4b538719-c4d7-4ad1-a0ac-d9092097bcd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -654,6 +657,9 @@
     <ClInclude Include="Entity\Object\Tralala.h">
       <Filter>Game\03. Entity\01. Object\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Component\InputComponent.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -853,6 +859,9 @@
     </ClCompile>
     <ClCompile Include="Entity\Object\Tralala.cpp">
       <Filter>Game\03. Entity\01. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\InputComponent.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

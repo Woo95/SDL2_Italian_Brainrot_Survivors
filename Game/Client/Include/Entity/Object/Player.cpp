@@ -5,23 +5,22 @@
 CPlayer::CPlayer() :
 	mMovement(nullptr),
 	mSprite(nullptr),
-	mRigidbody(nullptr)
+	mRigidbody(nullptr),
+	mInput(nullptr)
 {
 }
 
 CPlayer::~CPlayer()
 {
-	CInput* input = CInput::GetInst();
+	mInput->DeleteFunctionFromBinder("W_MoveUp",    this);
+	mInput->DeleteFunctionFromBinder("A_MoveLeft",  this);
+	mInput->DeleteFunctionFromBinder("S_MoveDown",  this);
+	mInput->DeleteFunctionFromBinder("D_MoveRight", this);
 
-	CInput::GetInst()->DeleteFunctionFromBinder("W_MoveUp",    this);
-	CInput::GetInst()->DeleteFunctionFromBinder("A_MoveLeft",  this);
-	CInput::GetInst()->DeleteFunctionFromBinder("S_MoveDown",  this);
-	CInput::GetInst()->DeleteFunctionFromBinder("D_MoveRight", this);
-
-	CInput::GetInst()->DeleteFunctionFromBinder("UP_MoveUp",       this);
-	CInput::GetInst()->DeleteFunctionFromBinder("DOWN_MoveDown",   this);
-	CInput::GetInst()->DeleteFunctionFromBinder("LEFT_MoveLeft",   this);
-	CInput::GetInst()->DeleteFunctionFromBinder("RIGHT_MoveRight", this);
+	mInput->DeleteFunctionFromBinder("UP_MoveUp",       this);
+	mInput->DeleteFunctionFromBinder("DOWN_MoveDown",   this);
+	mInput->DeleteFunctionFromBinder("LEFT_MoveLeft",   this);
+	mInput->DeleteFunctionFromBinder("RIGHT_MoveRight", this);
 }
 
 bool CPlayer::Init()
@@ -38,29 +37,30 @@ void CPlayer::Release()
 
 void CPlayer::BindInput()
 {
-	CInput* input = CInput::GetInst();
+	mInput = AllocateComponent<CInputComponent>("Input_Player");
 
-	input->AddFunctionToBinder("W_MoveUp",    this, [this]() { MoveDir(FVector2D::UP);    });
-	input->AddFunctionToBinder("A_MoveLeft",  this, [this]() { MoveDir(FVector2D::LEFT);  });
-	input->AddFunctionToBinder("S_MoveDown",  this, [this]() { MoveDir(FVector2D::DOWN);  });
-	input->AddFunctionToBinder("D_MoveRight", this, [this]() { MoveDir(FVector2D::RIGHT); });
+	mInput->AddFunctionToBinder("W_MoveUp",    this, [this]() { MoveDir(FVector2D::UP);    });
+	mInput->AddFunctionToBinder("A_MoveLeft",  this, [this]() { MoveDir(FVector2D::LEFT);  });
+	mInput->AddFunctionToBinder("S_MoveDown",  this, [this]() { MoveDir(FVector2D::DOWN);  });
+	mInput->AddFunctionToBinder("D_MoveRight", this, [this]() { MoveDir(FVector2D::RIGHT); });
 
-	input->AddInputToBinder("W_MoveUp",    SDL_SCANCODE_W, EKey::State::HOLD);
-	input->AddInputToBinder("A_MoveLeft",  SDL_SCANCODE_A, EKey::State::HOLD);
-	input->AddInputToBinder("S_MoveDown",  SDL_SCANCODE_S, EKey::State::HOLD);
-	input->AddInputToBinder("D_MoveRight", SDL_SCANCODE_D, EKey::State::HOLD);
+	mInput->AddInputToBinder("W_MoveUp",    SDL_SCANCODE_W, EKey::State::HOLD);
+	mInput->AddInputToBinder("A_MoveLeft",  SDL_SCANCODE_A, EKey::State::HOLD);
+	mInput->AddInputToBinder("S_MoveDown",  SDL_SCANCODE_S, EKey::State::HOLD);
+	mInput->AddInputToBinder("D_MoveRight", SDL_SCANCODE_D, EKey::State::HOLD);
 
 
-	input->AddFunctionToBinder("UP_MoveUp",       this, [this]() { MoveDir(FVector2D::UP);    });
-	input->AddFunctionToBinder("DOWN_MoveDown",   this, [this]() { MoveDir(FVector2D::DOWN);  });
-	input->AddFunctionToBinder("LEFT_MoveLeft",   this, [this]() { MoveDir(FVector2D::LEFT);  });
-	input->AddFunctionToBinder("RIGHT_MoveRight", this, [this]() { MoveDir(FVector2D::RIGHT); });
+	mInput->AddFunctionToBinder("UP_MoveUp",       this, [this]() { MoveDir(FVector2D::UP);    });
+	mInput->AddFunctionToBinder("DOWN_MoveDown",   this, [this]() { MoveDir(FVector2D::DOWN);  });
+	mInput->AddFunctionToBinder("LEFT_MoveLeft",   this, [this]() { MoveDir(FVector2D::LEFT);  });
+	mInput->AddFunctionToBinder("RIGHT_MoveRight", this, [this]() { MoveDir(FVector2D::RIGHT); });
 
-	input->AddInputToBinder("UP_MoveUp",       SDL_SCANCODE_UP,    EKey::State::HOLD);
-	input->AddInputToBinder("DOWN_MoveDown",   SDL_SCANCODE_DOWN,  EKey::State::HOLD);
-	input->AddInputToBinder("LEFT_MoveLeft",   SDL_SCANCODE_LEFT,  EKey::State::HOLD);
-	input->AddInputToBinder("RIGHT_MoveRight", SDL_SCANCODE_RIGHT, EKey::State::HOLD);
+	mInput->AddInputToBinder("UP_MoveUp",       SDL_SCANCODE_UP,    EKey::State::HOLD);
+	mInput->AddInputToBinder("DOWN_MoveDown",   SDL_SCANCODE_DOWN,  EKey::State::HOLD);
+	mInput->AddInputToBinder("LEFT_MoveLeft",   SDL_SCANCODE_LEFT,  EKey::State::HOLD);
+	mInput->AddInputToBinder("RIGHT_MoveRight", SDL_SCANCODE_RIGHT, EKey::State::HOLD);
 
+	mRootComponent->AddChild(mInput);
 }
 
 void CPlayer::MoveDir(const FVector2D& dir)
