@@ -19,9 +19,11 @@ bool CMenuUI::Init()
     AddWidget(background);
 
     mPressToStart = CWidgetUtils::AllocateWidget<CPressToStartWidget, 1>("UserWidget_PressToStart");
+    mPressToStart->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     AddWidget(mPressToStart);
 
     mMainMenu = CWidgetUtils::AllocateWidget<CMainMenuWidget, 1>("UserWidget_MainMenu");
+    mMainMenu->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     AddWidget(mMainMenu);
 
     SetMenuState(EMenuUIState::PressToStart);

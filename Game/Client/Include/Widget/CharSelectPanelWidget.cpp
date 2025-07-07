@@ -44,7 +44,7 @@ void CCharSelectPanelWidget::Construct()
     tralalaSlot->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() + offsetX + FVector2D(0.0f, 0.15f));
     tralalaSlot->SetText("Tralala");
     tralalaSlot->SetSFX("SFX_Character_Tralala");
-    tralalaSlot->SetOnClick([this](CCharSlotWidget* slot) { this->OnSlotClicked(slot);});
+    tralalaSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(tralalaSlot);
 
     CCharSlotWidget* sahurSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_SahurSlot");
@@ -52,7 +52,7 @@ void CCharSelectPanelWidget::Construct()
     sahurSlot->GetTransform()->SetRelativePos(tralalaSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
     sahurSlot->SetText("Sahur");
     sahurSlot->SetSFX("SFX_Character_Sahur");
-    sahurSlot->SetOnClick([this](CCharSlotWidget* slot) { this->OnSlotClicked(slot);});
+    sahurSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(sahurSlot);
 
     CCharSlotWidget* bananiniSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_BananiniSlot");
@@ -60,7 +60,7 @@ void CCharSelectPanelWidget::Construct()
     bananiniSlot->GetTransform()->SetRelativePos(sahurSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
     bananiniSlot->SetText("Bananini");
     bananiniSlot->SetSFX("SFX_Character_Bananini");
-    bananiniSlot->SetOnClick([this](CCharSlotWidget* slot) { this->OnSlotClicked(slot);});
+    bananiniSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(bananiniSlot);
 
     mHighlight = CWidgetUtils::AllocateWidget<CSelectHighlightWidget, 1>("SelectHighlight_CharSlotHighlight");

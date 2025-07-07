@@ -1,6 +1,5 @@
 #include "PressToStartWidget.h"
 #include "TextBlock.h"
-#include "../Manager/GameManager.h"
 #include "../Manager/Resource/AssetManager.h"
 #include "../Manager/Resource/SoundManager.h"
 #include "../Scene/UI/MenuUI.h"
@@ -18,12 +17,10 @@ void CPressToStartWidget::Construct()
 {
     SetInteractable(true);
 
-    GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
-    const FVector2D& parentScale = GetTransform()->GetWorldScale();
-
     mText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PressToStart");
-    mText->GetTransform()->SetWorldScale(parentScale * FVector2D(0.234375f, 0.05f));
-    mText->GetTransform()->SetWorldPos((parentScale.x - mText->GetTransform()->GetWorldScale().x) * 0.5f, parentScale.y * 0.7f);
+    mText->GetTransform()->SetRelativeScale(FVector2D(0.25f, 0.05f));
+    mText->GetTransform()->SetRelativePos(0.5f, 0.7f);
+    mText->GetTransform()->SetPivot(0.5f, 0.5f);
     mText->SetFont("Font32_CourierPrime_Regular");
     mText->SetText("PRESS TO START");
     AddChild(mText);

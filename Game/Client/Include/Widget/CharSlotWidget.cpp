@@ -26,7 +26,7 @@ void CCharSlotWidget::Construct()
 
     mCharName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
     mCharName->GetTransform()->SetRelativeScale(0.9f, 0.175f);
-    mCharName->GetTransform()->SetRelativePos(0.05f, 0.1f);
+    mCharName->GetTransform()->SetRelativePos(0.55f, 0.5f);
     mCharName->SetAlignment(ETextBlock::Alignment::LEFT);
     mCharName->SetCharWidth(12.5f);
     mCharName->SetFont("Font64_CourierPrime_Regular");
