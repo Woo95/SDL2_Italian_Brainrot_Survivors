@@ -5,9 +5,12 @@
 #include "../Scene/Camera.h"
 #include "Collision/SceneCollision.h"
 #include "../Entity/Object/AllObjects.h"
+#include "../Scene/UI/PlayUI.h"
 
 CPlayScene::CPlayScene()
 {
+    mSceneUI = new CPlayUI;
+
     mCamera = new CCamera;
     mCamera->SetResolution(CGameManager::GetInst()->GetResolution());
 
@@ -18,10 +21,13 @@ CPlayScene::~CPlayScene()
 {
     SAFE_DELETE(mSceneCollision);
     SAFE_DELETE(mCamera);
+    SAFE_DELETE(mSceneUI);
 }
 
 bool CPlayScene::Enter()
 {
+    mSceneUI->Init();
+
     // Sound //
     CSoundManager* SM = CAssetManager::GetInst()->GetSoundManager();
     SM->SetVolume<CBGM>(SM->GetVolume<CBGM>());
@@ -44,6 +50,8 @@ bool CPlayScene::Exit()
 
 void CPlayScene::LoadResources()
 {
+    LoadTexture("Texture_UIAtlas", "UIAtlas.png");
+
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
 

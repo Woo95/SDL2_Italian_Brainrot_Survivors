@@ -7,8 +7,8 @@
 #include "TextBlock.h"
 #include "Slider.h"
 
-#include "PressToStartWidget.h"
 #include "MainMenuWidget.h"
+#include "PressToStartWidget.h"
 #include "MoneyHUDWidget.h"
 #include "OptionPanelWidget.h"
 #include "CreditsPanelWidget.h"
@@ -16,3 +16,5 @@
 #include "CharSlotWidget.h"
 #include "CharInfoWidget.h"
 #include "SelectHighlightWidget.h"
+
+#include "PlayWidget.h"

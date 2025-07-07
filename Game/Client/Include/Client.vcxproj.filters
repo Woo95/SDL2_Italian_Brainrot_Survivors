@@ -148,6 +148,9 @@
     <Filter Include="Framework\04. Entity\02. Component\01. Components\Input">
       <UniqueIdentifier>{4b538719-c4d7-4ad1-a0ac-d9092097bcd1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\01. Scenes\03. Pause">
+      <UniqueIdentifier>{5502f9c3-409e-4ed9-8adf-b3767a2918f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -660,6 +663,15 @@
     <ClInclude Include="Entity\Component\InputComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\UI\PlayUI.h">
+      <Filter>Game\01. Scenes\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PlayWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\PauseScene.h">
+      <Filter>Game\01. Scenes\03. Pause</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -733,9 +745,6 @@
     </ClCompile>
     <ClCompile Include="Entity\Component\MovementComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Movement</Filter>
-    </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Framework</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Layer.cpp">
       <Filter>Framework\03. Scene</Filter>
@@ -862,6 +871,16 @@
     </ClCompile>
     <ClCompile Include="Entity\Component\InputComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\UI\PlayUI.cpp">
+      <Filter>Game\01. Scenes\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PlayWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Scene\PauseScene.cpp">
+      <Filter>Game\01. Scenes\03. Pause</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
