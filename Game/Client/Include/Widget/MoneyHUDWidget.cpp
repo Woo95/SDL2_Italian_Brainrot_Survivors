@@ -27,7 +27,7 @@ void CMoneyHUDWidget::Construct()
     moneyIcon->SetFrame("MoneyIcon");
     AddChild(moneyIcon);
 
-    mBalanceText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_mMoneyAmount");
+    mBalanceText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_MoneyAmount");
     mBalanceText->GetTransform()->SetRelativeScale(0.6f, 0.55f);
     mBalanceText->GetTransform()->SetRelativePos(0.35f, 0.25f);
     mBalanceText->SetAlignment(ETextBlock::Alignment::RIGHT);

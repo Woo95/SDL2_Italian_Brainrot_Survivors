@@ -40,7 +40,7 @@ void CMainMenuWidget::Construct()
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {SDL_Event quitEvent; quitEvent.type = SDL_QUIT; SDL_PushEvent(&quitEvent);});
 
-    mBtnOption = CreateButton("Option", "BlueButton", FVector2D(0.08515f, 0.075f), "OPTIONS", FVector2D(0.733f, 0.4f));
+    mBtnOption = CreateButton("Option", "BlueButton", FVector2D(0.08515f, 0.075f), "OPTIONS", FVector2D(0.73f, 0.4f));
     mBtnOption->GetTransform()->SetRelativePos(FVector2D(0.65625f, 0.048f));
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mOptionPanel);});
@@ -51,14 +51,14 @@ void CMainMenuWidget::Construct()
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->mCharSelectPanel->OnBackButton();});
 
-    CButton* btnStart = CreateButton("Start", "BlueButton", FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.533f, 0.625f));
+    CButton* btnStart = CreateButton("Start", "BlueButton", FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.53f, 0.63f));
     btnStart->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.653125f));
     btnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnStart->SetCornerRatio(2.0f);
     btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     btnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel);});
 
-    CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.823f, 0.575f));
+    CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.82f, 0.58f));
     btnPowerUp->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.8275f));
     btnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnPowerUp->SetCornerRatio(2.0f);
@@ -115,7 +115,7 @@ void CMainMenuWidget::HidePanel()
 CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
     CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
-    button->GetTransform()->SetWorldScale(buttonSize);
+    button->GetTransform()->SetRelativeScale(buttonSize);
     button->GetTransform()->SetPivot(0.5f, 0.5f);
     button->SetTexture("Texture_UIAtlas");
     button->SetFrame(buttonFrame);

@@ -12,7 +12,7 @@ CMenuUI::~CMenuUI()
 
 bool CMenuUI::Init()
 {
-    CImage* background = CWidgetUtils::AllocateWidget<CImage>("Image_BGImage");
+    CImage* background = CWidgetUtils::AllocateWidget<CImage>("Image_IntroBG");
     background->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
     background->SetTexture("Texture_IntroBG");
     background->SetFrame("IntroBG");

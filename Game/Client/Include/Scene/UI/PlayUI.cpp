@@ -12,9 +12,9 @@ CPlayUI::~CPlayUI()
 
 bool CPlayUI::Init()
 {
-    CPlayWidget* play = CWidgetUtils::AllocateWidget<CPlayWidget, 1>("UserWidget_Play");
-    play->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
-    AddWidget(play);
+    mPlay = CWidgetUtils::AllocateWidget<CPlayWidget, 1>("UserWidget_Play");
+    mPlay->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
+    AddWidget(mPlay);
 
     return true;
 }

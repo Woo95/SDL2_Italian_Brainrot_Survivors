@@ -69,6 +69,8 @@ void CPlayScene::LoadResources()
     LoadTexture("Texture_Sahur", "Sahur.png");
     LoadTexture("Texture_Bananini", "Bananini.png");
 
+    LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);
+
     LoadBGM("BGM_MadForest", "bgm_italian_brainrot.wav");
 
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");
