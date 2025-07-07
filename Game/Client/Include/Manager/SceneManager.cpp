@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include "../Scene/MenuScene.h"
 #include "../Scene/PlayScene.h"
+#include "../Scene/PauseScene.h"
 #include "MemoryPoolManager.h"
 #include "../Core/Transform.h"
 
@@ -141,6 +142,8 @@ CScene* CSceneManager::GetSceneFromState(ESceneState state)
 	case ESceneState::PLAY:
 		newScene = new CPlayScene;
 		break;
+	case ESceneState::PAUSE:
+		newScene = new CPauseScene;
 	default:
 		break;
 	}

@@ -4,7 +4,8 @@ enum class ESceneState : unsigned char
 {
 	NONE,
 	MENU,
-	PLAY
+	PLAY,
+	PAUSE
 };
 
 enum class ETransition : unsigned char

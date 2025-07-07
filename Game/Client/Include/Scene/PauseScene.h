@@ -2,13 +2,13 @@
 
 #include "Scene.h"
 
-class CPlayScene : public CScene
+class CPauseScene : public CScene
 {
     friend class CSceneManager;
 
 private:
-    CPlayScene();
-    virtual ~CPlayScene();
+    CPauseScene();
+    virtual ~CPauseScene();
 
 public:
     virtual bool Enter() final;

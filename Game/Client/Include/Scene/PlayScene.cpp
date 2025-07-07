@@ -2,10 +2,12 @@
 #include "../Manager/GameManager.h"
 #include "../Manager/Resource/AssetManager.h"
 #include "../Manager/Resource/SoundManager.h"
+#include "../Manager/SceneManager.h"
+#include "../Scene/UI/PlayUI.h"
 #include "../Scene/Camera.h"
 #include "Collision/SceneCollision.h"
 #include "../Entity/Object/AllObjects.h"
-#include "../Scene/UI/PlayUI.h"
+#include "../Core/Input.h"
 
 CPlayScene::CPlayScene()
 {
@@ -46,6 +48,14 @@ bool CPlayScene::Enter()
 bool CPlayScene::Exit()
 {
     return true;
+}
+
+void CPlayScene::Update(float deltaTime)
+{
+    CScene::Update(deltaTime);
+
+    if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
+        CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);
 }
 
 void CPlayScene::LoadResources()

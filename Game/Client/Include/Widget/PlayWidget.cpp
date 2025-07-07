@@ -1,5 +1,6 @@
 #include "PlayWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/SceneManager.h"
 
 CPlayWidget::CPlayWidget()
 {
@@ -18,6 +19,7 @@ void CPlayWidget::Construct()
     btnPause->SetTexture("Texture_UIAtlas");
     btnPause->SetFrame("PauseButton");
     btnPause->SetAlpha(120);
+    btnPause->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);});
     AddChild(btnPause);
 }
 
