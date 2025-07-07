@@ -33,6 +33,9 @@ bool CSceneManager::Init()
 
 void CSceneManager::Update(float deltaTime)
 {
+	if (mPending.transition != ETransition::NONE)
+		ChangeApply();
+
 	if (mScenes.empty())
 		return;
 
@@ -45,9 +48,6 @@ void CSceneManager::LateUpdate(float deltaTime)
 		return;
 
 	mScenes.back()->LateUpdate(deltaTime);
-
-	if (mPending.transition != ETransition::NONE)
-		ChangeApply();
 }
 
 void CSceneManager::Render(SDL_Renderer* renderer)
@@ -102,6 +102,7 @@ void CSceneManager::PopScene()
 	if (oldScene->Exit())
 	{
 		// 사용하지 않는 리소스들 언로드
+		oldScene->UnloadResources();
 		SAFE_DELETE(oldScene);
 		mScenes.pop_back();
 	}
@@ -125,7 +126,10 @@ void CSceneManager::ClearScenes()
 {
 	while (!mScenes.empty())
 	{
-		SAFE_DELETE(mScenes.back());
+		CScene* scene = mScenes.back();
+
+		scene->UnloadResources();
+		SAFE_DELETE(scene);
 		mScenes.pop_back();
 	}
 }
