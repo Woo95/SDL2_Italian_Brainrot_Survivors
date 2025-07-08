@@ -666,14 +666,8 @@
     <ClInclude Include="Scene\UI\PlayUI.h">
       <Filter>Game\01. Scenes\02. Play</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\PlayWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\PauseScene.h">
       <Filter>Game\01. Scenes\03. Pause</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\PauseWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\PauseUI.h">
       <Filter>Game\01. Scenes\03. Pause</Filter>
@@ -881,15 +875,9 @@
     <ClCompile Include="Scene\UI\PlayUI.cpp">
       <Filter>Game\01. Scenes\02. Play</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\PlayWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
-    </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Scene\PauseScene.cpp">
       <Filter>Game\01. Scenes\03. Pause</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\PauseWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\PauseUI.cpp">
       <Filter>Game\01. Scenes\03. Pause</Filter>

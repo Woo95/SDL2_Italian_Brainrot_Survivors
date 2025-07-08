@@ -16,7 +16,3 @@
 #include "CharSlotWidget.h"
 #include "CharInfoWidget.h"
 #include "SelectHighlightWidget.h"
-
-#include "PlayWidget.h"
-
-#include "PauseWidget.h"

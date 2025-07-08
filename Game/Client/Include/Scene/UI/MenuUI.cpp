@@ -1,6 +1,6 @@
 #include "MenuUI.h"
-#include "../../Manager/GameManager.h"
 #include "../../Widget/AllWidgets.h"
+#include "../../Manager/GameManager.h"
 
 CMenuUI::CMenuUI()
 {

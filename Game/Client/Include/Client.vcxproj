@@ -26,9 +26,7 @@
     <ClInclude Include="Manager\GameData\GameDataManager.h" />
     <ClInclude Include="Manager\GameData\InfoManager.h" />
     <ClInclude Include="Scene\UI\PauseUI.h" />
-    <ClInclude Include="Widget\PauseWidget.h" />
     <ClInclude Include="Scene\PauseScene.h" />
-    <ClInclude Include="Widget\PlayWidget.h" />
     <ClInclude Include="Scene\UI\PlayUI.h" />
     <ClInclude Include="Widget\SlotWidget.h" />
     <ClInclude Include="Widget\SelectHighlightWidget.h" />
@@ -202,9 +200,7 @@
     <ClCompile Include="Manager\GameData\GameDataManager.cpp" />
     <ClCompile Include="Entity\Object\Tralala.cpp" />
     <ClCompile Include="Scene\UI\PauseUI.cpp" />
-    <ClCompile Include="Widget\PauseWidget.cpp" />
     <ClCompile Include="Scene\PauseScene.cpp" />
-    <ClCompile Include="Widget\PlayWidget.cpp" />
     <ClCompile Include="Scene\UI\PlayUI.cpp" />
     <ClCompile Include="Widget\SelectHighlightWidget.cpp" />
     <ClCompile Include="Widget\CreditsPanelWidget.cpp" />
