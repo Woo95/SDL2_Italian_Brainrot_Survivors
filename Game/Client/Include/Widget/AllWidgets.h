@@ -18,3 +18,5 @@
 #include "SelectHighlightWidget.h"
 
 #include "PlayWidget.h"
+
+#include "PauseWidget.h"

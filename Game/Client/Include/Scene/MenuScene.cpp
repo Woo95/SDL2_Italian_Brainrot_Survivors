@@ -17,8 +17,6 @@ bool CMenuScene::Enter()
 {
     mSceneUI->Init();
 
-    CAssetManager::GetInst()->GetSoundManager()->SetVolume<CBGM>(0.1f);
-    CAssetManager::GetInst()->GetSoundManager()->SetVolume<CSFX>(0.1f);
     CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_TitleIntro")->Play();
 
     return true;

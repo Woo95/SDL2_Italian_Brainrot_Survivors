@@ -14,7 +14,7 @@ public:
     virtual bool Enter() final;
     virtual bool Exit()  final;
 
-    virtual void Update(float deltaTime);
+    virtual void Update(float deltaTime) final;
 
     virtual void LoadResources() final;
 };

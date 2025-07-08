@@ -14,5 +14,5 @@ private:
 	CPlayWidget* mPlay = nullptr;
 
 public:
-	virtual bool Init() override;
+	virtual bool Init() final;
 };

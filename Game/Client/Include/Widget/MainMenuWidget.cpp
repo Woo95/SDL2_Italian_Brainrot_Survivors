@@ -51,28 +51,29 @@ void CMainMenuWidget::Construct()
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->mCharSelectPanel->OnBackButton();});
 
-    CButton* btnStart = CreateButton("Start", "BlueButton", FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.53f, 0.63f));
-    btnStart->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.653125f));
-    btnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
-    btnStart->SetCornerRatio(2.0f);
-    btnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    btnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel);});
+    mBtnStart = CreateButton("Start", "BlueButton", FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.53f, 0.63f));
+    mBtnStart->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.653125f));
+    mBtnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnStart->SetCornerRatio(2.0f);
+    mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mBtnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel);});
 
-    CButton* btnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.82f, 0.58f));
-    btnPowerUp->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.8275f));
-    btnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
-    btnPowerUp->SetCornerRatio(2.0f);
-    btnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mBtnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.82f, 0.58f));
+    mBtnPowerUp->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.8275f));
+    mBtnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnPowerUp->SetCornerRatio(2.0f);
+    mBtnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
 
-    CButton* btnCredits = CreateButton("Credits", "BlueCircularButton", FVector2D(0.12f, 0.035f), "credits", FVector2D(0.6f, 0.8f));
-    btnCredits->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.945f));
-    btnCredits->Set9SlicingCorner(FVector2D(7.f, 7.f));
-    btnCredits->SetCornerRatio(2.0f);
-    btnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    btnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel);});
+    mBtnCredits = CreateButton("Credits", "BlueCircularButton", FVector2D(0.12f, 0.035f), "credits", FVector2D(0.6f, 0.8f));
+    mBtnCredits->FindWidget(std::hash<std::string>()("Text_Credits"))->GetTransform()->SetRelativePos(0.0f, 0.1f);
+    mBtnCredits->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.945f));
+    mBtnCredits->Set9SlicingCorner(FVector2D(7.f, 7.f));
+    mBtnCredits->SetCornerRatio(2.0f);
+    mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel);});
 
     mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
-    mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
+    mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));
     mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.119f));
     AddChild(mOptionPanel);
 
@@ -97,7 +98,10 @@ void CMainMenuWidget::Release()
 void CMainMenuWidget::ShowPanel(CWidget* panel)
 {
     mBtnQuit->Disable();
+    mBtnStart->Disable();
     mBtnOption->Disable();
+    mBtnPowerUp->Disable();
+    mBtnCredits->Disable();
     mBtnBack->Enable();
     panel->Enable();
 }
@@ -105,7 +109,10 @@ void CMainMenuWidget::ShowPanel(CWidget* panel)
 void CMainMenuWidget::HidePanel()
 {
     mBtnQuit->Enable();
+    mBtnStart->Enable();
     mBtnOption->Enable();
+    mBtnPowerUp->Enable();
+    mBtnCredits->Enable();
     mBtnBack->Disable();
     mOptionPanel->Disable();
     mCharSelectPanel->Disable();

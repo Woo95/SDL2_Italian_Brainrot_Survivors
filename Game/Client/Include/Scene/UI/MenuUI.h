@@ -18,7 +18,7 @@ private:
 	CMainMenuWidget* mMainMenu = nullptr;
 
 public:
-	virtual bool Init() override;
+	virtual bool Init() final;
 
 public:
 	void SetMenuState(EMenuUIState state);

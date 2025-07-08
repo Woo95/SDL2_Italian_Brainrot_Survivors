@@ -4,26 +4,19 @@
 
 class CButton;
 class COptionPanelWidget;
-class CCharSelectPanelWidget;
-class CCreditsPanelWidget;
 
-class CMainMenuWidget : public CUserWidget
+class CPauseWidget : public CUserWidget
 {
 public:
-	CMainMenuWidget();
-	virtual ~CMainMenuWidget();
+	CPauseWidget();
+	virtual ~CPauseWidget();
 
 private:
-	CButton* mBtnQuit    = nullptr;
-	CButton* mBtnOption  = nullptr;
-	CButton* mBtnBack    = nullptr;
-	CButton* mBtnStart   = nullptr;
-	CButton* mBtnPowerUp = nullptr;
-	CButton* mBtnCredits = nullptr;
+	CButton* mBtnQuit   = nullptr;
+	CButton* mBtnOption = nullptr;
+	CButton* mBtnResume = nullptr;
 
 	COptionPanelWidget* mOptionPanel = nullptr;
-	CCharSelectPanelWidget* mCharSelectPanel = nullptr;
-	CCreditsPanelWidget* mCreditsPanel = nullptr;
 
 protected:
 	virtual void Construct() override;
