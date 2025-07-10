@@ -151,6 +151,9 @@
     <Filter Include="Game\01. Scenes\03. Pause">
       <UniqueIdentifier>{5502f9c3-409e-4ed9-8adf-b3767a2918f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\01. Scenes\04. GameOver">
+      <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -672,6 +675,12 @@
     <ClInclude Include="Scene\UI\PauseUI.h">
       <Filter>Game\01. Scenes\03. Pause</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\GameOverScene.h">
+      <Filter>Game\01. Scenes\04. GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\UI\GameOverUI.h">
+      <Filter>Game\01. Scenes\04. GameOver</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -881,6 +890,12 @@
     </ClCompile>
     <ClCompile Include="Scene\UI\PauseUI.cpp">
       <Filter>Game\01. Scenes\03. Pause</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\GameOverScene.cpp">
+      <Filter>Game\01. Scenes\04. GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\UI\GameOverUI.cpp">
+      <Filter>Game\01. Scenes\04. GameOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

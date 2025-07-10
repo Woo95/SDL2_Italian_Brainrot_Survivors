@@ -12,18 +12,20 @@ CMenuUI::~CMenuUI()
 
 bool CMenuUI::Init()
 {
+    const FVector2D& resolution = CGameManager::GetInst()->GetResolution();
+
     CImage* background = CWidgetUtils::AllocateWidget<CImage>("Image_IntroBG");
-    background->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
+    background->GetTransform()->SetWorldScale(resolution);
     background->SetTexture("Texture_IntroBG");
     background->SetFrame("IntroBG");
     AddWidget(background);
 
     mPressToStart = CWidgetUtils::AllocateWidget<CPressToStartWidget, 1>("UserWidget_PressToStart");
-    mPressToStart->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
+    mPressToStart->GetTransform()->SetWorldScale(resolution);
     AddWidget(mPressToStart);
 
     mMainMenu = CWidgetUtils::AllocateWidget<CMainMenuWidget, 1>("UserWidget_MainMenu");
-    mMainMenu->GetTransform()->SetWorldScale(CGameManager::GetInst()->GetResolution());
+    mMainMenu->GetTransform()->SetWorldScale(resolution);
     AddWidget(mMainMenu);
 
     SetMenuState(EMenuUIState::PressToStart);
