@@ -11,6 +11,7 @@
 #include "PressToStartWidget.h"
 #include "MoneyHUDWidget.h"
 #include "OptionPanelWidget.h"
+#include "PowerUpSelectPanelWidget.h"
 #include "CreditsPanelWidget.h"
 #include "CharSelectPanelWidget.h"
 #include "CharSlotWidget.h"

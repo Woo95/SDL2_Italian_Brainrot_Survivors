@@ -2,6 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
+#include "../Core/Input.h"
 
 CMainMenuWidget::CMainMenuWidget()
 {
@@ -58,11 +59,12 @@ void CMainMenuWidget::Construct()
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel);});
 
-    mBtnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.82f, 0.58f));
+    mBtnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.80f, 0.50f));
     mBtnPowerUp->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.8275f));
     mBtnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mBtnPowerUp->SetCornerRatio(2.0f);
     mBtnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mBtnPowerUp->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mPowerUpSelectPanel);});
 
     mBtnCredits = CreateButton("Credits", "BlueCircularButton", FVector2D(0.12f, 0.035f), "credits", FVector2D(0.6f, 0.8f));
     mBtnCredits->FindWidget(std::hash<std::string>()("Text_Credits"))->GetTransform()->SetRelativePos(0.0f, 0.1f);
@@ -82,12 +84,32 @@ void CMainMenuWidget::Construct()
     mCharSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.0f, 0.119f));
     AddChild(mCharSelectPanel);
 
+    mPowerUpSelectPanel = CWidgetUtils::AllocateWidget<CPowerUpSelectPanelWidget, 1>("UserWidget_PowerUpSelectPanel");
+    mPowerUpSelectPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
+    mPowerUpSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.119f));
+    AddChild(mPowerUpSelectPanel);
+
     mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanelWidget, 1>("UserWidget_CreditsPanel");
     mCreditsPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
     mCreditsPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.119f));
     AddChild(mCreditsPanel);
 
     HidePanel();
+}
+
+void CMainMenuWidget::Update(float deltaTime)
+{
+    CUserWidget::Update(deltaTime);
+
+    if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
+    {
+        if (mOptionPanel->GetEnable() || mCharSelectPanel->GetEnable() || mPowerUpSelectPanel->GetEnable() || mCreditsPanel->GetEnable())
+        {
+            CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
+            HidePanel();
+            mCharSelectPanel->OnBackButton();
+        }
+    }
 }
 
 void CMainMenuWidget::Release()
@@ -116,6 +138,7 @@ void CMainMenuWidget::HidePanel()
     mBtnBack->Disable();
     mOptionPanel->Disable();
     mCharSelectPanel->Disable();
+    mPowerUpSelectPanel->Disable();
     mCreditsPanel->Disable();
 }
 

@@ -5,6 +5,7 @@
 class CButton;
 class COptionPanelWidget;
 class CCharSelectPanelWidget;
+class CPowerUpSelectPanelWidget;
 class CCreditsPanelWidget;
 
 class CMainMenuWidget : public CUserWidget
@@ -23,10 +24,12 @@ private:
 
 	COptionPanelWidget* mOptionPanel = nullptr;
 	CCharSelectPanelWidget* mCharSelectPanel = nullptr;
+	CPowerUpSelectPanelWidget* mPowerUpSelectPanel = nullptr;
 	CCreditsPanelWidget* mCreditsPanel = nullptr;
 
 protected:
 	virtual void Construct() override;
+	virtual void Update(float deltaTime) override;
 	virtual void Release() override;
 
 private:
