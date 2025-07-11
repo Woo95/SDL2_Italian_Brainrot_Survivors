@@ -37,9 +37,6 @@
     <Filter Include="Framework\02. Manager">
       <UniqueIdentifier>{2ca341f6-ad67-423f-b335-7b88c3472463}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\02. Manager\01. Resource">
-      <UniqueIdentifier>{5228a399-eda5-4edc-89b6-9fbe2f5701bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\01. Core">
       <UniqueIdentifier>{45893dea-8266-40b1-b6ce-64534ea7e696}</UniqueIdentifier>
     </Filter>
@@ -153,6 +150,15 @@
     </Filter>
     <Filter Include="Game\01. Scenes\04. GameOver">
       <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\Data">
+      <UniqueIdentifier>{c570d90b-d10d-4efb-8b9f-c1b852ca2f4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager\01. Data">
+      <UniqueIdentifier>{fdd86622-7b5d-4cc8-808b-89194f8f9b5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager\01. Data\01. Resource">
+      <UniqueIdentifier>{2b3de1e7-2a2d-490f-acb2-99bb82192459}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -450,15 +456,6 @@
     <ClInclude Include="Entity\EntityBase.h">
       <Filter>Framework\04. Entity</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Resource\AssetManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Resource\PathManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Resource\TextureManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClInclude>
     <ClInclude Include="Resource\Texture.h">
       <Filter>Framework\05. Resource</Filter>
     </ClInclude>
@@ -467,9 +464,6 @@
     </ClInclude>
     <ClInclude Include="Entity\Component\SpriteComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Resource\AnimationManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\Collider\BoxCollider.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
@@ -492,26 +486,14 @@
     <ClInclude Include="Scene\Camera.h">
       <Filter>Framework\03. Scene\03. Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\DataManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\UI\SceneUI.h">
       <Filter>Framework\03. Scene\04. UI</Filter>
     </ClInclude>
     <ClInclude Include="Widget\WidgetBase.h">
       <Filter>Framework\06. Widget</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Resource\UIManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Resource\SpriteManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClInclude>
     <ClInclude Include="Core\External\SDL\SDL_ttf.h">
       <Filter>Framework\01. Core\External\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Resource\FontManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClInclude>
     <ClInclude Include="Resource\Font.h">
       <Filter>Framework\05. Resource</Filter>
@@ -521,9 +503,6 @@
     </ClInclude>
     <ClInclude Include="Core\External\SDL\SDL_mixer.h">
       <Filter>Framework\01. Core\External\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Resource\SoundManager.h">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClInclude>
     <ClInclude Include="Resource\Sound\BGM.h">
       <Filter>Framework\05. Resource\Sound</Filter>
@@ -648,10 +627,10 @@
     <ClInclude Include="Widget\SlotWidget.h">
       <Filter>Game\02. UserWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\GameData\InfoManager.h">
+    <ClInclude Include="Manager\Data\GameData\InfoManager.h">
       <Filter>Game\04. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\GameData\GameDataManager.h">
+    <ClInclude Include="Manager\Data\GameData\GameDataManager.h">
       <Filter>Game\04. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\ScrollEnvObj.h">
@@ -680,6 +659,36 @@
     </ClInclude>
     <ClInclude Include="Scene\UI\GameOverUI.h">
       <Filter>Game\01. Scenes\04. GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PowerUpSelectPanelWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\DataLoader.h">
+      <Filter>Framework\01. Core\Lib\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\AnimationManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\AssetManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\FontManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\SoundManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\SpriteManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\TextureManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\Resource\UIManager.h">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\PathManager.h">
+      <Filter>Framework\02. Manager\01. Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -722,23 +731,11 @@
     <ClCompile Include="Manager\GameManager.cpp">
       <Filter>Framework\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\Resource\AssetManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Resource\PathManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Resource\TextureManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClCompile>
     <ClCompile Include="Resource\Texture.cpp">
       <Filter>Framework\05. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\SpriteComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Resource\AnimationManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\Collider\BoxCollider.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Collider</Filter>
@@ -761,23 +758,14 @@
     <ClCompile Include="Scene\Camera.cpp">
       <Filter>Framework\03. Scene\03. Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\DataManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\UI\SceneUI.cpp">
       <Filter>Framework\03. Scene\04. UI</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Resource\FontManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Font.cpp">
       <Filter>Framework\05. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\WidgetComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Widget</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Resource\SoundManager.cpp">
-      <Filter>Framework\02. Manager\01. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Sound\BGM.cpp">
       <Filter>Framework\05. Resource\Sound</Filter>
@@ -866,7 +854,7 @@
     <ClCompile Include="Widget\SelectHighlightWidget.cpp">
       <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\GameData\GameDataManager.cpp">
+    <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
       <Filter>Game\04. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
@@ -896,6 +884,30 @@
     </ClCompile>
     <ClCompile Include="Scene\UI\GameOverUI.cpp">
       <Filter>Game\01. Scenes\04. GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\DataLoader.cpp">
+      <Filter>Framework\01. Core\Lib\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\Resource\AnimationManager.cpp">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\Resource\AssetManager.cpp">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\Resource\FontManager.cpp">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\Resource\SoundManager.cpp">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\Resource\TextureManager.cpp">
+      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\PathManager.cpp">
+      <Filter>Framework\02. Manager\01. Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

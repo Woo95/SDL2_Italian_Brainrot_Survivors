@@ -1,7 +1,7 @@
 #include "PressToStartWidget.h"
 #include "TextBlock.h"
-#include "../Manager/Resource/AssetManager.h"
-#include "../Manager/Resource/SoundManager.h"
+#include "../Manager/Data/Resource/AssetManager.h"
+#include "../Manager/Data/Resource/SoundManager.h"
 #include "../Scene/UI/MenuUI.h"
 
 CPressToStartWidget::CPressToStartWidget()

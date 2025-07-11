@@ -1,6 +1,6 @@
 #include "AnimationManager.h"
-#include "../../Resource/Animation.h"
-#include "../MemoryPoolManager.h"
+#include "../../../Resource/Animation.h"
+#include "../../MemoryPoolManager.h"
 
 CAnimationManager::CAnimationManager()
 {

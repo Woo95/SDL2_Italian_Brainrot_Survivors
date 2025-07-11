@@ -19,14 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\DataLoader.h" />
+    <ClInclude Include="Widget\PowerUpSelectPanelWidget.h" />
     <ClInclude Include="Entity\Object\Bananini.h" />
     <ClInclude Include="Entity\Object\ScrollEnvObj.h" />
     <ClInclude Include="Entity\Object\Tralala.h" />
     <ClInclude Include="Entity\Component\InputComponent.h" />
     <ClInclude Include="Scene\UI\GameOverUI.h" />
     <ClInclude Include="Scene\GameOverScene.h" />
-    <ClInclude Include="Manager\GameData\GameDataManager.h" />
-    <ClInclude Include="Manager\GameData\InfoManager.h" />
+    <ClInclude Include="Manager\Data\GameData\GameDataManager.h" />
+    <ClInclude Include="Manager\Data\GameData\InfoManager.h" />
     <ClInclude Include="Scene\UI\PauseUI.h" />
     <ClInclude Include="Scene\PauseScene.h" />
     <ClInclude Include="Scene\UI\PlayUI.h" />
@@ -56,10 +58,10 @@
     <ClInclude Include="Scene\MenuScene.h" />
     <ClInclude Include="Resource\Sound\BGM.h" />
     <ClInclude Include="Resource\Font.h" />
-    <ClInclude Include="Manager\Resource\FontManager.h" />
-    <ClInclude Include="Manager\Resource\SpriteManager.h" />
+    <ClInclude Include="Manager\Data\Resource\FontManager.h" />
+    <ClInclude Include="Manager\Data\Resource\SpriteManager.h" />
     <ClInclude Include="Entity\Component\WidgetComponent.h" />
-    <ClInclude Include="Manager\Resource\SoundManager.h" />
+    <ClInclude Include="Manager\Data\Resource\SoundManager.h" />
     <ClInclude Include="Resource\Sound\SFX.h" />
     <ClInclude Include="Entity\Component\Rigidbody.h" />
     <ClInclude Include="Manager\PhysicsManager.h" />
@@ -70,19 +72,18 @@
     <ClInclude Include="Widget\AnimatedImage.h" />
     <ClInclude Include="Core\Utils\WidgetUtils.h" />
     <ClInclude Include="Widget\Image.h" />
-    <ClInclude Include="Manager\Resource\UIManager.h" />
+    <ClInclude Include="Manager\Data\Resource\UIManager.h" />
     <ClInclude Include="Widget\Button.h" />
     <ClInclude Include="Core\Utils\InputUtils.h" />
-    <ClInclude Include="Manager\DataManager.h" />
     <ClInclude Include="Scene\UI\SceneUI.h" />
     <ClInclude Include="Scene\Camera.h" />
     <ClInclude Include="Core\Utils\AniUtils.h" />
     <ClInclude Include="Core\Utils\LayerUtils.h" />
     <ClInclude Include="Scene\Layer.h" />
-    <ClInclude Include="Manager\Resource\AnimationManager.h" />
+    <ClInclude Include="Manager\Data\Resource\AnimationManager.h" />
     <ClInclude Include="Resource\Animation.h" />
     <ClInclude Include="Core\External\SDL\SDL_image.h" />
-    <ClInclude Include="Manager\Resource\AssetManager.h" />
+    <ClInclude Include="Manager\Data\Resource\AssetManager.h" />
     <ClInclude Include="Core\ColliderPair.h" />
     <ClInclude Include="Core\RefCounter.h" />
     <ClInclude Include="Core\SharedPtr.h" />
@@ -181,14 +182,14 @@
     <ClInclude Include="Manager\MemoryPoolManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Entity\Component\MovementComponent.h" />
-    <ClInclude Include="Manager\Resource\PathManager.h" />
+    <ClInclude Include="Manager\Data\PathManager.h" />
     <ClInclude Include="Scene\Collision\QTNode.h" />
     <ClInclude Include="Scene\Collision\QuadTree.h" />
     <ClInclude Include="Scene\Collision\SceneCollision.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Core\Transform.h" />
     <ClInclude Include="Core\Vector2D.h" />
-    <ClInclude Include="Manager\Resource\TextureManager.h" />
+    <ClInclude Include="Manager\Data\Resource\TextureManager.h" />
     <ClInclude Include="Resource\Texture.h" />
     <ClInclude Include="Entity\Component\SpriteComponent.h" />
     <ClInclude Include="Widget\WidgetBase.h" />
@@ -196,12 +197,14 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\DataLoader.cpp" />
+    <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp" />
     <ClCompile Include="Entity\Object\Bananini.cpp" />
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp" />
     <ClCompile Include="Entity\Component\InputComponent.cpp" />
     <ClCompile Include="Scene\UI\GameOverUI.cpp" />
     <ClCompile Include="Scene\GameOverScene.cpp" />
-    <ClCompile Include="Manager\GameData\GameDataManager.cpp" />
+    <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp" />
     <ClCompile Include="Entity\Object\Tralala.cpp" />
     <ClCompile Include="Scene\UI\PauseUI.cpp" />
     <ClCompile Include="Scene\PauseScene.cpp" />
@@ -224,9 +227,9 @@
     <ClCompile Include="Scene\MenuScene.cpp" />
     <ClCompile Include="Resource\Sound\BGM.cpp" />
     <ClCompile Include="Resource\Font.cpp" />
-    <ClCompile Include="Manager\Resource\FontManager.cpp" />
+    <ClCompile Include="Manager\Data\Resource\FontManager.cpp" />
     <ClCompile Include="Entity\Component\WidgetComponent.cpp" />
-    <ClCompile Include="Manager\Resource\SoundManager.cpp" />
+    <ClCompile Include="Manager\Data\Resource\SoundManager.cpp" />
     <ClCompile Include="Resource\Sound\SFX.cpp" />
     <ClCompile Include="Entity\Component\Rigidbody.cpp" />
     <ClCompile Include="Manager\PhysicsManager.cpp" />
@@ -236,13 +239,12 @@
     <ClCompile Include="Widget\AnimatedImage.cpp" />
     <ClCompile Include="Widget\Image.cpp" />
     <ClCompile Include="Widget\Button.cpp" />
-    <ClCompile Include="Manager\DataManager.cpp" />
     <ClCompile Include="Scene\UI\SceneUI.cpp" />
     <ClCompile Include="Scene\Camera.cpp" />
     <ClCompile Include="Scene\Layer.cpp" />
-    <ClCompile Include="Manager\Resource\AnimationManager.cpp" />
+    <ClCompile Include="Manager\Data\Resource\AnimationManager.cpp" />
     <ClCompile Include="Resource\Animation.cpp" />
-    <ClCompile Include="Manager\Resource\AssetManager.cpp" />
+    <ClCompile Include="Manager\Data\Resource\AssetManager.cpp" />
     <ClCompile Include="Entity\Component\Collider\CircleCollider.cpp" />
     <ClCompile Include="Entity\Component\Collider\BoxCollider.cpp" />
     <ClCompile Include="Manager\CollisionManager.cpp" />
@@ -257,13 +259,13 @@
     <ClCompile Include="Manager\MemoryPoolManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Entity\Component\MovementComponent.cpp" />
-    <ClCompile Include="Manager\Resource\PathManager.cpp" />
+    <ClCompile Include="Manager\Data\PathManager.cpp" />
     <ClCompile Include="Scene\Collision\QTNode.cpp" />
     <ClCompile Include="Scene\Collision\QuadTree.cpp" />
     <ClCompile Include="Scene\Collision\SceneCollision.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Core\Transform.cpp" />
-    <ClCompile Include="Manager\Resource\TextureManager.cpp" />
+    <ClCompile Include="Manager\Data\Resource\TextureManager.cpp" />
     <ClCompile Include="Resource\Texture.cpp" />
     <ClCompile Include="Entity\Component\SpriteComponent.cpp" />
     <ClCompile Include="Widget\UserWidget.cpp" />

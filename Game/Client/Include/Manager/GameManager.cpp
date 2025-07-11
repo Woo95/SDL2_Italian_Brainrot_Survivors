@@ -1,14 +1,14 @@
 #include "GameManager.h"
 #include "../Core/Timer.h"
 #include "../Core/Input.h"
-#include "SceneManager.h"
 #include "MemoryPoolManager.h"
+#include "Data/PathManager.h"
+#include "Data/Resource/AssetManager.h"
+#include "Data/GameData/GameDataManager.h"
+#include "../Core/DataLoader.h"
 #include "CollisionManager.h"
 #include "PhysicsManager.h"
-#include "Resource/PathManager.h"
-#include "Resource/AssetManager.h"
-#include "GameData/GameDataManager.h"
-#include "DataManager.h"
+#include "SceneManager.h"
 
 CGameManager* CGameManager::mInst = nullptr;
 
@@ -25,8 +25,6 @@ CGameManager::~CGameManager()
     CCollisionManager::DestroyInst();
 
     CInput::DestroyInst();
-    
-    CDataManager::DestroyInst();
 
     CGameDataManager::DestroyInst();
 
@@ -58,6 +56,9 @@ bool CGameManager::Init()
 
     CTimer::Init();
 
+    if (!CInput::GetInst()->Init())
+        return false;
+
     if (!CPathManager::GetInst()->Init())
         return false;
 
@@ -67,10 +68,8 @@ bool CGameManager::Init()
     if (!CGameDataManager::GetInst()->Init())
         return false;
 
-    if (!CDataManager::GetInst()->Init())
-        return false;
-    
-    if (!CInput::GetInst()->Init())
+    CDataLoader dataLoader;
+    if (!dataLoader.Init())
         return false;
 
     if (!CCollisionManager::GetInst()->Init())

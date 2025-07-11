@@ -19,4 +19,3 @@ bool CGameDataManager::Init()
 
 	return true;
 }
-

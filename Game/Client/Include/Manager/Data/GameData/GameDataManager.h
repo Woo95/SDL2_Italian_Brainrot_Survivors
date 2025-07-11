@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Core/GameInfo.h"
+#include "../../../Core/GameInfo.h"
 
 class CGameDataManager
 {
@@ -19,8 +19,7 @@ private:
 	bool Init();
 
 public:
-	CInfoManager* GetInfoManager()   const { return mInfoManager; }
-
+	CInfoManager* GetInfoManager() const { return mInfoManager; }
 
 public:
 	static CGameDataManager* GetInst()

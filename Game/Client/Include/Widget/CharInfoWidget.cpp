@@ -1,7 +1,7 @@
 #include "CharInfoWidget.h"
 #include "AllWidgets.h"
-#include "../Manager/GameData/GameDataManager.h"
-#include "../Manager/GameData/InfoManager.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/InfoManager.h"
 
 CCharInfoWidget::CCharInfoWidget()
 {

@@ -1,6 +1,6 @@
 #include "MenuScene.h"
-#include "../Manager/Resource/AssetManager.h"
-#include "../Manager/Resource/SoundManager.h"
+#include "../Manager/Data/Resource/AssetManager.h"
+#include "../Manager/Data/Resource/SoundManager.h"
 #include "../Scene/UI/MenuUI.h"
 
 CMenuScene::CMenuScene()

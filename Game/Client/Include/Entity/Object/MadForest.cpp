@@ -52,7 +52,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetRelativeScale(1.0f, 0.345f);
 	evnObj->GetComponent<CBoxCollider>()->GetTransform()->SetPivot(0.5f, -1.0f);
 
-	evnObj = mScene->InstantiateObject<CScrollEnvObj, 40>("EvnObj_Gravestone2", ELayer::OBJECT);
+	evnObj = mScene->InstantiateObject<CScrollEnvObj>("EvnObj_Gravestone2", ELayer::OBJECT);
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(31.75f, 50.35f);
 	evnObj->GetTransform()->SetWorldPos(410.0f, 127.5f);

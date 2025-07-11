@@ -1,29 +1,28 @@
-#include "DataManager.h"
-#include "Resource/PathManager.h"
-#include "Resource/AssetManager.h"
-#include "Resource/SpriteManager.h"
-#include "Resource/AnimationManager.h"
-#include "Resource/UIManager.h"
-#include "../Resource/Animation.h"
-#include "GameData/GameDataManager.h"
-#include "GameData/InfoManager.h"
+#include "DataLoader.h"
 #include <fstream> // for file input/output
 #include <sstream> // for stringstream
+#include "../Manager/Data/PathManager.h"
+#include "../Manager/Data/Resource/AssetManager.h"
+#include "../Manager/Data/Resource/SpriteManager.h"
+#include "../Manager/Data/Resource/AnimationManager.h"
+#include "../Resource/Animation.h"
+#include "../Manager/Data/Resource/UIManager.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/InfoManager.h"
 
-CDataManager* CDataManager::mInst = nullptr;
-
-CDataManager::CDataManager()
+CDataLoader::CDataLoader()
 {
 }
 
-CDataManager::~CDataManager()
+CDataLoader::~CDataLoader()
 {
 }
 
-bool CDataManager::Init()
+bool CDataLoader::Init()
 {
 	LoadAllEntityFrameData();
 	LoadAllEntityAnimationData();
+
 	LoadAllWidgetData();
 
 	LoadAllCharacterInfo();
@@ -31,7 +30,7 @@ bool CDataManager::Init()
 	return true;
 }
 
-std::vector<std::string> CDataManager::Split(const std::string& line, char delimiter)
+std::vector<std::string> CDataLoader::Split(const std::string& line, char delimiter)
 {
 	std::stringstream stream(line);
 
@@ -45,7 +44,7 @@ std::vector<std::string> CDataManager::Split(const std::string& line, char delim
 	return row;
 }
 
-void CDataManager::LoadAllEntityFrameData()
+void CDataLoader::LoadAllEntityFrameData()
 {
 	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
 	filePath += "Entity\\Frame.csv";
@@ -85,7 +84,7 @@ void CDataManager::LoadAllEntityFrameData()
 	file.close();
 }
 
-void CDataManager::LoadAllEntityAnimationData()
+void CDataLoader::LoadAllEntityAnimationData()
 {
 	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
 	filePath += "Entity\\Animation.csv";
@@ -144,7 +143,7 @@ void CDataManager::LoadAllEntityAnimationData()
 	file.close();
 }
 
-void CDataManager::LoadAllWidgetData()
+void CDataLoader::LoadAllWidgetData()
 {
 	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
 	filePath += "Widget\\Widget.csv";
@@ -184,7 +183,7 @@ void CDataManager::LoadAllWidgetData()
 	file.close();
 }
 
-void CDataManager::LoadAllCharacterInfo()
+void CDataLoader::LoadAllCharacterInfo()
 {
 	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
 	filePath += "GameData\\Info\\Characters.csv";

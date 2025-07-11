@@ -1,7 +1,7 @@
 #include "CharSlotWidget.h"
 #include "AllWidgets.h"
-#include "../Manager/Resource/AssetManager.h"
-#include "../Manager/Resource/SoundManager.h"
+#include "../Manager/Data/Resource/AssetManager.h"
+#include "../Manager/Data/Resource/SoundManager.h"
 
 CCharSlotWidget::CCharSlotWidget()
 {

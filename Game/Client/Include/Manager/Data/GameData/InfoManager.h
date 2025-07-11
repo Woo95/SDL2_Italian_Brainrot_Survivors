@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Core/GameInfo.h"
+#include "../../../Core/GameInfo.h"
 
 struct FCharacterInfo
 {
@@ -22,7 +22,7 @@ struct FItemInfo
 class CInfoManager
 {
 	friend class CGameDataManager;
-    friend class CDataManager;
+    friend class CDataLoader;
 
 private:
 	CInfoManager() = default;

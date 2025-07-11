@@ -2,8 +2,8 @@
 #include "../../Widget/AllWidgets.h"
 #include "../../Manager/GameManager.h"
 #include "../../Manager/SceneManager.h"
-#include "../../Manager/Resource/AssetManager.h"
-#include "../../Manager/Resource/SoundManager.h"
+#include "../../Manager/Data/Resource/AssetManager.h"
+#include "../../Manager/Data/Resource/SoundManager.h"
 
 CGameOverUI::CGameOverUI()
 {
