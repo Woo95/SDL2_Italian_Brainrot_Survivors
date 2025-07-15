@@ -690,6 +690,9 @@
     <ClInclude Include="Manager\Data\PathManager.h">
       <Filter>Framework\02. Manager\01. Data</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\ResultPanelWidget.h">
+      <Filter>Game\02. UserWidgets</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -908,6 +911,9 @@
     </ClCompile>
     <ClCompile Include="Manager\Data\PathManager.cpp">
       <Filter>Framework\02. Manager\01. Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\ResultPanelWidget.cpp">
+      <Filter>Game\02. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

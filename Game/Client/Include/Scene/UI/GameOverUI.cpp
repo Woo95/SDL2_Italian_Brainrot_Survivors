@@ -23,6 +23,12 @@ bool CGameOverUI::Init()
     background->SetFrame("IntroBG");
     AddWidget(background);
 
+    CResultPanelWidget* resultPanel = CWidgetUtils::AllocateWidget<CResultPanelWidget, 1>("UserWidget_ResultPanel");
+    resultPanel->GetTransform()->SetWorldScale(resolution * FVector2D(0.75f, 0.75f));
+    resultPanel->GetTransform()->SetWorldPos(resolution * FVector2D(0.5f, 0.425f));
+    resultPanel->GetTransform()->SetPivot(0.5f, 0.5f);
+    AddWidget(resultPanel);
+
     CButton* btnDone = CreateButton("Done", "BlueButton", resolution * FVector2D(0.17f, 0.09f), "DONE", FVector2D(0.45f, 0.55f));
     btnDone->GetTransform()->SetWorldPos(resolution * FVector2D(0.5f, 0.9f));
     btnDone->Set9SlicingCorner(FVector2D(10.f, 7.f));

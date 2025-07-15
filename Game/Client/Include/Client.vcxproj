@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\DataLoader.h" />
+    <ClInclude Include="Widget\ResultPanelWidget.h" />
     <ClInclude Include="Widget\PowerUpSelectPanelWidget.h" />
     <ClInclude Include="Entity\Object\Bananini.h" />
     <ClInclude Include="Entity\Object\ScrollEnvObj.h" />
@@ -198,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
+    <ClCompile Include="Widget\ResultPanelWidget.cpp" />
     <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp" />
     <ClCompile Include="Entity\Object\Bananini.cpp" />
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp" />

@@ -16,14 +16,14 @@ CMainMenuWidget::~CMainMenuWidget()
 void CMainMenuWidget::Construct()
 {
     CImage* menuTopBar = CWidgetUtils::AllocateWidget<CImage>("Image_MenuTopBar");
-    menuTopBar->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.09625f));
+    menuTopBar->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.1f));
     menuTopBar->SetTexture("Texture_UIAtlas");
     menuTopBar->SetFrame("MenuTopBar");
     menuTopBar->SetAlpha(180);
     AddChild(menuTopBar);
 
     CTextBlock* name = CWidgetUtils::AllocateWidget<CTextBlock>("Text_Name");
-    name->GetTransform()->SetRelativeScale(FVector2D(0.15625f, 0.05f));
+    name->GetTransform()->SetRelativeScale(FVector2D(0.15f, 0.05f));
     name->GetTransform()->SetRelativePos(FVector2D(0.03f, 0.024f));
     name->SetAlignment(ETextBlock::Alignment::CENTER);
     name->SetCharWidth(50.f);
@@ -76,22 +76,22 @@ void CMainMenuWidget::Construct()
 
     mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
     mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));
-    mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.119f));
+    mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mOptionPanel);
 
     mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharSelectPanelWidget, 1>("UserWidget_CharSelectPanel");
     mCharSelectPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.85f));
-    mCharSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.0f, 0.119f));
+    mCharSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.0f, 0.12f));
     AddChild(mCharSelectPanel);
 
     mPowerUpSelectPanel = CWidgetUtils::AllocateWidget<CPowerUpSelectPanelWidget, 1>("UserWidget_PowerUpSelectPanel");
     mPowerUpSelectPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
-    mPowerUpSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.119f));
+    mPowerUpSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mPowerUpSelectPanel);
 
     mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanelWidget, 1>("UserWidget_CreditsPanel");
     mCreditsPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
-    mCreditsPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.119f));
+    mCreditsPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mCreditsPanel);
 
     HidePanel();
