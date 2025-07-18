@@ -12,9 +12,9 @@ private:
 	~CGameDataManager();
 
 private:
-	CCharacterDataManager mCharacterDataManager;
-
 	static CGameDataManager* mInst;
+
+	CCharacterDataManager mCharacterDataManager;
 
 public:
 	CCharacterDataManager& GetCharacterDataManager() { return mCharacterDataManager; }
@@ -26,7 +26,6 @@ public:
 			mInst = new CGameDataManager;
 		return mInst;
 	}
-
 private:
 	static void DestroyInst()
 	{
