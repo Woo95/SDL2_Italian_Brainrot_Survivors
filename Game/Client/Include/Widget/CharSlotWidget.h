@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SlotWidget.h"
+#include "../Core/Utils/CharacterUtils.h"
 
 class CTextBlock;
 
@@ -11,6 +12,7 @@ public:
 	virtual ~CCharSlotWidget();
 
 private:
+	ECharacterType mCharType = ECharacterType::NONE;
 	CTextBlock* mCharName = nullptr;
 	std::string mSFX;
 
@@ -23,6 +25,9 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
+	ECharacterType GetCharType() const { return mCharType; }
+
+	void SetCharType(ECharacterType type);
 	void SetText(const std::string& name);
 	void SetSFX(const std::string& sfx);
 	void SetOnClick(std::function<void(CCharSlotWidget*)> callback);

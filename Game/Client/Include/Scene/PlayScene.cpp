@@ -3,6 +3,7 @@
 #include "../Manager/SceneManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Scene/UI/PlayUI.h"
 #include "../Scene/Camera.h"
 #include "Collision/SceneCollision.h"
@@ -38,7 +39,7 @@ bool CPlayScene::Enter()
     // Entity //
     InstantiateObject<CMadForest, 1>("Object_MadForest", ELayer::BACKGROUND);
 
-    CObject* player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
+    CObject* player = InstantiatePlayer();
 
     mCamera->SetTarget(player);
 
@@ -75,4 +76,23 @@ void CPlayScene::LoadResources()
 
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");
     LoadSFX("SFX_PressOut", "sfx_pressOut.wav");
+}
+
+CObject* CPlayScene::InstantiatePlayer()
+{
+    CObject* player = nullptr;
+
+    switch (CGameDataManager::GetInst()->GetPlayerData().GetSelectedCharacter())
+    {
+    case ECharacterType::TRALALA:
+        player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
+        break;
+    case ECharacterType::SAHUR:
+        player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
+        break;
+    case ECharacterType::BANANINI:
+        player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
+        break;
+    }
+    return player;
 }

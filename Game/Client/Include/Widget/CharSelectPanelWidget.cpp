@@ -2,6 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/SceneManager.h"
 
 CCharSelectPanelWidget::CCharSelectPanelWidget()
@@ -44,6 +45,7 @@ void CCharSelectPanelWidget::Construct()
     tralalaSlot->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() + offsetX + FVector2D(0.0f, 0.15f));
     tralalaSlot->SetText("Tralala");
     tralalaSlot->SetSFX("SFX_Character_Tralala");
+    tralalaSlot->SetCharType(ECharacterType::TRALALA);
     tralalaSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(tralalaSlot);
 
@@ -52,6 +54,7 @@ void CCharSelectPanelWidget::Construct()
     sahurSlot->GetTransform()->SetRelativePos(tralalaSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
     sahurSlot->SetText("Sahur");
     sahurSlot->SetSFX("SFX_Character_Sahur");
+    sahurSlot->SetCharType(ECharacterType::SAHUR);
     sahurSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(sahurSlot);
 
@@ -60,6 +63,7 @@ void CCharSelectPanelWidget::Construct()
     bananiniSlot->GetTransform()->SetRelativePos(sahurSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
     bananiniSlot->SetText("Bananini");
     bananiniSlot->SetSFX("SFX_Character_Bananini");
+    bananiniSlot->SetCharType(ECharacterType::BANANINI);
     bananiniSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(bananiniSlot);
 
@@ -118,6 +122,7 @@ CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, con
 
 void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
 {
+    CGameDataManager::GetInst()->GetPlayerData().SetSelectedCharacter(slot->GetCharType());
     mHighlight->SetSlot(slot);
     mDetail->ShowDetail(slot);
     mBtnStart->Disable();

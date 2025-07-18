@@ -52,6 +52,11 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
     }
 }
 
+void CCharSlotWidget::SetCharType(ECharacterType type)
+{
+    mCharType = type;
+}
+
 void CCharSlotWidget::SetText(const std::string& name)
 {
     mCharName->SetText(name);

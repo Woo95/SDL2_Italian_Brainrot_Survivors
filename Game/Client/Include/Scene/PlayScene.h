@@ -17,4 +17,7 @@ public:
     virtual void Update(float deltaTime) final;
 
     virtual void LoadResources() final;
+
+private:
+    CObject* InstantiatePlayer();
 };

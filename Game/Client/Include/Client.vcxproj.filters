@@ -163,6 +163,12 @@
     <Filter Include="Game\01. Core">
       <UniqueIdentifier>{af1eeaa7-794e-4547-819a-16fa583c6b91}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\05. Manager\01. GameData">
+      <UniqueIdentifier>{4cfcf3fe-16f9-4d58-8629-22752a68b31b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\01. Core\Utils">
+      <UniqueIdentifier>{125d717f-733b-4dae-a7d1-8323f179b83e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -630,9 +636,6 @@
     <ClInclude Include="Widget\SlotWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Data\GameData\GameDataManager.h">
-      <Filter>Game\05. Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Object\ScrollEnvObj.h">
       <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClInclude>
@@ -694,10 +697,22 @@
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h">
-      <Filter>Game\05. Manager</Filter>
+      <Filter>Game\05. Manager\01. GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\GameData\GameDataManager.h">
+      <Filter>Game\05. Manager\01. GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h">
+      <Filter>Game\05. Manager\01. GameData</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\GameData\PlayerData.h">
+      <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utils\StatUtils.h">
-      <Filter>Game\01. Core</Filter>
+      <Filter>Game\01. Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\CharacterUtils.h">
+      <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -863,9 +878,6 @@
     <ClCompile Include="Widget\SelectHighlightWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
-      <Filter>Game\05. Manager</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
       <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClCompile>
@@ -920,6 +932,9 @@
     </ClCompile>
     <ClCompile Include="Widget\ResultPanelWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
+      <Filter>Game\05. Manager\01. GameData</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
