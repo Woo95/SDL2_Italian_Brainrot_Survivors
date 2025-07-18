@@ -1,7 +1,6 @@
 #include "CharInfoWidget.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/InfoManager.h"
 
 CCharInfoWidget::CCharInfoWidget()
 {
@@ -72,9 +71,9 @@ void CCharInfoWidget::Release()
 void CCharInfoWidget::ShowDetail(CCharSlotWidget* slot)
 {
     const std::string& key = slot->GetName();
-    const FCharacterInfo* characterInfo = CGameDataManager::GetInst()->GetInfoManager()->GetCharacterInfo(key);
+    const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager().GetCharacterData(key);
 
-    mName->SetText(characterInfo->name);
-    mDescription1->SetText(characterInfo->description1);
-    mDescription2->SetText(characterInfo->description2);
+    mName->SetText(characterData.firstName + " " + characterData.lastName);
+    mDescription1->SetText(characterData.description1);
+    mDescription2->SetText(characterData.description2);
 }

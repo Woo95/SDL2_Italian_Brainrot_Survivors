@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Utils\StatUtils.h" />
+    <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h" />
     <ClInclude Include="Core\DataLoader.h" />
     <ClInclude Include="Widget\ResultPanelWidget.h" />
     <ClInclude Include="Widget\PowerUpSelectPanelWidget.h" />
@@ -29,7 +31,6 @@
     <ClInclude Include="Scene\UI\GameOverUI.h" />
     <ClInclude Include="Scene\GameOverScene.h" />
     <ClInclude Include="Manager\Data\GameData\GameDataManager.h" />
-    <ClInclude Include="Manager\Data\GameData\InfoManager.h" />
     <ClInclude Include="Scene\UI\PauseUI.h" />
     <ClInclude Include="Scene\PauseScene.h" />
     <ClInclude Include="Scene\UI\PlayUI.h" />

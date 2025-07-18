@@ -91,18 +91,6 @@
     <Filter Include="Framework\03. Scene\04. UI">
       <UniqueIdentifier>{81d21286-dc7b-475b-91d0-cb58d4517747}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\01. Scenes">
-      <UniqueIdentifier>{c57d5f5f-65c0-4d6d-b084-a2fe4fd50c26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\01. Scenes\01. Menu">
-      <UniqueIdentifier>{804796d2-4f80-4bfd-9481-ea3c881619f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\01. Scenes\02. Play">
-      <UniqueIdentifier>{c23aa1c8-628b-4094-965a-45b3da21b13e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\02. UserWidgets">
-      <UniqueIdentifier>{e569e8fb-ad9d-4334-ae14-1f64ad2abb66}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\06. Widget\01. Widgets\AnimatedImage">
       <UniqueIdentifier>{64fce126-e471-4ad4-89af-7bdd8efc53ce}</UniqueIdentifier>
     </Filter>
@@ -124,32 +112,8 @@
     <Filter Include="Framework\06. Widget\00. UserWidget">
       <UniqueIdentifier>{bccdbab3-76b7-4a15-92fd-52b9cc8437e3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\03. Entity">
-      <UniqueIdentifier>{c975c223-c0ef-4c16-bdab-a78723605b31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. Entity\01. Object">
-      <UniqueIdentifier>{09e36b8f-abb1-485f-82d2-3b87ab06f51f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. Entity\02. Component">
-      <UniqueIdentifier>{9ceeea20-6648-49f5-9302-5290fbbba191}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. Entity\01. Object\Player">
-      <UniqueIdentifier>{e2280d53-d31c-44c4-8522-9dfeeb7cdebf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. Entity\01. Object\Map">
-      <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\04. Manager">
-      <UniqueIdentifier>{18494aaa-50d5-4b20-927a-4c6642a2469b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\04. Entity\02. Component\01. Components\Input">
       <UniqueIdentifier>{4b538719-c4d7-4ad1-a0ac-d9092097bcd1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\01. Scenes\03. Pause">
-      <UniqueIdentifier>{5502f9c3-409e-4ed9-8adf-b3767a2918f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\01. Scenes\04. GameOver">
-      <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Framework\01. Core\Lib\Data">
       <UniqueIdentifier>{c570d90b-d10d-4efb-8b9f-c1b852ca2f4e}</UniqueIdentifier>
@@ -159,6 +123,45 @@
     </Filter>
     <Filter Include="Framework\02. Manager\01. Data\01. Resource">
       <UniqueIdentifier>{2b3de1e7-2a2d-490f-acb2-99bb82192459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Scenes">
+      <UniqueIdentifier>{c57d5f5f-65c0-4d6d-b084-a2fe4fd50c26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Scenes\01. Menu">
+      <UniqueIdentifier>{804796d2-4f80-4bfd-9481-ea3c881619f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Scenes\02. Play">
+      <UniqueIdentifier>{c23aa1c8-628b-4094-965a-45b3da21b13e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Scenes\03. Pause">
+      <UniqueIdentifier>{5502f9c3-409e-4ed9-8adf-b3767a2918f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Scenes\04. GameOver">
+      <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets">
+      <UniqueIdentifier>{e569e8fb-ad9d-4334-ae14-1f64ad2abb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. Entity">
+      <UniqueIdentifier>{c975c223-c0ef-4c16-bdab-a78723605b31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. Entity\01. Object">
+      <UniqueIdentifier>{09e36b8f-abb1-485f-82d2-3b87ab06f51f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. Entity\01. Object\Player">
+      <UniqueIdentifier>{e2280d53-d31c-44c4-8522-9dfeeb7cdebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. Entity\01. Object\Map">
+      <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. Entity\02. Component">
+      <UniqueIdentifier>{9ceeea20-6648-49f5-9302-5290fbbba191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Manager">
+      <UniqueIdentifier>{18494aaa-50d5-4b20-927a-4c6642a2469b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\01. Core">
+      <UniqueIdentifier>{af1eeaa7-794e-4547-819a-16fa583c6b91}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -544,22 +547,22 @@
       <Filter>Framework\06. Widget</Filter>
     </ClInclude>
     <ClInclude Include="Scene\MenuScene.h">
-      <Filter>Game\01. Scenes\01. Menu</Filter>
+      <Filter>Game\02. Scenes\01. Menu</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\MenuUI.h">
-      <Filter>Game\01. Scenes\01. Menu</Filter>
+      <Filter>Game\02. Scenes\01. Menu</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PressToStartWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\MainMenuWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\MoneyHUDWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Scene\PlayScene.h">
-      <Filter>Game\01. Scenes\02. Play</Filter>
+      <Filter>Game\02. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\Component.h">
       <Filter>Framework\04. Entity\02. Component</Filter>
@@ -589,79 +592,76 @@
       <Filter>Framework\06. Widget\00. UserWidget</Filter>
     </ClInclude>
     <ClInclude Include="Widget\OptionPanelWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\MadForest.h">
-      <Filter>Game\03. Entity\01. Object\Map</Filter>
+      <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\AllComponents.h">
       <Filter>Framework\04. Entity\02. Component</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\ScrollMapComponent.h">
-      <Filter>Game\03. Entity\02. Component</Filter>
+      <Filter>Game\04. Entity\02. Component</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Player.h">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Sahur.h">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\AllObjects.h">
       <Filter>Framework\04. Entity\01. Object</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharSelectPanelWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharSlotWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharInfoWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CreditsPanelWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\SelectHighlightWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\SlotWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Data\GameData\InfoManager.h">
-      <Filter>Game\04. Manager</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\GameData\GameDataManager.h">
-      <Filter>Game\04. Manager</Filter>
+      <Filter>Game\05. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\ScrollEnvObj.h">
-      <Filter>Game\03. Entity\01. Object\Map</Filter>
+      <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Bananini.h">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Tralala.h">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\InputComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\PlayUI.h">
-      <Filter>Game\01. Scenes\02. Play</Filter>
+      <Filter>Game\02. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Scene\PauseScene.h">
-      <Filter>Game\01. Scenes\03. Pause</Filter>
+      <Filter>Game\02. Scenes\03. Pause</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\PauseUI.h">
-      <Filter>Game\01. Scenes\03. Pause</Filter>
+      <Filter>Game\02. Scenes\03. Pause</Filter>
     </ClInclude>
     <ClInclude Include="Scene\GameOverScene.h">
-      <Filter>Game\01. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\GameOverUI.h">
-      <Filter>Game\01. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpSelectPanelWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Core\DataLoader.h">
       <Filter>Framework\01. Core\Lib\Data</Filter>
@@ -691,7 +691,13 @@
       <Filter>Framework\02. Manager\01. Data</Filter>
     </ClInclude>
     <ClInclude Include="Widget\ResultPanelWidget.h">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h">
+      <Filter>Game\05. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\StatUtils.h">
+      <Filter>Game\01. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -783,22 +789,22 @@
       <Filter>Framework\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Scene\MenuScene.cpp">
-      <Filter>Game\01. Scenes\01. Menu</Filter>
+      <Filter>Game\02. Scenes\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\MenuUI.cpp">
-      <Filter>Game\01. Scenes\01. Menu</Filter>
+      <Filter>Game\02. Scenes\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PressToStartWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\MainMenuWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\MoneyHUDWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Scene\PlayScene.cpp">
-      <Filter>Game\01. Scenes\02. Play</Filter>
+      <Filter>Game\02. Scenes\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\Component.cpp">
       <Filter>Framework\04. Entity\02. Component</Filter>
@@ -828,68 +834,68 @@
       <Filter>Framework\06. Widget\00. UserWidget</Filter>
     </ClCompile>
     <ClCompile Include="Widget\OptionPanelWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\MadForest.cpp">
-      <Filter>Game\03. Entity\01. Object\Map</Filter>
+      <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\ScrollMapComponent.cpp">
-      <Filter>Game\03. Entity\02. Component</Filter>
+      <Filter>Game\04. Entity\02. Component</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Player.cpp">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Sahur.cpp">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharSelectPanelWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharSlotWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharInfoWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CreditsPanelWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\SelectHighlightWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
-      <Filter>Game\04. Manager</Filter>
+      <Filter>Game\05. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
-      <Filter>Game\03. Entity\01. Object\Map</Filter>
+      <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Bananini.cpp">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Tralala.cpp">
-      <Filter>Game\03. Entity\01. Object\Player</Filter>
+      <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\InputComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\PlayUI.cpp">
-      <Filter>Game\01. Scenes\02. Play</Filter>
+      <Filter>Game\02. Scenes\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Scene\PauseScene.cpp">
-      <Filter>Game\01. Scenes\03. Pause</Filter>
+      <Filter>Game\02. Scenes\03. Pause</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\PauseUI.cpp">
-      <Filter>Game\01. Scenes\03. Pause</Filter>
+      <Filter>Game\02. Scenes\03. Pause</Filter>
     </ClCompile>
     <ClCompile Include="Scene\GameOverScene.cpp">
-      <Filter>Game\01. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\GameOverUI.cpp">
-      <Filter>Game\01. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Core\DataLoader.cpp">
       <Filter>Framework\01. Core\Lib\Data</Filter>
@@ -913,7 +919,7 @@
       <Filter>Framework\02. Manager\01. Data</Filter>
     </ClCompile>
     <ClCompile Include="Widget\ResultPanelWidget.cpp">
-      <Filter>Game\02. UserWidgets</Filter>
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

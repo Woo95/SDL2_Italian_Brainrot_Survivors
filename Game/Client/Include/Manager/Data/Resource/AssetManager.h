@@ -39,6 +39,8 @@ public:
 			mInst = new CAssetManager;
 		return mInst;
 	}
+
+private:
 	static void DestroyInst()
 	{
 		SAFE_DELETE(mInst);

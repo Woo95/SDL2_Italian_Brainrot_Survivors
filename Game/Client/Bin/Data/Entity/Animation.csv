@@ -1,4 +1,4 @@
-#Name,"#Type {NONE, TIME, MOVE}","#State {NONE, IDLE, WALK, JUMP}",#Loop (TRUE/FALSE),#IntervalPerFrame (float),#FrameCount (int)
+#Key,"#Type {NONE, TIME, MOVE}","#State {NONE, IDLE, WALK, JUMP}",#Loop (TRUE/FALSE),#IntervalPerFrame (float),#FrameCount (int)
 Tralala,2,2,1,150,4,"3, 1, 62, 45","69, 1, 62, 45","135, 1, 62, 45","201, 1, 62, 45"
 Sahur,2,2,1,150,4,"5, 1, 38, 45","49, 1, 38, 45","94, 1, 38, 45","138, 1, 38, 45"
 Bananini,2,2,1,150,4,"5, 1, 59, 50","70, 1, 59, 50","135, 1, 59, 50","200, 1, 59, 50"

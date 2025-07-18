@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../../../Core/GameInfo.h"
+#include "CharacterDataManager.h"
 
 class CGameDataManager
 {
@@ -11,15 +12,12 @@ private:
 	~CGameDataManager();
 
 private:
-	class CInfoManager* mInfoManager;
+	CCharacterDataManager mCharacterDataManager;
 
 	static CGameDataManager* mInst;
 
-private:
-	bool Init();
-
 public:
-	CInfoManager* GetInfoManager() const { return mInfoManager; }
+	CCharacterDataManager& GetCharacterDataManager() { return mCharacterDataManager; }
 
 public:
 	static CGameDataManager* GetInst()
@@ -28,6 +26,8 @@ public:
 			mInst = new CGameDataManager;
 		return mInst;
 	}
+
+private:
 	static void DestroyInst()
 	{
 		SAFE_DELETE(mInst);

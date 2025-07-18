@@ -8,7 +8,6 @@
 #include "../Resource/Animation.h"
 #include "../Manager/Data/Resource/UIManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/InfoManager.h"
 
 CDataLoader::CDataLoader()
 {
@@ -25,7 +24,7 @@ bool CDataLoader::Init()
 
 	LoadAllWidgetData();
 
-	LoadAllCharacterInfo();
+	LoadAllCharacterData();
 
 	return true;
 }
@@ -183,10 +182,10 @@ void CDataLoader::LoadAllWidgetData()
 	file.close();
 }
 
-void CDataLoader::LoadAllCharacterInfo()
+void CDataLoader::LoadAllCharacterData()
 {
 	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
-	filePath += "GameData\\Info\\Characters.csv";
+	filePath += "GameData\\CHARACTER_DATA.csv";
 
 	std::ifstream file(filePath);
 
@@ -196,7 +195,7 @@ void CDataLoader::LoadAllCharacterInfo()
 		return;
 	}
 
-	CInfoManager* IM = CGameDataManager::GetInst()->GetInfoManager();
+	CCharacterDataManager& CDM = CGameDataManager::GetInst()->GetCharacterDataManager();
 
 	std::string line;
 	while (std::getline(file, line))
@@ -209,14 +208,15 @@ void CDataLoader::LoadAllCharacterInfo()
 		const std::string& key = row[0];
 
 		{
-			FCharacterInfo info;
-			info.name = row[1];
-			info.description1 = row[2];
-			info.description2 = row[3];
-			info.character = row[4];
-			info.weapon = row[5];
+			FCharacterData data;
+			data.lastName = row[0];
+			data.firstName = row[1];
+			data.description1 = row[2];
+			data.description2 = row[3];
+			data.startingWeapon = row[4];
+			// stats to add later
 
-			IM->mCharacterInfo[key] = info;
+			CDM.mDatas[key] = data;
 		}
 		row.clear();
 	}

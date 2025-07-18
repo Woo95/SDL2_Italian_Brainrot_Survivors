@@ -19,5 +19,5 @@ private:
 	void LoadAllEntityAnimationData();
 	void LoadAllWidgetData();
 
-	void LoadAllCharacterInfo();
+	void LoadAllCharacterData();
 };
