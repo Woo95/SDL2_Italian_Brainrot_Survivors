@@ -2,6 +2,7 @@
 
 #include "../../../Core/GameInfo.h"
 #include "CharacterDataManager.h"
+#include "PowerUpDataManager.h"
 #include "PlayerData.h"
 
 class CGameDataManager
@@ -18,11 +19,13 @@ private:
 	CPlayerData mPlayerData;
 
 	CCharacterDataManager mCharacterDataManager;
+	CPowerUpDataManager   mPowerUpDataManager;
 
 public:
 	CPlayerData& GetPlayerData() { return mPlayerData; }
 
 	CCharacterDataManager& GetCharacterDataManager() { return mCharacterDataManager; }
+	CPowerUpDataManager&   GetPowerUpDataManager()   { return mPowerUpDataManager; }
 
 public:
 	static CGameDataManager* GetInst()

@@ -31,7 +31,6 @@ public:
 	CFontManager*      GetFontManager()      const { return mFontManager; }
 	CSoundManager*     GetSoundManager()     const { return mSoundManager; }
 
-
 public:
 	static CAssetManager* GetInst()
 	{
