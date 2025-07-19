@@ -3,6 +3,7 @@
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/PlayerData.h"
 #include "../Manager/SceneManager.h"
 
 CCharSelectPanelWidget::CCharSelectPanelWidget()
@@ -122,7 +123,7 @@ CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, con
 
 void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
 {
-    CGameDataManager::GetInst()->GetPlayerData().SetSelectedCharacter(slot->GetCharType());
+    CGameDataManager::GetInst()->GetPlayerData()->SetSelectedCharacter(slot->GetCharType());
     mHighlight->SetSlot(slot);
     mDetail->ShowDetail(slot);
     mBtnStart->Disable();

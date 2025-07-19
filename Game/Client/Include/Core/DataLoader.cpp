@@ -8,6 +8,7 @@
 #include "../Resource/Animation.h"
 #include "../Manager/Data/Resource/UIManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/CharacterDataManager.h"
 
 CDataLoader::CDataLoader()
 {
@@ -195,7 +196,7 @@ void CDataLoader::LoadAllCharacterData()
 		return;
 	}
 
-	CCharacterDataManager& CDM = CGameDataManager::GetInst()->GetCharacterDataManager();
+	CCharacterDataManager* CDM = CGameDataManager::GetInst()->GetCharacterDataManager();
 
 	std::string line;
 	while (std::getline(file, line))
@@ -216,7 +217,7 @@ void CDataLoader::LoadAllCharacterData()
 			data.startingWeapon = row[4];
 			// stats to add later
 
-			CDM.mDatas[key] = data;
+			CDM->mDatas[key] = data;
 		}
 		row.clear();
 	}

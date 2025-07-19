@@ -1,42 +1,46 @@
 #pragma once
 
 #include "../../../Core/GameInfo.h"
-#include "CharacterDataManager.h"
-#include "PowerUpDataManager.h"
-#include "PlayerData.h"
 
 class CGameDataManager
 {
 	friend class CGameManager;
 
 private:
-	CGameDataManager() = default;
-	~CGameDataManager() = default;
+	CGameDataManager() = delete;
+	CGameDataManager(void* memoryBlock);
+	~CGameDataManager();
 
 private:
 	static CGameDataManager* mInst;
 
-	CPlayerData mPlayerData;
-
-	CCharacterDataManager mCharacterDataManager;
-	CPowerUpDataManager   mPowerUpDataManager;
-
-public:
-	CPlayerData& GetPlayerData() { return mPlayerData; }
-
-	CCharacterDataManager& GetCharacterDataManager() { return mCharacterDataManager; }
-	CPowerUpDataManager&   GetPowerUpDataManager()   { return mPowerUpDataManager; }
+	class CPlayerData*           mPlayerData;
+	class CCharacterDataManager* mCharacterDataManager;
+	class CPowerUpDataManager*   mPowerUpDataManager;
 
 public:
-	static CGameDataManager* GetInst()
-	{
-		if (!mInst)
-			mInst = new CGameDataManager;
-		return mInst;
-	}
+	CPlayerData*           GetPlayerData()           const { return mPlayerData; }
+	CCharacterDataManager* GetCharacterDataManager() const { return mCharacterDataManager; }
+	CPowerUpDataManager*   GetPowerUpDataManager()   const { return mPowerUpDataManager; }
+
 private:
-	static void DestroyInst()
+	template <typename T>
+	T* PlacementNew(void*& memoryBlock)
 	{
-		SAFE_DELETE(mInst);
+		T* ptr = new (memoryBlock) T;
+		memoryBlock = (char*)memoryBlock + sizeof(T);
+
+		return ptr;
 	}
+	template <typename T>
+	void PlacementDelete(T*& ptr)
+	{
+		ptr->~T();
+		ptr = nullptr;
+	}
+
+public:
+	static CGameDataManager* GetInst();
+private:
+	static void DestroyInst();
 };
