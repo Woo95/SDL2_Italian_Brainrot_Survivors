@@ -62,9 +62,6 @@ bool CGameManager::Init()
     if (!CPathManager::GetInst()->Init())
         return false;
 
-    if (!CAssetManager::GetInst()->Init())
-        return false;
-
     CDataLoader dataLoader;
     if (!dataLoader.Init())
         return false;
