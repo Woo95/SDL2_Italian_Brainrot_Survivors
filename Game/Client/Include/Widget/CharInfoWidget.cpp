@@ -50,10 +50,8 @@ void CCharInfoWidget::Construct()
     AddChild(mDescription2);
 
     mCharacter = CWidgetUtils::AllocateWidget<CImage>("Image_DetailCharacter");
-    mCharacter->GetTransform()->SetRelativeScale(FVector2D(0.12f, 0.55f));
-    mCharacter->GetTransform()->SetRelativePos(0.07f, 2.0f);
-    mCharacter->SetTexture("Texture_UIAtlas");
-    mCharacter->SetFrame("Empty");
+    mCharacter->GetTransform()->SetRelativePos(0.035f, 5.85f);
+    mCharacter->GetTransform()->SetPivot(0.0f, 1.0f);
     AddChild(mCharacter);
 
     mWeaponBox = CWidgetUtils::AllocateWidget<CImage>("Image_DetailWeaponBox");
@@ -77,4 +75,7 @@ void CCharInfoWidget::ShowDetail(CCharSlotWidget* slot)
     mName->SetText(characterData.firstName + " " + characterData.lastName);
     mDescription1->SetText(characterData.description1);
     mDescription2->SetText(characterData.description2);
+    mCharacter->SetTexture("Texture_" + key);
+    mCharacter->SetFrame(key);
+    mCharacter->GetTransform()->SetWorldScale(slot->GetAnimatedImage()->GetTransform()->GetWorldScale());
 }
