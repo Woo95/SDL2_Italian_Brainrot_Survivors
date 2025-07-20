@@ -31,6 +31,10 @@ void CCharSlotWidget::Construct()
     mCharName->SetCharWidth(12.5f);
     mCharName->SetFont("Font64_CourierPrime_Regular");
     AddChild(mCharName);
+
+    mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("AnimatedImage_CharSlot");
+    mCharacter->SetAnimating(false);
+    AddChild(mCharacter);
 }
 
 void CCharSlotWidget::Release()
@@ -42,25 +46,14 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
 {
     if (isPressed)
     {
-        std::shared_ptr<CSFX> sfx = CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>(mSFX);
-
-        if (!sfx->IsPlaying())
-            sfx->Play();
-
         if (mOnClickCallback)
             mOnClickCallback(this);
     }
 }
 
-void CCharSlotWidget::SetCharType(ECharacterType type)
+void CCharSlotWidget::SetCharacterType(ECharacterType type)
 {
     mCharType = type;
-}
-
-void CCharSlotWidget::SetText(const std::string& name)
-{
-    mCharName->SetText(name);
-    SetName(name);
 }
 
 void CCharSlotWidget::SetSFX(const std::string& sfx)
@@ -71,6 +64,14 @@ void CCharSlotWidget::SetSFX(const std::string& sfx)
 void CCharSlotWidget::SetOnClick(std::function<void(CCharSlotWidget*)> callback)
 {
     mOnClickCallback = callback;
+}
+
+void CCharSlotWidget::PlaySFX()
+{
+    std::shared_ptr<CSFX> sfx = CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>(mSFX);
+
+    if (!sfx->IsPlaying())
+        sfx->Play();
 }
 
 void CCharSlotWidget::StopSFX()

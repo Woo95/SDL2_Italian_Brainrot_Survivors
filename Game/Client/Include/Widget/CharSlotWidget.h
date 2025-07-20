@@ -4,6 +4,7 @@
 #include "../Core/Utils/CharacterUtils.h"
 
 class CTextBlock;
+class CAnimatedImage;
 
 class CCharSlotWidget : public CSlotWidget
 {
@@ -13,6 +14,7 @@ public:
 
 private:
 	ECharacterType mCharType = ECharacterType::NONE;
+	CAnimatedImage* mCharacter = nullptr;
 	CTextBlock* mCharName = nullptr;
 	std::string mSFX;
 
@@ -26,11 +28,13 @@ protected:
 
 public:
 	ECharacterType GetCharType() const { return mCharType; }
+	CAnimatedImage* GetAnimatedImage() const { return mCharacter; }
+	CTextBlock* GetTextBlock() const { return mCharName; }
 
-	void SetCharType(ECharacterType type);
-	void SetText(const std::string& name);
+	void SetCharacterType(ECharacterType type);
 	void SetSFX(const std::string& sfx);
 	void SetOnClick(std::function<void(CCharSlotWidget*)> callback);
 
+	void PlaySFX();
 	void StopSFX();
 };

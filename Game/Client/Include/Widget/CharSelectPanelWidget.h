@@ -18,6 +18,7 @@ private:
 	CCharSlotWidget* mPrevSlot = nullptr;
 	CSelectHighlightWidget* mHighlight = nullptr;
 	CCharInfoWidget* mDetail = nullptr;
+	CButton* mBtnConfirm = nullptr;
 	CButton* mBtnStart = nullptr;
 
 protected:

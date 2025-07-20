@@ -39,51 +39,66 @@ void CCharSelectPanelWidget::Construct()
 
     ///// Slots /////
     const FVector2D slotScale = FVector2D(0.1f, 0.1882f);
-    const FVector2D offsetX = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.0869565f, 0.0f);
+    const FVector2D offsetX = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.087f, 0.0f);
 
     CCharSlotWidget* tralalaSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("SelectSlot_TralalaSlot");
     tralalaSlot->GetTransform()->SetRelativeScale(slotScale);
     tralalaSlot->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() + offsetX + FVector2D(0.0f, 0.15f));
-    tralalaSlot->SetText("Tralala");
+    tralalaSlot->GetTextBlock()->SetText("Tralala");
     tralalaSlot->SetSFX("SFX_Character_Tralala");
-    tralalaSlot->SetCharType(ECharacterType::TRALALA);
+    tralalaSlot->SetCharacterType(ECharacterType::TRALALA);
+    tralalaSlot->GetAnimatedImage()->SetTexture("Texture_Tralala");
+    tralalaSlot->GetAnimatedImage()->SetFrame("Tralala");
+    tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(62.0f, 45.0f) * 0.01f);
+    tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.5f, 3.0f));
     tralalaSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(tralalaSlot);
 
     CCharSlotWidget* sahurSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_SahurSlot");
     sahurSlot->GetTransform()->SetRelativeScale(slotScale);
     sahurSlot->GetTransform()->SetRelativePos(tralalaSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
-    sahurSlot->SetText("Sahur");
+    sahurSlot->GetTextBlock()->SetText("Sahur");
     sahurSlot->SetSFX("SFX_Character_Sahur");
-    sahurSlot->SetCharType(ECharacterType::SAHUR);
+    sahurSlot->SetCharacterType(ECharacterType::SAHUR);
+    sahurSlot->GetAnimatedImage()->SetTexture("Texture_Sahur");
+    sahurSlot->GetAnimatedImage()->SetFrame("Sahur");
+    sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(38.0f, 45.0f) * 0.012f);
+    sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.63f, 2.4f));
     sahurSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(sahurSlot);
 
     CCharSlotWidget* bananiniSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_BananiniSlot");
     bananiniSlot->GetTransform()->SetRelativeScale(slotScale);
     bananiniSlot->GetTransform()->SetRelativePos(sahurSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
-    bananiniSlot->SetText("Bananini");
+    bananiniSlot->GetTextBlock()->SetText("Bananini");
     bananiniSlot->SetSFX("SFX_Character_Bananini");
-    bananiniSlot->SetCharType(ECharacterType::BANANINI);
+    bananiniSlot->SetCharacterType(ECharacterType::BANANINI);
+    bananiniSlot->GetAnimatedImage()->SetTexture("Texture_Bananini");
+    bananiniSlot->GetAnimatedImage()->SetFrame("Bananini");
+    bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(59.0f, 50.0f) * 0.01f);
+    bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.63f, 2.7f));
     bananiniSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(bananiniSlot);
 
     mHighlight = CWidgetUtils::AllocateWidget<CSelectHighlightWidget, 1>("SelectHighlight_CharSlotHighlight");
     mHighlight->GetTransform()->SetRelativeScale(slotScale * 1.1f);
+    mHighlight->Disable();
     AddChild(mHighlight);
 
     mDetail = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("SelectSlot_BananiniSlot");
     mDetail->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.1765f));
     mDetail->GetTransform()->SetRelativePos(FVector2D(0.28f, 0.805f));
+    mDetail->Disable();
     AddChild(mDetail);
     /////////////////
 
-    CButton* btnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
-    btnConfirm->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
-    btnConfirm->Set9SlicingCorner(FVector2D(10.f, 7.f));
-    btnConfirm->SetCornerRatio(2.0f);
-    btnConfirm->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    btnConfirm->AddCallback(EButton::InputEvent::RELEASE, [this]() {mBtnStart->Enable();});
+    mBtnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
+    mBtnConfirm->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
+    mBtnConfirm->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnConfirm->SetCornerRatio(2.0f);
+    mBtnConfirm->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mBtnConfirm->AddCallback(EButton::InputEvent::RELEASE, [this]() {mBtnStart->Enable();});
+    mBtnConfirm->Disable();
 
     mBtnStart = CreateButton("Start", "GreenButton", FVector2D(0.18f, 0.09f), "START", FVector2D(0.5f, 0.6f));
     mBtnStart->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
@@ -92,8 +107,6 @@ void CCharSelectPanelWidget::Construct()
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::PLAY);});
     mBtnStart->Disable();
-
-    OnSlotClicked(tralalaSlot);
 }
 
 void CCharSelectPanelWidget::Release()
@@ -123,24 +136,43 @@ CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, con
 
 void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
 {
+    // Data
     CGameDataManager::GetInst()->GetPlayerData()->SetSelectedCharacter(slot->GetCharType());
+
+    // UI 
+    mHighlight->Enable();
     mHighlight->SetSlot(slot);
+    slot->GetAnimatedImage()->SetAnimating(true);
+    mDetail->Enable();
     mDetail->ShowDetail(slot);
+    mBtnConfirm->Enable();
     mBtnStart->Disable();
 
-    if (mPrevSlot == slot)
-        return;
+    // Sound
+    slot->PlaySFX();
 
-    if (mPrevSlot)
+    // Previous Slot
+    if (mPrevSlot && mPrevSlot != slot)
+    {
         mPrevSlot->StopSFX();
+        mPrevSlot->GetAnimatedImage()->SetAnimating(false);
+        mPrevSlot->GetAnimatedImage()->ResetAnimation();
+    }
 
     mPrevSlot = slot;
 }
 
 void CCharSelectPanelWidget::OnBackButton()
 {
+    mHighlight->Disable();
+    mDetail->Disable();
+    mBtnConfirm->Disable();
     mBtnStart->Disable();
 
     if (mPrevSlot)
+    {
         mPrevSlot->StopSFX();
+        mPrevSlot->GetAnimatedImage()->SetAnimating(false);
+        mPrevSlot->GetAnimatedImage()->ResetAnimation();
+    }
 }

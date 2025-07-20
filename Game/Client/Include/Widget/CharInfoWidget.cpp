@@ -71,7 +71,7 @@ void CCharInfoWidget::Release()
 
 void CCharInfoWidget::ShowDetail(CCharSlotWidget* slot)
 {
-    const std::string& key = slot->GetName();
+    const std::string& key = slot->GetTextBlock()->GetText();
     const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(key);
 
     mName->SetText(characterData.firstName + " " + characterData.lastName);
