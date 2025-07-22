@@ -31,9 +31,18 @@ public:
 	CAnimatedImage* GetAnimatedImage() const { return mCharacter; }
 	CTextBlock* GetTextBlock() const { return mCharName; }
 
-	void SetCharacterType(ECharacterType type);
-	void SetSFX(const std::string& sfx);
-	void SetOnClick(std::function<void(CCharSlotWidget*)> callback);
+	void SetCharacterType(ECharacterType type)
+	{
+		mCharType = type;
+	}
+	void SetSFX(const std::string& sfx)
+	{
+		mSFX = sfx;
+	}
+	void SetOnClick(std::function<void(CCharSlotWidget*)> callback)
+	{
+		mOnClickCallback = callback;
+	}
 
 	void PlaySFX();
 	void StopSFX();

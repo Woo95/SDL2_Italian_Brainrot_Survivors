@@ -51,21 +51,6 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
     }
 }
 
-void CCharSlotWidget::SetCharacterType(ECharacterType type)
-{
-    mCharType = type;
-}
-
-void CCharSlotWidget::SetSFX(const std::string& sfx)
-{
-    mSFX = sfx;
-}
-
-void CCharSlotWidget::SetOnClick(std::function<void(CCharSlotWidget*)> callback)
-{
-    mOnClickCallback = callback;
-}
-
 void CCharSlotWidget::PlaySFX()
 {
     std::shared_ptr<CSFX> sfx = CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>(mSFX);

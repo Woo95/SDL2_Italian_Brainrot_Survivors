@@ -29,6 +29,7 @@ public:
 	void OnBackButton();
 
 private:
-	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
 	void OnSlotClicked(CCharSlotWidget* slot);
+	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
+	CCharSlotWidget* CreateCharSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos);
 };

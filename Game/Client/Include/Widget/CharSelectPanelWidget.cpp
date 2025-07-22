@@ -37,60 +37,37 @@ void CCharSelectPanelWidget::Construct()
     category->SetText("Character Selection");
     AddChild(category);
 
-    ///// Slots /////
-    const FVector2D slotScale = FVector2D(0.1f, 0.1882f);
-    const FVector2D offsetX = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.087f, 0.0f);
+    ///// Slot-Related Code - BEGIN /////
+    const FVector2D slotScale = FVector2D(0.1f, 0.188f);
+    const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.675f, 0.17f);
+    float offsetX = slotScale.x * 1.37f;
 
-    CCharSlotWidget* tralalaSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("SelectSlot_TralalaSlot");
-    tralalaSlot->GetTransform()->SetRelativeScale(slotScale);
-    tralalaSlot->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() + offsetX + FVector2D(0.0f, 0.15f));
-    tralalaSlot->GetTextBlock()->SetText("Tralala");
-    tralalaSlot->SetSFX("SFX_Character_Tralala");
+    CCharSlotWidget* tralalaSlot = CreateCharSlotWidget("Tralala", slotScale, slotStartPos);
     tralalaSlot->SetCharacterType(ECharacterType::TRALALA);
-    tralalaSlot->GetAnimatedImage()->SetTexture("Texture_Tralala");
-    tralalaSlot->GetAnimatedImage()->SetFrame("Tralala");
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(62.0f, 45.0f) * 0.01f);
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.5f, 3.0f));
-    tralalaSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
-    AddChild(tralalaSlot);
 
-    CCharSlotWidget* sahurSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_SahurSlot");
-    sahurSlot->GetTransform()->SetRelativeScale(slotScale);
-    sahurSlot->GetTransform()->SetRelativePos(tralalaSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
-    sahurSlot->GetTextBlock()->SetText("Sahur");
-    sahurSlot->SetSFX("SFX_Character_Sahur");
+    CCharSlotWidget* sahurSlot = CreateCharSlotWidget("Sahur", slotScale, tralalaSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     sahurSlot->SetCharacterType(ECharacterType::SAHUR);
-    sahurSlot->GetAnimatedImage()->SetTexture("Texture_Sahur");
-    sahurSlot->GetAnimatedImage()->SetFrame("Sahur");
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(38.0f, 45.0f) * 0.012f);
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.63f, 2.4f));
-    sahurSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
-    AddChild(sahurSlot);
 
-    CCharSlotWidget* bananiniSlot = CWidgetUtils::AllocateWidget<CCharSlotWidget>("SelectSlot_BananiniSlot");
-    bananiniSlot->GetTransform()->SetRelativeScale(slotScale);
-    bananiniSlot->GetTransform()->SetRelativePos(sahurSlot->GetTransform()->GetRelativePos() + offsetX + FVector2D(slotScale.x, 0.0f));
-    bananiniSlot->GetTextBlock()->SetText("Bananini");
-    bananiniSlot->SetSFX("SFX_Character_Bananini");
+    CCharSlotWidget* bananiniSlot = CreateCharSlotWidget("Bananini", slotScale, sahurSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     bananiniSlot->SetCharacterType(ECharacterType::BANANINI);
-    bananiniSlot->GetAnimatedImage()->SetTexture("Texture_Bananini");
-    bananiniSlot->GetAnimatedImage()->SetFrame("Bananini");
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(59.0f, 50.0f) * 0.01f);
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.63f, 2.7f));
-    bananiniSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
-    AddChild(bananiniSlot);
 
-    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 1>("SelectHighlight_CharSlotHighlight");
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_Character");
     mHighlight->GetTransform()->SetRelativeScale(slotScale * 1.1f);
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mDetail = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("SelectSlot_BananiniSlot");
+    mDetail = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("CharacterInfo_Details");
     mDetail->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.1765f));
     mDetail->GetTransform()->SetRelativePos(FVector2D(0.28f, 0.805f));
     mDetail->Disable();
     AddChild(mDetail);
-    /////////////////
+    ///// Slot-Related Code - END /////
 
     mBtnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
     mBtnConfirm->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
@@ -114,24 +91,19 @@ void CCharSelectPanelWidget::Release()
     CMemoryPoolManager::GetInst()->Deallocate<CCharSelectPanelWidget>(this);
 }
 
-CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
+void CCharSelectPanelWidget::OnBackButton()
 {
-    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
-    button->GetTransform()->SetRelativeScale(buttonSize);
-    button->GetTransform()->SetPivot(0.5f, 0.5f);
-    button->SetTexture("Texture_UIAtlas");
-    button->SetFrame(buttonFrame);
-    AddChild(button);
+    mHighlight->Disable();
+    mDetail->Disable();
+    mBtnConfirm->Disable();
+    mBtnStart->Disable();
 
-    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
-    button->AddChild(text);
-    text->GetTransform()->SetRelativeScale(textSize);
-    text->GetTransform()->SetPivot(0.5f, 0.5f);
-    text->GetTransform()->SetRelativePos(0.0f, 0.0f);
-    text->SetFont("Font64_CourierPrime_Regular");
-    text->SetText(textLabel);
-
-    return button;
+    if (mPrevSlot)
+    {
+        mPrevSlot->StopSFX();
+        mPrevSlot->GetAnimatedImage()->SetAnimating(false);
+        mPrevSlot->GetAnimatedImage()->ResetAnimation();
+    }
 }
 
 void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
@@ -162,17 +134,37 @@ void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
     mPrevSlot = slot;
 }
 
-void CCharSelectPanelWidget::OnBackButton()
+CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-    mHighlight->Disable();
-    mDetail->Disable();
-    mBtnConfirm->Disable();
-    mBtnStart->Disable();
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
+    button->GetTransform()->SetRelativeScale(buttonSize);
+    button->GetTransform()->SetPivot(0.5f, 0.5f);
+    button->SetTexture("Texture_UIAtlas");
+    button->SetFrame(buttonFrame);
+    AddChild(button);
 
-    if (mPrevSlot)
-    {
-        mPrevSlot->StopSFX();
-        mPrevSlot->GetAnimatedImage()->SetAnimating(false);
-        mPrevSlot->GetAnimatedImage()->ResetAnimation();
-    }
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
+    button->AddChild(text);
+    text->GetTransform()->SetRelativeScale(textSize);
+    text->GetTransform()->SetPivot(0.5f, 0.5f);
+    text->GetTransform()->SetRelativePos(0.0f, 0.0f);
+    text->SetFont("Font64_CourierPrime_Regular");
+    text->SetText(textLabel);
+
+    return button;
 }
+
+CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos)
+{
+    CCharSlotWidget* slot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("CharacterSlot_" + widgetName);
+    slot->GetTransform()->SetRelativeScale(scale);
+    slot->GetTransform()->SetRelativePos(pos);
+    slot->GetTextBlock()->SetText(widgetName);
+    slot->SetSFX("SFX_Character_" + widgetName);
+    slot->GetAnimatedImage()->SetTexture("Texture_" + widgetName);
+    slot->GetAnimatedImage()->SetFrame(widgetName);
+    slot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
+    AddChild(slot);
+
+    return slot;
+};
