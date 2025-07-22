@@ -1,16 +1,16 @@
-#include "SelectHighlightWidget.h"
+#include "HighlightSelectedSlotWidget.h"
 #include "AllWidgets.h"
 
-CSelectHighlightWidget::CSelectHighlightWidget()
+CHighlightSelectedSlotWidget::CHighlightSelectedSlotWidget()
 {
 	Construct();
 }
 
-CSelectHighlightWidget::~CSelectHighlightWidget()
+CHighlightSelectedSlotWidget::~CHighlightSelectedSlotWidget()
 {
 }
 
-void CSelectHighlightWidget::Construct()
+void CHighlightSelectedSlotWidget::Construct()
 {
     CImage* highlight = CWidgetUtils::AllocateWidget<CImage>("Image_SelectHighlight");
     highlight->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
@@ -21,12 +21,12 @@ void CSelectHighlightWidget::Construct()
     AddChild(highlight);
 }
 
-void CSelectHighlightWidget::Release()
+void CHighlightSelectedSlotWidget::Release()
 {
-	CMemoryPoolManager::GetInst()->Deallocate<CSelectHighlightWidget>(this);
+	CMemoryPoolManager::GetInst()->Deallocate<CHighlightSelectedSlotWidget>(this);
 }
 
-void CSelectHighlightWidget::SetSlot(CSlotWidget* slot)
+void CHighlightSelectedSlotWidget::SetSlot(CSlotWidget* slot)
 {
     const FVector2D& slotCenter =  slot->GetTransform()->GetRelativePos() - (GetTransform()->GetWorldScale() - slot->GetTransform()->GetWorldScale()) * 0.5f;
     GetTransform()->SetRelativePos(slotCenter);

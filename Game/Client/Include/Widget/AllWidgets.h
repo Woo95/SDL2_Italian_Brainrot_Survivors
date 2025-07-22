@@ -16,6 +16,6 @@
 #include "CharSelectPanelWidget.h"
 #include "CharSlotWidget.h"
 #include "CharInfoWidget.h"
-#include "SelectHighlightWidget.h"
+#include "HighlightSelectedSlotWidget.h"
 
 #include "ResultPanelWidget.h"

@@ -4,11 +4,11 @@
 
 class CSlotWidget;
 
-class CSelectHighlightWidget : public CUserWidget
+class CHighlightSelectedSlotWidget : public CUserWidget
 {
 public:
-    CSelectHighlightWidget();
-    virtual ~CSelectHighlightWidget();
+    CHighlightSelectedSlotWidget();
+    virtual ~CHighlightSelectedSlotWidget();
 
 protected:
     virtual void Construct() override;

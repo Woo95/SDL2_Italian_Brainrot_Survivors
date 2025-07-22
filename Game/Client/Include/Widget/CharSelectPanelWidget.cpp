@@ -80,7 +80,7 @@ void CCharSelectPanelWidget::Construct()
     bananiniSlot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
     AddChild(bananiniSlot);
 
-    mHighlight = CWidgetUtils::AllocateWidget<CSelectHighlightWidget, 1>("SelectHighlight_CharSlotHighlight");
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 1>("SelectHighlight_CharSlotHighlight");
     mHighlight->GetTransform()->SetRelativeScale(slotScale * 1.1f);
     mHighlight->Disable();
     AddChild(mHighlight);

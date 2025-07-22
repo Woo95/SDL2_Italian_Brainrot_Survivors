@@ -4,7 +4,7 @@
 
 class CButton;
 class CCharSlotWidget;
-class CSelectHighlightWidget;
+class CHighlightSelectedSlotWidget;
 class CCharInfoWidget;
 
 // CharacterSelectionPanelWidget
@@ -16,7 +16,7 @@ public:
 
 private:
 	CCharSlotWidget* mPrevSlot = nullptr;
-	CSelectHighlightWidget* mHighlight = nullptr;
+	CHighlightSelectedSlotWidget* mHighlight = nullptr;
 	CCharInfoWidget* mDetail = nullptr;
 	CButton* mBtnConfirm = nullptr;
 	CButton* mBtnStart = nullptr;
