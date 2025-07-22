@@ -49,8 +49,8 @@ void CMainMenuWidget::Construct()
     mBtnBack = CreateButton("Back", "RedButton", FVector2D(0.08515f, 0.075f), "BACK", FVector2D(0.45f, 0.4f));
     mBtnBack->GetTransform()->SetRelativePos(FVector2D(0.65625f, 0.048f));
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
+    mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {OnBackButton();});
     mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
-    mBtnBack->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->mCharSelectPanel->OnBackButton();});
 
     mBtnStart = CreateButton("Start", "BlueButton", FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.53f, 0.63f));
     mBtnStart->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.653125f));
@@ -106,8 +106,8 @@ void CMainMenuWidget::Update(float deltaTime)
         if (mOptionPanel->GetEnable() || mCharSelectPanel->GetEnable() || mPowerUpSelectPanel->GetEnable() || mCreditsPanel->GetEnable())
         {
             CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
-            HidePanel();
             mCharSelectPanel->OnBackButton();
+            HidePanel();
         }
     }
 }
@@ -140,6 +140,14 @@ void CMainMenuWidget::HidePanel()
     mCharSelectPanel->Disable();
     mPowerUpSelectPanel->Disable();
     mCreditsPanel->Disable();
+}
+
+void CMainMenuWidget::OnBackButton()
+{
+    if (mCharSelectPanel->GetEnable())
+        mCharSelectPanel->OnBackButton();
+    else if (mPowerUpSelectPanel->GetEnable())
+        mPowerUpSelectPanel->OnBackButton();
 }
 
 CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)

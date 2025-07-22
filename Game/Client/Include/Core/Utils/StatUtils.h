@@ -9,11 +9,6 @@ struct FStat
 
 	float power;     // 피해량
 	float speed;     // 투사체 속도
-	float duration;  // 지속시간
-	float area;      // 공격 범위
-
-	float coolDown;  // 쿨타임
 	float magnet;    // 자석
 	float growth;    // 성장
-	float greed;     // 탐욕
 };

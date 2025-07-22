@@ -630,7 +630,7 @@
     <ClInclude Include="Widget\CreditsPanelWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\SelectHighlightWidget.h">
+    <ClInclude Include="Widget\HighlightSelectedSlotWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\SlotWidget.h">
@@ -713,6 +713,9 @@
     </ClInclude>
     <ClInclude Include="Core\Utils\CharacterUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PowerUpSlotWidget.h">
+      <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -875,7 +878,7 @@
     <ClCompile Include="Widget\CreditsPanelWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\SelectHighlightWidget.cpp">
+    <ClCompile Include="Widget\HighlightSelectedSlotWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
@@ -935,6 +938,9 @@
     </ClCompile>
     <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
       <Filter>Game\05. Manager\01. GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PowerUpSlotWidget.cpp">
+      <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

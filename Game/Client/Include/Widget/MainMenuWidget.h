@@ -35,6 +35,7 @@ protected:
 private:
 	void ShowPanel(CWidget* panel);
 	void HidePanel();
+	void OnBackButton();
 
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
 };

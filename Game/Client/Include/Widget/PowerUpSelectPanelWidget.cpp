@@ -39,11 +39,45 @@ void CPowerUpSelectPanelWidget::Construct()
     btnRefundPowerUps->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnRefundPowerUps->SetCornerRatio(1.7f);
     btnRefundPowerUps->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
+
+    ///// Slot-Related Code - BEGIN /////
+    const FVector2D slotScale = FVector2D(0.217f, 0.188f);
+    const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.032f, 0.23f);
+    float offsetX = slotScale.x * 1.1f;
+    float offsetY = slotScale.y * 1.1f;
+
+    CPowerUpSlotWidget* mightSlot = CreatePowerUpSlotWidget("Might", slotScale, slotStartPos);
+    CPowerUpSlotWidget* armorSlot = CreatePowerUpSlotWidget("Armor", slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
+    CPowerUpSlotWidget* maxHpSlot = CreatePowerUpSlotWidget("Max Health", slotScale, armorSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
+    CPowerUpSlotWidget* recoverySlot = CreatePowerUpSlotWidget("Recovery", slotScale, maxHpSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
+
+    CPowerUpSlotWidget* speedSlot = CreatePowerUpSlotWidget("Speed", slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(0.0f, offsetY));
+    CPowerUpSlotWidget* moveSpeedSlot = CreatePowerUpSlotWidget("Move Speed", slotScale, speedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
+    CPowerUpSlotWidget* magnetSlot = CreatePowerUpSlotWidget("Magnet", slotScale, moveSpeedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
+    CPowerUpSlotWidget* growthSlot = CreatePowerUpSlotWidget("Growth", slotScale, magnetSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
+
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_PowerUp");
+    mHighlight->GetTransform()->SetRelativeScale(slotScale * 1.1f);
+    mHighlight->Disable();
+    AddChild(mHighlight);
+    ///// Slot-Related Code - END /////
 }
 
 void CPowerUpSelectPanelWidget::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CPowerUpSelectPanelWidget>(this);
+}
+
+void CPowerUpSelectPanelWidget::OnBackButton()
+{
+    mHighlight->Disable();
+}
+
+void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
+{
+    // UI 
+    mHighlight->Enable();
+    mHighlight->SetSlot(slot);
 }
 
 CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
@@ -64,4 +98,16 @@ CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, 
     text->SetText(textLabel);
 
     return button;
+}
+
+CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos)
+{
+    CPowerUpSlotWidget* slot = CWidgetUtils::AllocateWidget<CPowerUpSlotWidget, 12>("PowerUpSlot_" + widgetName);
+    slot->GetTransform()->SetRelativeScale(scale);
+    slot->GetTransform()->SetRelativePos(pos);
+    slot->GetTextBlock()->SetText(widgetName);
+    slot->SetOnClick([this](CPowerUpSlotWidget* slot) {this->OnSlotClicked(slot);});
+    AddChild(slot);
+
+    return slot;
 }

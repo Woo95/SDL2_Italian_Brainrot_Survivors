@@ -1,4 +1,4 @@
-#Lastname,#FirstName,#Description1,#Description2,#StartingWeapon,"#Stat {maxHp, regen, armor, moveSpeed, power, speed, duration, area, cooldown, magnet, growth, greed}"
+#Lastname,#FirstName,#Description1,#Description2,#StartingWeapon,"#Stat {maxHp, regen, armor, moveSpeed, power, speed, magnet, growth}"
 Tralala,Tralalero,My name is Tralalero Tralala., , ,
 Sahur,Tung Tung Tung Tung Tung Tung Tung Tung Tung,My name is Tung Tung Tung Tung,Tung Tung Tung Tung Tung Sahur., ,
 Bananini,Chimpanzini,My name is Chimpanzini Bananini., , ,

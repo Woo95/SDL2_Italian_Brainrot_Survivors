@@ -11,11 +11,12 @@
 #include "PressToStartWidget.h"
 #include "MoneyHUDWidget.h"
 #include "OptionPanelWidget.h"
-#include "PowerUpSelectPanelWidget.h"
 #include "CreditsPanelWidget.h"
 #include "CharSelectPanelWidget.h"
 #include "CharSlotWidget.h"
 #include "CharInfoWidget.h"
+#include "PowerUpSelectPanelWidget.h"
+#include "PowerUpSlotWidget.h"
 #include "HighlightSelectedSlotWidget.h"
 
 #include "ResultPanelWidget.h"
