@@ -1,0 +1,125 @@
+#include "PowerUpInfoWidget.h"
+#include "AllWidgets.h"
+#include "../Manager/Data/Resource/AssetManager.h"
+#include "../Manager/Data/Resource/SoundManager.h"
+
+CPowerUpInfoWidget::CPowerUpInfoWidget()
+{
+	Construct();
+}
+
+CPowerUpInfoWidget::~CPowerUpInfoWidget()
+{
+}
+
+void CPowerUpInfoWidget::Construct()
+{
+    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("Image_InfoPanel");
+    panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
+    panel->SetTexture("Texture_UIAtlas");
+    panel->SetFrame("SelectSlot");
+    panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
+    panel->SetCornerRatio(1.5f);
+    AddChild(panel);
+
+    mName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoName");
+    mName->GetTransform()->SetRelativeScale(FVector2D(0.2f, 0.19f));
+    mName->GetTransform()->SetRelativePos(FVector2D(0.2f, 0.55f));
+    mName->SetAlignment(ETextBlock::Alignment::LEFT);
+    mName->SetCharWidth(12.5f);
+    mName->SetFont("Font64_CourierPrime_Regular");
+    mName->SetText(" ");
+    AddChild(mName);
+
+    CImage* powerUpBox = CWidgetUtils::AllocateWidget<CImage>("Image_InfoPowerUpBox");
+    powerUpBox->GetTransform()->SetRelativeScale(FVector2D(0.09f, 0.425f));
+    powerUpBox->GetTransform()->SetRelativePos(FVector2D(0.3f, 3.85f));
+    powerUpBox->GetTransform()->SetPivot(0.5f, 0.5f);
+    powerUpBox->SetTexture("Texture_UIAtlas");
+    powerUpBox->SetFrame("PowerUpBox");
+    AddChild(powerUpBox);
+
+    mPowerUpIcon = CWidgetUtils::AllocateWidget<CImage>("Image_InfoPowerUpIcon");
+    mPowerUpIcon->GetTransform()->SetRelativeScale(FVector2D(0.7f, 0.7f));
+    mPowerUpIcon->GetTransform()->SetPivot(0.5f, 0.5f);
+    mPowerUpIcon->SetTexture("Texture_ItemAtlas");
+    mPowerUpIcon->SetFrame("Empty");
+    powerUpBox->AddChild(mPowerUpIcon);
+
+    mDescription1 = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoDescription1");
+    mDescription1->GetTransform()->SetRelativeScale(0.55f, 0.19f);
+    mDescription1->GetTransform()->SetRelativePos(0.5f, 2.5f);
+    mDescription1->SetAlignment(ETextBlock::Alignment::LEFT);
+    mDescription1->SetCharWidth(12.5f);
+    mDescription1->SetFont("Font64_CourierPrime_Regular");
+    mDescription1->SetText(" ");
+    AddChild(mDescription1);
+
+    mDescription2 = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoDescription2");
+    mDescription2->GetTransform()->SetRelativeScale(0.55f, 0.19f);
+    mDescription2->GetTransform()->SetRelativePos(0.5f, 4.0f);
+    mDescription2->SetAlignment(ETextBlock::Alignment::LEFT);
+    mDescription2->SetCharWidth(12.5f);
+    mDescription2->SetFont("Font64_CourierPrime_Regular");
+    mDescription2->SetText(" ");
+    AddChild(mDescription2);
+
+    CImage* moneyIcon = CWidgetUtils::AllocateWidget<CImage>("Image_InfomoneyIcon");
+    moneyIcon->GetTransform()->SetRelativeScale(FVector2D(0.039f, 0.2f));
+    moneyIcon->GetTransform()->SetRelativePos(FVector2D(1.85f, 1.05f));
+    moneyIcon->SetTexture("Texture_UIAtlas");
+    moneyIcon->SetFrame("CoinIcon");
+    AddChild(moneyIcon);
+
+    mPrice = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoName");
+    mPrice->GetTransform()->SetRelativeScale(FVector2D(0.1f, 0.19f));
+    mPrice->GetTransform()->SetRelativePos(FVector2D(1.95f, 1.1f));
+    mPrice->SetAlignment(ETextBlock::Alignment::LEFT);
+    mPrice->SetCharWidth(13.0f);
+    mPrice->SetFont("Font64_CourierPrime_Regular");
+    mPrice->SetText("0");
+    AddChild(mPrice);
+
+    mBtnBuy = CreateButton("Buy", "GreenButton", FVector2D(0.2f, 0.5f), "Buy", FVector2D(0.4f, 0.4f));
+    mBtnBuy->GetTransform()->SetRelativePos(FVector2D(2.01f, 4.15f));
+    mBtnBuy->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnBuy->SetCornerRatio(2.0f);
+    mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+}
+
+void CPowerUpInfoWidget::Release()
+{
+	CMemoryPoolManager::GetInst()->Deallocate<CPowerUpInfoWidget>(this);
+}
+
+void CPowerUpInfoWidget::ShowInfo(CPowerUpSlotWidget* slot)
+{
+    std::string key = slot->GetName().substr(strlen("PowerUpSlot_"));
+    const FPowerUpData& powerUpData = slot->GetData();
+
+    mName->SetText(slot->GetTextBlock()->GetText());
+    mDescription1->SetText(powerUpData.description1);
+    mDescription2->SetText(powerUpData.description2);
+    mPrice->SetText(std::to_string(powerUpData.price));
+    mPowerUpIcon->SetFrame(key);
+}
+
+CButton* CPowerUpInfoWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
+{
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
+    button->GetTransform()->SetRelativeScale(buttonSize);
+    button->GetTransform()->SetPivot(0.5f, 0.5f);
+    button->SetTexture("Texture_UIAtlas");
+    button->SetFrame(buttonFrame);
+    AddChild(button);
+
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
+    button->AddChild(text);
+    text->GetTransform()->SetRelativeScale(textSize);
+    text->GetTransform()->SetPivot(0.5f, 0.5f);
+    text->GetTransform()->SetRelativePos(0.0f, 0.0f);
+    text->SetFont("Font64_CourierPrime_Regular");
+    text->SetText(textLabel);
+
+    return button;
+}

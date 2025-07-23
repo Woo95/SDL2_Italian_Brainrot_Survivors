@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SlotWidget.h"
+#include "../Core/Utils/GameDataUtils.h"
 
 class CTextBlock;
 class CImage;
@@ -12,6 +13,8 @@ public:
 	virtual ~CPowerUpSlotWidget();
 
 private:
+	FPowerUpData mData;
+
 	CTextBlock* mPowerUpName = nullptr;
 	CImage* mPowerUpIcon = nullptr;
 
@@ -24,9 +27,14 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
+	const FPowerUpData& GetData() const { return mData; }
 	CTextBlock* GetTextBlock() const { return mPowerUpName; }
 	CImage* GetImagePowerUpIcon() const { return mPowerUpIcon; }
 
+	void SetData(const FPowerUpData& data)
+	{
+		mData = data;
+	}
 	void SetOnClick(std::function<void(CPowerUpSlotWidget*)> callback)
 	{
 		mOnClickCallback = callback;

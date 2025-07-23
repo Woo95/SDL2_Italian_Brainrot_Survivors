@@ -5,7 +5,7 @@
 class CButton;
 class CPowerUpSlotWidget;
 class CHighlightSelectedSlotWidget;
-// class CPowerUpInfoWidget; // Need to Implement
+class CPowerUpInfoWidget;
 
 class CPowerUpSelectPanelWidget : public CUserWidget
 {
@@ -14,8 +14,8 @@ public:
 	virtual ~CPowerUpSelectPanelWidget();
 
 private:
-
 	CHighlightSelectedSlotWidget* mHighlight = nullptr;
+	CPowerUpInfoWidget* mInfo = nullptr;
 
 protected:
 	virtual void Construct() override;

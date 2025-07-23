@@ -1,5 +1,7 @@
 #include "PowerUpSelectPanelWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/PowerUpDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
@@ -59,6 +61,12 @@ void CPowerUpSelectPanelWidget::Construct()
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_PowerUp");
     mHighlight->Disable();
     AddChild(mHighlight);
+
+    mInfo = CWidgetUtils::AllocateWidget<CPowerUpInfoWidget, 1>("PowerUpInfo_Info");
+    mInfo->GetTransform()->SetRelativeScale(FVector2D(0.957f, 0.177f));
+    mInfo->GetTransform()->SetRelativePos(FVector2D(0.02f, 0.805f));
+    mInfo->Disable();
+    AddChild(mInfo);
     ///// Slot-Related Code - END /////
 }
 
@@ -70,6 +78,7 @@ void CPowerUpSelectPanelWidget::Release()
 void CPowerUpSelectPanelWidget::OnBackButton()
 {
     mHighlight->Disable();
+    mInfo->Disable();
 }
 
 void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
@@ -77,6 +86,8 @@ void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
     // UI 
     mHighlight->Enable();
     mHighlight->SetSlot(slot);
+    mInfo->Enable();
+    mInfo->ShowInfo(slot);
 }
 
 CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
@@ -108,6 +119,7 @@ CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(const std
     slot->GetTextBlock()->SetText(textLabel);
     slot->GetImagePowerUpIcon()->SetFrame(widgetName);
     slot->SetOnClick([this](CPowerUpSlotWidget* slot) {this->OnSlotClicked(slot);});
+    slot->SetData(CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(widgetName));
     AddChild(slot);
 
     return slot;

@@ -17,6 +17,7 @@
 #include "CharInfoWidget.h"
 #include "PowerUpSelectPanelWidget.h"
 #include "PowerUpSlotWidget.h"
+#include "PowerUpInfoWidget.h"
 #include "HighlightSelectedSlotWidget.h"
 
 #include "ResultPanelWidget.h"

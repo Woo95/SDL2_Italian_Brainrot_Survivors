@@ -708,14 +708,20 @@
     <ClInclude Include="Manager\Data\GameData\PlayerData.h">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Utils\StatUtils.h">
-      <Filter>Game\01. Core\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Utils\CharacterUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpSlotWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PowerUpInfoWidget.h">
+      <Filter>Game\03. UserWidgets</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\StatUtils.h">
+      <Filter>Game\01. Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\GameDataUtils.h">
+      <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -940,6 +946,9 @@
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpSlotWidget.cpp">
+      <Filter>Game\03. UserWidgets</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PowerUpInfoWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
   </ItemGroup>
