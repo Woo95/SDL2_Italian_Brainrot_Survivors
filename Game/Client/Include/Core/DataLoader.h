@@ -20,4 +20,5 @@ private:
 	void LoadAllWidgetData();
 
 	void LoadAllCharacterData();
+	void LoadAllPowerUpData();
 };

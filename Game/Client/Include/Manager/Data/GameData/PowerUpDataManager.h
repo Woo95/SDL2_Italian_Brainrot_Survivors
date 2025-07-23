@@ -7,8 +7,6 @@ struct FPowerUpData
 	std::string name;
 	std::string description1;
 	std::string description2;
-	int maxLevel;
-	int level;
 	int price;
 	float statModifier;
 };

@@ -9,6 +9,7 @@
 #include "../Manager/Data/Resource/UIManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/CharacterDataManager.h"
+#include "../Manager/Data/GameData/PowerUpDataManager.h"
 
 CDataLoader::CDataLoader()
 {
@@ -26,6 +27,7 @@ bool CDataLoader::Init()
 	LoadAllWidgetData();
 
 	LoadAllCharacterData();
+	LoadAllPowerUpData();
 
 	return true;
 }
@@ -218,6 +220,46 @@ void CDataLoader::LoadAllCharacterData()
 			// stats to add later
 
 			CDM->mDatas[key] = data;
+		}
+		row.clear();
+	}
+	file.close();
+}
+
+void CDataLoader::LoadAllPowerUpData()
+{
+	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
+	filePath += "GameData\\POWERUP_DATA.csv";
+
+	std::ifstream file(filePath);
+
+	if (!file.is_open())
+	{
+		std::cerr << "Cannot open file at: " << filePath << "\n";
+		return;
+	}
+
+	CPowerUpDataManager* PDM = CGameDataManager::GetInst()->GetPowerUpDataManager();
+
+	std::string line;
+	while (std::getline(file, line))
+	{
+		if (line[0] == '#')
+			continue;
+
+		std::vector<std::string> row = Split(line, ',');
+
+		const std::string& key = row[0];
+
+		{
+			FPowerUpData data;
+			data.name = row[0];
+			data.description1 = row[1];
+			data.description2 = row[2];
+			data.price = std::stoi(row[3]);
+			data.statModifier = std::stof(row[4]);
+
+			PDM->mDatas[key] = data;
 		}
 		row.clear();
 	}
