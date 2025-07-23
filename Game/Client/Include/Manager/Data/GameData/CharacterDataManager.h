@@ -1,17 +1,7 @@
 #pragma once
 
 #include "../../../Core/GameInfo.h"
-#include "../../../Core/Utils/StatUtils.h"
-
-struct FCharacterData
-{
-	std::string lastName;
-	std::string firstName;
-	std::string description1;
-	std::string description2;
-	std::string startingWeapon;
-	FStat stat;
-};
+#include "../../../Core/Utils/GameDataUtils.h"
 
 class CCharacterDataManager
 {

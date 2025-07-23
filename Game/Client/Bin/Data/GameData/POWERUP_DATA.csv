@@ -1,9 +1,9 @@
-#Name,#Description1,#Description2,#Price,#StatModifier
-Might,Increases damage dealt by 10%., ,100,0.1
+#Key#Description1,#Description2,#Price,#StatModifier
+Might,Raises inflicted Damage by 10%., ,100,0.1
 Armor,Reduces incoming Damage by 1., ,200,1.0
-Max Health,Increases max health by 10%., ,300,0.1
-Recovery,Regenerates 1 HP every second., ,400,1.0
+MaxHealth,Augments Max Health by 10%., ,300,0.1
+Recovery,Recovers 1 HP per second., ,400,1.0
 Speed,Attack speed increases by 10%, ,500,0.1
-Move Speed,Increases movement speed by 10%., ,600,0.1
-Magnet,Extends pickup range by 25%., ,700,0.25
-Growth,Gain 15% more exp from enemies., ,800,0.15
+MoveSpeed,Character moves 10% faster., ,600,0.1
+Magnet,Pickup range increases by 25%., ,700,0.25
+Growth,Gains 15% more experience., ,800,0.15

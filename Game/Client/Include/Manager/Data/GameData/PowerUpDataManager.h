@@ -1,15 +1,7 @@
 #pragma once
 
 #include "../../../Core/GameInfo.h"
-
-struct FPowerUpData
-{
-	std::string name;
-	std::string description1;
-	std::string description2;
-	int price;
-	float statModifier;
-};
+#include "../../../Core/Utils/GameDataUtils.h"
 
 class CPowerUpDataManager
 {

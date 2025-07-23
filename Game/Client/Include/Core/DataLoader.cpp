@@ -217,7 +217,6 @@ void CDataLoader::LoadAllCharacterData()
 			data.description1 = row[2];
 			data.description2 = row[3];
 			data.startingWeapon = row[4];
-			// stats to add later
 
 			CDM->mDatas[key] = data;
 		}
@@ -253,7 +252,6 @@ void CDataLoader::LoadAllPowerUpData()
 
 		{
 			FPowerUpData data;
-			data.name = row[0];
 			data.description1 = row[1];
 			data.description2 = row[2];
 			data.price = std::stoi(row[3]);
