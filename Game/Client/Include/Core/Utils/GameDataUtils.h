@@ -18,3 +18,11 @@ struct FCharacterData
 	std::string description2;
 	std::string startingWeapon;
 };
+
+enum class ECharacterType : unsigned char
+{
+	NONE,
+	TRALALA,
+	SAHUR,
+	BANANINI
+};

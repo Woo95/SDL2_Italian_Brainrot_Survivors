@@ -1,7 +1,5 @@
 #include "CharInfoWidget.h"
 #include "AllWidgets.h"
-#include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/CharacterDataManager.h"
 
 CCharInfoWidget::CCharInfoWidget()
 {
@@ -54,12 +52,12 @@ void CCharInfoWidget::Construct()
     mCharacter->GetTransform()->SetPivot(0.0f, 1.0f);
     AddChild(mCharacter);
 
-    mWeaponBox = CWidgetUtils::AllocateWidget<CImage>("Image_InfoWeaponBox");
-    mWeaponBox->GetTransform()->SetRelativeScale(FVector2D(0.1065f, 0.5f));
-    mWeaponBox->GetTransform()->SetRelativePos(0.42f, 2.5f);
-    mWeaponBox->SetTexture("Texture_UIAtlas");
-    mWeaponBox->SetFrame("WeaponBox");
-    AddChild(mWeaponBox);
+    CImage* weaponBox = CWidgetUtils::AllocateWidget<CImage>("Image_InfoWeaponBox");
+    weaponBox->GetTransform()->SetRelativeScale(FVector2D(0.1065f, 0.5f));
+    weaponBox->GetTransform()->SetRelativePos(0.42f, 2.5f);
+    weaponBox->SetTexture("Texture_UIAtlas");
+    weaponBox->SetFrame("WeaponBox");
+    AddChild(weaponBox);
 }
 
 void CCharInfoWidget::Release()
@@ -69,8 +67,8 @@ void CCharInfoWidget::Release()
 
 void CCharInfoWidget::ShowInfo(CCharSlotWidget* slot)
 {
-    const std::string& key = slot->GetTextBlock()->GetText();
-    const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(key);
+    std::string key = slot->GetName().substr(strlen("CharacterSlot_"));
+    const FCharacterData& characterData = slot->GetData();
 
     mName->SetText(characterData.firstName + " " + characterData.lastName);
     mDescription1->SetText(characterData.description1);

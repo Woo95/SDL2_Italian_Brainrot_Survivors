@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../../Core/Utils/StatUtils.h"
-#include "../../../Core/Utils/CharacterUtils.h"
+#include "../../../Core/Utils/GameDataUtils.h"
 
 class CPlayerData
 {

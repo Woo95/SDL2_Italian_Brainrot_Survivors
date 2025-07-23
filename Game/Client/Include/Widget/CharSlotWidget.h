@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SlotWidget.h"
-#include "../Core/Utils/CharacterUtils.h"
+#include "../Core/Utils/GameDataUtils.h"
 
 class CTextBlock;
 class CAnimatedImage;
@@ -13,7 +13,9 @@ public:
 	virtual ~CCharSlotWidget();
 
 private:
+	FCharacterData mData;
 	ECharacterType mCharType = ECharacterType::NONE;
+
 	CAnimatedImage* mCharacter = nullptr;
 	CTextBlock* mCharName = nullptr;
 	std::string mSFX;
@@ -27,10 +29,15 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
+	const FCharacterData& GetData() const { return mData; }
 	ECharacterType GetCharType() const { return mCharType; }
 	CAnimatedImage* GetAnimatedImage() const { return mCharacter; }
 	CTextBlock* GetTextBlock() const { return mCharName; }
 
+	void SetData(const FCharacterData& data)
+	{
+		mData = data;
+	}
 	void SetCharacterType(ECharacterType type)
 	{
 		mCharType = type;

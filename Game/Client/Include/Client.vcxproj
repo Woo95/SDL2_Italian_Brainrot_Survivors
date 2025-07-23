@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Utils\CharacterUtils.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Core\Utils\StatUtils.h" />
     <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h" />

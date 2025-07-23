@@ -708,9 +708,6 @@
     <ClInclude Include="Manager\Data\GameData\PlayerData.h">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Utils\CharacterUtils.h">
-      <Filter>Game\01. Core\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Widget\PowerUpSlotWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>

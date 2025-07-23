@@ -1,9 +1,10 @@
 #include "CharSelectPanelWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/CharacterDataManager.h"
+#include "../Manager/Data/GameData/PlayerData.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PlayerData.h"
 #include "../Manager/SceneManager.h"
 
 CCharSelectPanelWidget::CCharSelectPanelWidget()
@@ -61,9 +62,9 @@ void CCharSelectPanelWidget::Construct()
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mInfo = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("CharacterInfo_Details");
-    mInfo->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.1765f));
-    mInfo->GetTransform()->SetRelativePos(FVector2D(0.28f, 0.805f));
+    mInfo = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("CharacterInfo_Info");
+    mInfo->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.177f));
+    mInfo->GetTransform()->SetRelativePos(FVector2D(0.279f, 0.805f));
     mInfo->Disable();
     AddChild(mInfo);
     ///// Slot-Related Code - END /////
@@ -164,6 +165,7 @@ CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(const std::string&
     slot->GetAnimatedImage()->SetTexture("Texture_" + widgetName);
     slot->GetAnimatedImage()->SetFrame(widgetName);
     slot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
+    slot->SetData(CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(widgetName));
     AddChild(slot);
 
     return slot;

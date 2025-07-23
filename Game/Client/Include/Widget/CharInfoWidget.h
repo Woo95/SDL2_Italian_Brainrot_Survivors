@@ -21,7 +21,6 @@ private:
     CTextBlock* mDescription1 = nullptr;
     CTextBlock* mDescription2 = nullptr;
     CImage* mCharacter = nullptr;
-    CImage* mWeaponBox = nullptr;
     CImage* mWeapon    = nullptr;
 
 public:
