@@ -27,5 +27,5 @@ public:
 private:
 	void OnSlotClicked(CPowerUpSlotWidget* slot);
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
-	CPowerUpSlotWidget* CreatePowerUpSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos);
+	CPowerUpSlotWidget* CreatePowerUpSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel);
 };

@@ -31,6 +31,7 @@ void CMenuScene::LoadResources()
 {
     LoadTexture("Texture_IntroBG", "IntroBG.png");
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
+    LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
 
     LoadTexture("Texture_Tralala", "Tralala.png");
     LoadTexture("Texture_Sahur", "Sahur.png");

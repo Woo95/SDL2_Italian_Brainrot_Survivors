@@ -3,6 +3,7 @@
 #include "SlotWidget.h"
 
 class CTextBlock;
+class CImage;
 
 class CPowerUpSlotWidget : public CSlotWidget
 {
@@ -12,6 +13,7 @@ public:
 
 private:
 	CTextBlock* mPowerUpName = nullptr;
+	CImage* mPowerUpIcon = nullptr;
 
 	std::function<void(CPowerUpSlotWidget*)> mOnClickCallback = nullptr;
 
@@ -23,6 +25,7 @@ protected:
 
 public:
 	CTextBlock* GetTextBlock() const { return mPowerUpName; }
+	CImage* GetImagePowerUpIcon() const { return mPowerUpIcon; }
 
 	void SetOnClick(std::function<void(CPowerUpSlotWidget*)> callback)
 	{
