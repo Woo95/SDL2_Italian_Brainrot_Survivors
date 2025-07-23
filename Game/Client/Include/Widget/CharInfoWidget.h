@@ -25,5 +25,5 @@ private:
     CImage* mWeapon    = nullptr;
 
 public:
-    void ShowDetail(CCharSlotWidget* slot);
+    void ShowInfo(CCharSlotWidget* slot);
 };

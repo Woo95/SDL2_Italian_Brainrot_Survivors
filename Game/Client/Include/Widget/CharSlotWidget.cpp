@@ -18,6 +18,7 @@ void CCharSlotWidget::Construct()
 
     CImage* panel = CWidgetUtils::AllocateWidget<CImage>("Image_CharSlot");
     panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
+    panel->GetTransform()->SetPivot(0.5f, 0.5f);
     panel->SetTexture("Texture_UIAtlas");
     panel->SetFrame("SelectSlot");
     panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
@@ -26,15 +27,15 @@ void CCharSlotWidget::Construct()
 
     mCharName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
     mCharName->GetTransform()->SetRelativeScale(0.9f, 0.175f);
-    mCharName->GetTransform()->SetRelativePos(0.55f, 0.5f);
+    mCharName->GetTransform()->SetPivot(0.5f, 2.4f);
     mCharName->SetAlignment(ETextBlock::Alignment::LEFT);
     mCharName->SetCharWidth(12.5f);
     mCharName->SetFont("Font64_CourierPrime_Regular");
-    AddChild(mCharName);
+    panel->AddChild(mCharName);
 
     mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("AnimatedImage_CharSlot");
     mCharacter->SetAnimating(false);
-    AddChild(mCharacter);
+    panel->AddChild(mCharacter);
 }
 
 void CCharSlotWidget::Release()

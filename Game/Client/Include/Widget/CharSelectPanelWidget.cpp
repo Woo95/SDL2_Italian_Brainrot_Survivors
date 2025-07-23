@@ -39,34 +39,33 @@ void CCharSelectPanelWidget::Construct()
 
     ///// Slot-Related Code - BEGIN /////
     const FVector2D slotScale = FVector2D(0.1f, 0.188f);
-    const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.675f, 0.17f);
+    const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.79f, 0.27f);
     float offsetX = slotScale.x * 1.37f;
 
     CCharSlotWidget* tralalaSlot = CreateCharSlotWidget("Tralala", slotScale, slotStartPos);
     tralalaSlot->SetCharacterType(ECharacterType::TRALALA);
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(62.0f, 45.0f) * 0.01f);
-    tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.5f, 3.0f));
+    tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, 0.0f));
 
     CCharSlotWidget* sahurSlot = CreateCharSlotWidget("Sahur", slotScale, tralalaSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     sahurSlot->SetCharacterType(ECharacterType::SAHUR);
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(38.0f, 45.0f) * 0.012f);
-    sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.63f, 2.4f));
+    sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.6f));
 
     CCharSlotWidget* bananiniSlot = CreateCharSlotWidget("Bananini", slotScale, sahurSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     bananiniSlot->SetCharacterType(ECharacterType::BANANINI);
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(59.0f, 50.0f) * 0.01f);
-    bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(0.63f, 2.7f));
+    bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.3f));
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_Character");
-    mHighlight->GetTransform()->SetRelativeScale(slotScale * 1.1f);
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mDetail = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("CharacterInfo_Details");
-    mDetail->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.1765f));
-    mDetail->GetTransform()->SetRelativePos(FVector2D(0.28f, 0.805f));
-    mDetail->Disable();
-    AddChild(mDetail);
+    mInfo = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("CharacterInfo_Details");
+    mInfo->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.1765f));
+    mInfo->GetTransform()->SetRelativePos(FVector2D(0.28f, 0.805f));
+    mInfo->Disable();
+    AddChild(mInfo);
     ///// Slot-Related Code - END /////
 
     mBtnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
@@ -94,7 +93,7 @@ void CCharSelectPanelWidget::Release()
 void CCharSelectPanelWidget::OnBackButton()
 {
     mHighlight->Disable();
-    mDetail->Disable();
+    mInfo->Disable();
     mBtnConfirm->Disable();
     mBtnStart->Disable();
 
@@ -115,8 +114,8 @@ void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
     mHighlight->Enable();
     mHighlight->SetSlot(slot);
     slot->GetAnimatedImage()->SetAnimating(true);
-    mDetail->Enable();
-    mDetail->ShowDetail(slot);
+    mInfo->Enable();
+    mInfo->ShowInfo(slot);
     mBtnConfirm->Enable();
     mBtnStart->Disable();
 
@@ -159,6 +158,7 @@ CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(const std::string&
     CCharSlotWidget* slot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("CharacterSlot_" + widgetName);
     slot->GetTransform()->SetRelativeScale(scale);
     slot->GetTransform()->SetRelativePos(pos);
+    slot->GetTransform()->SetPivot(0.5f, 0.5f);
     slot->GetTextBlock()->SetText(widgetName);
     slot->SetSFX("SFX_Character_" + widgetName);
     slot->GetAnimatedImage()->SetTexture("Texture_" + widgetName);
