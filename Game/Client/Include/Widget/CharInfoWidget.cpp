@@ -69,13 +69,12 @@ void CCharInfoWidget::Release()
 
 void CCharInfoWidget::ShowInfo(CCharSlotWidget* slot)
 {
-    const std::string& key = slot->GetKey();
-    const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(key);
+    const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(slot->GetType());
 
     mName->SetText(characterData.firstName + " " + characterData.lastName);
     mDescription1->SetText(characterData.description1);
     mDescription2->SetText(characterData.description2);
-    mCharacter->SetTexture("Texture_" + key);
-    mCharacter->SetFrame(key);
+    mCharacter->SetTexture("Texture_" + characterData.lastName);
+    mCharacter->SetFrame(characterData.lastName);
     mCharacter->GetTransform()->SetWorldScale(slot->GetAnimatedImage()->GetTransform()->GetWorldScale());
 }

@@ -1,5 +1,7 @@
 #include "PowerUpSelectPanelWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/PowerUpDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
@@ -46,15 +48,15 @@ void CPowerUpSelectPanelWidget::Construct()
     float offsetX = slotScale.x * 1.1f;
     float offsetY = slotScale.y * 1.1f;
 
-    CPowerUpSlotWidget* mightSlot = CreatePowerUpSlotWidget("Might", slotScale, slotStartPos, "Might");
-    CPowerUpSlotWidget* armorSlot = CreatePowerUpSlotWidget("Armor", slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Armor");
-    CPowerUpSlotWidget* maxHpSlot = CreatePowerUpSlotWidget("MaxHealth", slotScale, armorSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Max Health");
-    CPowerUpSlotWidget* recoverySlot = CreatePowerUpSlotWidget("Recovery", slotScale, maxHpSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Recovery");
+    CPowerUpSlotWidget* mightSlot = CreatePowerUpSlotWidget(EPowerUpType::MAGNET, slotScale, slotStartPos, "Might");
+    CPowerUpSlotWidget* armorSlot = CreatePowerUpSlotWidget(EPowerUpType::ARMOR, slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Armor");
+    CPowerUpSlotWidget* maxHpSlot = CreatePowerUpSlotWidget(EPowerUpType::MAX_HEALTH, slotScale, armorSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Max Health");
+    CPowerUpSlotWidget* recoverySlot = CreatePowerUpSlotWidget(EPowerUpType::RECOVERY, slotScale, maxHpSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Recovery");
 
-    CPowerUpSlotWidget* speedSlot = CreatePowerUpSlotWidget("Speed", slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(0.0f, offsetY), "Speed");
-    CPowerUpSlotWidget* moveSpeedSlot = CreatePowerUpSlotWidget("MoveSpeed", slotScale, speedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Move Speed");
-    CPowerUpSlotWidget* magnetSlot = CreatePowerUpSlotWidget("Magnet", slotScale, moveSpeedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Magnet");
-    CPowerUpSlotWidget* growthSlot = CreatePowerUpSlotWidget("Growth", slotScale, magnetSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Growth");
+    CPowerUpSlotWidget* speedSlot = CreatePowerUpSlotWidget(EPowerUpType::SPEED, slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(0.0f, offsetY), "Speed");
+    CPowerUpSlotWidget* moveSpeedSlot = CreatePowerUpSlotWidget(EPowerUpType::MOVE_SPEED, slotScale, speedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Move Speed");
+    CPowerUpSlotWidget* magnetSlot = CreatePowerUpSlotWidget(EPowerUpType::MAGNET, slotScale, moveSpeedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Magnet");
+    CPowerUpSlotWidget* growthSlot = CreatePowerUpSlotWidget(EPowerUpType::GROWTH, slotScale, magnetSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Growth");
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_PowerUp");
     mHighlight->Disable();
@@ -108,16 +110,22 @@ CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, 
     return button;
 }
 
-CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
+CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
 {
-    CPowerUpSlotWidget* slot = CWidgetUtils::AllocateWidget<CPowerUpSlotWidget, 12>("PowerUpSlot_" + widgetName);
+    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(type);
+
+    CPowerUpSlotWidget* slot = CWidgetUtils::AllocateWidget<CPowerUpSlotWidget, 12>("PowerUpSlot_" + powerUpData.name);
+    slot->SetType(type);
+
     slot->GetTransform()->SetRelativeScale(scale);
     slot->GetTransform()->SetRelativePos(pos);
     slot->GetTransform()->SetPivot(0.5f, 0.5f);
-    slot->GetTextBlock()->SetText(textLabel);
-    slot->GetImagePowerUpIcon()->SetFrame(widgetName);
-    slot->SetKey(widgetName);
+
+    slot->GetNameTextBlock()->SetText(textLabel);
+    slot->GetIconImage()->SetFrame(powerUpData.name);
+
     slot->SetOnClick([this](CPowerUpSlotWidget* slot) {this->OnSlotClicked(slot);});
+
     AddChild(slot);
 
     return slot;

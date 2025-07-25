@@ -4,8 +4,8 @@
 
 class CTextBlock;
 class CImage;
-class CPowerUpSlotWidget;
 class CButton;
+class CPowerUpSlotWidget;
 
 class CPowerUpInfoWidget : public CUserWidget
 {

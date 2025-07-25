@@ -13,34 +13,28 @@ public:
 	virtual ~CCharSlotWidget();
 
 private:
-	std::string mKey;
-	ECharacterType mCharType = ECharacterType::NONE;
+	ECharacterType mType = ECharacterType::NONE;
 
+	CTextBlock* mNameText = nullptr;
 	CAnimatedImage* mCharacter = nullptr;
-	CTextBlock* mCharName = nullptr;
 	std::string mSFX;
 
 	std::function<void(CCharSlotWidget*)> mOnClickCallback = nullptr;
 
 protected:
-	virtual void Construct() override;
-	virtual void Release() override;
+	virtual void Construct() final;
+	virtual void Release() final;
 
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
-	const std::string& GetKey() const { return mKey; }
-	ECharacterType GetCharType() const { return mCharType; }
+	const ECharacterType& GetType() const { return mType; }
+	CTextBlock* GetNameTextBlock() const { return mNameText; }
 	CAnimatedImage* GetAnimatedImage() const { return mCharacter; }
-	CTextBlock* GetTextBlock() const { return mCharName; }
 
-	void SetKey(const std::string& key)
+	void SetType(ECharacterType type)
 	{
-		mKey = key;
-	}
-	void SetCharacterType(ECharacterType type)
-	{
-		mCharType = type;
+		mType = type;
 	}
 	void SetSFX(const std::string& sfx)
 	{

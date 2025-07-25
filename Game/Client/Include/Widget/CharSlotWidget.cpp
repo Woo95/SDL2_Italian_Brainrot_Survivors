@@ -25,13 +25,13 @@ void CCharSlotWidget::Construct()
     panel->SetCornerRatio(1.25f);
     AddChild(panel);
 
-    mCharName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
-    mCharName->GetTransform()->SetRelativeScale(0.9f, 0.175f);
-    mCharName->GetTransform()->SetPivot(0.5f, 2.4f);
-    mCharName->SetAlignment(ETextBlock::Alignment::LEFT);
-    mCharName->SetCharWidth(12.5f);
-    mCharName->SetFont("Font64_CourierPrime_Regular");
-    panel->AddChild(mCharName);
+    mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
+    mNameText->GetTransform()->SetRelativeScale(0.9f, 0.175f);
+    mNameText->GetTransform()->SetPivot(0.5f, 2.4f);
+    mNameText->SetAlignment(ETextBlock::Alignment::LEFT);
+    mNameText->SetCharWidth(12.5f);
+    mNameText->SetFont("Font64_CourierPrime_Regular");
+    panel->AddChild(mNameText);
 
     mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("AnimatedImage_CharSlot");
     mCharacter->SetAnimating(false);

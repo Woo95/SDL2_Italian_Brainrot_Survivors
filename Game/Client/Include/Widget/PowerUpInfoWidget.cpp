@@ -96,14 +96,13 @@ void CPowerUpInfoWidget::Release()
 
 void CPowerUpInfoWidget::ShowInfo(CPowerUpSlotWidget* slot)
 {
-    const std::string& key = slot->GetKey();
-    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(key);
+    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(slot->GetType());
 
-    mName->SetText(slot->GetTextBlock()->GetText());
+    mName->SetText(slot->GetNameTextBlock()->GetText());
     mDescription1->SetText(powerUpData.description1);
     mDescription2->SetText(powerUpData.description2);
     mPrice->SetText(std::to_string(powerUpData.price));
-    mPowerUpIcon->SetFrame(key);
+    mPowerUpIcon->SetFrame(powerUpData.name);
 }
 
 CButton* CPowerUpInfoWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)

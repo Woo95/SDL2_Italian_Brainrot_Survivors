@@ -23,14 +23,14 @@ void CPowerUpSlotWidget::Construct()
     panel->SetCornerRatio(1.25f);
     AddChild(panel);
 
-    mPowerUpName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PowerUpSlot");
-    mPowerUpName->GetTransform()->SetRelativeScale(0.9f, 0.2f);
-    mPowerUpName->GetTransform()->SetPivot(0.5f, 2.2f);
-    mPowerUpName->SetAlignment(ETextBlock::Alignment::CENTER);
-    mPowerUpName->SetCharWidth(14.0f);
-    mPowerUpName->SetFont("Font64_CourierPrime_Regular");
-    mPowerUpName->SetColor(59, 59, 59);
-    panel->AddChild(mPowerUpName);
+    mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PowerUpSlot");
+    mNameText->GetTransform()->SetRelativeScale(0.9f, 0.2f);
+    mNameText->GetTransform()->SetPivot(0.5f, 2.2f);
+    mNameText->SetAlignment(ETextBlock::Alignment::CENTER);
+    mNameText->SetCharWidth(14.0f);
+    mNameText->SetFont("Font64_CourierPrime_Regular");
+    mNameText->SetColor(59, 59, 59);
+    panel->AddChild(mNameText);
 
     CImage* powerUpBox = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpBox");
     powerUpBox->GetTransform()->SetRelativeScale(FVector2D(0.4f, 0.4f));
@@ -39,12 +39,12 @@ void CPowerUpSlotWidget::Construct()
     powerUpBox->SetFrame("PowerUpBox");
     panel->AddChild(powerUpBox);
 
-    mPowerUpIcon = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpIcon");
-    mPowerUpIcon->GetTransform()->SetRelativeScale(FVector2D(0.7f, 0.7f));
-    mPowerUpIcon->GetTransform()->SetPivot(0.5f, 0.5f);
-    mPowerUpIcon->SetTexture("Texture_ItemAtlas");
-    mPowerUpIcon->SetFrame("Empty");
-    powerUpBox->AddChild(mPowerUpIcon);
+    mIconImage = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpIcon");
+    mIconImage->GetTransform()->SetRelativeScale(FVector2D(0.7f, 0.7f));
+    mIconImage->GetTransform()->SetPivot(0.5f, 0.5f);
+    mIconImage->SetTexture("Texture_ItemAtlas");
+    mIconImage->SetFrame("Empty");
+    powerUpBox->AddChild(mIconImage);
 }
 
 void CPowerUpSlotWidget::Release()

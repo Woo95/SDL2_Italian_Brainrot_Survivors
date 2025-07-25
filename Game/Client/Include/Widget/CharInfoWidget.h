@@ -21,7 +21,7 @@ private:
     CTextBlock* mDescription1 = nullptr;
     CTextBlock* mDescription2 = nullptr;
     CImage* mCharacter = nullptr;
-    CImage* mWeapon    = nullptr;
+    CImage* mWeapon = nullptr;
 
 public:
     void ShowInfo(CCharSlotWidget* slot);

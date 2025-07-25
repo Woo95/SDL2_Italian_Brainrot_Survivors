@@ -1,6 +1,7 @@
 #include "CharSelectPanelWidget.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/CharacterDataManager.h"
 #include "../Manager/Data/GameData/PlayerData.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -42,18 +43,15 @@ void CCharSelectPanelWidget::Construct()
     const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.79f, 0.27f);
     float offsetX = slotScale.x * 1.37f;
 
-    CCharSlotWidget* tralalaSlot = CreateCharSlotWidget("Tralala", slotScale, slotStartPos);
-    tralalaSlot->SetCharacterType(ECharacterType::TRALALA);
+    CCharSlotWidget* tralalaSlot = CreateCharSlotWidget(ECharacterType::TRALALA, slotScale, slotStartPos);
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(62.0f, 45.0f) * 0.01f);
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, 0.0f));
 
-    CCharSlotWidget* sahurSlot = CreateCharSlotWidget("Sahur", slotScale, tralalaSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
-    sahurSlot->SetCharacterType(ECharacterType::SAHUR);
+    CCharSlotWidget* sahurSlot = CreateCharSlotWidget(ECharacterType::SAHUR, slotScale, tralalaSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(38.0f, 45.0f) * 0.012f);
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.6f));
 
-    CCharSlotWidget* bananiniSlot = CreateCharSlotWidget("Bananini", slotScale, sahurSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
-    bananiniSlot->SetCharacterType(ECharacterType::BANANINI);
+    CCharSlotWidget* bananiniSlot = CreateCharSlotWidget(ECharacterType::BANANINI, slotScale, sahurSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(59.0f, 50.0f) * 0.01f);
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.3f));
 
@@ -108,7 +106,7 @@ void CCharSelectPanelWidget::OnBackButton()
 void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
 {
     // Data
-    CGameDataManager::GetInst()->GetPlayerData()->SetSelectedCharacter(slot->GetCharType());
+    CGameDataManager::GetInst()->GetPlayerData()->SetSelectedCharacter(slot->GetType());
 
     // UI 
     mHighlight->Enable();
@@ -153,18 +151,26 @@ CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, con
     return button;
 }
 
-CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(const std::string& widgetName, const FVector2D& scale, const FVector2D& pos)
+CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(ECharacterType type, const FVector2D& scale, const FVector2D& pos)
 {
-    CCharSlotWidget* slot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("CharacterSlot_" + widgetName);
+    const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(type);
+
+    CCharSlotWidget* slot = CWidgetUtils::AllocateWidget<CCharSlotWidget, 3>("CharacterSlot_" + characterData.lastName);
+    slot->SetType(type);
+
     slot->GetTransform()->SetRelativeScale(scale);
     slot->GetTransform()->SetRelativePos(pos);
     slot->GetTransform()->SetPivot(0.5f, 0.5f);
-    slot->GetTextBlock()->SetText(widgetName);
-    slot->SetSFX("SFX_Character_" + widgetName);
-    slot->GetAnimatedImage()->SetTexture("Texture_" + widgetName);
-    slot->GetAnimatedImage()->SetFrame(widgetName);
-    slot->SetKey(widgetName);
+
+    slot->GetNameTextBlock()->SetText(characterData.lastName);
+
+    slot->SetSFX("SFX_Character_" + characterData.lastName);
+
+    slot->GetAnimatedImage()->SetTexture("Texture_" + characterData.lastName);
+    slot->GetAnimatedImage()->SetFrame(characterData.lastName);
+
     slot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
+
     AddChild(slot);
 
     return slot;

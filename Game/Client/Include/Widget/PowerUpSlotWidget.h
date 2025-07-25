@@ -13,27 +13,27 @@ public:
 	virtual ~CPowerUpSlotWidget();
 
 private:
-	std::string mKey;
+	EPowerUpType mType = EPowerUpType::NONE;
 
-	CTextBlock* mPowerUpName = nullptr;
-	CImage* mPowerUpIcon = nullptr;
+	CTextBlock* mNameText = nullptr;
+	CImage* mIconImage = nullptr;
 
 	std::function<void(CPowerUpSlotWidget*)> mOnClickCallback = nullptr;
 
 protected:
-	virtual void Construct() override;
-	virtual void Release() override;
+	virtual void Construct() final;
+	virtual void Release() final;
 
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
-	const std::string& GetKey() const { return mKey; }
-	CTextBlock* GetTextBlock() const { return mPowerUpName; }
-	CImage* GetImagePowerUpIcon() const { return mPowerUpIcon; }
+	const EPowerUpType& GetType() const { return mType; }
+	CTextBlock* GetNameTextBlock() const { return mNameText; }
+	CImage* GetIconImage() const { return mIconImage; }
 
-	void SetKey(const std::string& key)
+	void SetType(EPowerUpType type)
 	{
-		mKey = key;
+		mType = type;
 	}
 	void SetOnClick(std::function<void(CPowerUpSlotWidget*)> callback)
 	{
