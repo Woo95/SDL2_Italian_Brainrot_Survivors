@@ -13,7 +13,7 @@ public:
 	virtual ~CPowerUpSlotWidget();
 
 private:
-	FPowerUpData mData;
+	std::string mKey;
 
 	CTextBlock* mPowerUpName = nullptr;
 	CImage* mPowerUpIcon = nullptr;
@@ -27,13 +27,13 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
-	const FPowerUpData& GetData() const { return mData; }
+	const std::string& GetKey() const { return mKey; }
 	CTextBlock* GetTextBlock() const { return mPowerUpName; }
 	CImage* GetImagePowerUpIcon() const { return mPowerUpIcon; }
 
-	void SetData(const FPowerUpData& data)
+	void SetKey(const std::string& key)
 	{
-		mData = data;
+		mKey = key;
 	}
 	void SetOnClick(std::function<void(CPowerUpSlotWidget*)> callback)
 	{

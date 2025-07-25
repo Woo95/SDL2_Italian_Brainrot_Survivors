@@ -13,7 +13,7 @@ public:
 	virtual ~CCharSlotWidget();
 
 private:
-	FCharacterData mData;
+	std::string mKey;
 	ECharacterType mCharType = ECharacterType::NONE;
 
 	CAnimatedImage* mCharacter = nullptr;
@@ -29,14 +29,14 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
-	const FCharacterData& GetData() const { return mData; }
+	const std::string& GetKey() const { return mKey; }
 	ECharacterType GetCharType() const { return mCharType; }
 	CAnimatedImage* GetAnimatedImage() const { return mCharacter; }
 	CTextBlock* GetTextBlock() const { return mCharName; }
 
-	void SetData(const FCharacterData& data)
+	void SetKey(const std::string& key)
 	{
-		mData = data;
+		mKey = key;
 	}
 	void SetCharacterType(ECharacterType type)
 	{

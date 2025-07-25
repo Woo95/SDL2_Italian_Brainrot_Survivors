@@ -1,5 +1,7 @@
 #include "PowerUpInfoWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/PowerUpDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
@@ -94,8 +96,8 @@ void CPowerUpInfoWidget::Release()
 
 void CPowerUpInfoWidget::ShowInfo(CPowerUpSlotWidget* slot)
 {
-    std::string key = slot->GetName().substr(strlen("PowerUpSlot_"));
-    const FPowerUpData& powerUpData = slot->GetData();
+    const std::string& key = slot->GetKey();
+    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(key);
 
     mName->SetText(slot->GetTextBlock()->GetText());
     mDescription1->SetText(powerUpData.description1);

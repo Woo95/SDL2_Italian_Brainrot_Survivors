@@ -1,7 +1,5 @@
 #include "PowerUpSelectPanelWidget.h"
 #include "AllWidgets.h"
-#include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PowerUpDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
@@ -118,8 +116,8 @@ CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(const std
     slot->GetTransform()->SetPivot(0.5f, 0.5f);
     slot->GetTextBlock()->SetText(textLabel);
     slot->GetImagePowerUpIcon()->SetFrame(widgetName);
+    slot->SetKey(widgetName);
     slot->SetOnClick([this](CPowerUpSlotWidget* slot) {this->OnSlotClicked(slot);});
-    slot->SetData(CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(widgetName));
     AddChild(slot);
 
     return slot;

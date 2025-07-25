@@ -1,7 +1,6 @@
 #include "CharSelectPanelWidget.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/CharacterDataManager.h"
 #include "../Manager/Data/GameData/PlayerData.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -164,8 +163,8 @@ CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(const std::string&
     slot->SetSFX("SFX_Character_" + widgetName);
     slot->GetAnimatedImage()->SetTexture("Texture_" + widgetName);
     slot->GetAnimatedImage()->SetFrame(widgetName);
+    slot->SetKey(widgetName);
     slot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
-    slot->SetData(CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(widgetName));
     AddChild(slot);
 
     return slot;
