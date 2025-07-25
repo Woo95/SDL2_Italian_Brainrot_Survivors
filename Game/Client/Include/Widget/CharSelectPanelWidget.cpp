@@ -2,7 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/CharacterDataManager.h"
-#include "../Manager/Data/GameData/PlayerData.h"
+#include "../Manager/Data/GameData/PlayerState.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/SceneManager.h"
@@ -106,7 +106,7 @@ void CCharSelectPanelWidget::OnBackButton()
 void CCharSelectPanelWidget::OnSlotClicked(CCharSlotWidget* slot)
 {
     // Data
-    CGameDataManager::GetInst()->GetPlayerData()->SetSelectedCharacter(slot->GetType());
+    CGameDataManager::GetInst()->GetPlayerState()->SetSelectedCharacter(slot->GetType());
 
     // UI 
     mHighlight->Enable();

@@ -3,19 +3,19 @@
 #include "../../../Core/Utils/StatUtils.h"
 #include "../../../Core/Utils/GameDataUtils.h"
 
-class CPlayerData
+class CPlayerState
 {
 	friend class CGameDataManager;
 	friend class CDataLoader;
 
 private:
-	CPlayerData() = default;
-	~CPlayerData() = default;
+	CPlayerState() = default;
+	~CPlayerState() = default;
 
 private:
-	float mMoneyBalance = 0;
-
 	ECharacterType mSelectedCharacter = ECharacterType::NONE;
+
+	int mMoneyBalance = 0;
 
 public:
 	ECharacterType GetSelectedCharacter() const { return mSelectedCharacter; }

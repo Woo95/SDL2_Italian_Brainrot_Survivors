@@ -705,7 +705,7 @@
     <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Data\GameData\PlayerData.h">
+    <ClInclude Include="Manager\Data\GameData\PlayerState.h">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpSlotWidget.h">

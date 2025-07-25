@@ -25,7 +25,7 @@
     <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h" />
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h" />
     <ClInclude Include="Core\DataLoader.h" />
-    <ClInclude Include="Manager\Data\GameData\PlayerData.h" />
+    <ClInclude Include="Manager\Data\GameData\PlayerState.h" />
     <ClInclude Include="Widget\PowerUpInfoWidget.h" />
     <ClInclude Include="Widget\PowerUpSlotWidget.h" />
     <ClInclude Include="Widget\ResultPanelWidget.h" />
