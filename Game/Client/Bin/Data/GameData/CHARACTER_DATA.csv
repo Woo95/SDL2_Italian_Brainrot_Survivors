@@ -1,4 +1,4 @@
-#Lastname,#FirstName,#Description1,#Description2,#StartingWeapon
-Tralala,Tralalero,My name is Tralalero Tralala., , ,
-Sahur,Tung Tung Tung Tung Tung Tung Tung Tung Tung,My name is Tung Tung Tung Tung,Tung Tung Tung Tung Tung Sahur., ,
-Bananini,Chimpanzini,My name is Chimpanzini Bananini., , ,
+#Type{ NONE / TRALALA / SAHUR / BANANINI / MAX },#Lastname,#FirstName,#Description1,#Description2,#StartingWeapon
+1,Tralala,Tralalero,My name is Tralalero Tralala., , ,
+2,Sahur,Tung Tung Tung Tung Tung Tung Tung Tung Tung,My name is Tung Tung Tung Tung,Tung Tung Tung Tung Tung Sahur., , ,
+3,Bananini,Chimpanzini,My name is Chimpanzini Bananini., , ,

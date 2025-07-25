@@ -13,15 +13,11 @@ private:
 	~CCharacterDataManager() = default;
 
 private:
-	std::unordered_map<std::string, FCharacterData> mDatas;
+	FCharacterData mData[(int)ECharacterType::MAX];
 
 public:
-	const FCharacterData& GetCharacterData(const std::string& key)
+	const FCharacterData& GetCharacterData(ECharacterType type)
 	{
-		std::unordered_map<std::string, FCharacterData>::iterator iter = mDatas.find(key);
-
-		assert(iter != mDatas.end());
-
-		return iter->second;
+		return mData[(int)type];
 	}
 };

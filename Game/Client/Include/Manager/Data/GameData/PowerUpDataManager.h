@@ -13,15 +13,11 @@ private:
 	~CPowerUpDataManager() = default;
 
 private:
-	std::unordered_map<std::string, FPowerUpData> mDatas;
+	FPowerUpData mData[(int)EPowerUpType::MAX];
 
 public:
-	const FPowerUpData& GetPowerUpData(const std::string& key)
+	const FPowerUpData& GetPowerUpData(EPowerUpType type)
 	{
-		std::unordered_map<std::string, FPowerUpData>::iterator iter = mDatas.find(key);
-
-		assert(iter != mDatas.end());
-
-		return iter->second;
+		return mData[(int)type];
 	}
 };

@@ -208,17 +208,23 @@ void CDataLoader::LoadAllCharacterData()
 
 		std::vector<std::string> row = Split(line, ',');
 
-		const std::string& key = row[0];
+		const int typeIdx      = 0;
+		const int lastNameIdx  = 1;
+		const int firstNameIdx = 2;
+		const int desc1Idx     = 3;
+		const int desc2Idx     = 4;
+		const int weaponIdx    = 5;
 
 		{
 			FCharacterData data;
-			data.lastName = row[0];
-			data.firstName = row[1];
-			data.description1 = row[2];
-			data.description2 = row[3];
-			data.startingWeapon = row[4];
+			data.type = static_cast<ECharacterType>(std::stoi(row[typeIdx]));
+			data.lastName = row[lastNameIdx];
+			data.firstName = row[firstNameIdx];
+			data.description1 = row[desc1Idx];
+			data.description2 = row[desc2Idx];
+			data.startingWeapon = row[weaponIdx];
 
-			CDM->mDatas[key] = data;
+			CDM->mData[(int)data.type] = data;
 		}
 		row.clear();
 	}
@@ -248,16 +254,23 @@ void CDataLoader::LoadAllPowerUpData()
 
 		std::vector<std::string> row = Split(line, ',');
 
-		const std::string& key = row[0];
+		const int typeIdx     = 0;
+		const int nameIdx     = 1;
+		const int desc1Idx    = 2;
+		const int desc2Idx    = 3;
+		const int priceIdx    = 4;
+		const int modifierIdx = 5;
 
 		{
 			FPowerUpData data;
-			data.description1 = row[1];
-			data.description2 = row[2];
-			data.price = std::stoi(row[3]);
-			data.statModifier = std::stof(row[4]);
+			data.type = static_cast<EPowerUpType>(std::stoi(row[typeIdx]));
+			data.name = row[nameIdx];
+			data.description1 = row[desc1Idx];
+			data.description2 = row[desc2Idx];
+			data.price = std::stoi(row[priceIdx]);
+			data.statModifier = std::stof(row[modifierIdx]);
 
-			PDM->mDatas[key] = data;
+			PDM->mData[(int)data.type] = data;
 		}
 		row.clear();
 	}

@@ -1,9 +1,12 @@
 #pragma once
 
 #include "../GameInfo.h"
+#include "GameDataTypeUtils.h"
 
 struct FPowerUpData
 {
+	EPowerUpType type;
+	std::string name;
 	std::string description1;
 	std::string description2;
 	int price = 0;
@@ -12,17 +15,10 @@ struct FPowerUpData
 
 struct FCharacterData
 {
+	ECharacterType type;
 	std::string lastName;
 	std::string firstName;
 	std::string description1;
 	std::string description2;
 	std::string startingWeapon;
-};
-
-enum class ECharacterType : unsigned char
-{
-	NONE,
-	TRALALA,
-	SAHUR,
-	BANANINI
 };
