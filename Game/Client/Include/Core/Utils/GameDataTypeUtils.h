@@ -1,8 +1,8 @@
 #pragma once
 
-enum class EPowerUpType : unsigned char
+enum class EPowerUpType : signed char
 {
-	NONE,
+	NONE = -1,
 	MIGHT,
 	ARMOR,
 	MAX_HEALTH,
@@ -14,9 +14,9 @@ enum class EPowerUpType : unsigned char
 	MAX
 };
 
-enum class ECharacterType : unsigned char
+enum class ECharacterType : signed char
 {
-	NONE,
+	NONE = -1,
 	TRALALA,
 	SAHUR,
 	BANANINI,
