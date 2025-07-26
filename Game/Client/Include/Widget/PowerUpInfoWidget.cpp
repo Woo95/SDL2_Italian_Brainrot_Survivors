@@ -66,12 +66,12 @@ void CPowerUpInfoWidget::Construct()
     mDescription2->SetText(" ");
     AddChild(mDescription2);
 
-    CImage* moneyIcon = CWidgetUtils::AllocateWidget<CImage>("Image_InfomoneyIcon");
-    moneyIcon->GetTransform()->SetRelativeScale(FVector2D(0.039f, 0.2f));
-    moneyIcon->GetTransform()->SetRelativePos(FVector2D(1.85f, 1.05f));
-    moneyIcon->SetTexture("Texture_UIAtlas");
-    moneyIcon->SetFrame("CoinIcon");
-    AddChild(moneyIcon);
+    mMoneyIcon = CWidgetUtils::AllocateWidget<CImage>("Image_InfomoneyIcon");
+    mMoneyIcon->GetTransform()->SetRelativeScale(FVector2D(0.039f, 0.2f));
+    mMoneyIcon->GetTransform()->SetRelativePos(FVector2D(1.85f, 1.05f));
+    mMoneyIcon->SetTexture("Texture_UIAtlas");
+    mMoneyIcon->SetFrame("CoinIcon");
+    AddChild(mMoneyIcon);
 
     mPrice = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoName");
     mPrice->GetTransform()->SetRelativeScale(FVector2D(0.1f, 0.19f));
@@ -87,6 +87,7 @@ void CPowerUpInfoWidget::Construct()
     mBtnBuy->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mBtnBuy->SetCornerRatio(2.0f);
     mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
+    mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, [this]() {((CPowerUpSelectPanelWidget*)this->mParent)->OnBuyButton();});
 }
 
 void CPowerUpInfoWidget::Release()
@@ -103,6 +104,24 @@ void CPowerUpInfoWidget::ShowInfo(CPowerUpSlotWidget* slot)
     mDescription2->SetText(powerUpData.description2);
     mPrice->SetText(std::to_string(powerUpData.price));
     mPowerUpIcon->SetFrame(powerUpData.name);
+
+    slot->IsPurchased() ? OnPurchase(true) : OnPurchase(false);
+}
+
+void CPowerUpInfoWidget::OnPurchase(bool purchased)
+{
+    if (purchased)
+    {
+        mMoneyIcon->Disable();
+        mPrice->Disable();
+        mBtnBuy->Disable();
+    }
+    else
+    {
+        mMoneyIcon->Enable();
+        mPrice->Enable();
+        mBtnBuy->Enable();
+    }
 }
 
 CButton* CPowerUpInfoWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)

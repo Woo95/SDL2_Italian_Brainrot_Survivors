@@ -14,14 +14,14 @@ void CPowerUpSlotWidget::Construct()
 {
     SetInteractable(true);
 
-    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpSlot");
-    panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
-    panel->GetTransform()->SetPivot(0.5f, 0.5f);
-    panel->SetTexture("Texture_UIAtlas");
-    panel->SetFrame("SelectSlot");
-    panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
-    panel->SetCornerRatio(1.25f);
-    AddChild(panel);
+    mPanel = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpSlot");
+    mPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
+    mPanel->GetTransform()->SetPivot(0.5f, 0.5f);
+    mPanel->SetTexture("Texture_UIAtlas");
+    mPanel->SetFrame("SelectSlot");
+    mPanel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
+    mPanel->SetCornerRatio(1.25f);
+    AddChild(mPanel);
 
     mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PowerUpSlot");
     mNameText->GetTransform()->SetRelativeScale(0.9f, 0.2f);
@@ -30,14 +30,14 @@ void CPowerUpSlotWidget::Construct()
     mNameText->SetCharWidth(14.0f);
     mNameText->SetFont("Font64_CourierPrime_Regular");
     mNameText->SetColor(59, 59, 59);
-    panel->AddChild(mNameText);
+    mPanel->AddChild(mNameText);
 
     CImage* powerUpBox = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpBox");
     powerUpBox->GetTransform()->SetRelativeScale(FVector2D(0.4f, 0.4f));
     powerUpBox->GetTransform()->SetPivot(0.5f, 0.5f);
     powerUpBox->SetTexture("Texture_UIAtlas");
     powerUpBox->SetFrame("PowerUpBox");
-    panel->AddChild(powerUpBox);
+    mPanel->AddChild(powerUpBox);
 
     mIconImage = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpIcon");
     mIconImage->GetTransform()->SetRelativeScale(FVector2D(0.7f, 0.7f));
@@ -58,5 +58,21 @@ void CPowerUpSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed
     {
         if (mOnClickCallback)
             mOnClickCallback(this);
+    }
+}
+
+void CPowerUpSlotWidget::OnPurchase(bool purchased)
+{
+    if (purchased)
+    {
+        mIsPurchased = true;
+        mPanel->SetColor(200, 200, 0);
+        mNameText->SetColor(255, 255, 255);
+    }
+    else
+    {
+        mIsPurchased = false;
+        mPanel->SetColor(255, 255, 255);
+        mNameText->SetColor(59, 59, 59);
     }
 }

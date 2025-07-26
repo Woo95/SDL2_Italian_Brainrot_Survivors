@@ -951,6 +951,9 @@
     <ClCompile Include="Widget\PowerUpInfoWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
+    <ClCompile Include="Manager\Data\GameData\PlayerState.cpp">
+      <Filter>Game\05. Manager\01. GameData</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

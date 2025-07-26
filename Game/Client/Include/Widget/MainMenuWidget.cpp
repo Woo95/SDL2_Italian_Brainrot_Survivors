@@ -1,5 +1,7 @@
 #include "MainMenuWidget.h"
 #include "AllWidgets.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/PlayerState.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Core/Input.h"
@@ -31,10 +33,11 @@ void CMainMenuWidget::Construct()
     name->SetText("Chaewan Woo");
     AddChild(name);
 
-    CMoneyHUDWidget* moneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUDWidget, 1>("UserWidget_MoneyHUD");
-    moneyHUD->GetTransform()->SetRelativeScale(FVector2D(0.1758f, 0.08f));
-    moneyHUD->GetTransform()->SetRelativePos(FVector2D(0.4121f, 0.009625f));
-    AddChild(moneyHUD);
+    mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUDWidget, 1>("UserWidget_MoneyHUD");
+    mMoneyHUD->GetTransform()->SetRelativeScale(FVector2D(0.1758f, 0.08f));
+    mMoneyHUD->GetTransform()->SetRelativePos(FVector2D(0.4121f, 0.009625f));
+    mMoneyHUD->SetBalance(CGameDataManager::GetInst()->GetPlayerState()->GetBalance());
+    AddChild(mMoneyHUD);
 
     mBtnQuit = CreateButton("Quit", "RedButton", FVector2D(0.08515f, 0.075f), "QUIT", FVector2D(0.5f, 0.4f));
     mBtnQuit->GetTransform()->SetRelativePos(FVector2D(0.34375f, 0.048f));
@@ -107,6 +110,7 @@ void CMainMenuWidget::Update(float deltaTime)
         {
             CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
             mCharSelectPanel->OnBackButton();
+            mPowerUpSelectPanel->OnBackButton();
             HidePanel();
         }
     }
