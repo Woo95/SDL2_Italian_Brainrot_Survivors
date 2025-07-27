@@ -20,8 +20,6 @@ private:
 	CTextBlock* mNameText = nullptr;
 	CImage* mIconImage = nullptr;
 
-	std::function<void(CPowerUpSlotWidget*)> mOnClickCallback = nullptr;
-
 protected:
 	virtual void Construct() final;
 	virtual void Release() final;
@@ -39,9 +37,5 @@ public:
 	void SetType(EPowerUpType type)
 	{
 		mType = type;
-	}
-	void SetOnClick(std::function<void(CPowerUpSlotWidget*)> callback)
-	{
-		mOnClickCallback = callback;
 	}
 };

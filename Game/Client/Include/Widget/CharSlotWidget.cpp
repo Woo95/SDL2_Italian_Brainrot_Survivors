@@ -47,8 +47,8 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
 {
     if (isPressed)
     {
-        if (mOnClickCallback)
-            mOnClickCallback(this);
+        CCharSelectPanelWidget* panel = dynamic_cast<CCharSelectPanelWidget*>(mParent);
+        panel->OnSlotClicked(this);
     }
 }
 

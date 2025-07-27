@@ -67,15 +67,6 @@ void CPowerUpSelectPanelWidget::Construct()
     mInfo->GetTransform()->SetRelativePos(FVector2D(0.02f, 0.805f));
     mInfo->Disable();
     AddChild(mInfo);
-
-
-    for (CPowerUpSlotWidget* slot : mSlots)
-    {
-        if (CGameDataManager::GetInst()->GetPlayerState()->IsPowerUpOwned(slot->GetType()))
-        {
-            slot->OnPurchase(true);
-        }
-    }
     ///// Slot-Related Code - END /////
 }
 
@@ -87,26 +78,28 @@ void CPowerUpSelectPanelWidget::Release()
 void CPowerUpSelectPanelWidget::OnRefundButton()
 {
     CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
-    if (playerState->RefundAllPowerUp())
-    {
-        mInfo->OnPurchase(false);
-        for (CPowerUpSlotWidget* slot : mSlots)
-        {
-            slot->OnPurchase(false);
-        }
-        ((CMainMenuWidget*)mParent)->GetMoneyHUD()->SetBalance(playerState->GetBalance());
-    }
+    if (!playerState->RefundAllPowerUp())
+        return;
+
+    mInfo->OnPurchase(false);
+    for (CPowerUpSlotWidget* slot : mSlots)
+        slot->OnPurchase(false);
+
+    if (CMainMenuWidget* menu = dynamic_cast<CMainMenuWidget*>(mParent))
+        menu->GetMoneyHUD()->SetBalance(playerState->GetBalance());
 }
 
 void CPowerUpSelectPanelWidget::OnBuyButton()
 {
     CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
-    if (playerState->PurchasePowerUp(mSelectedSlot->GetType()))
-    {
-        mInfo->OnPurchase(true);
-        mSelectedSlot->OnPurchase(true);
-        ((CMainMenuWidget*)mParent)->GetMoneyHUD()->SetBalance(playerState->GetBalance());
-    }
+    if (!playerState->PurchasePowerUp(mSelectedSlot->GetType()))
+        return;
+
+    mInfo->OnPurchase(true);
+    mSelectedSlot->OnPurchase(true);
+
+    if (CMainMenuWidget* menu = dynamic_cast<CMainMenuWidget*>(mParent))
+        menu->GetMoneyHUD()->SetBalance(playerState->GetBalance());
 }
 
 void CPowerUpSelectPanelWidget::OnBackButton()
@@ -117,8 +110,6 @@ void CPowerUpSelectPanelWidget::OnBackButton()
 
 void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
 {
-    mSelectedSlot = slot;
-
     // UI 
     mHighlight->Enable();
     mHighlight->SetSlot(mSelectedSlot);
@@ -159,9 +150,7 @@ CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(EPowerUpT
 
     slot->GetNameTextBlock()->SetText(textLabel);
     slot->GetIconImage()->SetFrame(powerUpData.name);
-
-    slot->SetOnClick([this](CPowerUpSlotWidget* slot) {this->OnSlotClicked(slot);});
-
+    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerState()->IsPowerUpOwned(slot->GetType()));
     AddChild(slot);
 
     return slot;

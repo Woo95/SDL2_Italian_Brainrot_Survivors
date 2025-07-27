@@ -19,8 +19,6 @@ private:
 	CAnimatedImage* mCharacter = nullptr;
 	std::string mSFX;
 
-	std::function<void(CCharSlotWidget*)> mOnClickCallback = nullptr;
-
 protected:
 	virtual void Construct() final;
 	virtual void Release() final;
@@ -39,10 +37,6 @@ public:
 	void SetSFX(const std::string& sfx)
 	{
 		mSFX = sfx;
-	}
-	void SetOnClick(std::function<void(CCharSlotWidget*)> callback)
-	{
-		mOnClickCallback = callback;
 	}
 
 	void PlaySFX();

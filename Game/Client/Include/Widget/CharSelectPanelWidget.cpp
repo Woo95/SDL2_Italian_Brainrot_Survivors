@@ -169,8 +169,6 @@ CCharSlotWidget* CCharSelectPanelWidget::CreateCharSlotWidget(ECharacterType typ
     slot->GetAnimatedImage()->SetTexture("Texture_" + characterData.lastName);
     slot->GetAnimatedImage()->SetFrame(characterData.lastName);
 
-    slot->SetOnClick([this](CCharSlotWidget* slot) {this->OnSlotClicked(slot);});
-
     AddChild(slot);
 
     return slot;
