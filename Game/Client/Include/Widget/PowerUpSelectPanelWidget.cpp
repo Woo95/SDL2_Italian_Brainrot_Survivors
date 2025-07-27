@@ -1,6 +1,7 @@
 #include "PowerUpSelectPanelWidget.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/PlayerState.h"
 #include "../Manager/Data/GameData/PowerUpDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -41,22 +42,21 @@ void CPowerUpSelectPanelWidget::Construct()
     btnRefundPowerUps->Set9SlicingCorner(FVector2D(10.f, 7.f));
     btnRefundPowerUps->SetCornerRatio(1.7f);
     btnRefundPowerUps->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
+    btnRefundPowerUps->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->OnRefundButton();});
 
     ///// Slot-Related Code - BEGIN /////
     const FVector2D slotScale = FVector2D(0.217f, 0.188f);
     const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.14f, 0.32f);
-    float offsetX = slotScale.x * 1.1f;
-    float offsetY = slotScale.y * 1.1f;
 
-    CPowerUpSlotWidget* mightSlot = CreatePowerUpSlotWidget(EPowerUpType::MAGNET, slotScale, slotStartPos, "Might");
-    CPowerUpSlotWidget* armorSlot = CreatePowerUpSlotWidget(EPowerUpType::ARMOR, slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Armor");
-    CPowerUpSlotWidget* maxHpSlot = CreatePowerUpSlotWidget(EPowerUpType::MAX_HEALTH, slotScale, armorSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Max Health");
-    CPowerUpSlotWidget* recoverySlot = CreatePowerUpSlotWidget(EPowerUpType::RECOVERY, slotScale, maxHpSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Recovery");
+    mSlots[(int)EPowerUpType::MIGHT]      = CreatePowerUpSlotWidget(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0), "Might");
+    mSlots[(int)EPowerUpType::ARMOR]      = CreatePowerUpSlotWidget(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0), "Armor");
+    mSlots[(int)EPowerUpType::MAX_HEALTH] = CreatePowerUpSlotWidget(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0), "Max Health");
+    mSlots[(int)EPowerUpType::RECOVERY]   = CreatePowerUpSlotWidget(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0), "Recovery");
 
-    CPowerUpSlotWidget* speedSlot = CreatePowerUpSlotWidget(EPowerUpType::SPEED, slotScale, mightSlot->GetTransform()->GetRelativePos() + FVector2D(0.0f, offsetY), "Speed");
-    CPowerUpSlotWidget* moveSpeedSlot = CreatePowerUpSlotWidget(EPowerUpType::MOVE_SPEED, slotScale, speedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Move Speed");
-    CPowerUpSlotWidget* magnetSlot = CreatePowerUpSlotWidget(EPowerUpType::MAGNET, slotScale, moveSpeedSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Magnet");
-    CPowerUpSlotWidget* growthSlot = CreatePowerUpSlotWidget(EPowerUpType::GROWTH, slotScale, magnetSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f), "Growth");
+    mSlots[(int)EPowerUpType::SPEED]      = CreatePowerUpSlotWidget(EPowerUpType::SPEED,      slotScale, slotStartPos + CalcSlotPos(0, 1), "Speed");
+    mSlots[(int)EPowerUpType::MOVE_SPEED] = CreatePowerUpSlotWidget(EPowerUpType::MOVE_SPEED, slotScale, slotStartPos + CalcSlotPos(1, 1), "Move Speed");
+    mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlotWidget(EPowerUpType::MAGNET,     slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
+    mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlotWidget(EPowerUpType::GROWTH,     slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_PowerUp");
     mHighlight->Disable();
@@ -67,12 +67,46 @@ void CPowerUpSelectPanelWidget::Construct()
     mInfo->GetTransform()->SetRelativePos(FVector2D(0.02f, 0.805f));
     mInfo->Disable();
     AddChild(mInfo);
+
+
+    for (CPowerUpSlotWidget* slot : mSlots)
+    {
+        if (CGameDataManager::GetInst()->GetPlayerState()->IsPowerUpOwned(slot->GetType()))
+        {
+            slot->OnPurchase(true);
+        }
+    }
     ///// Slot-Related Code - END /////
 }
 
 void CPowerUpSelectPanelWidget::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CPowerUpSelectPanelWidget>(this);
+}
+
+void CPowerUpSelectPanelWidget::OnRefundButton()
+{
+    CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
+    if (playerState->RefundAllPowerUp())
+    {
+        mInfo->OnPurchase(false);
+        for (CPowerUpSlotWidget* slot : mSlots)
+        {
+            slot->OnPurchase(false);
+        }
+        ((CMainMenuWidget*)mParent)->GetMoneyHUD()->SetBalance(playerState->GetBalance());
+    }
+}
+
+void CPowerUpSelectPanelWidget::OnBuyButton()
+{
+    CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
+    if (playerState->PurchasePowerUp(mSelectedSlot->GetType()))
+    {
+        mInfo->OnPurchase(true);
+        mSelectedSlot->OnPurchase(true);
+        ((CMainMenuWidget*)mParent)->GetMoneyHUD()->SetBalance(playerState->GetBalance());
+    }
 }
 
 void CPowerUpSelectPanelWidget::OnBackButton()
@@ -83,11 +117,13 @@ void CPowerUpSelectPanelWidget::OnBackButton()
 
 void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
 {
+    mSelectedSlot = slot;
+
     // UI 
     mHighlight->Enable();
-    mHighlight->SetSlot(slot);
+    mHighlight->SetSlot(mSelectedSlot);
     mInfo->Enable();
-    mInfo->ShowInfo(slot);
+    mInfo->ShowInfo(mSelectedSlot);
 }
 
 CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
@@ -129,4 +165,13 @@ CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(EPowerUpT
     AddChild(slot);
 
     return slot;
+}
+
+const FVector2D CPowerUpSelectPanelWidget::CalcSlotPos(int col, int row) const
+{
+    const FVector2D slotScale = FVector2D(0.217f, 0.188f);
+    const float offsetX = slotScale.x * 1.1f;
+    const float offsetY = slotScale.y * 1.1f;
+
+    return FVector2D(offsetX * col, offsetY * row);
 }

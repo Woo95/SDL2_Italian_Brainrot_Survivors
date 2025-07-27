@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
+    <ClCompile Include="Manager\Data\GameData\PlayerState.cpp" />
     <ClCompile Include="Widget\PowerUpInfoWidget.cpp" />
     <ClCompile Include="Widget\PowerUpSlotWidget.cpp" />
     <ClCompile Include="Widget\ResultPanelWidget.cpp" />

@@ -3,6 +3,7 @@
 #include "UserWidget.h"
 
 class CButton;
+class CMoneyHUDWidget;
 class COptionPanelWidget;
 class CCharSelectPanelWidget;
 class CPowerUpSelectPanelWidget;
@@ -22,6 +23,7 @@ private:
 	CButton* mBtnPowerUp = nullptr;
 	CButton* mBtnCredits = nullptr;
 
+	CMoneyHUDWidget* mMoneyHUD;
 	COptionPanelWidget* mOptionPanel = nullptr;
 	CCharSelectPanelWidget* mCharSelectPanel = nullptr;
 	CPowerUpSelectPanelWidget* mPowerUpSelectPanel = nullptr;
@@ -31,6 +33,9 @@ protected:
 	virtual void Construct() override;
 	virtual void Update(float deltaTime) override;
 	virtual void Release() override;
+
+public:
+	CMoneyHUDWidget* GetMoneyHUD() const { return mMoneyHUD; }
 
 private:
 	void ShowPanel(CWidget* panel);
