@@ -5,7 +5,7 @@
 
 class CButton;
 class CCharacterSlot;
-class CHighlightSelectedSlotWidget;
+class CHighlightSelectedSlot;
 class CCharacterInfoPanel;
 
 class CCharacterSelectPanel : public CUserWidget
@@ -16,7 +16,7 @@ public:
 
 private:
 	CCharacterSlot* mPrevSlot = nullptr;
-	CHighlightSelectedSlotWidget* mHighlight = nullptr;
+	CHighlightSelectedSlot* mHighlight = nullptr;
 	CCharacterInfoPanel* mInfoPanel = nullptr;
 	CButton* mBtnConfirm = nullptr;
 	CButton* mBtnStart = nullptr;

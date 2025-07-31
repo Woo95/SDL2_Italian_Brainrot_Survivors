@@ -621,12 +621,6 @@
     <ClInclude Include="Entity\Object\AllObjects.h">
       <Filter>Framework\04. Entity\01. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\CreditsPanel.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\HighlightSelectedSlotWidget.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
     <ClInclude Include="Widget\SlotWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
@@ -728,6 +722,12 @@
     </ClInclude>
     <ClInclude Include="Widget\CharacterSelectPanel.h">
       <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CreditsPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\HighlightSelectedSlot.h">
+      <Filter>Game\03. UserWidgets\02. Slots</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -875,12 +875,6 @@
     <ClCompile Include="Entity\Object\Sahur.cpp">
       <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\CreditsPanel.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\HighlightSelectedSlotWidget.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
       <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClCompile>
@@ -959,6 +953,12 @@
     </ClCompile>
     <ClCompile Include="Widget\CharacterSelectPanel.cpp">
       <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CreditsPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\HighlightSelectedSlot.cpp">
+      <Filter>Game\03. UserWidgets\02. Slots</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

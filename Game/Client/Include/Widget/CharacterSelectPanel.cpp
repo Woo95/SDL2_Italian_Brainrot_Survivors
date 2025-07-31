@@ -58,7 +58,7 @@ void CCharacterSelectPanel::Construct()
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.3f));
     bananiniSlot->GetWeaponIconImage()->SetFrame("Banana");
 
-    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("CharSelectPanel_HighlightSelectedSlot");
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("CharSelectPanel_HighlightSelectedSlot");
     mHighlight->Disable();
     AddChild(mHighlight);
 

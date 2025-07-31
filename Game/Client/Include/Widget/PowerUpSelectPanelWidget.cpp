@@ -58,7 +58,7 @@ void CPowerUpSelectPanelWidget::Construct()
     mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlotWidget(EPowerUpType::MAGNET,     slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
     mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlotWidget(EPowerUpType::GROWTH,     slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
 
-    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_PowerUp");
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("HighlighSelectedSlot_PowerUp");
     mHighlight->Disable();
     AddChild(mHighlight);
 

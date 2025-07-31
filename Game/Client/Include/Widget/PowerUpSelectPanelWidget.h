@@ -5,7 +5,7 @@
 
 class CButton;
 class CPowerUpSlotWidget;
-class CHighlightSelectedSlotWidget;
+class CHighlightSelectedSlot;
 class CPowerUpInfoWidget;
 
 class CPowerUpSelectPanelWidget : public CUserWidget
@@ -17,7 +17,7 @@ public:
 private:
 	CPowerUpSlotWidget* mSelectedSlot = nullptr;
 	CPowerUpSlotWidget* mSlots[(int)EPowerUpType::MAX] = {};
-	CHighlightSelectedSlotWidget* mHighlight = nullptr;
+	CHighlightSelectedSlot* mHighlight = nullptr;
 	CPowerUpInfoWidget* mInfo = nullptr;
 
 protected:

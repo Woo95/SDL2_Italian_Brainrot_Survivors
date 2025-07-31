@@ -1,20 +1,20 @@
-#include "HighlightSelectedSlotWidget.h"
+#include "HighlightSelectedSlot.h"
 #include "AllWidgets.h"
 
-CHighlightSelectedSlotWidget::CHighlightSelectedSlotWidget()
+CHighlightSelectedSlot::CHighlightSelectedSlot()
 {
 	Construct();
 }
 
-CHighlightSelectedSlotWidget::~CHighlightSelectedSlotWidget()
+CHighlightSelectedSlot::~CHighlightSelectedSlot()
 {
 }
 
-void CHighlightSelectedSlotWidget::Construct()
+void CHighlightSelectedSlot::Construct()
 {
     GetTransform()->SetPivot(0.5f, 0.5f);
 
-    CImage* highlight = CWidgetUtils::AllocateWidget<CImage>("Image_SelectHighlight");
+    CImage* highlight = CWidgetUtils::AllocateWidget<CImage>("HighlightSelectedSlot_Image");
     highlight->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     highlight->GetTransform()->SetPivot(0.5f, 0.5f);
     highlight->SetTexture("Texture_UIAtlas");
@@ -24,12 +24,12 @@ void CHighlightSelectedSlotWidget::Construct()
     AddChild(highlight);
 }
 
-void CHighlightSelectedSlotWidget::Release()
+void CHighlightSelectedSlot::Release()
 {
-	CMemoryPoolManager::GetInst()->Deallocate<CHighlightSelectedSlotWidget>(this);
+	CMemoryPoolManager::GetInst()->Deallocate<CHighlightSelectedSlot>(this);
 }
 
-void CHighlightSelectedSlotWidget::SetSlot(CSlotWidget* slot)
+void CHighlightSelectedSlot::SetSlot(CSlotWidget* slot)
 {
     CTransform* slotTrans = slot->GetTransform();
     const FVector2D& slotWorldPos = slotTrans->GetWorldPos();
