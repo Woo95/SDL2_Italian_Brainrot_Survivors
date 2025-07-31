@@ -1,17 +1,17 @@
 #pragma once
 
 #include "SlotWidget.h"
-#include "../Core/Utils/GameDataUtils.h"
+#include "../Core/Utils/GameDataTypeUtils.h"
 
 class CTextBlock;
 class CAnimatedImage;
 class CImage;
 
-class CCharSlotWidget : public CSlotWidget
+class CCharacterSlot : public CSlotWidget
 {
 public:
-	CCharSlotWidget();
-	virtual ~CCharSlotWidget();
+	CCharacterSlot();
+	virtual ~CCharacterSlot();
 
 private:
 	ECharacterType mType = ECharacterType::NONE;

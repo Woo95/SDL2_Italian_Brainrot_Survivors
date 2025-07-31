@@ -75,7 +75,7 @@ void CCharInfoWidget::Release()
     CMemoryPoolManager::GetInst()->Deallocate<CCharInfoWidget>(this);
 }
 
-void CCharInfoWidget::ShowInfo(CCharSlotWidget* slot)
+void CCharInfoWidget::ShowInfo(CCharacterSlot* slot)
 {
     const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(slot->GetType());
 

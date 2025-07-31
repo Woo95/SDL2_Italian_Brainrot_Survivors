@@ -4,7 +4,7 @@
 #include "../Core/Utils/GameDataTypeUtils.h"
 
 class CButton;
-class CCharSlotWidget;
+class CCharacterSlot;
 class CHighlightSelectedSlotWidget;
 class CCharInfoWidget;
 
@@ -16,7 +16,7 @@ public:
 	virtual ~CCharSelectPanelWidget();
 
 private:
-	CCharSlotWidget* mPrevSlot = nullptr;
+	CCharacterSlot* mPrevSlot = nullptr;
 	CHighlightSelectedSlotWidget* mHighlight = nullptr;
 	CCharInfoWidget* mInfo = nullptr;
 	CButton* mBtnConfirm = nullptr;
@@ -28,9 +28,9 @@ protected:
 
 public:
 	void OnBackButton();
-	void OnSlotClicked(CCharSlotWidget* slot);
+	void OnSlotClicked(CCharacterSlot* slot);
 
 private:
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
-	CCharSlotWidget* CreateCharSlotWidget(ECharacterType type, const FVector2D& scale, const FVector2D& pos);
+	CCharacterSlot* CreateCharacterSlot(ECharacterType type, const FVector2D& scale, const FVector2D& pos);
 };

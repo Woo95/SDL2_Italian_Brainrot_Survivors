@@ -13,7 +13,7 @@
 #include "OptionPanelWidget.h"
 #include "CreditsPanelWidget.h"
 #include "CharSelectPanelWidget.h"
-#include "CharSlotWidget.h"
+#include "CharacterSlot.h"
 #include "CharInfoWidget.h"
 #include "PowerUpSelectPanelWidget.h"
 #include "PowerUpSlotWidget.h"

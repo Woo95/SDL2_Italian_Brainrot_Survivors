@@ -4,7 +4,7 @@
 
 class CTextBlock;
 class CImage;
-class CCharSlotWidget;
+class CCharacterSlot;
 
 class CCharInfoWidget : public CUserWidget
 {
@@ -24,5 +24,5 @@ private:
     CImage* mWeaponIcon = nullptr;
 
 public:
-    void ShowInfo(CCharSlotWidget* slot);
+    void ShowInfo(CCharacterSlot* slot);
 };

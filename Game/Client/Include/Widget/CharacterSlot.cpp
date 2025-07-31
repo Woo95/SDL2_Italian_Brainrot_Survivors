@@ -1,22 +1,24 @@
-#include "CharSlotWidget.h"
-#include "AllWidgets.h"
+#include "CharacterSlot.h"
+#include "TextBlock.h"
+#include "AnimatedImage.h"
+#include "CharSelectPanelWidget.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
-CCharSlotWidget::CCharSlotWidget()
+CCharacterSlot::CCharacterSlot()
 {
 	Construct();
 }
 
-CCharSlotWidget::~CCharSlotWidget()
+CCharacterSlot::~CCharacterSlot()
 {
 }
 
-void CCharSlotWidget::Construct()
+void CCharacterSlot::Construct()
 {
     SetInteractable(true);
 
-    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("Image_CharSlot");
+    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("CharSlot_Image_Panel");
     panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     panel->GetTransform()->SetPivot(0.5f, 0.5f);
     panel->SetTexture("Texture_UIAtlas");
@@ -25,7 +27,7 @@ void CCharSlotWidget::Construct()
     panel->SetCornerRatio(1.25f);
     AddChild(panel);
 
-    mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSlot");
+    mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("CharSlot_TextBlock_Name");
     mNameText->GetTransform()->SetRelativeScale(0.9f, 0.175f);
     mNameText->GetTransform()->SetPivot(0.5f, 2.4f);
     mNameText->SetAlignment(ETextBlock::Alignment::LEFT);
@@ -33,23 +35,23 @@ void CCharSlotWidget::Construct()
     mNameText->SetFont("Font64_CourierPrime_Regular");
     panel->AddChild(mNameText);
 
-    mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("AnimatedImage_CharSlot");
+    mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("CharSlot_AnimatedImage_Character");
     mCharacter->SetAnimating(false);
     panel->AddChild(mCharacter);
 
-    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("Image_WeaponIcon");
+    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("CharSlot_Image_Weapon");
     mWeaponIcon->GetTransform()->SetRelativeScale(0.3f, 0.3f);
     mWeaponIcon->GetTransform()->SetRelativePos(13.0f, 4.0f);
     mWeaponIcon->SetTexture("Texture_ItemAtlas");
     panel->AddChild(mWeaponIcon);
 }
 
-void CCharSlotWidget::Release()
+void CCharacterSlot::Release()
 {
-	CMemoryPoolManager::GetInst()->Deallocate<CCharSlotWidget>(this);
+	CMemoryPoolManager::GetInst()->Deallocate<CCharacterSlot>(this);
 }
 
-void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
+void CCharacterSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
 {
     if (isPressed)
     {
@@ -58,7 +60,7 @@ void CCharSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, b
     }
 }
 
-void CCharSlotWidget::PlaySFX()
+void CCharacterSlot::PlaySFX()
 {
     std::shared_ptr<CSFX> sfx = CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>(mSFX);
 
@@ -66,7 +68,7 @@ void CCharSlotWidget::PlaySFX()
         sfx->Play();
 }
 
-void CCharSlotWidget::StopSFX()
+void CCharacterSlot::StopSFX()
 {
     std::shared_ptr<CSFX> sfx = CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>(mSFX);
     sfx->Stop();
