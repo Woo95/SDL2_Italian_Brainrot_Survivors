@@ -4,14 +4,14 @@
 
 class CTextBlock;
 
-class CMoneyHUDWidget : public CUserWidget
+class CMoneyHUD : public CUserWidget
 {
 public:
-	CMoneyHUDWidget();
-	virtual ~CMoneyHUDWidget();
+	CMoneyHUD();
+	virtual ~CMoneyHUD();
 
 private:
-	CTextBlock* mBalanceText = nullptr;
+	CTextBlock* mBalance = nullptr;
 
 protected:
 	virtual void Construct() override;

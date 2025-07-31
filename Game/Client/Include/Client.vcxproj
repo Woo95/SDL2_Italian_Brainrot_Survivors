@@ -60,8 +60,8 @@
     <ClInclude Include="Widget\OptionPanel.h" />
     <ClInclude Include="Scene\PlayScene.h" />
     <ClInclude Include="Widget\MainMenuWidget.h" />
-    <ClInclude Include="Widget\MoneyHUDWidget.h" />
-    <ClInclude Include="Widget\PressToStartWidget.h" />
+    <ClInclude Include="Widget\MoneyHUD.h" />
+    <ClInclude Include="Widget\PressToStartPanel.h" />
     <ClInclude Include="Scene\UI\MenuUI.h" />
     <ClInclude Include="Scene\MenuScene.h" />
     <ClInclude Include="Resource\Sound\BGM.h" />
@@ -233,8 +233,8 @@
     <ClCompile Include="Widget\OptionPanel.cpp" />
     <ClCompile Include="Scene\PlayScene.cpp" />
     <ClCompile Include="Widget\MainMenuWidget.cpp" />
-    <ClCompile Include="Widget\MoneyHUDWidget.cpp" />
-    <ClCompile Include="Widget\PressToStartWidget.cpp" />
+    <ClCompile Include="Widget\MoneyHUD.cpp" />
+    <ClCompile Include="Widget\PressToStartPanel.cpp" />
     <ClCompile Include="Scene\UI\MenuUI.cpp" />
     <ClCompile Include="Scene\MenuScene.cpp" />
     <ClCompile Include="Resource\Sound\BGM.cpp" />

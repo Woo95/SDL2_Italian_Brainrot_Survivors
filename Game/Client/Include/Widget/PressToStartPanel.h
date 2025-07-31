@@ -4,11 +4,11 @@
 
 class CTextBlock;
 
-class CPressToStartWidget : public CUserWidget
+class CPressToStartPanel : public CUserWidget
 {
 public:
-	CPressToStartWidget();
-	virtual ~CPressToStartWidget();
+	CPressToStartPanel();
+	virtual ~CPressToStartPanel();
 
 private:
 	float mBlinkTimer = 0.0f;

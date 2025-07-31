@@ -33,7 +33,7 @@ void CMainMenuWidget::Construct()
     name->SetText("Chaewan Woo");
     AddChild(name);
 
-    mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUDWidget, 1>("UserWidget_MoneyHUD");
+    mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUD, 1>("UserWidget_MoneyHUD");
     mMoneyHUD->GetTransform()->SetRelativeScale(FVector2D(0.1758f, 0.08f));
     mMoneyHUD->GetTransform()->SetRelativePos(FVector2D(0.4121f, 0.009625f));
     mMoneyHUD->SetBalance(CGameDataManager::GetInst()->GetPlayerState()->GetBalance());

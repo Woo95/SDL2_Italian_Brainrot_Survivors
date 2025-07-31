@@ -7,9 +7,10 @@
 #include "TextBlock.h"
 #include "Slider.h"
 
+#include "MoneyHUD.h"
+
 #include "MainMenuWidget.h"
-#include "PressToStartWidget.h"
-#include "MoneyHUDWidget.h"
+#include "PressToStartPanel.h"
 #include "OptionPanel.h"
 #include "CreditsPanel.h"
 

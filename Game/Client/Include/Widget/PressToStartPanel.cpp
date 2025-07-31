@@ -1,23 +1,23 @@
-#include "PressToStartWidget.h"
-#include "TextBlock.h"
+#include "PressToStartPanel.h"
+#include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Scene/UI/MenuUI.h"
 
-CPressToStartWidget::CPressToStartWidget()
+CPressToStartPanel::CPressToStartPanel()
 {
     Construct();
 }
 
-CPressToStartWidget::~CPressToStartWidget()
+CPressToStartPanel::~CPressToStartPanel()
 {
 }
 
-void CPressToStartWidget::Construct()
+void CPressToStartPanel::Construct()
 {
     SetInteractable(true);
 
-    mText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PressToStart");
+    mText = CWidgetUtils::AllocateWidget<CTextBlock>("PressToStartPanel_TextBlock_Text");
     mText->GetTransform()->SetRelativeScale(FVector2D(0.25f, 0.05f));
     mText->GetTransform()->SetRelativePos(0.5f, 0.7f);
     mText->GetTransform()->SetPivot(0.5f, 0.5f);
@@ -26,7 +26,7 @@ void CPressToStartWidget::Construct()
     AddChild(mText);
 }
 
-void CPressToStartWidget::Update(float deltaTime)
+void CPressToStartPanel::Update(float deltaTime)
 {
     CUserWidget::Update(deltaTime);
 
@@ -40,12 +40,12 @@ void CPressToStartWidget::Update(float deltaTime)
     }
 }
 
-void CPressToStartWidget::Release()
+void CPressToStartPanel::Release()
 {
-    CMemoryPoolManager::GetInst()->Deallocate<CPressToStartWidget>(this);
+    CMemoryPoolManager::GetInst()->Deallocate<CPressToStartPanel>(this);
 }
 
-void CPressToStartWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
+void CPressToStartPanel::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
 {
     if (isPressed)
     {

@@ -20,7 +20,7 @@ bool CMenuUI::Init()
     background->SetFrame("IntroBG");
     AddWidget(background);
 
-    mPressToStart = CWidgetUtils::AllocateWidget<CPressToStartWidget, 1>("UserWidget_PressToStart");
+    mPressToStart = CWidgetUtils::AllocateWidget<CPressToStartPanel, 1>("UserWidget_PressToStart");
     mPressToStart->GetTransform()->SetWorldScale(resolution);
     AddWidget(mPressToStart);
 
