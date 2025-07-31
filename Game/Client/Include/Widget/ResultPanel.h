@@ -2,11 +2,11 @@
 
 #include "UserWidget.h"
 
-class CResultPanelWidget : public CUserWidget
+class CResultPanel : public CUserWidget
 {
 public:
-	CResultPanelWidget();
-	virtual ~CResultPanelWidget();
+	CResultPanel();
+	virtual ~CResultPanel();
 
 protected:
 	virtual void Construct() override;

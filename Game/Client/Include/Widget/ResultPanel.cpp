@@ -1,16 +1,17 @@
-#include "ResultPanelWidget.h"
-#include "AllWidgets.h"
+#include "ResultPanel.h"
+#include "Image.h"
+#include "TextBlock.h"
 
-CResultPanelWidget::CResultPanelWidget()
+CResultPanel::CResultPanel()
 {
 	Construct();
 }
 
-CResultPanelWidget::~CResultPanelWidget()
+CResultPanel::~CResultPanel()
 {
 }
 
-void CResultPanelWidget::Construct()
+void CResultPanel::Construct()
 {
     CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("Image_ResultPanelBox");
     outerPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
@@ -32,7 +33,7 @@ void CResultPanelWidget::Construct()
     AddChild(category);
 }
 
-void CResultPanelWidget::Release()
+void CResultPanel::Release()
 {
-    CMemoryPoolManager::GetInst()->Deallocate<CResultPanelWidget>(this);
+    CMemoryPoolManager::GetInst()->Deallocate<CResultPanel>(this);
 }

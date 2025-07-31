@@ -28,7 +28,7 @@
     <ClInclude Include="Manager\Data\GameData\PlayerState.h" />
     <ClInclude Include="Widget\PowerUpInfoWidget.h" />
     <ClInclude Include="Widget\PowerUpSlotWidget.h" />
-    <ClInclude Include="Widget\ResultPanelWidget.h" />
+    <ClInclude Include="Widget\ResultPanel.h" />
     <ClInclude Include="Widget\PowerUpSelectPanelWidget.h" />
     <ClInclude Include="Entity\Object\Bananini.h" />
     <ClInclude Include="Entity\Object\ScrollEnvObj.h" />
@@ -209,7 +209,7 @@
     <ClCompile Include="Manager\Data\GameData\PlayerState.cpp" />
     <ClCompile Include="Widget\PowerUpInfoWidget.cpp" />
     <ClCompile Include="Widget\PowerUpSlotWidget.cpp" />
-    <ClCompile Include="Widget\ResultPanelWidget.cpp" />
+    <ClCompile Include="Widget\ResultPanel.cpp" />
     <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp" />
     <ClCompile Include="Entity\Object\Bananini.cpp" />
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp" />

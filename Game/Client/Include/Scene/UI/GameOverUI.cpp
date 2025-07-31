@@ -23,7 +23,7 @@ bool CGameOverUI::Init()
     background->SetFrame("IntroBG");
     AddWidget(background);
 
-    CResultPanelWidget* resultPanel = CWidgetUtils::AllocateWidget<CResultPanelWidget, 1>("UserWidget_ResultPanel");
+    CResultPanel* resultPanel = CWidgetUtils::AllocateWidget<CResultPanel, 1>("UserWidget_ResultPanel");
     resultPanel->GetTransform()->SetWorldScale(resolution * FVector2D(0.75f, 0.75f));
     resultPanel->GetTransform()->SetWorldPos(resolution * FVector2D(0.5f, 0.425f));
     resultPanel->GetTransform()->SetPivot(0.5f, 0.5f);

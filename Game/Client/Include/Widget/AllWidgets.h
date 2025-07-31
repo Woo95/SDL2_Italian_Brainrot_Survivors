@@ -20,4 +20,4 @@
 #include "PowerUpInfoWidget.h"
 #include "HighlightSelectedSlotWidget.h"
 
-#include "ResultPanelWidget.h"
+#include "ResultPanel.h"
