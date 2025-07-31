@@ -17,7 +17,7 @@ bool CPauseUI::Init()
 {
     const FVector2D& resolution = CGameManager::GetInst()->GetResolution();
 
-    CImage* background = CWidgetUtils::AllocateWidget<CImage>("Image_PauseBG");
+    CImage* background = CWidgetUtils::AllocateWidget<CImage>("PauseUI_Image_PauseBG");
     background->GetTransform()->SetWorldScale(resolution * FVector2D(1.0f, 1.0f));
     background->SetTexture("Texture_UIAtlas");
     background->SetFrame("PauseBG");
@@ -72,14 +72,14 @@ void CPauseUI::HidePanel()
 
 CButton* CPauseUI::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("PauseUI_Button_" + widgetName);
     button->GetTransform()->SetWorldScale(buttonSize);
     button->GetTransform()->SetPivot(0.5f, 0.5f);
     button->SetTexture("Texture_UIAtlas");
     button->SetFrame(buttonFrame);
     AddWidget(button);
 
-    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("PauseUI_TextBlock_" + widgetName);
     button->AddChild(text);
     text->GetTransform()->SetRelativeScale(textSize);
     text->GetTransform()->SetPivot(0.5f, 0.5f);

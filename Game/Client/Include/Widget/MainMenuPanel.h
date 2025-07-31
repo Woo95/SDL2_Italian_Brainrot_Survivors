@@ -9,11 +9,11 @@ class CCharacterSelectPanel;
 class CPowerUpSelectPanel;
 class CCreditsPanel;
 
-class CMainMenuWidget : public CUserWidget
+class CMainMenuPanel : public CUserWidget
 {
 public:
-	CMainMenuWidget();
-	virtual ~CMainMenuWidget();
+	CMainMenuPanel();
+	virtual ~CMainMenuPanel();
 
 private:
 	CButton* mBtnQuit    = nullptr;

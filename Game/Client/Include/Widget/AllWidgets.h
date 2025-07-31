@@ -7,10 +7,14 @@
 #include "TextBlock.h"
 #include "Slider.h"
 
+//========================//
+
 #include "MoneyHUD.h"
 
-#include "MainMenuWidget.h"
+#include "MainMenuPanel.h"
 #include "PressToStartPanel.h"
+#include "ResultPanel.h"
+
 #include "OptionPanel.h"
 #include "CreditsPanel.h"
 
@@ -22,5 +26,3 @@
 #include "HighlightSelectedSlot.h"
 #include "CharacterSlot.h"
 #include "PowerUpSlot.h"
-
-#include "ResultPanel.h"

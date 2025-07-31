@@ -59,7 +59,7 @@
     <ClInclude Include="Entity\Object\Sahur.h" />
     <ClInclude Include="Widget\OptionPanel.h" />
     <ClInclude Include="Scene\PlayScene.h" />
-    <ClInclude Include="Widget\MainMenuWidget.h" />
+    <ClInclude Include="Widget\MainMenuPanel.h" />
     <ClInclude Include="Widget\MoneyHUD.h" />
     <ClInclude Include="Widget\PressToStartPanel.h" />
     <ClInclude Include="Scene\UI\MenuUI.h" />
@@ -232,7 +232,7 @@
     <ClCompile Include="Entity\Object\Sahur.cpp" />
     <ClCompile Include="Widget\OptionPanel.cpp" />
     <ClCompile Include="Scene\PlayScene.cpp" />
-    <ClCompile Include="Widget\MainMenuWidget.cpp" />
+    <ClCompile Include="Widget\MainMenuPanel.cpp" />
     <ClCompile Include="Widget\MoneyHUD.cpp" />
     <ClCompile Include="Widget\PressToStartPanel.cpp" />
     <ClCompile Include="Scene\UI\MenuUI.cpp" />

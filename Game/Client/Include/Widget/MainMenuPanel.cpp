@@ -1,4 +1,4 @@
-#include "MainMenuWidget.h"
+#include "MainMenuPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/PlayerState.h"
@@ -6,25 +6,25 @@
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Core/Input.h"
 
-CMainMenuWidget::CMainMenuWidget()
+CMainMenuPanel::CMainMenuPanel()
 {
 	Construct();
 }
 
-CMainMenuWidget::~CMainMenuWidget()
+CMainMenuPanel::~CMainMenuPanel()
 {
 }
 
-void CMainMenuWidget::Construct()
+void CMainMenuPanel::Construct()
 {
-    CImage* menuTopBar = CWidgetUtils::AllocateWidget<CImage>("Image_MenuTopBar");
-    menuTopBar->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.1f));
-    menuTopBar->SetTexture("Texture_UIAtlas");
-    menuTopBar->SetFrame("MenuTopBar");
-    menuTopBar->SetAlpha(180);
-    AddChild(menuTopBar);
+    CImage* topBar = CWidgetUtils::AllocateWidget<CImage>("MainMenuPanel_Image_TopBar");
+    topBar->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.1f));
+    topBar->SetTexture("Texture_UIAtlas");
+    topBar->SetFrame("MenuTopBar");
+    topBar->SetAlpha(180);
+    AddChild(topBar);
 
-    CTextBlock* name = CWidgetUtils::AllocateWidget<CTextBlock>("Text_Name");
+    CTextBlock* name = CWidgetUtils::AllocateWidget<CTextBlock>("MainMenuPanel_TextBlock_Name");
     name->GetTransform()->SetRelativeScale(FVector2D(0.15f, 0.05f));
     name->GetTransform()->SetRelativePos(FVector2D(0.03f, 0.024f));
     name->SetAlignment(ETextBlock::Alignment::CENTER);
@@ -33,7 +33,7 @@ void CMainMenuWidget::Construct()
     name->SetText("Chaewan Woo");
     AddChild(name);
 
-    mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUD, 1>("UserWidget_MoneyHUD");
+    mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUD, 1>("MainMenuPanel_MoneyHUD");
     mMoneyHUD->GetTransform()->SetRelativeScale(FVector2D(0.1758f, 0.08f));
     mMoneyHUD->GetTransform()->SetRelativePos(FVector2D(0.4121f, 0.009625f));
     mMoneyHUD->SetBalance(CGameDataManager::GetInst()->GetPlayerState()->GetBalance());
@@ -70,29 +70,29 @@ void CMainMenuWidget::Construct()
     mBtnPowerUp->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mPowerUpSelectPanel);});
 
     mBtnCredits = CreateButton("Credits", "BlueCircularButton", FVector2D(0.12f, 0.035f), "credits", FVector2D(0.6f, 0.8f));
-    mBtnCredits->FindWidget(std::hash<std::string>()("Text_Credits"))->GetTransform()->SetRelativePos(0.0f, 0.1f);
+    mBtnCredits->FindWidget(std::hash<std::string>()("MainMenuPanel_TextBlock_Credits"))->GetTransform()->SetRelativePos(0.0f, 0.1f);
     mBtnCredits->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.945f));
     mBtnCredits->Set9SlicingCorner(FVector2D(7.f, 7.f));
     mBtnCredits->SetCornerRatio(2.0f);
     mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel);});
 
-    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel, 1>("UserWidget_OptionPanel");
+    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel, 1>("MainMenuPanel_OptionPanel");
     mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));
     mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mOptionPanel);
 
-    mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharacterSelectPanel, 1>("UserWidget_CharSelectPanel");
+    mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharacterSelectPanel, 1>("MainMenuPanel_CharSelectPanel");
     mCharSelectPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.85f));
     mCharSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.0f, 0.12f));
     AddChild(mCharSelectPanel);
 
-    mPowerUpSelectPanel = CWidgetUtils::AllocateWidget<CPowerUpSelectPanel, 1>("UserWidget_PowerUpSelectPanel");
+    mPowerUpSelectPanel = CWidgetUtils::AllocateWidget<CPowerUpSelectPanel, 1>("MainMenuPanel_PowerUpSelectPanel");
     mPowerUpSelectPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
     mPowerUpSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mPowerUpSelectPanel);
 
-    mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanel, 1>("UserWidget_CreditsPanel");
+    mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanel, 1>("MainMenuPanel_CreditsPanel");
     mCreditsPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
     mCreditsPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mCreditsPanel);
@@ -100,7 +100,7 @@ void CMainMenuWidget::Construct()
     HidePanel();
 }
 
-void CMainMenuWidget::Update(float deltaTime)
+void CMainMenuPanel::Update(float deltaTime)
 {
     CUserWidget::Update(deltaTime);
 
@@ -116,12 +116,12 @@ void CMainMenuWidget::Update(float deltaTime)
     }
 }
 
-void CMainMenuWidget::Release()
+void CMainMenuPanel::Release()
 {
-	CMemoryPoolManager::GetInst()->Deallocate<CMainMenuWidget>(this);
+	CMemoryPoolManager::GetInst()->Deallocate<CMainMenuPanel>(this);
 }
 
-void CMainMenuWidget::ShowPanel(CWidget* panel)
+void CMainMenuPanel::ShowPanel(CWidget* panel)
 {
     mBtnQuit->Disable();
     mBtnStart->Disable();
@@ -132,7 +132,7 @@ void CMainMenuWidget::ShowPanel(CWidget* panel)
     panel->Enable();
 }
 
-void CMainMenuWidget::HidePanel()
+void CMainMenuPanel::HidePanel()
 {
     mBtnQuit->Enable();
     mBtnStart->Enable();
@@ -146,7 +146,7 @@ void CMainMenuWidget::HidePanel()
     mCreditsPanel->Disable();
 }
 
-void CMainMenuWidget::OnBackButton()
+void CMainMenuPanel::OnBackButton()
 {
     if (mCharSelectPanel->GetEnable())
         mCharSelectPanel->OnBackButton();
@@ -154,16 +154,16 @@ void CMainMenuWidget::OnBackButton()
         mPowerUpSelectPanel->OnBackButton();
 }
 
-CButton* CMainMenuWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
+CButton* CMainMenuPanel::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("MainMenuPanel_Button_" + widgetName);
     button->GetTransform()->SetRelativeScale(buttonSize);
     button->GetTransform()->SetPivot(0.5f, 0.5f);
     button->SetTexture("Texture_UIAtlas");
     button->SetFrame(buttonFrame);
     AddChild(button);
 
-    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("MainMenuPanel_TextBlock_" + widgetName);
     button->AddChild(text);
     text->GetTransform()->SetRelativeScale(textSize);
     text->GetTransform()->SetPivot(0.5f, 0.5f);

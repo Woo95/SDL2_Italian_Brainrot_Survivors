@@ -3,7 +3,7 @@
 #include "SceneUI.h"
 
 class CPressToStartPanel;
-class CMainMenuWidget;
+class CMainMenuPanel;
 
 enum class EMenuUIState : unsigned char { PressToStart, MainMenu };
 
@@ -15,7 +15,7 @@ public:
 
 private:
 	CPressToStartPanel* mPressToStart = nullptr;
-	CMainMenuWidget* mMainMenu = nullptr;
+	CMainMenuPanel* mMainMenu = nullptr;
 
 public:
 	virtual bool Init() final;

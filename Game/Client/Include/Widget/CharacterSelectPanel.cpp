@@ -136,14 +136,14 @@ void CCharacterSelectPanel::OnSlotClicked(CCharacterSlot* slot)
 
 CButton* CCharacterSelectPanel::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("CharacterSelectPanel_Button_" + widgetName);
     button->GetTransform()->SetRelativeScale(buttonSize);
     button->GetTransform()->SetPivot(0.5f, 0.5f);
     button->SetTexture("Texture_UIAtlas");
     button->SetFrame(buttonFrame);
     AddChild(button);
 
-    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("CharacterSelectPanel_TextBlock_" + widgetName);
     button->AddChild(text);
     text->GetTransform()->SetRelativeScale(textSize);
     text->GetTransform()->SetPivot(0.5f, 0.5f);
