@@ -11,8 +11,8 @@ public:
     virtual ~CHighlightSelectedSlot();
 
 protected:
-    virtual void Construct() override;
-    virtual void Release() override;
+    virtual void Construct() final;
+    virtual void Release() final;
 
 public:
     void SetSlot(CSlot* slot);

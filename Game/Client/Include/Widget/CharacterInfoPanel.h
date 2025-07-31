@@ -13,8 +13,8 @@ public:
     virtual ~CCharacterInfoPanel();
 
 protected:
-    virtual void Construct() override;
-    virtual void Release() override;
+    virtual void Construct() final;
+    virtual void Release() final;
 
 private:
     CTextBlock* mName = nullptr;

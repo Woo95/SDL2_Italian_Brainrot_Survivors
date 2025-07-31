@@ -16,9 +16,9 @@ private:
 	CTextBlock* mText = nullptr;
 
 protected:
-	virtual void Construct() override;
-	virtual void Update(float deltaTime) override;
-	virtual void Release() override;
+	virtual void Construct() final;
+	virtual void Update(float deltaTime) final;
+	virtual void Release() final;
 
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) override;
 };

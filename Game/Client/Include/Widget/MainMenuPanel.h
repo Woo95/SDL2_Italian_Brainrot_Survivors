@@ -30,9 +30,9 @@ private:
 	CCreditsPanel* mCreditsPanel = nullptr;
 
 protected:
-	virtual void Construct() override;
-	virtual void Update(float deltaTime) override;
-	virtual void Release() override;
+	virtual void Construct() final;
+	virtual void Update(float deltaTime) final;
+	virtual void Release() final;
 
 public:
 	CMoneyHUD* GetMoneyHUD() const { return mMoneyHUD; }

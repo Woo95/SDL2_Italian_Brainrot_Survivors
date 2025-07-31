@@ -14,8 +14,8 @@ private:
 	CTextBlock* mBalance = nullptr;
 
 protected:
-	virtual void Construct() override;
-	virtual void Release() override;
+	virtual void Construct() final;
+	virtual void Release() final;
 
 public:
 	void SetBalance(int balance);
