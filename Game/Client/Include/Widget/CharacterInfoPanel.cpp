@@ -62,7 +62,7 @@ void CCharacterInfoPanel::Construct()
     weaponBox->SetFrame("WeaponBox");
     AddChild(weaponBox);
 
-    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_Weapon");
+    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_WeaponIcon");
     mWeaponIcon->GetTransform()->SetRelativeScale(FVector2D(0.65f, 0.65f));
     mWeaponIcon->GetTransform()->SetPivot(0.5f, 0.5f);
     mWeaponIcon->SetTexture("Texture_ItemAtlas");

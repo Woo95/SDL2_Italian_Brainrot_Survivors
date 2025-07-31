@@ -6,7 +6,7 @@
 class CButton;
 class CPowerUpSlotWidget;
 class CHighlightSelectedSlot;
-class CPowerUpInfoWidget;
+class CPowerUpInfoPanel;
 
 class CPowerUpSelectPanelWidget : public CUserWidget
 {
@@ -18,7 +18,7 @@ private:
 	CPowerUpSlotWidget* mSelectedSlot = nullptr;
 	CPowerUpSlotWidget* mSlots[(int)EPowerUpType::MAX] = {};
 	CHighlightSelectedSlot* mHighlight = nullptr;
-	CPowerUpInfoWidget* mInfo = nullptr;
+	CPowerUpInfoPanel* mInfo = nullptr;
 
 protected:
 	virtual void Construct() final;

@@ -7,11 +7,11 @@ class CImage;
 class CButton;
 class CPowerUpSlotWidget;
 
-class CPowerUpInfoWidget : public CUserWidget
+class CPowerUpInfoPanel : public CUserWidget
 {
 public:
-    CPowerUpInfoWidget();
-    virtual ~CPowerUpInfoWidget();
+    CPowerUpInfoPanel();
+    virtual ~CPowerUpInfoPanel();
 
 protected:
     virtual void Construct() override;

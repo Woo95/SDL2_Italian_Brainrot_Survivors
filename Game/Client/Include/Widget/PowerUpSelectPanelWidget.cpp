@@ -62,7 +62,7 @@ void CPowerUpSelectPanelWidget::Construct()
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mInfo = CWidgetUtils::AllocateWidget<CPowerUpInfoWidget, 1>("PowerUpInfo_Info");
+    mInfo = CWidgetUtils::AllocateWidget<CPowerUpInfoPanel, 1>("PowerUpInfo_Info");
     mInfo->GetTransform()->SetRelativeScale(FVector2D(0.957f, 0.177f));
     mInfo->GetTransform()->SetRelativePos(FVector2D(0.02f, 0.805f));
     mInfo->Disable();

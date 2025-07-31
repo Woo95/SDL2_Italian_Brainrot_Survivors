@@ -26,7 +26,7 @@
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h" />
     <ClInclude Include="Core\DataLoader.h" />
     <ClInclude Include="Manager\Data\GameData\PlayerState.h" />
-    <ClInclude Include="Widget\PowerUpInfoWidget.h" />
+    <ClInclude Include="Widget\PowerUpInfoPanel.h" />
     <ClInclude Include="Widget\PowerUpSlotWidget.h" />
     <ClInclude Include="Widget\ResultPanel.h" />
     <ClInclude Include="Widget\PowerUpSelectPanelWidget.h" />
@@ -207,7 +207,7 @@
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Manager\Data\GameData\PlayerState.cpp" />
-    <ClCompile Include="Widget\PowerUpInfoWidget.cpp" />
+    <ClCompile Include="Widget\PowerUpInfoPanel.cpp" />
     <ClCompile Include="Widget\PowerUpSlotWidget.cpp" />
     <ClCompile Include="Widget\ResultPanel.cpp" />
     <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp" />
