@@ -1,4 +1,4 @@
-#include "PowerUpSelectPanelWidget.h"
+#include "PowerUpSelectPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/PlayerState.h"
@@ -6,20 +6,20 @@
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
-CPowerUpSelectPanelWidget::CPowerUpSelectPanelWidget()
+CPowerUpSelectPanel::CPowerUpSelectPanel()
 {
 	Construct();
 }
 
-CPowerUpSelectPanelWidget::~CPowerUpSelectPanelWidget()
+CPowerUpSelectPanel::~CPowerUpSelectPanel()
 {
 }
 
-void CPowerUpSelectPanelWidget::Construct()
+void CPowerUpSelectPanel::Construct()
 {
 	SetInteractable(true);
 
-    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpSelectPanelBox");
+    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("PowerUpSelectPanel_Image_OuterPanel");
     outerPanel->GetTransform()->SetRelativeScale(1.0f, 1.0f);
     outerPanel->SetTexture("Texture_UIAtlas");
     outerPanel->SetFrame("PanelBox");
@@ -27,7 +27,7 @@ void CPowerUpSelectPanelWidget::Construct()
     outerPanel->SetCornerRatio(1.25f);
     AddChild(outerPanel);
 
-    CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PowerUpSelectCategory");
+    CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("PowerUpSelectPanel_TextBlock_Category");
     category->GetTransform()->SetRelativeScale(outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.7f, 0.065f));
     category->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() +
         FVector2D(outerPanel->GetTransform()->GetRelativeScale().x * 0.5f - category->GetTransform()->GetRelativeScale().x * 0.5f, outerPanel->GetTransform()->GetRelativeScale().y * 0.0325f));
@@ -58,11 +58,11 @@ void CPowerUpSelectPanelWidget::Construct()
     mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlotWidget(EPowerUpType::MAGNET,     slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
     mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlotWidget(EPowerUpType::GROWTH,     slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
 
-    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("HighlighSelectedSlot_PowerUp");
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("PowerUpSelectPanel_HighlightSelectedSlot");
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mInfo = CWidgetUtils::AllocateWidget<CPowerUpInfoPanel, 1>("PowerUpInfo_Info");
+    mInfo = CWidgetUtils::AllocateWidget<CPowerUpInfoPanel, 1>("PowerUpSelectPanel_PowerUpInfoPanel");
     mInfo->GetTransform()->SetRelativeScale(FVector2D(0.957f, 0.177f));
     mInfo->GetTransform()->SetRelativePos(FVector2D(0.02f, 0.805f));
     mInfo->Disable();
@@ -70,12 +70,12 @@ void CPowerUpSelectPanelWidget::Construct()
     ///// Slot-Related Code - END /////
 }
 
-void CPowerUpSelectPanelWidget::Release()
+void CPowerUpSelectPanel::Release()
 {
-	CMemoryPoolManager::GetInst()->Deallocate<CPowerUpSelectPanelWidget>(this);
+	CMemoryPoolManager::GetInst()->Deallocate<CPowerUpSelectPanel>(this);
 }
 
-void CPowerUpSelectPanelWidget::OnRefundButton()
+void CPowerUpSelectPanel::OnRefundButton()
 {
     CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
     if (!playerState->RefundAllPowerUp())
@@ -89,7 +89,7 @@ void CPowerUpSelectPanelWidget::OnRefundButton()
         menu->GetMoneyHUD()->SetBalance(playerState->GetBalance());
 }
 
-void CPowerUpSelectPanelWidget::OnBuyButton()
+void CPowerUpSelectPanel::OnBuyButton()
 {
     CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
     if (!playerState->PurchasePowerUp(mSelectedSlot->GetType()))
@@ -102,13 +102,13 @@ void CPowerUpSelectPanelWidget::OnBuyButton()
         menu->GetMoneyHUD()->SetBalance(playerState->GetBalance());
 }
 
-void CPowerUpSelectPanelWidget::OnBackButton()
+void CPowerUpSelectPanel::OnBackButton()
 {
     mHighlight->Disable();
     mInfo->Disable();
 }
 
-void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
+void CPowerUpSelectPanel::OnSlotClicked(CPowerUpSlotWidget* slot)
 {
     // UI 
     mHighlight->Enable();
@@ -117,16 +117,16 @@ void CPowerUpSelectPanelWidget::OnSlotClicked(CPowerUpSlotWidget* slot)
     mInfo->ShowInfo(mSelectedSlot);
 }
 
-CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
+CButton* CPowerUpSelectPanel::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-    CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("PowerUpSelectPanel_Button_" + widgetName);
     button->GetTransform()->SetRelativeScale(buttonSize);
     button->GetTransform()->SetPivot(0.5f, 0.5f);
     button->SetTexture("Texture_UIAtlas");
     button->SetFrame(buttonFrame);
     AddChild(button);
 
-    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("Text_" + widgetName);
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("PowerUpSelectPanel_TextBlock_" + widgetName);
     button->AddChild(text);
     text->GetTransform()->SetRelativeScale(textSize);
     text->GetTransform()->SetPivot(0.5f, 0.5f);
@@ -137,11 +137,11 @@ CButton* CPowerUpSelectPanelWidget::CreateButton(const std::string& widgetName, 
     return button;
 }
 
-CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
+CPowerUpSlotWidget* CPowerUpSelectPanel::CreatePowerUpSlotWidget(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
 {
     const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(type);
 
-    CPowerUpSlotWidget* slot = CWidgetUtils::AllocateWidget<CPowerUpSlotWidget, 12>("PowerUpSlot_" + powerUpData.name);
+    CPowerUpSlotWidget* slot = CWidgetUtils::AllocateWidget<CPowerUpSlotWidget, 12>("PowerUpSelectPanel_PowerUpSlot_" + powerUpData.name);
     slot->SetType(type);
 
     slot->GetTransform()->SetRelativeScale(scale);
@@ -156,7 +156,7 @@ CPowerUpSlotWidget* CPowerUpSelectPanelWidget::CreatePowerUpSlotWidget(EPowerUpT
     return slot;
 }
 
-const FVector2D CPowerUpSelectPanelWidget::CalcSlotPos(int col, int row) const
+const FVector2D CPowerUpSelectPanel::CalcSlotPos(int col, int row) const
 {
     const FVector2D slotScale = FVector2D(0.217f, 0.188f);
     const float offsetX = slotScale.x * 1.1f;

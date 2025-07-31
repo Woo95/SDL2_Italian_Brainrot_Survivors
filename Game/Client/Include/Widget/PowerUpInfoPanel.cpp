@@ -87,7 +87,7 @@ void CPowerUpInfoPanel::Construct()
     mBtnBuy->Set9SlicingCorner(FVector2D(10.f, 7.f));
     mBtnBuy->SetCornerRatio(2.0f);
     mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, [this]() {((CPowerUpSelectPanelWidget*)this->mParent)->OnBuyButton();});
+    mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, [this]() {((CPowerUpSelectPanel*)this->mParent)->OnBuyButton();});
 }
 
 void CPowerUpInfoPanel::Release()

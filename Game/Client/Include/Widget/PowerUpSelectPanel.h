@@ -8,11 +8,11 @@ class CPowerUpSlotWidget;
 class CHighlightSelectedSlot;
 class CPowerUpInfoPanel;
 
-class CPowerUpSelectPanelWidget : public CUserWidget
+class CPowerUpSelectPanel : public CUserWidget
 {
 public:
-	CPowerUpSelectPanelWidget();
-	virtual ~CPowerUpSelectPanelWidget();
+	CPowerUpSelectPanel();
+	virtual ~CPowerUpSelectPanel();
 
 private:
 	CPowerUpSlotWidget* mSelectedSlot = nullptr;

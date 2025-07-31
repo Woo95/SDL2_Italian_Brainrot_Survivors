@@ -29,7 +29,7 @@
     <ClInclude Include="Widget\PowerUpInfoPanel.h" />
     <ClInclude Include="Widget\PowerUpSlotWidget.h" />
     <ClInclude Include="Widget\ResultPanel.h" />
-    <ClInclude Include="Widget\PowerUpSelectPanelWidget.h" />
+    <ClInclude Include="Widget\PowerUpSelectPanel.h" />
     <ClInclude Include="Entity\Object\Bananini.h" />
     <ClInclude Include="Entity\Object\ScrollEnvObj.h" />
     <ClInclude Include="Entity\Object\Tralala.h" />
@@ -210,7 +210,7 @@
     <ClCompile Include="Widget\PowerUpInfoPanel.cpp" />
     <ClCompile Include="Widget\PowerUpSlotWidget.cpp" />
     <ClCompile Include="Widget\ResultPanel.cpp" />
-    <ClCompile Include="Widget\PowerUpSelectPanelWidget.cpp" />
+    <ClCompile Include="Widget\PowerUpSelectPanel.cpp" />
     <ClCompile Include="Entity\Object\Bananini.cpp" />
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp" />
     <ClCompile Include="Entity\Component\InputComponent.cpp" />

@@ -29,7 +29,7 @@ void CHighlightSelectedSlot::Release()
 	CMemoryPoolManager::GetInst()->Deallocate<CHighlightSelectedSlot>(this);
 }
 
-void CHighlightSelectedSlot::SetSlot(CSlotWidget* slot)
+void CHighlightSelectedSlot::SetSlot(CSlot* slot)
 {
     CTransform* slotTrans = slot->GetTransform();
     const FVector2D& slotWorldPos = slotTrans->GetWorldPos();

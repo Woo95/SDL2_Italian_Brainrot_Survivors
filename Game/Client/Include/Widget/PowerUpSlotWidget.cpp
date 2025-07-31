@@ -56,7 +56,7 @@ void CPowerUpSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed
 {
     if (isPressed)
     {
-        CPowerUpSelectPanelWidget* panel = dynamic_cast<CPowerUpSelectPanelWidget*>(mParent);
+        CPowerUpSelectPanel* panel = dynamic_cast<CPowerUpSelectPanel*>(mParent);
         panel->SetSelectedSlot(this);
         panel->OnSlotClicked(this);
     }

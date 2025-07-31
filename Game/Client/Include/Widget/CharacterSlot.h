@@ -7,7 +7,7 @@ class CTextBlock;
 class CAnimatedImage;
 class CImage;
 
-class CCharacterSlot : public CSlotWidget
+class CCharacterSlot : public CSlot
 {
 public:
 	CCharacterSlot();

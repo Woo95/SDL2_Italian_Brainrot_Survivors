@@ -6,7 +6,7 @@
 class CTextBlock;
 class CImage;
 
-class CPowerUpSlotWidget : public CSlotWidget
+class CPowerUpSlotWidget : public CSlot
 {
 public:
 	CPowerUpSlotWidget();

@@ -2,7 +2,7 @@
 
 #include "UserWidget.h"
 
-class CSlotWidget;
+class CSlot;
 
 class CHighlightSelectedSlot : public CUserWidget
 {
@@ -15,5 +15,5 @@ protected:
     virtual void Release() override;
 
 public:
-    void SetSlot(CSlotWidget* slot);
+    void SetSlot(CSlot* slot);
 };

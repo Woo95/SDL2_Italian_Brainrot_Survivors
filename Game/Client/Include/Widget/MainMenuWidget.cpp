@@ -87,7 +87,7 @@ void CMainMenuWidget::Construct()
     mCharSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.0f, 0.12f));
     AddChild(mCharSelectPanel);
 
-    mPowerUpSelectPanel = CWidgetUtils::AllocateWidget<CPowerUpSelectPanelWidget, 1>("UserWidget_PowerUpSelectPanel");
+    mPowerUpSelectPanel = CWidgetUtils::AllocateWidget<CPowerUpSelectPanel, 1>("UserWidget_PowerUpSelectPanel");
     mPowerUpSelectPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
     mPowerUpSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mPowerUpSelectPanel);

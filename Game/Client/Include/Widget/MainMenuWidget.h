@@ -6,7 +6,7 @@ class CButton;
 class CMoneyHUDWidget;
 class COptionPanel;
 class CCharacterSelectPanel;
-class CPowerUpSelectPanelWidget;
+class CPowerUpSelectPanel;
 class CCreditsPanel;
 
 class CMainMenuWidget : public CUserWidget
@@ -26,7 +26,7 @@ private:
 	CMoneyHUDWidget* mMoneyHUD;
 	COptionPanel* mOptionPanel = nullptr;
 	CCharacterSelectPanel* mCharSelectPanel = nullptr;
-	CPowerUpSelectPanelWidget* mPowerUpSelectPanel = nullptr;
+	CPowerUpSelectPanel* mPowerUpSelectPanel = nullptr;
 	CCreditsPanel* mCreditsPanel = nullptr;
 
 protected:
