@@ -1,20 +1,20 @@
-#include "CharInfoWidget.h"
+#include "CharacterInfoPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/CharacterDataManager.h"
 
-CCharInfoWidget::CCharInfoWidget()
+CCharacterInfoPanel::CCharacterInfoPanel()
 {
     Construct();
 }
 
-CCharInfoWidget::~CCharInfoWidget()
+CCharacterInfoPanel::~CCharacterInfoPanel()
 {
 }
 
-void CCharInfoWidget::Construct()
+void CCharacterInfoPanel::Construct()
 {
-    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("Image_InfoPanel");
+    CImage* panel = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_Panel");
     panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     panel->SetTexture("Texture_UIAtlas");
     panel->SetFrame("SelectSlot");
@@ -22,7 +22,7 @@ void CCharInfoWidget::Construct()
     panel->SetCornerRatio(1.5f);
     AddChild(panel);
 
-    mName = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoName");
+    mName = CWidgetUtils::AllocateWidget<CTextBlock>("CharInfoPanel_TextBlock_Name");
     mName->GetTransform()->SetRelativeScale(0.97f, 0.19f);
     mName->GetTransform()->SetRelativePos(0.035f, 0.45f);
     mName->SetAlignment(ETextBlock::Alignment::LEFT);
@@ -31,7 +31,7 @@ void CCharInfoWidget::Construct()
     mName->SetText(" ");
     AddChild(mName);
 
-    mDescription1 = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoDescription1");
+    mDescription1 = CWidgetUtils::AllocateWidget<CTextBlock>("CharInfoPanel_TextBlock_Desc1");
     mDescription1->GetTransform()->SetRelativeScale(0.65f, 0.19f);
     mDescription1->GetTransform()->SetRelativePos(0.7f, 2.5f);
     mDescription1->SetAlignment(ETextBlock::Alignment::LEFT);
@@ -40,7 +40,7 @@ void CCharInfoWidget::Construct()
     mDescription1->SetText(" ");
     AddChild(mDescription1);
 
-    mDescription2 = CWidgetUtils::AllocateWidget<CTextBlock>("Text_InfoDescription2");
+    mDescription2 = CWidgetUtils::AllocateWidget<CTextBlock>("CharInfoPanel_TextBlock_Desc2");
     mDescription2->GetTransform()->SetRelativeScale(0.65f, 0.19f);
     mDescription2->GetTransform()->SetRelativePos(0.7f, 4.0f);
     mDescription2->SetAlignment(ETextBlock::Alignment::LEFT);
@@ -49,12 +49,12 @@ void CCharInfoWidget::Construct()
     mDescription2->SetText(" ");
     AddChild(mDescription2);
 
-    mCharacter = CWidgetUtils::AllocateWidget<CImage>("Image_InfoCharacter");
+    mCharacter = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_Character");
     mCharacter->GetTransform()->SetRelativePos(0.035f, 5.85f);
     mCharacter->GetTransform()->SetPivot(0.0f, 1.0f);
     AddChild(mCharacter);
 
-    CImage* weaponBox = CWidgetUtils::AllocateWidget<CImage>("Image_InfoWeaponBox");
+    CImage* weaponBox = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_WeaponBox");
     weaponBox->GetTransform()->SetRelativeScale(FVector2D(0.1065f, 0.5f));
     weaponBox->GetTransform()->SetRelativePos(0.5f, 4.1f);
     weaponBox->GetTransform()->SetPivot(0.5f, 0.5f);
@@ -62,7 +62,7 @@ void CCharInfoWidget::Construct()
     weaponBox->SetFrame("WeaponBox");
     AddChild(weaponBox);
 
-    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("Image_InfoPowerUpIcon");
+    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_Weapon");
     mWeaponIcon->GetTransform()->SetRelativeScale(FVector2D(0.65f, 0.65f));
     mWeaponIcon->GetTransform()->SetPivot(0.5f, 0.5f);
     mWeaponIcon->SetTexture("Texture_ItemAtlas");
@@ -70,12 +70,12 @@ void CCharInfoWidget::Construct()
     weaponBox->AddChild(mWeaponIcon);
 }
 
-void CCharInfoWidget::Release()
+void CCharacterInfoPanel::Release()
 {
-    CMemoryPoolManager::GetInst()->Deallocate<CCharInfoWidget>(this);
+    CMemoryPoolManager::GetInst()->Deallocate<CCharacterInfoPanel>(this);
 }
 
-void CCharInfoWidget::ShowInfo(CCharacterSlot* slot)
+void CCharacterInfoPanel::ShowInfo(CCharacterSlot* slot)
 {
     const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(slot->GetType());
 

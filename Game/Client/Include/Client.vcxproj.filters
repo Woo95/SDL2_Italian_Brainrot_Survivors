@@ -169,6 +169,12 @@
     <Filter Include="Game\01. Core\Utils">
       <UniqueIdentifier>{125d717f-733b-4dae-a7d1-8323f179b83e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\03. UserWidgets\01. Panels">
+      <UniqueIdentifier>{e8b82587-b2ed-4f40-bc29-8fb737a49a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets\02. Slots">
+      <UniqueIdentifier>{e7738a38-04b8-477a-a11b-7468c0c02ad0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -597,9 +603,6 @@
     <ClInclude Include="Widget\UserWidget.h">
       <Filter>Framework\06. Widget\00. UserWidget</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\OptionPanelWidget.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Object\MadForest.h">
       <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClInclude>
@@ -619,12 +622,6 @@
       <Filter>Framework\04. Entity\01. Object</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharSelectPanelWidget.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\CharSlotWidget.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\CharInfoWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CreditsPanelWidget.h">
@@ -693,9 +690,6 @@
     <ClInclude Include="Manager\Data\PathManager.h">
       <Filter>Framework\02. Manager\01. Data</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\ResultPanelWidget.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
@@ -722,6 +716,18 @@
     </ClInclude>
     <ClInclude Include="Core\Utils\GameDataTypeUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CharacterInfoPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\OptionPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\ResultPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CharacterSlot.h">
+      <Filter>Game\03. UserWidgets\02. Slots</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -857,9 +863,6 @@
     <ClCompile Include="Widget\UserWidget.cpp">
       <Filter>Framework\06. Widget\00. UserWidget</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\OptionPanelWidget.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Object\MadForest.cpp">
       <Filter>Game\04. Entity\01. Object\Map</Filter>
     </ClCompile>
@@ -873,12 +876,6 @@
       <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharSelectPanelWidget.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\CharSlotWidget.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\CharInfoWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CreditsPanelWidget.cpp">
@@ -939,9 +936,6 @@
     <ClCompile Include="Manager\Data\PathManager.cpp">
       <Filter>Framework\02. Manager\01. Data</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\ResultPanelWidget.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
     <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClCompile>
@@ -953,6 +947,18 @@
     </ClCompile>
     <ClCompile Include="Manager\Data\GameData\PlayerState.cpp">
       <Filter>Game\05. Manager\01. GameData</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CharacterInfoPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\OptionPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\ResultPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CharacterSlot.cpp">
+      <Filter>Game\03. UserWidgets\02. Slots</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

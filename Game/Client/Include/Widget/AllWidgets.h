@@ -14,7 +14,7 @@
 #include "CreditsPanelWidget.h"
 #include "CharSelectPanelWidget.h"
 #include "CharacterSlot.h"
-#include "CharInfoWidget.h"
+#include "CharacterInfoPanel.h"
 #include "PowerUpSelectPanelWidget.h"
 #include "PowerUpSlotWidget.h"
 #include "PowerUpInfoWidget.h"

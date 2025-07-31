@@ -6,11 +6,11 @@ class CTextBlock;
 class CImage;
 class CCharacterSlot;
 
-class CCharInfoWidget : public CUserWidget
+class CCharacterInfoPanel : public CUserWidget
 {
 public:
-    CCharInfoWidget();
-    virtual ~CCharInfoWidget();
+    CCharacterInfoPanel();
+    virtual ~CCharacterInfoPanel();
 
 protected:
     virtual void Construct() override;

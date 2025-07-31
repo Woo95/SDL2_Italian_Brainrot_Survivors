@@ -62,11 +62,11 @@ void CCharSelectPanelWidget::Construct()
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mInfo = CWidgetUtils::AllocateWidget<CCharInfoWidget, 1>("CharacterInfo_Info");
-    mInfo->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.177f));
-    mInfo->GetTransform()->SetRelativePos(FVector2D(0.279f, 0.805f));
-    mInfo->Disable();
-    AddChild(mInfo);
+    mInfoPanel = CWidgetUtils::AllocateWidget<CCharacterInfoPanel, 1>("CharacterInfo_Info");
+    mInfoPanel->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.177f));
+    mInfoPanel->GetTransform()->SetRelativePos(FVector2D(0.279f, 0.805f));
+    mInfoPanel->Disable();
+    AddChild(mInfoPanel);
     ///// Slot-Related Code - END /////
 
     mBtnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
@@ -94,7 +94,7 @@ void CCharSelectPanelWidget::Release()
 void CCharSelectPanelWidget::OnBackButton()
 {
     mHighlight->Disable();
-    mInfo->Disable();
+    mInfoPanel->Disable();
     mBtnConfirm->Disable();
     mBtnStart->Disable();
 
@@ -115,8 +115,8 @@ void CCharSelectPanelWidget::OnSlotClicked(CCharacterSlot* slot)
     mHighlight->Enable();
     mHighlight->SetSlot(slot);
     slot->GetAnimatedImage()->SetAnimating(true);
-    mInfo->Enable();
-    mInfo->ShowInfo(slot);
+    mInfoPanel->Enable();
+    mInfoPanel->ShowInfo(slot);
     mBtnConfirm->Enable();
     mBtnStart->Disable();
 

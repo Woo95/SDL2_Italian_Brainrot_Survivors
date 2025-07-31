@@ -43,7 +43,7 @@
     <ClInclude Include="Widget\SlotWidget.h" />
     <ClInclude Include="Widget\HighlightSelectedSlotWidget.h" />
     <ClInclude Include="Widget\CreditsPanelWidget.h" />
-    <ClInclude Include="Widget\CharInfoWidget.h" />
+    <ClInclude Include="Widget\CharacterInfoPanel.h" />
     <ClInclude Include="Widget\CharacterSlot.h" />
     <ClInclude Include="Widget\CharSelectPanelWidget.h" />
     <ClInclude Include="Entity\Component\AllComponents.h" />
@@ -223,7 +223,7 @@
     <ClCompile Include="Scene\UI\PlayUI.cpp" />
     <ClCompile Include="Widget\HighlightSelectedSlotWidget.cpp" />
     <ClCompile Include="Widget\CreditsPanelWidget.cpp" />
-    <ClCompile Include="Widget\CharInfoWidget.cpp" />
+    <ClCompile Include="Widget\CharacterInfoPanel.cpp" />
     <ClCompile Include="Widget\CharacterSlot.cpp" />
     <ClCompile Include="Widget\CharSelectPanelWidget.cpp" />
     <ClCompile Include="Entity\Object\MadForest.cpp" />
