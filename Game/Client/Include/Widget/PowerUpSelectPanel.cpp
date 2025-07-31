@@ -48,15 +48,15 @@ void CPowerUpSelectPanel::Construct()
     const FVector2D slotScale = FVector2D(0.217f, 0.188f);
     const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.14f, 0.32f);
 
-    mSlots[(int)EPowerUpType::MIGHT]      = CreatePowerUpSlotWidget(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0), "Might");
-    mSlots[(int)EPowerUpType::ARMOR]      = CreatePowerUpSlotWidget(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0), "Armor");
-    mSlots[(int)EPowerUpType::MAX_HEALTH] = CreatePowerUpSlotWidget(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0), "Max Health");
-    mSlots[(int)EPowerUpType::RECOVERY]   = CreatePowerUpSlotWidget(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0), "Recovery");
+    mSlots[(int)EPowerUpType::MIGHT]      = CreatePowerUpSlot(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0), "Might");
+    mSlots[(int)EPowerUpType::ARMOR]      = CreatePowerUpSlot(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0), "Armor");
+    mSlots[(int)EPowerUpType::MAX_HEALTH] = CreatePowerUpSlot(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0), "Max Health");
+    mSlots[(int)EPowerUpType::RECOVERY]   = CreatePowerUpSlot(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0), "Recovery");
 
-    mSlots[(int)EPowerUpType::SPEED]      = CreatePowerUpSlotWidget(EPowerUpType::SPEED,      slotScale, slotStartPos + CalcSlotPos(0, 1), "Speed");
-    mSlots[(int)EPowerUpType::MOVE_SPEED] = CreatePowerUpSlotWidget(EPowerUpType::MOVE_SPEED, slotScale, slotStartPos + CalcSlotPos(1, 1), "Move Speed");
-    mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlotWidget(EPowerUpType::MAGNET,     slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
-    mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlotWidget(EPowerUpType::GROWTH,     slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
+    mSlots[(int)EPowerUpType::SPEED]      = CreatePowerUpSlot(EPowerUpType::SPEED,      slotScale, slotStartPos + CalcSlotPos(0, 1), "Speed");
+    mSlots[(int)EPowerUpType::MOVE_SPEED] = CreatePowerUpSlot(EPowerUpType::MOVE_SPEED, slotScale, slotStartPos + CalcSlotPos(1, 1), "Move Speed");
+    mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlot(EPowerUpType::MAGNET,     slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
+    mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlot(EPowerUpType::GROWTH,     slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("PowerUpSelectPanel_HighlightSelectedSlot");
     mHighlight->Disable();
@@ -82,7 +82,7 @@ void CPowerUpSelectPanel::OnRefundButton()
         return;
 
     mInfo->OnPurchase(false);
-    for (CPowerUpSlotWidget* slot : mSlots)
+    for (CPowerUpSlot* slot : mSlots)
         slot->OnPurchase(false);
 
     if (CMainMenuWidget* menu = dynamic_cast<CMainMenuWidget*>(mParent))
@@ -108,7 +108,7 @@ void CPowerUpSelectPanel::OnBackButton()
     mInfo->Disable();
 }
 
-void CPowerUpSelectPanel::OnSlotClicked(CPowerUpSlotWidget* slot)
+void CPowerUpSelectPanel::OnSlotClicked(CPowerUpSlot* slot)
 {
     // UI 
     mHighlight->Enable();
@@ -137,11 +137,11 @@ CButton* CPowerUpSelectPanel::CreateButton(const std::string& widgetName, const 
     return button;
 }
 
-CPowerUpSlotWidget* CPowerUpSelectPanel::CreatePowerUpSlotWidget(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
+CPowerUpSlot* CPowerUpSelectPanel::CreatePowerUpSlot(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
 {
     const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(type);
 
-    CPowerUpSlotWidget* slot = CWidgetUtils::AllocateWidget<CPowerUpSlotWidget, 12>("PowerUpSelectPanel_PowerUpSlot_" + powerUpData.name);
+    CPowerUpSlot* slot = CWidgetUtils::AllocateWidget<CPowerUpSlot, 12>("PowerUpSelectPanel_PowerUpSlot_" + powerUpData.name);
     slot->SetType(type);
 
     slot->GetTransform()->SetRelativeScale(scale);

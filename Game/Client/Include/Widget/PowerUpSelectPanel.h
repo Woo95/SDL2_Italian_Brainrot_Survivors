@@ -4,7 +4,7 @@
 #include "../Core/Utils/GameDataTypeUtils.h"
 
 class CButton;
-class CPowerUpSlotWidget;
+class CPowerUpSlot;
 class CHighlightSelectedSlot;
 class CPowerUpInfoPanel;
 
@@ -15,8 +15,8 @@ public:
 	virtual ~CPowerUpSelectPanel();
 
 private:
-	CPowerUpSlotWidget* mSelectedSlot = nullptr;
-	CPowerUpSlotWidget* mSlots[(int)EPowerUpType::MAX] = {};
+	CPowerUpSlot* mSelectedSlot = nullptr;
+	CPowerUpSlot* mSlots[(int)EPowerUpType::MAX] = {};
 	CHighlightSelectedSlot* mHighlight = nullptr;
 	CPowerUpInfoPanel* mInfo = nullptr;
 
@@ -28,12 +28,12 @@ public:
 	void OnRefundButton();
 	void OnBuyButton();
 	void OnBackButton();
-	void OnSlotClicked(CPowerUpSlotWidget* slot);
+	void OnSlotClicked(CPowerUpSlot* slot);
 
-	void SetSelectedSlot(CPowerUpSlotWidget* slot) { mSelectedSlot = slot; }
+	void SetSelectedSlot(CPowerUpSlot* slot) { mSelectedSlot = slot; }
 
 private:
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
-	CPowerUpSlotWidget* CreatePowerUpSlotWidget(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel);
+	CPowerUpSlot* CreatePowerUpSlot(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel);
 	const FVector2D CalcSlotPos(int col, int row) const;
 };

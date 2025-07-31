@@ -95,7 +95,7 @@ void CPowerUpInfoPanel::Release()
 	CMemoryPoolManager::GetInst()->Deallocate<CPowerUpInfoPanel>(this);
 }
 
-void CPowerUpInfoPanel::ShowInfo(CPowerUpSlotWidget* slot)
+void CPowerUpInfoPanel::ShowInfo(CPowerUpSlot* slot)
 {
     const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(slot->GetType());
 

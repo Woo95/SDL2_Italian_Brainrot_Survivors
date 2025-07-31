@@ -1,16 +1,16 @@
 #pragma once
 
-#include "SlotWidget.h"
+#include "Slot.h"
 #include "../Core/Utils/GameDataUtils.h"
 
 class CTextBlock;
 class CImage;
 
-class CPowerUpSlotWidget : public CSlot
+class CPowerUpSlot : public CSlot
 {
 public:
-	CPowerUpSlotWidget();
-	virtual ~CPowerUpSlotWidget();
+	CPowerUpSlot();
+	virtual ~CPowerUpSlot();
 
 private:
 	EPowerUpType mType = EPowerUpType::NONE;

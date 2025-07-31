@@ -27,7 +27,7 @@
     <ClInclude Include="Core\DataLoader.h" />
     <ClInclude Include="Manager\Data\GameData\PlayerState.h" />
     <ClInclude Include="Widget\PowerUpInfoPanel.h" />
-    <ClInclude Include="Widget\PowerUpSlotWidget.h" />
+    <ClInclude Include="Widget\PowerUpSlot.h" />
     <ClInclude Include="Widget\ResultPanel.h" />
     <ClInclude Include="Widget\PowerUpSelectPanel.h" />
     <ClInclude Include="Entity\Object\Bananini.h" />
@@ -40,7 +40,7 @@
     <ClInclude Include="Scene\UI\PauseUI.h" />
     <ClInclude Include="Scene\PauseScene.h" />
     <ClInclude Include="Scene\UI\PlayUI.h" />
-    <ClInclude Include="Widget\SlotWidget.h" />
+    <ClInclude Include="Widget\Slot.h" />
     <ClInclude Include="Widget\HighlightSelectedSlot.h" />
     <ClInclude Include="Widget\CreditsPanel.h" />
     <ClInclude Include="Widget\CharacterInfoPanel.h" />
@@ -208,7 +208,7 @@
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Manager\Data\GameData\PlayerState.cpp" />
     <ClCompile Include="Widget\PowerUpInfoPanel.cpp" />
-    <ClCompile Include="Widget\PowerUpSlotWidget.cpp" />
+    <ClCompile Include="Widget\PowerUpSlot.cpp" />
     <ClCompile Include="Widget\ResultPanel.cpp" />
     <ClCompile Include="Widget\PowerUpSelectPanel.cpp" />
     <ClCompile Include="Entity\Object\Bananini.cpp" />

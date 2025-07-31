@@ -1,20 +1,20 @@
-#include "PowerUpSlotWidget.h"
+#include "PowerUpSlot.h"
 #include "AllWidgets.h"
 
-CPowerUpSlotWidget::CPowerUpSlotWidget()
+CPowerUpSlot::CPowerUpSlot()
 {
     Construct();
 }
 
-CPowerUpSlotWidget::~CPowerUpSlotWidget()
+CPowerUpSlot::~CPowerUpSlot()
 {
 }
 
-void CPowerUpSlotWidget::Construct()
+void CPowerUpSlot::Construct()
 {
     SetInteractable(true);
 
-    mPanel = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpSlot");
+    mPanel = CWidgetUtils::AllocateWidget<CImage>("PowerUpSlot_Image_Panel");
     mPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     mPanel->GetTransform()->SetPivot(0.5f, 0.5f);
     mPanel->SetTexture("Texture_UIAtlas");
@@ -23,7 +23,7 @@ void CPowerUpSlotWidget::Construct()
     mPanel->SetCornerRatio(1.25f);
     AddChild(mPanel);
 
-    mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("Text_PowerUpSlot");
+    mNameText = CWidgetUtils::AllocateWidget<CTextBlock>("PowerUpSlot_Text_Name");
     mNameText->GetTransform()->SetRelativeScale(0.9f, 0.2f);
     mNameText->GetTransform()->SetPivot(0.5f, 2.2f);
     mNameText->SetAlignment(ETextBlock::Alignment::CENTER);
@@ -32,14 +32,14 @@ void CPowerUpSlotWidget::Construct()
     mNameText->SetColor(59, 59, 59);
     mPanel->AddChild(mNameText);
 
-    CImage* powerUpBox = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpBox");
+    CImage* powerUpBox = CWidgetUtils::AllocateWidget<CImage>("PowerUpSlot_Image_PowerUpBox");
     powerUpBox->GetTransform()->SetRelativeScale(FVector2D(0.4f, 0.4f));
     powerUpBox->GetTransform()->SetPivot(0.5f, 0.5f);
     powerUpBox->SetTexture("Texture_UIAtlas");
     powerUpBox->SetFrame("PowerUpBox");
     mPanel->AddChild(powerUpBox);
 
-    mIconImage = CWidgetUtils::AllocateWidget<CImage>("Image_PowerUpIcon");
+    mIconImage = CWidgetUtils::AllocateWidget<CImage>("PowerUpSlot_Image_PowerUpIcon");
     mIconImage->GetTransform()->SetRelativeScale(FVector2D(0.7f, 0.7f));
     mIconImage->GetTransform()->SetPivot(0.5f, 0.5f);
     mIconImage->SetTexture("Texture_ItemAtlas");
@@ -47,12 +47,12 @@ void CPowerUpSlotWidget::Construct()
     powerUpBox->AddChild(mIconImage);
 }
 
-void CPowerUpSlotWidget::Release()
+void CPowerUpSlot::Release()
 {
-    CMemoryPoolManager::GetInst()->Deallocate<CPowerUpSlotWidget>(this);
+    CMemoryPoolManager::GetInst()->Deallocate<CPowerUpSlot>(this);
 }
 
-void CPowerUpSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
+void CPowerUpSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
 {
     if (isPressed)
     {
@@ -62,7 +62,7 @@ void CPowerUpSlotWidget::HandleHovered(const FVector2D& mousePos, bool isPressed
     }
 }
 
-void CPowerUpSlotWidget::OnPurchase(bool purchased)
+void CPowerUpSlot::OnPurchase(bool purchased)
 {
     if (purchased)
     {

@@ -5,7 +5,7 @@
 class CTextBlock;
 class CImage;
 class CButton;
-class CPowerUpSlotWidget;
+class CPowerUpSlot;
 
 class CPowerUpInfoPanel : public CUserWidget
 {
@@ -27,7 +27,7 @@ private:
     CButton* mBtnBuy = nullptr;
 
 public:
-    void ShowInfo(CPowerUpSlotWidget* slot);
+    void ShowInfo(CPowerUpSlot* slot);
     void OnPurchase(bool purchased);
 
 private:
