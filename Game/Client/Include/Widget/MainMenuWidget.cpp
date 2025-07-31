@@ -82,7 +82,7 @@ void CMainMenuWidget::Construct()
     mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mOptionPanel);
 
-    mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharSelectPanelWidget, 1>("UserWidget_CharSelectPanel");
+    mCharSelectPanel = CWidgetUtils::AllocateWidget<CCharacterSelectPanel, 1>("UserWidget_CharSelectPanel");
     mCharSelectPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 0.85f));
     mCharSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.0f, 0.12f));
     AddChild(mCharSelectPanel);

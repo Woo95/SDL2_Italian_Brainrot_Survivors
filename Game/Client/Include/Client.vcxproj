@@ -45,7 +45,7 @@
     <ClInclude Include="Widget\CreditsPanelWidget.h" />
     <ClInclude Include="Widget\CharacterInfoPanel.h" />
     <ClInclude Include="Widget\CharacterSlot.h" />
-    <ClInclude Include="Widget\CharSelectPanelWidget.h" />
+    <ClInclude Include="Widget\CharacterSelectPanel.h" />
     <ClInclude Include="Entity\Component\AllComponents.h" />
     <ClInclude Include="Core\External\SDL\SDL_mixer.h" />
     <ClInclude Include="Core\External\SDL\SDL_ttf.h" />
@@ -225,7 +225,7 @@
     <ClCompile Include="Widget\CreditsPanelWidget.cpp" />
     <ClCompile Include="Widget\CharacterInfoPanel.cpp" />
     <ClCompile Include="Widget\CharacterSlot.cpp" />
-    <ClCompile Include="Widget\CharSelectPanelWidget.cpp" />
+    <ClCompile Include="Widget\CharacterSelectPanel.cpp" />
     <ClCompile Include="Entity\Object\MadForest.cpp" />
     <ClCompile Include="Entity\Object\Player.cpp" />
     <ClCompile Include="Entity\Component\ScrollMapComponent.cpp" />

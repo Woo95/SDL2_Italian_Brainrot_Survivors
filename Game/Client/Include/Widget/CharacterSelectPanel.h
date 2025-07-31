@@ -8,12 +8,11 @@ class CCharacterSlot;
 class CHighlightSelectedSlotWidget;
 class CCharacterInfoPanel;
 
-// CharacterSelectionPanelWidget
-class CCharSelectPanelWidget : public CUserWidget
+class CCharacterSelectPanel : public CUserWidget
 {
 public:
-	CCharSelectPanelWidget();
-	virtual ~CCharSelectPanelWidget();
+	CCharacterSelectPanel();
+	virtual ~CCharacterSelectPanel();
 
 private:
 	CCharacterSlot* mPrevSlot = nullptr;

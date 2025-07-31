@@ -621,9 +621,6 @@
     <ClInclude Include="Entity\Object\AllObjects.h">
       <Filter>Framework\04. Entity\01. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\CharSelectPanelWidget.h">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClInclude>
     <ClInclude Include="Widget\CreditsPanelWidget.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
@@ -728,6 +725,9 @@
     </ClInclude>
     <ClInclude Include="Widget\CharacterSlot.h">
       <Filter>Game\03. UserWidgets\02. Slots</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CharacterSelectPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -875,9 +875,6 @@
     <ClCompile Include="Entity\Object\Sahur.cpp">
       <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\CharSelectPanelWidget.cpp">
-      <Filter>Game\03. UserWidgets</Filter>
-    </ClCompile>
     <ClCompile Include="Widget\CreditsPanelWidget.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
@@ -959,6 +956,9 @@
     </ClCompile>
     <ClCompile Include="Widget\CharacterSlot.cpp">
       <Filter>Game\03. UserWidgets\02. Slots</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CharacterSelectPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

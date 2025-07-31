@@ -5,7 +5,7 @@
 class CButton;
 class CMoneyHUDWidget;
 class COptionPanel;
-class CCharSelectPanelWidget;
+class CCharacterSelectPanel;
 class CPowerUpSelectPanelWidget;
 class CCreditsPanelWidget;
 
@@ -25,7 +25,7 @@ private:
 
 	CMoneyHUDWidget* mMoneyHUD;
 	COptionPanel* mOptionPanel = nullptr;
-	CCharSelectPanelWidget* mCharSelectPanel = nullptr;
+	CCharacterSelectPanel* mCharSelectPanel = nullptr;
 	CPowerUpSelectPanelWidget* mPowerUpSelectPanel = nullptr;
 	CCreditsPanelWidget* mCreditsPanel = nullptr;
 

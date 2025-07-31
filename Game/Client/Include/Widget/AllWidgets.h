@@ -12,7 +12,7 @@
 #include "MoneyHUDWidget.h"
 #include "OptionPanel.h"
 #include "CreditsPanelWidget.h"
-#include "CharSelectPanelWidget.h"
+#include "CharacterSelectPanel.h"
 #include "CharacterSlot.h"
 #include "CharacterInfoPanel.h"
 #include "PowerUpSelectPanelWidget.h"

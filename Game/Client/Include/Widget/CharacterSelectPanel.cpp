@@ -1,4 +1,4 @@
-#include "CharSelectPanelWidget.h"
+#include "CharacterSelectPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/CharacterDataManager.h"
@@ -7,20 +7,20 @@
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/SceneManager.h"
 
-CCharSelectPanelWidget::CCharSelectPanelWidget()
+CCharacterSelectPanel::CCharacterSelectPanel()
 {
     Construct();
 }
 
-CCharSelectPanelWidget::~CCharSelectPanelWidget()
+CCharacterSelectPanel::~CCharacterSelectPanel()
 {
 }
 
-void CCharSelectPanelWidget::Construct()
+void CCharacterSelectPanel::Construct()
 {
     SetInteractable(true);
 
-    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("Image_CharSelectPanelBox");
+    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("CharSelectPanel_Image_OuterPanel");
     outerPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 1.0f));
     outerPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.0f));
     outerPanel->SetTexture("Texture_UIAtlas");
@@ -29,7 +29,7 @@ void CCharSelectPanelWidget::Construct()
     outerPanel->SetCornerRatio(1.25f);
     AddChild(outerPanel);
 
-    CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("Text_CharSelectCategory");
+    CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("CharSelectPanel_TextBlock_Category");
     category->GetTransform()->SetRelativeScale(outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.8f, 0.065f));
     category->GetTransform()->SetRelativePos(outerPanel->GetTransform()->GetRelativePos() + outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.1f, 0.0325f));
     category->SetAlignment(ETextBlock::Alignment::CENTER);
@@ -58,11 +58,11 @@ void CCharSelectPanelWidget::Construct()
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.3f));
     bananiniSlot->GetWeaponIconImage()->SetFrame("Banana");
 
-    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_Character");
+    mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("CharSelectPanel_HighlightSelectedSlot");
     mHighlight->Disable();
     AddChild(mHighlight);
 
-    mInfoPanel = CWidgetUtils::AllocateWidget<CCharacterInfoPanel, 1>("CharacterInfo_Info");
+    mInfoPanel = CWidgetUtils::AllocateWidget<CCharacterInfoPanel, 1>("CharSelectPanel_CharInfoPanel");
     mInfoPanel->GetTransform()->SetRelativeScale(FVector2D(0.44f, 0.177f));
     mInfoPanel->GetTransform()->SetRelativePos(FVector2D(0.279f, 0.805f));
     mInfoPanel->Disable();
@@ -86,12 +86,12 @@ void CCharSelectPanelWidget::Construct()
     mBtnStart->Disable();
 }
 
-void CCharSelectPanelWidget::Release()
+void CCharacterSelectPanel::Release()
 {
-    CMemoryPoolManager::GetInst()->Deallocate<CCharSelectPanelWidget>(this);
+    CMemoryPoolManager::GetInst()->Deallocate<CCharacterSelectPanel>(this);
 }
 
-void CCharSelectPanelWidget::OnBackButton()
+void CCharacterSelectPanel::OnBackButton()
 {
     mHighlight->Disable();
     mInfoPanel->Disable();
@@ -106,7 +106,7 @@ void CCharSelectPanelWidget::OnBackButton()
     }
 }
 
-void CCharSelectPanelWidget::OnSlotClicked(CCharacterSlot* slot)
+void CCharacterSelectPanel::OnSlotClicked(CCharacterSlot* slot)
 {
     // Data
     CGameDataManager::GetInst()->GetPlayerState()->SetSelectedCharacter(slot->GetType());
@@ -134,7 +134,7 @@ void CCharSelectPanelWidget::OnSlotClicked(CCharacterSlot* slot)
     mPrevSlot = slot;
 }
 
-CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
+CButton* CCharacterSelectPanel::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
     CButton* button = CWidgetUtils::AllocateWidget<CButton>("Button_" + widgetName);
     button->GetTransform()->SetRelativeScale(buttonSize);
@@ -154,11 +154,11 @@ CButton* CCharSelectPanelWidget::CreateButton(const std::string& widgetName, con
     return button;
 }
 
-CCharacterSlot* CCharSelectPanelWidget::CreateCharacterSlot(ECharacterType type, const FVector2D& scale, const FVector2D& pos)
+CCharacterSlot* CCharacterSelectPanel::CreateCharacterSlot(ECharacterType type, const FVector2D& scale, const FVector2D& pos)
 {
     const FCharacterData& characterData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(type);
 
-    CCharacterSlot* slot = CWidgetUtils::AllocateWidget<CCharacterSlot, 3>("CharacterSlot_" + characterData.lastName);
+    CCharacterSlot* slot = CWidgetUtils::AllocateWidget<CCharacterSlot, 3>("CharSelectPanel_CharSlot_" + characterData.lastName);
     slot->SetType(type);
 
     slot->GetTransform()->SetRelativeScale(scale);
