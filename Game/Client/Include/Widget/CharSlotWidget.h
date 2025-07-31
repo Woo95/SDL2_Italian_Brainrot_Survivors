@@ -5,6 +5,7 @@
 
 class CTextBlock;
 class CAnimatedImage;
+class CImage;
 
 class CCharSlotWidget : public CSlotWidget
 {
@@ -17,6 +18,7 @@ private:
 
 	CTextBlock* mNameText = nullptr;
 	CAnimatedImage* mCharacter = nullptr;
+	CImage* mWeaponIcon = nullptr;
 	std::string mSFX;
 
 protected:
@@ -29,6 +31,7 @@ public:
 	const ECharacterType& GetType() const { return mType; }
 	CTextBlock* GetNameTextBlock() const { return mNameText; }
 	CAnimatedImage* GetAnimatedImage() const { return mCharacter; }
+	CImage* GetWeaponIconImage() const { return mWeaponIcon; }
 
 	void SetType(ECharacterType type)
 	{

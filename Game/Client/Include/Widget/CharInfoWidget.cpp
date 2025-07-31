@@ -56,10 +56,18 @@ void CCharInfoWidget::Construct()
 
     CImage* weaponBox = CWidgetUtils::AllocateWidget<CImage>("Image_InfoWeaponBox");
     weaponBox->GetTransform()->SetRelativeScale(FVector2D(0.1065f, 0.5f));
-    weaponBox->GetTransform()->SetRelativePos(0.42f, 2.5f);
+    weaponBox->GetTransform()->SetRelativePos(0.5f, 4.1f);
+    weaponBox->GetTransform()->SetPivot(0.5f, 0.5f);
     weaponBox->SetTexture("Texture_UIAtlas");
     weaponBox->SetFrame("WeaponBox");
     AddChild(weaponBox);
+
+    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("Image_InfoPowerUpIcon");
+    mWeaponIcon->GetTransform()->SetRelativeScale(FVector2D(0.65f, 0.65f));
+    mWeaponIcon->GetTransform()->SetPivot(0.5f, 0.5f);
+    mWeaponIcon->SetTexture("Texture_ItemAtlas");
+    mWeaponIcon->SetFrame("Empty");
+    weaponBox->AddChild(mWeaponIcon);
 }
 
 void CCharInfoWidget::Release()
@@ -74,6 +82,7 @@ void CCharInfoWidget::ShowInfo(CCharSlotWidget* slot)
     mName->SetText(characterData.firstName + " " + characterData.lastName);
     mDescription1->SetText(characterData.description1);
     mDescription2->SetText(characterData.description2);
+    mWeaponIcon->SetFrame(characterData.startingWeapon);
     mCharacter->SetTexture("Texture_" + characterData.lastName);
     mCharacter->SetFrame(characterData.lastName);
     mCharacter->GetTransform()->SetWorldScale(slot->GetAnimatedImage()->GetTransform()->GetWorldScale());

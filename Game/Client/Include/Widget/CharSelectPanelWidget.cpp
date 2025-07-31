@@ -46,14 +46,17 @@ void CCharSelectPanelWidget::Construct()
     CCharSlotWidget* tralalaSlot = CreateCharSlotWidget(ECharacterType::TRALALA, slotScale, slotStartPos);
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(62.0f, 45.0f) * 0.01f);
     tralalaSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, 0.0f));
+    tralalaSlot->GetWeaponIconImage()->SetFrame("Bubble");
 
     CCharSlotWidget* sahurSlot = CreateCharSlotWidget(ECharacterType::SAHUR, slotScale, tralalaSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(38.0f, 45.0f) * 0.012f);
     sahurSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.6f));
+    sahurSlot->GetWeaponIconImage()->SetFrame("Bat");
 
     CCharSlotWidget* bananiniSlot = CreateCharSlotWidget(ECharacterType::BANANINI, slotScale, sahurSlot->GetTransform()->GetRelativePos() + FVector2D(offsetX, 0.0f));
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativeScale(FVector2D(59.0f, 50.0f) * 0.01f);
     bananiniSlot->GetAnimatedImage()->GetTransform()->SetRelativePos(FVector2D(-4.4f, -0.3f));
+    bananiniSlot->GetWeaponIconImage()->SetFrame("Banana");
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlotWidget, 2>("HighlighSelectedSlot_Character");
     mHighlight->Disable();

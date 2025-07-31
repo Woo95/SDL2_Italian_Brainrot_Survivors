@@ -36,6 +36,12 @@ void CCharSlotWidget::Construct()
     mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("AnimatedImage_CharSlot");
     mCharacter->SetAnimating(false);
     panel->AddChild(mCharacter);
+
+    mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("Image_WeaponIcon");
+    mWeaponIcon->GetTransform()->SetRelativeScale(0.3f, 0.3f);
+    mWeaponIcon->GetTransform()->SetRelativePos(13.0f, 4.0f);
+    mWeaponIcon->SetTexture("Texture_ItemAtlas");
+    panel->AddChild(mWeaponIcon);
 }
 
 void CCharSlotWidget::Release()
