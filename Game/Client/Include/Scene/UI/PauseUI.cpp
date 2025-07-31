@@ -46,7 +46,7 @@ bool CPauseUI::Init()
     mBtnResume->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
     mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::POP, ESceneState::PAUSE);});
 
-    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget>("UserWidget_OptionPanel");
+    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel>("UserWidget_OptionPanel");
     mOptionPanel->GetTransform()->SetWorldScale(resolution * FVector2D(0.46f, 0.7f));
     mOptionPanel->GetTransform()->SetWorldPos(resolution * FVector2D(0.27f, 0.075f));
     AddWidget(mOptionPanel);

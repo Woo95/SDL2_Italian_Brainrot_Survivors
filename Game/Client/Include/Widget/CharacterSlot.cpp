@@ -1,7 +1,5 @@
 #include "CharacterSlot.h"
-#include "TextBlock.h"
-#include "AnimatedImage.h"
-#include "CharSelectPanelWidget.h"
+#include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 

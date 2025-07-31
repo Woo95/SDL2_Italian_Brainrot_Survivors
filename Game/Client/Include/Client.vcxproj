@@ -57,7 +57,7 @@
     <ClInclude Include="Entity\Object\Player.h" />
     <ClInclude Include="Entity\Component\ScrollMapComponent.h" />
     <ClInclude Include="Entity\Object\Sahur.h" />
-    <ClInclude Include="Widget\OptionPanelWidget.h" />
+    <ClInclude Include="Widget\OptionPanel.h" />
     <ClInclude Include="Scene\PlayScene.h" />
     <ClInclude Include="Widget\MainMenuWidget.h" />
     <ClInclude Include="Widget\MoneyHUDWidget.h" />
@@ -230,7 +230,7 @@
     <ClCompile Include="Entity\Object\Player.cpp" />
     <ClCompile Include="Entity\Component\ScrollMapComponent.cpp" />
     <ClCompile Include="Entity\Object\Sahur.cpp" />
-    <ClCompile Include="Widget\OptionPanelWidget.cpp" />
+    <ClCompile Include="Widget\OptionPanel.cpp" />
     <ClCompile Include="Scene\PlayScene.cpp" />
     <ClCompile Include="Widget\MainMenuWidget.cpp" />
     <ClCompile Include="Widget\MoneyHUDWidget.cpp" />

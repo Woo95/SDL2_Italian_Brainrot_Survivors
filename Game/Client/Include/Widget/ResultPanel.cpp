@@ -1,6 +1,5 @@
 #include "ResultPanel.h"
-#include "Image.h"
-#include "TextBlock.h"
+#include "AllWidgets.h"
 
 CResultPanel::CResultPanel()
 {

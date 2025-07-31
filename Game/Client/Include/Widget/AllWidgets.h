@@ -10,7 +10,7 @@
 #include "MainMenuWidget.h"
 #include "PressToStartWidget.h"
 #include "MoneyHUDWidget.h"
-#include "OptionPanelWidget.h"
+#include "OptionPanel.h"
 #include "CreditsPanelWidget.h"
 #include "CharSelectPanelWidget.h"
 #include "CharacterSlot.h"

@@ -3,7 +3,7 @@
 #include "SceneUI.h"
 
 class CButton;
-class COptionPanelWidget;
+class COptionPanel;
 
 class CPauseUI : public CSceneUI
 {
@@ -16,7 +16,7 @@ private:
 	CButton* mBtnOption = nullptr;
 	CButton* mBtnResume = nullptr;
 
-	COptionPanelWidget* mOptionPanel = nullptr;
+	COptionPanel* mOptionPanel = nullptr;
 
 public:
 	virtual bool Init() final;

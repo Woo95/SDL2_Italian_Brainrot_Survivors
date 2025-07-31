@@ -2,11 +2,11 @@
 
 #include "UserWidget.h"
 
-class COptionPanelWidget : public CUserWidget
+class COptionPanel : public CUserWidget
 {
 public:
-	COptionPanelWidget();
-	virtual ~COptionPanelWidget();
+	COptionPanel();
+	virtual ~COptionPanel();
 
 protected:
 	virtual void Construct() override;

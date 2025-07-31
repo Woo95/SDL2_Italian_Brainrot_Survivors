@@ -1,22 +1,22 @@
-#include "OptionPanelWidget.h"
+#include "OptionPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
-COptionPanelWidget::COptionPanelWidget()
+COptionPanel::COptionPanel()
 {
     Construct();
 }
 
-COptionPanelWidget::~COptionPanelWidget()
+COptionPanel::~COptionPanel()
 {
 }
 
-void COptionPanelWidget::Construct()
+void COptionPanel::Construct()
 {
     SetInteractable(true);
 
-    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("Image_OptionPanelBox");
+    CImage* outerPanel = CWidgetUtils::AllocateWidget<CImage>("OptionPanel_Image_OuterPanel");
     outerPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     outerPanel->SetTexture("Texture_UIAtlas");
     outerPanel->SetFrame("PanelBox");
@@ -24,7 +24,7 @@ void COptionPanelWidget::Construct()
     outerPanel->SetCornerRatio(1.25f);
     AddChild(outerPanel);
 
-    CImage* innerPanel = CWidgetUtils::AllocateWidget<CImage>("Image_OptionPanelBox2");
+    CImage* innerPanel = CWidgetUtils::AllocateWidget<CImage>("OptionPanel_Image_InnerPanel");
     innerPanel->GetTransform()->SetRelativeScale(FVector2D(0.175f, 1.0f));
     innerPanel->SetTexture("Texture_UIAtlas");
     innerPanel->SetFrame("PanelBox");
@@ -32,14 +32,14 @@ void COptionPanelWidget::Construct()
     innerPanel->SetCornerRatio(1.25f);
     AddChild(innerPanel);
 
-    CImage* soundIcon = CWidgetUtils::AllocateWidget<CImage>("Image_OptionPanelBox");
+    CImage* soundIcon = CWidgetUtils::AllocateWidget<CImage>("OptionPanel_Image_SoundIcon");
     soundIcon->GetTransform()->SetRelativeScale(FVector2D(0.1f, 0.12f));
     soundIcon->GetTransform()->SetRelativePos(FVector2D(0.04f, 0.05f));
     soundIcon->SetTexture("Texture_UIAtlas");
     soundIcon->SetFrame("SoundIcon");
     AddChild(soundIcon);
 
-    CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("Text_OptionCategory");
+    CTextBlock* category = CWidgetUtils::AllocateWidget<CTextBlock>("OptionPanel_TextBlock_Category");
     category->GetTransform()->SetRelativeScale(FVector2D(0.22f, 0.075f));
     category->GetTransform()->SetRelativePos(0.5f + (innerPanel->GetTransform()->GetRelativeScale().x - category->GetTransform()->GetRelativeScale().x) * 0.5f,
         soundIcon->GetTransform()->GetRelativePos().y);
@@ -49,7 +49,7 @@ void COptionPanelWidget::Construct()
     category->SetText("Sound");
     AddChild(category);
 
-    CTextBlock* sounds = CWidgetUtils::AllocateWidget<CTextBlock>("Text_OptionSFX");
+    CTextBlock* sounds = CWidgetUtils::AllocateWidget<CTextBlock>("OptionPanel_Text_SFX");
     sounds->GetTransform()->SetRelativeScale(FVector2D(0.15f, 0.055f));
     sounds->GetTransform()->SetRelativePos(FVector2D(innerPanel->GetTransform()->GetRelativeScale().x * 1.5f,
             category->GetTransform()->GetRelativePos().y + category->GetTransform()->GetRelativeScale().y * 1.9f));
@@ -59,7 +59,7 @@ void COptionPanelWidget::Construct()
     sounds->SetText("Sounds");
     AddChild(sounds);
 
-    CSlider* sliderSFX = CWidgetUtils::AllocateWidget<CSlider>("Slider_SFX");
+    CSlider* sliderSFX = CWidgetUtils::AllocateWidget<CSlider>("OptionPanel_Slider_SFX");
     sliderSFX->GetTransform()->SetRelativeScale(FVector2D(0.27f, 0.095f));
     sliderSFX->GetTransform()->SetRelativePos(sounds->GetTransform()->GetRelativePos().x * 2.35f, sounds->GetTransform()->GetRelativePos().y - sounds->GetTransform()->GetRelativeScale().y * 0.38f);
     sliderSFX->SetTexture("Texture_UIAtlas");
@@ -70,7 +70,7 @@ void COptionPanelWidget::Construct()
     sliderSFX->AddCallback(ESlider::InputEvent::HOLD, [](float percent) {CAssetManager::GetInst()->GetSoundManager()->SetVolume<CSFX>(percent);});
     AddChild(sliderSFX);
 
-    CTextBlock* music = CWidgetUtils::AllocateWidget<CTextBlock>("Text_OptionBGM");
+    CTextBlock* music = CWidgetUtils::AllocateWidget<CTextBlock>("OptionPanel_Text_BGM");
     music->GetTransform()->SetRelativeScale(FVector2D(0.15f, 0.055f));
     music->GetTransform()->SetRelativePos(sounds->GetTransform()->GetRelativePos().x, sounds->GetTransform()->GetRelativePos().y * 1.7f);
     music->SetAlignment(ETextBlock::Alignment::CENTER);
@@ -79,7 +79,7 @@ void COptionPanelWidget::Construct()
     music->SetText("Music");
     AddChild(music);
 
-    CSlider* sliderBGM = CWidgetUtils::AllocateWidget<CSlider>("Slider_BGM");
+    CSlider* sliderBGM = CWidgetUtils::AllocateWidget<CSlider>("OptionPanel_Slider_BGM");
     sliderBGM->GetTransform()->SetRelativeScale(FVector2D(0.27f, 0.095f));
     sliderBGM->GetTransform()->SetRelativePos(music->GetTransform()->GetRelativePos().x * 2.35f, music->GetTransform()->GetRelativePos().y - music->GetTransform()->GetRelativeScale().y * 0.38f);
     sliderBGM->SetTexture("Texture_UIAtlas");
@@ -91,7 +91,7 @@ void COptionPanelWidget::Construct()
     AddChild(sliderBGM);
 }
 
-void COptionPanelWidget::Release()
+void COptionPanel::Release()
 {
-	CMemoryPoolManager::GetInst()->Deallocate<COptionPanelWidget>(this);
+	CMemoryPoolManager::GetInst()->Deallocate<COptionPanel>(this);
 }

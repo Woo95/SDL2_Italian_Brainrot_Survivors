@@ -77,7 +77,7 @@ void CMainMenuWidget::Construct()
     mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel);});
 
-    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanelWidget, 1>("UserWidget_OptionPanel");
+    mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel, 1>("UserWidget_OptionPanel");
     mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));
     mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mOptionPanel);
