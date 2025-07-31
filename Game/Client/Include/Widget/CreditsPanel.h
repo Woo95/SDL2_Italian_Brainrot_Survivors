@@ -2,11 +2,11 @@
 
 #include "UserWidget.h"
 
-class CCreditsPanelWidget : public CUserWidget
+class CCreditsPanel : public CUserWidget
 {
 public:
-	CCreditsPanelWidget();
-	virtual ~CCreditsPanelWidget();
+	CCreditsPanel();
+	virtual ~CCreditsPanel();
 
 protected:
 	virtual void Construct() override;

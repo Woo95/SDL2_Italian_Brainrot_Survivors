@@ -621,7 +621,7 @@
     <ClInclude Include="Entity\Object\AllObjects.h">
       <Filter>Framework\04. Entity\01. Object</Filter>
     </ClInclude>
-    <ClInclude Include="Widget\CreditsPanelWidget.h">
+    <ClInclude Include="Widget\CreditsPanel.h">
       <Filter>Game\03. UserWidgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\HighlightSelectedSlotWidget.h">
@@ -875,7 +875,7 @@
     <ClCompile Include="Entity\Object\Sahur.cpp">
       <Filter>Game\04. Entity\01. Object\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Widget\CreditsPanelWidget.cpp">
+    <ClCompile Include="Widget\CreditsPanel.cpp">
       <Filter>Game\03. UserWidgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\HighlightSelectedSlotWidget.cpp">

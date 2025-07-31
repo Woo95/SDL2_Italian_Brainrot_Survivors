@@ -92,7 +92,7 @@ void CMainMenuWidget::Construct()
     mPowerUpSelectPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mPowerUpSelectPanel);
 
-    mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanelWidget, 1>("UserWidget_CreditsPanel");
+    mCreditsPanel = CWidgetUtils::AllocateWidget<CCreditsPanel, 1>("UserWidget_CreditsPanel");
     mCreditsPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.85f));
     mCreditsPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.12f));
     AddChild(mCreditsPanel);

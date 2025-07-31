@@ -7,7 +7,7 @@ class CMoneyHUDWidget;
 class COptionPanel;
 class CCharacterSelectPanel;
 class CPowerUpSelectPanelWidget;
-class CCreditsPanelWidget;
+class CCreditsPanel;
 
 class CMainMenuWidget : public CUserWidget
 {
@@ -27,7 +27,7 @@ private:
 	COptionPanel* mOptionPanel = nullptr;
 	CCharacterSelectPanel* mCharSelectPanel = nullptr;
 	CPowerUpSelectPanelWidget* mPowerUpSelectPanel = nullptr;
-	CCreditsPanelWidget* mCreditsPanel = nullptr;
+	CCreditsPanel* mCreditsPanel = nullptr;
 
 protected:
 	virtual void Construct() override;

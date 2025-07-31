@@ -42,7 +42,7 @@
     <ClInclude Include="Scene\UI\PlayUI.h" />
     <ClInclude Include="Widget\SlotWidget.h" />
     <ClInclude Include="Widget\HighlightSelectedSlotWidget.h" />
-    <ClInclude Include="Widget\CreditsPanelWidget.h" />
+    <ClInclude Include="Widget\CreditsPanel.h" />
     <ClInclude Include="Widget\CharacterInfoPanel.h" />
     <ClInclude Include="Widget\CharacterSlot.h" />
     <ClInclude Include="Widget\CharacterSelectPanel.h" />
@@ -222,7 +222,7 @@
     <ClCompile Include="Scene\PauseScene.cpp" />
     <ClCompile Include="Scene\UI\PlayUI.cpp" />
     <ClCompile Include="Widget\HighlightSelectedSlotWidget.cpp" />
-    <ClCompile Include="Widget\CreditsPanelWidget.cpp" />
+    <ClCompile Include="Widget\CreditsPanel.cpp" />
     <ClCompile Include="Widget\CharacterInfoPanel.cpp" />
     <ClCompile Include="Widget\CharacterSlot.cpp" />
     <ClCompile Include="Widget\CharacterSelectPanel.cpp" />
