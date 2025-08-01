@@ -31,7 +31,7 @@ bool CSceneManager::Init()
 	CAssetManager::GetInst()->GetSoundManager()->SetVolume<CBGM>(0.1f);
 	CAssetManager::GetInst()->GetSoundManager()->SetVolume<CSFX>(0.1f);
 
-	ChangeRequest(ETransition::PUSH, ESceneState::MENU);
+	ChangeRequest(ETransition::PUSH, ESceneState::PLAY);
 	ChangeApply();
 
 	return true;

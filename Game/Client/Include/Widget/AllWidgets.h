@@ -10,6 +10,7 @@
 //========================//
 
 #include "MoneyHUD.h"
+#include "ExpBar.h"
 
 #include "MainMenuPanel.h"
 #include "PressToStartPanel.h"
