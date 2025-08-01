@@ -10,6 +10,7 @@
 //========================//
 
 #include "MoneyHUD.h"
+#include "TimeHUD.h"
 #include "ExpBar.h"
 #include "Portrait.h"
 #include "KillCounter.h"

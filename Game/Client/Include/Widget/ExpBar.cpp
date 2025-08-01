@@ -56,3 +56,13 @@ void CExpBar::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CExpBar>(this);
 }
+
+void CExpBar::SetPercent(float percent)
+{
+	mExpProgress->SetPercent(percent);
+}
+
+void CExpBar::SetLevelText(int level)
+{
+	mLevel->SetText(std::to_string(level));
+}

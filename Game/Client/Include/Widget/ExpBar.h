@@ -22,6 +22,6 @@ protected:
 	virtual void Release() final;
 
 public:
-	CProgressBar* GetExpProgressBar() const { return mExpProgress; }
-	CTextBlock* GetLevelTextBlock() const { return mLevel; }
+	void SetPercent(float percent);
+	void SetLevelText(int level);
 };

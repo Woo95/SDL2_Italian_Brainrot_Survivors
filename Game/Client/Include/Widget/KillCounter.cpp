@@ -35,3 +35,8 @@ void CKillCounter::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CKillCounter>(this);
 }
+
+void CKillCounter::SetCountText(int count)
+{
+    mKillCount->SetText(std::to_string(count));
+}

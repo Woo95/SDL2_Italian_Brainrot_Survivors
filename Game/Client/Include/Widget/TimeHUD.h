@@ -2,22 +2,21 @@
 
 #include "UserWidget.h"
 
-class CImage;
 class CTextBlock;
 
-class CKillCounter : public CUserWidget
+class CTimeHUD : public CUserWidget
 {
 public:
-	CKillCounter();
-	virtual ~CKillCounter();
+	CTimeHUD();
+	virtual ~CTimeHUD();
 
 private:
-	CTextBlock* mKillCount;
+	CTextBlock* mTimer = nullptr;
 
 protected:
 	virtual void Construct() final;
 	virtual void Release() final;
 
 public:
-	void SetCountText(int count);
+	void SetTimeText(float totalSeconds);
 };

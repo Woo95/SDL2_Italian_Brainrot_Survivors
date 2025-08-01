@@ -33,7 +33,7 @@ bool CPlayUI::Init()
     portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerState()->GetSelectedCharacterName() + "Portrait");
     AddWidget(portrait);
 
-    mHealthBar = CWidgetUtils::AllocateWidget<CProgressBar>("PlayUI_ProgressBar_Hp");
+    mHealthBar = CWidgetUtils::AllocateWidget<CProgressBar, 2>("PlayUI_ProgressBar_Hp");
     mHealthBar->GetTransform()->SetWorldScale(resolution * FVector2D(0.1f, 0.022f));
     mHealthBar->GetTransform()->SetWorldPos(resolution * (FVector2D(0.07f, 0.18f)));
     mHealthBar->GetTransform()->SetPivot(0.5f, 0.5f);
@@ -44,17 +44,23 @@ bool CPlayUI::Init()
     mHealthBar->SetPercent(1.0f);
     AddWidget(mHealthBar);
 
-    mExpBar = CWidgetUtils::AllocateWidget<CExpBar>("PlayUI_ExpBar");
+    mExpBar = CWidgetUtils::AllocateWidget<CExpBar, 1>("PlayUI_ExpBar");
     mExpBar->GetTransform()->SetWorldScale(resolution * FVector2D(0.85f, 0.05f));
     mExpBar->GetTransform()->SetWorldPos(resolution * (FVector2D(0.56f, 0.035f)));
     mExpBar->GetTransform()->SetPivot(0.5f, 0.5f);
     AddWidget(mExpBar);
 
-    mKillCounter = CWidgetUtils::AllocateWidget<CKillCounter>("PlayUI_KillCounter");
+    mKillCounter = CWidgetUtils::AllocateWidget<CKillCounter, 1>("PlayUI_KillCounter");
     mKillCounter->GetTransform()->SetWorldScale(resolution * FVector2D(0.08f, 0.035f));
     mKillCounter->GetTransform()->SetWorldPos(resolution * (FVector2D(0.9f, 0.093f)));
     mKillCounter->GetTransform()->SetPivot(0.5f, 0.5f);
     AddWidget(mKillCounter);
+
+    mTimeHUD = CWidgetUtils::AllocateWidget<CTimeHUD, 1>("PlayUI_TimeHUD");
+    mTimeHUD->GetTransform()->SetWorldScale(resolution * FVector2D(0.09f, 0.05f));
+    mTimeHUD->GetTransform()->SetWorldPos(resolution * (FVector2D(0.5f, 0.1f)));
+    mTimeHUD->GetTransform()->SetPivot(0.5f, 0.5f);
+    AddWidget(mTimeHUD);
 
     return true;
 }
@@ -66,15 +72,20 @@ void CPlayUI::SetHealthPercent(float percent)
 
 void CPlayUI::SetExpPercent(float percent)
 {
-    mExpBar->GetExpProgressBar()->SetPercent(percent);
+    mExpBar->SetPercent(percent);
 }
 
-void CPlayUI::SetLevel(int level)
+void CPlayUI::SetPlayerLevel(int level)
 {
-    mExpBar->GetLevelTextBlock()->SetText(std::to_string(level));
+    mExpBar->SetLevelText(level);
 }
 
-void CPlayUI::SetKillCount(int count)
+void CPlayUI::SetKillCounter(int count)
 {
-    mKillCounter->GetKillCountTextBlock()->SetText(std::to_string(count));
+    mKillCounter->SetCountText(count);
+}
+
+void CPlayUI::SetGameTime(float seconds)
+{
+    mTimeHUD->SetTimeText(seconds);
 }

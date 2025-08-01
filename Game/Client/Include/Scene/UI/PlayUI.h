@@ -5,6 +5,7 @@
 class CProgressBar;
 class CExpBar;
 class CKillCounter;
+class CTimeHUD;
 
 class CPlayUI : public CSceneUI
 {
@@ -16,6 +17,7 @@ private:
     CProgressBar* mHealthBar = nullptr;
     CExpBar* mExpBar = nullptr;
     CKillCounter* mKillCounter = nullptr;
+    CTimeHUD* mTimeHUD = nullptr;
 
 public:
 	virtual bool Init() final;
@@ -23,6 +25,7 @@ public:
 public:
     void SetHealthPercent(float percent);
     void SetExpPercent(float percent);
-    void SetLevel(int level);
-    void SetKillCount(int count);
+    void SetPlayerLevel(int level);
+    void SetKillCounter(int count);
+    void SetGameTime(float seconds);
 };
