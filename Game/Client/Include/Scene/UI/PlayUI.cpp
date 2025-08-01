@@ -26,12 +26,6 @@ bool CPlayUI::Init()
     btnPause->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);});
     AddWidget(btnPause);
 
-    CExpBar* expBar = CWidgetUtils::AllocateWidget<CExpBar>("PlayUI_ExpBar");
-    expBar->GetTransform()->SetWorldScale(resolution * FVector2D(0.85f, 0.05f));
-    expBar->GetTransform()->SetWorldPos(resolution * (FVector2D(0.56f, 0.035f)));
-    expBar->GetTransform()->SetPivot(0.5f, 0.5f);
-    AddWidget(expBar);
-
     CPortrait* portrait = CWidgetUtils::AllocateWidget<CPortrait>("PlayUI_Portrait");
     portrait->GetTransform()->SetWorldScale(resolution * FVector2D(0.1f, 0.15f));
     portrait->GetTransform()->SetWorldPos(resolution * (FVector2D(0.07f, 0.086f)));
@@ -39,5 +33,48 @@ bool CPlayUI::Init()
     portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerState()->GetSelectedCharacterName() + "Portrait");
     AddWidget(portrait);
 
+    mHealthBar = CWidgetUtils::AllocateWidget<CProgressBar>("PlayUI_ProgressBar_Hp");
+    mHealthBar->GetTransform()->SetWorldScale(resolution * FVector2D(0.1f, 0.022f));
+    mHealthBar->GetTransform()->SetWorldPos(resolution * (FVector2D(0.07f, 0.18f)));
+    mHealthBar->GetTransform()->SetPivot(0.5f, 0.5f);
+    mHealthBar->SetTexture("Texture_UIAtlas");
+    mHealthBar->SetFrame("StatusBar");
+    mHealthBar->SetColor(EProgBar::State::BACK, 25, 0, 25);
+    mHealthBar->SetColor(EProgBar::State::FILL, 255, 0, 0);
+    mHealthBar->SetPercent(1.0f);
+    AddWidget(mHealthBar);
+
+    mExpBar = CWidgetUtils::AllocateWidget<CExpBar>("PlayUI_ExpBar");
+    mExpBar->GetTransform()->SetWorldScale(resolution * FVector2D(0.85f, 0.05f));
+    mExpBar->GetTransform()->SetWorldPos(resolution * (FVector2D(0.56f, 0.035f)));
+    mExpBar->GetTransform()->SetPivot(0.5f, 0.5f);
+    AddWidget(mExpBar);
+
+    mKillCounter = CWidgetUtils::AllocateWidget<CKillCounter>("PlayUI_KillCounter");
+    mKillCounter->GetTransform()->SetWorldScale(resolution * FVector2D(0.08f, 0.035f));
+    mKillCounter->GetTransform()->SetWorldPos(resolution * (FVector2D(0.9f, 0.093f)));
+    mKillCounter->GetTransform()->SetPivot(0.5f, 0.5f);
+    AddWidget(mKillCounter);
+
     return true;
+}
+
+void CPlayUI::SetHealthPercent(float percent)
+{
+    mHealthBar->SetPercent(percent);
+}
+
+void CPlayUI::SetExpPercent(float percent)
+{
+    mExpBar->GetExpProgressBar()->SetPercent(percent);
+}
+
+void CPlayUI::SetLevel(int level)
+{
+    mExpBar->GetLevelTextBlock()->SetText(std::to_string(level));
+}
+
+void CPlayUI::SetKillCount(int count)
+{
+    mKillCounter->GetKillCountTextBlock()->SetText(std::to_string(count));
 }

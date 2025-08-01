@@ -750,6 +750,9 @@
     <ClInclude Include="Widget\Portrait.h">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\KillCounter.h">
+      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -985,6 +988,9 @@
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClCompile>
     <ClCompile Include="Widget\Portrait.cpp">
+      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\KillCounter.cpp">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClCompile>
   </ItemGroup>

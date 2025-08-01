@@ -22,5 +22,6 @@ protected:
 	virtual void Release() final;
 
 public:
-	CProgressBar* GetExpProgress() const { return mExpProgress; }
+	CProgressBar* GetExpProgressBar() const { return mExpProgress; }
+	CTextBlock* GetLevelTextBlock() const { return mLevel; }
 };

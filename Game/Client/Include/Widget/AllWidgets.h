@@ -12,6 +12,7 @@
 #include "MoneyHUD.h"
 #include "ExpBar.h"
 #include "Portrait.h"
+#include "KillCounter.h"
 
 #include "MainMenuPanel.h"
 #include "PressToStartPanel.h"

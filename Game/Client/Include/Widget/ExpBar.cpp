@@ -33,7 +33,7 @@ void CExpBar::Construct()
 
 	CTextBlock* levelPrefix = CWidgetUtils::AllocateWidget<CTextBlock>("ExpBar_TextBlock_LevelPrefix");
 	levelPrefix->GetTransform()->SetRelativeScale(0.02f, 0.9f);
-	levelPrefix->GetTransform()->SetRelativePos(0.45f, 0.0f);
+	levelPrefix->GetTransform()->SetRelativePos(0.445f, 0.0f);
 	levelPrefix->GetTransform()->SetPivot(0.0f, 0.5f);
 	levelPrefix->SetAlignment(ETextBlock::Alignment::LEFT);
 	levelPrefix->SetCharWidth(10.0f);
