@@ -20,7 +20,7 @@ void CCharacterSlot::Construct()
     panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     panel->GetTransform()->SetPivot(0.5f, 0.5f);
     panel->SetTexture("Texture_UIAtlas");
-    panel->SetFrame("SelectSlot");
+    panel->SetFrame("SelectSlotBox");
     panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
     panel->SetCornerRatio(1.25f);
     AddChild(panel);

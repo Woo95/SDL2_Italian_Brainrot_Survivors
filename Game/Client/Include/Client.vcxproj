@@ -22,6 +22,7 @@
     <ClInclude Include="Core\Utils\GameDataTypeUtils.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Core\Utils\StatUtils.h" />
+    <ClInclude Include="Widget\Portrait.h" />
     <ClInclude Include="Widget\ExpBar.h" />
     <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h" />
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h" />
@@ -207,6 +208,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
+    <ClCompile Include="Widget\Portrait.cpp" />
     <ClCompile Include="Widget\ExpBar.cpp" />
     <ClCompile Include="Manager\Data\GameData\PlayerState.cpp" />
     <ClCompile Include="Widget\PowerUpInfoPanel.cpp" />

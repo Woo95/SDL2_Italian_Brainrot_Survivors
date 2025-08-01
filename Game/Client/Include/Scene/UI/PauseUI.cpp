@@ -26,21 +26,21 @@ bool CPauseUI::Init()
 
     mBtnQuit = CreateButton("Quit", "RedButton", resolution * FVector2D(0.17f, 0.09f), "QUIT", FVector2D(0.5f, 0.6f));
     mBtnQuit->GetTransform()->SetWorldPos(resolution * FVector2D(0.39f, 0.9f));
-    mBtnQuit->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnQuit->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnQuit->SetCornerRatio(2.0f);
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::CLEAR_THEN_PUSH, ESceneState::GAMEOVER);});
 
     mBtnOption = CreateButton("Option", "BlueButton", resolution * FVector2D(0.17f, 0.09f), "OPTIONS", FVector2D(0.65f, 0.6f));
     mBtnOption->GetTransform()->SetWorldPos(resolution * FVector2D(0.39f, 0.9f));
-    mBtnOption->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnOption->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnOption->SetCornerRatio(2.0f);
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnOption->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mOptionPanel);});
 
     mBtnResume = CreateButton("Resume", "BlueButton", resolution * FVector2D(0.17f, 0.09f), "RESUME", FVector2D(0.65f, 0.6f));
     mBtnResume->GetTransform()->SetWorldPos(resolution * FVector2D(0.61f, 0.9f));
-    mBtnResume->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnResume->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnResume->SetCornerRatio(2.0f);
     mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     mBtnResume->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});

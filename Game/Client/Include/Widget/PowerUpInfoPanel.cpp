@@ -19,7 +19,7 @@ void CPowerUpInfoPanel::Construct()
     CImage* panel = CWidgetUtils::AllocateWidget<CImage>("PowerUpInfoPanel_Image_Panel");
     panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     panel->SetTexture("Texture_UIAtlas");
-    panel->SetFrame("SelectSlot");
+    panel->SetFrame("SelectSlotBox");
     panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
     panel->SetCornerRatio(1.5f);
     AddChild(panel);
@@ -84,7 +84,7 @@ void CPowerUpInfoPanel::Construct()
 
     mBtnBuy = CreateButton("Buy", "GreenButton", FVector2D(0.2f, 0.5f), "Buy", FVector2D(0.4f, 0.4f));
     mBtnBuy->GetTransform()->SetRelativePos(FVector2D(2.01f, 4.15f));
-    mBtnBuy->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnBuy->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnBuy->SetCornerRatio(2.0f);
     mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnBuy->AddCallback(EButton::InputEvent::RELEASE, [this]() {((CPowerUpSelectPanel*)this->mParent)->OnBuyButton();});

@@ -20,7 +20,7 @@ void COptionPanel::Construct()
     outerPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     outerPanel->SetTexture("Texture_UIAtlas");
     outerPanel->SetFrame("PanelBox");
-    outerPanel->Set9SlicingCorner(FVector2D(15.f, 15.f));
+    outerPanel->Set9SlicingCorner(FVector2D(15.0f, 15.0f));
     outerPanel->SetCornerRatio(1.25f);
     AddChild(outerPanel);
 
@@ -28,7 +28,7 @@ void COptionPanel::Construct()
     innerPanel->GetTransform()->SetRelativeScale(FVector2D(0.175f, 1.0f));
     innerPanel->SetTexture("Texture_UIAtlas");
     innerPanel->SetFrame("PanelBox");
-    innerPanel->Set9SlicingCorner(FVector2D(15.f, 15.f));
+    innerPanel->Set9SlicingCorner(FVector2D(15.0f, 15.0f));
     innerPanel->SetCornerRatio(1.25f);
     AddChild(innerPanel);
 

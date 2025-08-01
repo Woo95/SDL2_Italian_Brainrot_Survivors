@@ -18,7 +18,7 @@ void CPowerUpSlot::Construct()
     mPanel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     mPanel->GetTransform()->SetPivot(0.5f, 0.5f);
     mPanel->SetTexture("Texture_UIAtlas");
-    mPanel->SetFrame("SelectSlot");
+    mPanel->SetFrame("SelectSlotBox");
     mPanel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
     mPanel->SetCornerRatio(1.25f);
     AddChild(mPanel);

@@ -17,7 +17,7 @@ void CCharacterInfoPanel::Construct()
     CImage* panel = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_Panel");
     panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
     panel->SetTexture("Texture_UIAtlas");
-    panel->SetFrame("SelectSlot");
+    panel->SetFrame("SelectSlotBox");
     panel->Set9SlicingCorner(FVector2D(6.0f, 6.0f));
     panel->SetCornerRatio(1.5f);
     AddChild(panel);

@@ -19,6 +19,20 @@ private:
 
 public:
 	// 캐릭터 관련 //
+	std::string GetSelectedCharacterName() const
+	{
+		switch (mSelectedCharacter)
+		{
+		case ECharacterType::TRALALA:
+			return "Tralala";
+		case ECharacterType::SAHUR:
+			return "Sahur";
+		case ECharacterType::BANANINI:
+			return "Bananini";
+		default:
+			return "Unknown";
+		}
+	}
 	ECharacterType GetSelectedCharacter() const { return mSelectedCharacter; }
 	void SetSelectedCharacter(ECharacterType type)
 	{ 

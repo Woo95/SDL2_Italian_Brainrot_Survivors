@@ -57,14 +57,14 @@ void CMainMenuPanel::Construct()
 
     mBtnStart = CreateButton("Start", "BlueButton", FVector2D(0.1758f, 0.08125f), "START", FVector2D(0.53f, 0.63f));
     mBtnStart->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.653125f));
-    mBtnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnStart->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnStart->SetCornerRatio(2.0f);
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCharSelectPanel);});
 
     mBtnPowerUp = CreateButton("PowerUp", "GreenButton", FVector2D(0.1422f, 0.08f), "POWER UP", FVector2D(0.80f, 0.50f));
     mBtnPowerUp->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.8275f));
-    mBtnPowerUp->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnPowerUp->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnPowerUp->SetCornerRatio(2.0f);
     mBtnPowerUp->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnPowerUp->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mPowerUpSelectPanel);});
@@ -72,7 +72,7 @@ void CMainMenuPanel::Construct()
     mBtnCredits = CreateButton("Credits", "BlueCircularButton", FVector2D(0.12f, 0.035f), "credits", FVector2D(0.6f, 0.8f));
     mBtnCredits->FindWidget(std::hash<std::string>()("MainMenuPanel_TextBlock_Credits"))->GetTransform()->SetRelativePos(0.0f, 0.1f);
     mBtnCredits->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.945f));
-    mBtnCredits->Set9SlicingCorner(FVector2D(7.f, 7.f));
+    mBtnCredits->Set9SlicingCorner(FVector2D(7.0f, 7.0f));
     mBtnCredits->SetCornerRatio(2.0f);
     mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnCredits->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mCreditsPanel);});

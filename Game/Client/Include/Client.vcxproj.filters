@@ -747,6 +747,9 @@
     <ClInclude Include="Widget\ExpBar.h">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\Portrait.h">
+      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -979,6 +982,9 @@
       <Filter>Game\03. UserWidgets\01. Panels</Filter>
     </ClCompile>
     <ClCompile Include="Widget\ExpBar.cpp">
+      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\Portrait.cpp">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClCompile>
   </ItemGroup>

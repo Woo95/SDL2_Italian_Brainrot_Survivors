@@ -39,7 +39,7 @@ void CPowerUpSelectPanel::Construct()
 
     CButton* btnRefundPowerUps = CreateButton("RefundPowerUps", "BlueButton", FVector2D(0.8f, 0.095f), "Refund PowerUps", FVector2D(0.5f, 0.5f));
     btnRefundPowerUps->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.15f));
-    btnRefundPowerUps->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    btnRefundPowerUps->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     btnRefundPowerUps->SetCornerRatio(1.7f);
     btnRefundPowerUps->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
     btnRefundPowerUps->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->OnRefundButton();});

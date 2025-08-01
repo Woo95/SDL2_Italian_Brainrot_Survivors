@@ -15,8 +15,8 @@ void CMoneyHUD::Construct()
     CImage* panel = CWidgetUtils::AllocateWidget<CImage>("MoneyHUD_Image_Panel");
     panel->GetTransform()->SetRelativeScale(1.0f, 1.0f);
     panel->SetTexture("Texture_UIAtlas");
-    panel->SetFrame("MoneyBGBox");
-    panel->Set9SlicingCorner(FVector2D(7.f, 7.f));
+    panel->SetFrame("MoneyBox");
+    panel->Set9SlicingCorner(FVector2D(7.0f, 7.0f));
     panel->SetCornerRatio(2.0f);
     AddChild(panel);
 

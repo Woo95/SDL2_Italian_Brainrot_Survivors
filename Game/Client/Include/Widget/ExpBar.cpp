@@ -26,8 +26,8 @@ void CExpBar::Construct()
 	mFrame->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	mFrame->GetTransform()->SetPivot(0.5f, 0.5f);
 	mFrame->SetTexture("Texture_UIAtlas");
-	mFrame->SetFrame("ExpFrame");
-	mFrame->Set9SlicingCorner(FVector2D(7.f, 7.f));
+	mFrame->SetFrame("ExpBox");
+	mFrame->Set9SlicingCorner(FVector2D(7.0f, 7.0f));
 	mFrame->SetCornerRatio(1.0f);
 	AddChild(mFrame);
 

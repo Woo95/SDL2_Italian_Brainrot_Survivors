@@ -2,6 +2,8 @@
 #include "../../Widget/AllWidgets.h"
 #include "../../Manager/GameManager.h"
 #include "../../Manager/SceneManager.h"
+#include "../../Manager/Data/GameData/GameDataManager.h"
+#include "../../Manager/Data/GameData/PlayerState.h"
 
 CPlayUI::CPlayUI()
 {
@@ -29,6 +31,13 @@ bool CPlayUI::Init()
     expBar->GetTransform()->SetWorldPos(resolution * (FVector2D(0.56f, 0.035f)));
     expBar->GetTransform()->SetPivot(0.5f, 0.5f);
     AddWidget(expBar);
+
+    CPortrait* portrait = CWidgetUtils::AllocateWidget<CPortrait>("PlayUI_Portrait");
+    portrait->GetTransform()->SetWorldScale(resolution * FVector2D(0.1f, 0.15f));
+    portrait->GetTransform()->SetWorldPos(resolution * (FVector2D(0.07f, 0.086f)));
+    portrait->GetTransform()->SetPivot(0.5f, 0.5f);
+    portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerState()->GetSelectedCharacterName() + "Portrait");
+    AddWidget(portrait);
 
     return true;
 }

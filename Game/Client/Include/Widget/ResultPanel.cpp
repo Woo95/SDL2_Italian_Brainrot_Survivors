@@ -17,7 +17,7 @@ void CResultPanel::Construct()
     outerPanel->GetTransform()->SetPivot(FVector2D(0.5f, 0.5f));
     outerPanel->SetTexture("Texture_UIAtlas");
     outerPanel->SetFrame("PanelBox");
-    outerPanel->Set9SlicingCorner(FVector2D(15.f, 15.f));
+    outerPanel->Set9SlicingCorner(FVector2D(15.0f, 15.0f));
     outerPanel->SetCornerRatio(1.25f);
     AddChild(outerPanel);
 

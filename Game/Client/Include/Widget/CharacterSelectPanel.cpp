@@ -71,7 +71,7 @@ void CCharacterSelectPanel::Construct()
 
     mBtnConfirm = CreateButton("Confirm", "GreenButton", FVector2D(0.18f, 0.09f), "Confirm", FVector2D(0.5f, 0.5f));
     mBtnConfirm->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
-    mBtnConfirm->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnConfirm->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnConfirm->SetCornerRatio(2.0f);
     mBtnConfirm->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnConfirm->AddCallback(EButton::InputEvent::RELEASE, [this]() {mBtnStart->Enable();});
@@ -79,7 +79,7 @@ void CCharacterSelectPanel::Construct()
 
     mBtnStart = CreateButton("Start", "GreenButton", FVector2D(0.18f, 0.09f), "START", FVector2D(0.5f, 0.6f));
     mBtnStart->GetTransform()->SetRelativePos(FVector2D(0.865f, 0.955f));
-    mBtnStart->Set9SlicingCorner(FVector2D(10.f, 7.f));
+    mBtnStart->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnStart->SetCornerRatio(2.0f);
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::PLAY);});
