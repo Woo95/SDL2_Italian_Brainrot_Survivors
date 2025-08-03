@@ -19,11 +19,10 @@ bool CPlayerState::PurchasePowerUp(EPowerUpType type)
     if (mMoneyBalance < powerUpData.price)
         return false;
 
-    mMoneyBalance -= powerUpData.price;
+	mMoneyBalance -= powerUpData.price;
+	mOwnedPowerUp[(int)type] += 1;
 
-    mOwnedPowerUp[(int)type] = true;
-
-    return true;
+	return true;
 }
 
 bool CPlayerState::RefundAllPowerUp()
@@ -36,8 +35,8 @@ bool CPlayerState::RefundAllPowerUp()
         {
             const EPowerUpType& type = static_cast<EPowerUpType>(i);
 
-            mMoneyBalance += PowerUpDataManager->GetPowerUpData(type).price;
-            mOwnedPowerUp[i] = false;
+            mMoneyBalance += mOwnedPowerUp[i] * PowerUpDataManager->GetPowerUpData(type).price;
+            mOwnedPowerUp[i] = 0;
         }
     }
     return true;

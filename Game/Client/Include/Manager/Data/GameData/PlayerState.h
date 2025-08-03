@@ -3,6 +3,7 @@
 #include "../../../Core/Utils/StatUtils.h"
 #include "../../../Core/Utils/GameDataUtils.h"
 
+// CPlayerState는 모든 씬에서 사용되는 플레이어의 영구 데이터를 관리하는 클래스
 class CPlayerState
 {
 	friend class CGameDataManager;
@@ -14,7 +15,7 @@ private:
 
 private:
 	ECharacterType mSelectedCharacter = ECharacterType::NONE;
-	bool mOwnedPowerUp[(int)EPowerUpType::MAX] = {};
+	int mOwnedPowerUp[(int)EPowerUpType::MAX] = {};
 	int mMoneyBalance = 5900;
 
 public:
@@ -40,7 +41,7 @@ public:
 	}
 
 	// 파워 업 관련 //
-	bool IsPowerUpOwned(EPowerUpType type) const { return mOwnedPowerUp[(int)type]; }
+	int  GetOwnedPowerUpCount(EPowerUpType type) const { return mOwnedPowerUp[(int)type]; }
 	bool PurchasePowerUp(EPowerUpType type);
 	bool RefundAllPowerUp();
 

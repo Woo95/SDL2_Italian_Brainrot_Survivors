@@ -150,7 +150,7 @@ CPowerUpSlot* CPowerUpSelectPanel::CreatePowerUpSlot(EPowerUpType type, const FV
 
     slot->GetNameTextBlock()->SetText(textLabel);
     slot->GetIconImage()->SetFrame(powerUpData.name);
-    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerState()->IsPowerUpOwned(slot->GetType()));
+    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerState()->GetOwnedPowerUpCount(slot->GetType()));
     AddChild(slot);
 
     return slot;
