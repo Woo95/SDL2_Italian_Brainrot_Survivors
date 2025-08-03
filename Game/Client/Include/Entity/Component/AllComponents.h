@@ -7,3 +7,5 @@
 #include "WidgetComponent.h"
 #include "InputComponent.h"
 #include "Rigidbody.h"
+
+#include "StatusComponent.h"

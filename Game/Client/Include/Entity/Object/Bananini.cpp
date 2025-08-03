@@ -21,6 +21,7 @@ bool CBananini::Init()
 	mSprite->GetAnimation()->SetCurrentState(EAnimationState::WALK);
 	mSprite->GetTransform()->SetWorldScale(FVector2D(59.0f, 50.0f) * 1.2f);
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
+	mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	mRootComponent->AddChild(mSprite);
 
 	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_BananiniHitbox");

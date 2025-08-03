@@ -23,6 +23,7 @@
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Core\Utils\StatUtils.h" />
     <ClInclude Include="Scene\PlayTimer.h" />
+    <ClInclude Include="Entity\Component\StatusComponent.h" />
     <ClInclude Include="Widget\TimeHUD.h" />
     <ClInclude Include="Widget\KillCounter.h" />
     <ClInclude Include="Widget\Portrait.h" />
@@ -212,6 +213,7 @@
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Scene\PlayTimer.cpp" />
+    <ClCompile Include="Entity\Component\StatusComponent.cpp" />
     <ClCompile Include="Widget\TimeHUD.cpp" />
     <ClCompile Include="Widget\KillCounter.cpp" />
     <ClCompile Include="Widget\Portrait.cpp" />

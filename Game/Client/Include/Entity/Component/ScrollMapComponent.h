@@ -19,8 +19,6 @@ private:
 
 private:
 	virtual bool Init() final;
-
-private:
 	virtual void Render(SDL_Renderer* renderer) final;
 	virtual void Release() final;
 

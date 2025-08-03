@@ -37,7 +37,7 @@ void CPlayer::Release()
 
 void CPlayer::BindInput()
 {
-	mInput = AllocateComponent<CInputComponent>("Input_Player");
+	mInput = AllocateComponent<CInputComponent, 1>("Input_Player");
 
 	mInput->AddFunctionToBinder("W_MoveUp",    this, [this]() { MoveDir(FVector2D::UP);    });
 	mInput->AddFunctionToBinder("A_MoveLeft",  this, [this]() { MoveDir(FVector2D::LEFT);  });
