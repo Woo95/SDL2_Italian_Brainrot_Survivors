@@ -4,11 +4,11 @@
 
 class CButton;
 
-class CGameOverUI : public CSceneUI
+class CResultUI : public CSceneUI
 {
 public:
-	CGameOverUI();
-	virtual ~CGameOverUI();
+	CResultUI();
+	virtual ~CResultUI();
 
 public:
 	virtual bool Init() final;

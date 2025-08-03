@@ -6,7 +6,7 @@ enum class ESceneState : unsigned char
 	MENU,
 	PLAY,
 	PAUSE,
-	GAMEOVER
+	RESULT
 };
 
 enum class ETransition : unsigned char

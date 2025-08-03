@@ -1,29 +1,29 @@
-#include "GameOverScene.h"
-#include "../Scene/UI/GameOverUI.h"
+#include "ResultScene.h"
+#include "../Scene/UI/ResultUI.h"
 
-CGameOverScene::CGameOverScene()
+CResultScene::CResultScene()
 {
-	mSceneUI = new CGameOverUI;
+	mSceneUI = new CResultUI;
 }
 
-CGameOverScene::~CGameOverScene()
+CResultScene::~CResultScene()
 {
 	SAFE_DELETE(mSceneUI);
 }
 
-bool CGameOverScene::Enter()
+bool CResultScene::Enter()
 {
 	mSceneUI->Init();
 
 	return true;
 }
 
-bool CGameOverScene::Exit()
+bool CResultScene::Exit()
 {
 	return true;
 }
 
-void CGameOverScene::LoadResources()
+void CResultScene::LoadResources()
 {
 	LoadTexture("Texture_IntroBG", "IntroBG.png");
 	LoadTexture("Texture_UIAtlas", "UIAtlas.png");

@@ -2,13 +2,13 @@
 
 #include "Scene.h"
 
-class CGameOverScene : public CScene
+class CResultScene : public CScene
 {
     friend class CSceneManager;
 
 private:
-    CGameOverScene();
-    virtual ~CGameOverScene();
+    CResultScene();
+    virtual ~CResultScene();
 
 public:
     virtual bool Enter() final;

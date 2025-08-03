@@ -1,29 +1,29 @@
-#include "GameOverUI.h"
+#include "ResultUI.h"
 #include "../../Widget/AllWidgets.h"
 #include "../../Manager/GameManager.h"
 #include "../../Manager/SceneManager.h"
 #include "../../Manager/Data/Resource/AssetManager.h"
 #include "../../Manager/Data/Resource/SoundManager.h"
 
-CGameOverUI::CGameOverUI()
+CResultUI::CResultUI()
 {
 }
 
-CGameOverUI::~CGameOverUI()
+CResultUI::~CResultUI()
 {
 }
 
-bool CGameOverUI::Init()
+bool CResultUI::Init()
 {
     const FVector2D& resolution = CGameManager::GetInst()->GetResolution();
 
-    CImage* background = CWidgetUtils::AllocateWidget<CImage>("GameOverUI_Image_GameOverBG");
+    CImage* background = CWidgetUtils::AllocateWidget<CImage>("ResultUI_Image_ResultBG");
     background->GetTransform()->SetWorldScale(resolution);
     background->SetTexture("Texture_IntroBG");
     background->SetFrame("IntroBG");
     AddWidget(background);
 
-    CResultPanel* resultPanel = CWidgetUtils::AllocateWidget<CResultPanel, 1>("GameOverUI_ResultPanel");
+    CResultPanel* resultPanel = CWidgetUtils::AllocateWidget<CResultPanel, 1>("ResultUI_ResultPanel");
     resultPanel->GetTransform()->SetWorldScale(resolution * FVector2D(0.75f, 0.75f));
     resultPanel->GetTransform()->SetWorldPos(resolution * FVector2D(0.5f, 0.425f));
     resultPanel->GetTransform()->SetPivot(0.5f, 0.5f);
@@ -39,16 +39,16 @@ bool CGameOverUI::Init()
     return true;
 }
 
-CButton* CGameOverUI::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
+CButton* CResultUI::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-    CButton* button = CWidgetUtils::AllocateWidget<CButton>("GameOverUI_Button_" + widgetName);
+    CButton* button = CWidgetUtils::AllocateWidget<CButton>("ResultUI_Button_" + widgetName);
     button->GetTransform()->SetWorldScale(buttonSize);
     button->GetTransform()->SetPivot(0.5f, 0.5f);
     button->SetTexture("Texture_UIAtlas");
     button->SetFrame(buttonFrame);
     AddWidget(button);
 
-    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("GameOverUI_TextBlock_" + widgetName);
+    CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("ResultUI_TextBlock_" + widgetName);
     button->AddChild(text);
     text->GetTransform()->SetRelativeScale(textSize);
     text->GetTransform()->SetPivot(0.5f, 0.5f);

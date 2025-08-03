@@ -29,7 +29,7 @@ bool CPauseUI::Init()
     mBtnQuit->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnQuit->SetCornerRatio(2.0f);
     mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
-    mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::CLEAR_THEN_PUSH, ESceneState::GAMEOVER);});
+    mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::CLEAR_THEN_PUSH, ESceneState::RESULT);});
 
     mBtnOption = CreateButton("Option", "BlueButton", resolution * FVector2D(0.17f, 0.09f), "OPTIONS", FVector2D(0.65f, 0.6f));
     mBtnOption->GetTransform()->SetWorldPos(resolution * FVector2D(0.39f, 0.9f));

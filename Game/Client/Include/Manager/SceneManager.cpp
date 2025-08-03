@@ -5,7 +5,7 @@
 #include "../Scene/MenuScene.h"
 #include "../Scene/PlayScene.h"
 #include "../Scene/PauseScene.h"
-#include "../Scene/GameOverScene.h"
+#include "../Scene/ResultScene.h"
 #include "../Core/Transform.h"
 
 CSceneManager* CSceneManager::mInst = nullptr;
@@ -173,8 +173,8 @@ CScene* CSceneManager::GetSceneFromState(ESceneState state)
 	case ESceneState::PAUSE:
 		newScene = new CPauseScene;
 		break;
-	case ESceneState::GAMEOVER:
-		newScene = new CGameOverScene;
+	case ESceneState::RESULT:
+		newScene = new CResultScene;
 		break;
 	default:
 		break;

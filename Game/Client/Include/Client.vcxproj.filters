@@ -648,10 +648,10 @@
     <ClInclude Include="Scene\UI\PauseUI.h">
       <Filter>Game\02. Scenes\03. Pause</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\GameOverScene.h">
+    <ClInclude Include="Scene\ResultScene.h">
       <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\UI\GameOverUI.h">
+    <ClInclude Include="Scene\UI\ResultUI.h">
       <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClInclude>
     <ClInclude Include="Core\DataLoader.h">
@@ -756,9 +756,11 @@
     <ClInclude Include="Widget\TimeHUD.h">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\SceneTimer.h" />
     <ClInclude Include="Scene\Layer.h">
       <Filter>Framework\03. Scene\01. Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\PlayTimer.h">
+      <Filter>Game\02. Scenes\02. Play</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -916,10 +918,10 @@
     <ClCompile Include="Scene\UI\PauseUI.cpp">
       <Filter>Game\02. Scenes\03. Pause</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\GameOverScene.cpp">
+    <ClCompile Include="Scene\ResultScene.cpp">
       <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\UI\GameOverUI.cpp">
+    <ClCompile Include="Scene\UI\ResultUI.cpp">
       <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClCompile>
     <ClCompile Include="Core\DataLoader.cpp">
@@ -1000,9 +1002,11 @@
     <ClCompile Include="Widget\TimeHUD.cpp">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\SceneTimer.cpp" />
     <ClCompile Include="Scene\Layer.cpp">
       <Filter>Framework\03. Scene\01. Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\PlayTimer.cpp">
+      <Filter>Game\02. Scenes\02. Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
