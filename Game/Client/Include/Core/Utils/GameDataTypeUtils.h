@@ -7,7 +7,7 @@ enum class EPowerUpType : signed char
 	ARMOR,
 	MAX_HEALTH,
 	RECOVERY,
-	SPEED,
+	ATTACK_SPEED,
 	MOVE_SPEED,
 	MAGNET,
 	GROWTH,
