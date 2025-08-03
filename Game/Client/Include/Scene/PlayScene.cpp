@@ -1,17 +1,19 @@
 #include "PlayScene.h"
+#include "UI/PlayUI.h"
+#include "Camera.h"
+#include "Collision/SceneCollision.h"
+#include "PlayTimer.h"
+#include "../Core/Input.h"
 #include "../Manager/GameManager.h"
 #include "../Manager/SceneManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/PlayerState.h"
-#include "../Scene/UI/PlayUI.h"
-#include "../Scene/Camera.h"
-#include "Collision/SceneCollision.h"
 #include "../Entity/Object/AllObjects.h"
-#include "../Core/Input.h"
 
-CPlayScene::CPlayScene()
+CPlayScene::CPlayScene() :
+	mPlayTimer(nullptr)
 {
     mSceneUI = new CPlayUI;
 
@@ -19,6 +21,8 @@ CPlayScene::CPlayScene()
     mCamera->SetResolution(CGameManager::GetInst()->GetResolution());
 
     mSceneCollision = new CSceneCollision(mCamera);
+
+    mPlayTimer = new CPlayTimer;
 }
 
 CPlayScene::~CPlayScene()
@@ -26,6 +30,7 @@ CPlayScene::~CPlayScene()
     SAFE_DELETE(mSceneCollision);
     SAFE_DELETE(mCamera);
     SAFE_DELETE(mSceneUI);
+    SAFE_DELETE(mPlayTimer);
 }
 
 bool CPlayScene::Enter()
@@ -39,10 +44,13 @@ bool CPlayScene::Enter()
 
     // Entity //
     InstantiateObject<CMadForest, 1>("Object_MadForest", ELayer::BACKGROUND);
-
     CObject* player = InstantiatePlayer();
 
+    // Camera //
     mCamera->SetTarget(player);
+
+    // Timer //
+    mPlayTimer->SetTime(300.5f);
 
     return true;
 }
@@ -54,10 +62,13 @@ bool CPlayScene::Exit()
 
 void CPlayScene::Update(float deltaTime)
 {
-    CScene::Update(deltaTime);
+	CScene::Update(deltaTime);
 
-    if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
-        CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);
+	mPlayTimer->Update(deltaTime);
+	static_cast<CPlayUI*>(mSceneUI)->SetGameTime(mPlayTimer->GetTime());
+
+	if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
+		CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);
 }
 
 void CPlayScene::LoadResources()
