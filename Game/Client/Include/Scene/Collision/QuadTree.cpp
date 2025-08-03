@@ -1,10 +1,11 @@
 #include "QuadTree.h"
-#include "../../Core/Vector2D.h"
+#include "QTNode.h"
+#include "../Camera.h"
 #include "../../Entity/Component/Collider/Collider.h"
 #include "../../Manager/MemoryPoolManager.h"
-#include "../Camera.h"
 
-CQuadTree::CQuadTree(CCamera* camera)
+CQuadTree::CQuadTree(CCamera* camera) :
+	mRoot(nullptr)
 {
 	int totalNodes = (int)((pow(4, MAX_SPLIT + 1) - 1) / 3);
 	CMemoryPoolManager::GetInst()->CreatePool<CQTNode>(totalNodes);
@@ -28,7 +29,7 @@ void CQuadTree::Update(float deltaTime)
 	for (size_t i = mColliders.size(); i > 0; i--)
 	{
 		CCollider* collider = mColliders[i - 1];
-		
+
 		if (!collider->GetActive())
 		{
 			std::swap(mColliders[i - 1], mColliders.back());
@@ -62,8 +63,8 @@ void CQuadTree::UpdateBoundary()
 	const FVector2D& target = mRoot->mCamera->GetLookAt();
 	const FVector2D& screen = mRoot->mCamera->GetResolution();
 
-	mRoot->mBoundary = 
-	{ 
+	mRoot->mBoundary =
+	{
 		target.x - screen.x * 0.5f,
 		target.y - screen.y * 0.5f,
 		screen.x,
