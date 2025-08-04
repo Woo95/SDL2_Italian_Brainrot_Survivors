@@ -12,7 +12,10 @@
 
 CGameManager* CGameManager::mInst = nullptr;
 
-CGameManager::CGameManager()
+CGameManager::CGameManager() :
+	mWindow(nullptr),
+	mRenderer(nullptr),
+	mLoop(true)
 {
 }
 
@@ -75,37 +78,22 @@ bool CGameManager::Init()
     return true;
 }
 
-int CGameManager::Run()
+void CGameManager::Run()
 {
-    SDL_Event event;
+	SDL_Event event;
 
-    while (mLoop)
-    {
-        // 이벤트가 있을 경우...
-        if (SDL_PollEvent(&event))
-        {
-            switch (event.type)
-            {
-                // 종료 요청시
-                case SDL_QUIT:  
-                    mLoop = false;
-                    break;
-                default:
-                    break;
-            }
-        }
-        Logic();
-    }
-    return 0;
-}
+	while (mLoop)
+	{
+		// 이벤트가 있을 경우...
+		if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
+			mLoop = false;
 
-void CGameManager::Logic()
-{
-    Update();
+		Update();
 
-    LateUpdate();
+		LateUpdate();
 
-    Render();
+		Render();
+	}
 }
 
 void CGameManager::Update()
