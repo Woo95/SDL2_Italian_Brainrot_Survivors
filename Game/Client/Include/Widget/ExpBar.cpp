@@ -31,24 +31,14 @@ void CExpBar::Construct()
 	mFrame->SetCornerRatio(1.0f);
 	AddChild(mFrame);
 
-	CTextBlock* levelPrefix = CWidgetUtils::AllocateWidget<CTextBlock>("ExpBar_TextBlock_LevelPrefix");
-	levelPrefix->GetTransform()->SetRelativeScale(0.02f, 0.9f);
-	levelPrefix->GetTransform()->SetRelativePos(0.445f, 0.0f);
-	levelPrefix->GetTransform()->SetPivot(0.0f, 0.5f);
-	levelPrefix->SetAlignment(ETextBlock::Alignment::LEFT);
-	levelPrefix->SetCharWidth(10.0f);
-	levelPrefix->SetFont("Font64_CourierPrime_Regular");
-	levelPrefix->SetText("LV");
-	AddChild(levelPrefix);
-
-	mLevel = CWidgetUtils::AllocateWidget<CTextBlock>("ExpBar_TextBlock_Level");
-	mLevel->GetTransform()->SetRelativeScale(0.025f, 0.9f);
-	mLevel->GetTransform()->SetRelativePos(0.47f, 0.0f);
+	mLevel = CWidgetUtils::AllocateWidget<CTextBlock>("ExpBar_TextBlock_LevelPrefix");
+	mLevel->GetTransform()->SetRelativeScale(0.05f, 0.9f);
+	mLevel->GetTransform()->SetRelativePos(0.445f, 0.0f);
 	mLevel->GetTransform()->SetPivot(0.0f, 0.5f);
 	mLevel->SetAlignment(ETextBlock::Alignment::LEFT);
 	mLevel->SetCharWidth(10.0f);
 	mLevel->SetFont("Font64_CourierPrime_Regular");
-	mLevel->SetText("1");
+	mLevel->SetText("LV 1");
 	AddChild(mLevel);
 }
 
@@ -64,5 +54,5 @@ void CExpBar::SetPercent(float percent)
 
 void CExpBar::SetLevelText(int level)
 {
-	mLevel->SetText(std::to_string(level));
+	mLevel->SetText("LV " + std::to_string(level));
 }
