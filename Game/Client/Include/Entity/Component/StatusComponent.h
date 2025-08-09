@@ -2,29 +2,23 @@
 
 #include "Component.h"
 
-class CStatusComponent : public CComponent
+class CStatusComponent abstract : public CComponent
 {
 public:
-	CStatusComponent();
-	virtual ~CStatusComponent();
+	CStatusComponent() = default;
+	virtual ~CStatusComponent() = default;
 
-private:
-	// 체력
-	float mMaxHP;
-	float mCurrentHP;
-
-	// 기본 스탯
-	float mAttack;
-	float mDefense;
-	float mMoveSpeed;
-	float mAttackSpeed;
-
-	// 레벨
+protected:
+	// 현재 상태
 	int mLevel;
-	float mExpToLevelUp;
-	float mCurrentExp;
+	float mExp;
+	float mHP;
 
-private:
-	virtual bool Init() final;
-	virtual void Release() final;
+	// 기본 스탯 (파워업 적용 전)
+	float mRawAttack;
+	float mRawDefense;
+	float mRawMaxHP;
+	float mRawAttackSpeed;
+	float mRawMoveSpeed;
+	float mRawPickupRange;
 };

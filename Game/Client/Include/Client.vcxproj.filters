@@ -765,6 +765,9 @@
     <ClInclude Include="Entity\Component\StatusComponent.h">
       <Filter>Game\04. Entity\02. Component</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Component\PlayerStatusComponent.h">
+      <Filter>Game\04. Entity\02. Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1011,7 +1014,7 @@
     <ClCompile Include="Scene\PlayTimer.cpp">
       <Filter>Game\02. Scenes\02. Play</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Component\StatusComponent.cpp">
+    <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp">
       <Filter>Game\04. Entity\02. Component</Filter>
     </ClCompile>
   </ItemGroup>
