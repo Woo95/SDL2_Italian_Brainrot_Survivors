@@ -18,7 +18,7 @@ bool CTralala::Init()
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Tralala");
 	mSprite->SetTexture("Texture_Tralala");
 	mSprite->SetAnimation("Tralala");
-	mSprite->GetAnimation()->SetCurrentState(EAnimationState::WALK);
+	mSprite->GetAnimation()->SetState(EAnimationState::WALK);
 	mSprite->GetTransform()->SetWorldScale(FVector2D(62.0f, 45.0f) * 1.3f);
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mSprite->SetFlip(SDL_FLIP_HORIZONTAL);

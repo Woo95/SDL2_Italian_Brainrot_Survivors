@@ -138,7 +138,7 @@ void CDataLoader::LoadAllEntityAnimationData()
 
 				data->frames.emplace_back(SDL_Rect{ x, y, w, h });
 			}
-			animation->AddAnimationState(state, data);
+			animation->AddState(state, data);
 		}
 		row.clear();
 	}

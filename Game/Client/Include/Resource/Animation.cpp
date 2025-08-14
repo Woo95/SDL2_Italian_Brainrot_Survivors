@@ -3,11 +3,12 @@
 #include "../Manager/MemoryPoolManager.h"
 
 CAnimation::CAnimation() :
-	mOwner(nullptr),
+	mTransform(nullptr),
 	mCurrentState(EAnimationState::NONE),
 	mPrevPos(FVector2D::ZERO),
 	mFrameInterval(0.0f),
-	mCurrIdx(0)
+	mCurrIdx(0),
+	mLooped(false)
 {
 }
 
@@ -28,49 +29,55 @@ void CAnimation::Update(float deltaTime)
 
 	switch (aniData->type)
 	{
-		case EAnimationType::NONE:
-			break;
+	case EAnimationType::NONE:
+		break;
 
-		case EAnimationType::MOVE:
+	case EAnimationType::MOVE:
+	{
+		const FVector2D& currentPos = mTransform->GetWorldPos();
+
+		FVector2D posDelta = currentPos - mPrevPos;
+
+		mFrameInterval += posDelta.Length();
+
+		float frameTransitionDistance = aniData->intervalPerFrame / aniData->frames.size();
+
+		if (mFrameInterval >= frameTransitionDistance)
 		{
-			const FVector2D& currentPos = mOwner->GetTransform()->GetWorldPos();
+			mCurrIdx = (mCurrIdx + 1) % aniData->frames.size();
 
-			FVector2D posDelta = currentPos - mPrevPos;
+			mFrameInterval -= frameTransitionDistance;
+		}
+		mPrevPos = currentPos;
+	}
+	break;
 
-			mFrameInterval += posDelta.Length();
+	case EAnimationType::TIME:
+	{
+		mFrameInterval += deltaTime;
 
-			float frameTransitionDistance = aniData->intervalPerFrame / aniData->frames.size();
-
-			if (mFrameInterval >= frameTransitionDistance)
+		if (mFrameInterval >= aniData->intervalPerFrame)
+		{
+			if (aniData->isLoop)
 			{
 				mCurrIdx = (mCurrIdx + 1) % aniData->frames.size();
-
-				mFrameInterval -= frameTransitionDistance;
 			}
-			mPrevPos = currentPos;
-		}
-		break;
-
-		case EAnimationType::TIME:
-		{
-			mFrameInterval += deltaTime;
-
-			if (mFrameInterval >= aniData->intervalPerFrame)
+			else
 			{
-				if (aniData->isLoop)
-					mCurrIdx = (mCurrIdx + 1) % aniData->frames.size();
-				else
-				{
-					if (mCurrIdx < aniData->frames.size() - 1)
-					{
-						mCurrIdx++;
-					}
-				}
-				mFrameInterval = 0.0f;
+				mLooped = (mCurrIdx >= aniData->frames.size() - 1) ? true : false;
+				if (!mLooped)
+					mCurrIdx++;
 			}
+			mFrameInterval = 0.0f;
 		}
-		break;
 	}
+	break;
+	}
+}
+
+void CAnimation::Release()
+{
+	CMemoryPoolManager::GetInst()->Deallocate<CAnimation>(this);
 }
 
 CAnimation* CAnimation::Clone() const
@@ -80,9 +87,4 @@ CAnimation* CAnimation::Clone() const
 	*clone = *this; // 얕은 복사
 
 	return clone;
-}
-
-void CAnimation::Release()
-{
-	CMemoryPoolManager::GetInst()->Deallocate<CAnimation>(this);
 }

@@ -14,11 +14,11 @@ public:
 	virtual ~CCollider();
 
 protected:
-	FCollisionProfile*  mProfile;
-	ECollider::Type     mColliderType;
+	FCollisionProfile* mProfile;
+	ECollider::Type    mColliderType;
 
-	int                 mCollidedCount;
-	FVector2D           mHitPoint;
+	int  mCollidedCount;
+	FVector2D mHitPoint;
 
 	using Callback = std::function<void(CCollider*, CCollider*)>;
 	std::vector<Callback> mCallbacks[ECollider::OnCollision::MAX];
@@ -29,7 +29,7 @@ protected:
 
 public:
 	virtual bool Intersect(CCollider* other) = 0;
-	
+
 public:
 	// Executers //
 	void OnCollisionEnter(CCollider* other);
@@ -47,9 +47,14 @@ public:
 	}
 
 public:
-	FCollisionProfile* GetProfile()   const { return mProfile; }
 	ECollider::Type GetColliderType() const { return mColliderType; }
-	bool IsCollided() const { return mCollidedCount > 0; }
+	const FVector2D&   GetHitPoint()  const { return mHitPoint; }
+	FCollisionProfile* GetProfile()   const { return mProfile; }
 
 	void SetProfile(const std::string& name);
+
+	bool IsCollided() const
+	{
+		return mCollidedCount > 0;
+	}
 };
