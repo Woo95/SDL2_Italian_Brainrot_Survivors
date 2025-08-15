@@ -34,7 +34,7 @@ public:
 			return "Unknown";
 		}
 	}
-	ECharacterType GetSelectedCharacter() const { return mSelectedCharacter; }
+	ECharacterType GetSelectedCharacterType() const { return mSelectedCharacter; }
 	void SetSelectedCharacter(ECharacterType type)
 	{ 
 		mSelectedCharacter = type;

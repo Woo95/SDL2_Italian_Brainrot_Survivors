@@ -3,8 +3,8 @@
 #include "Camera.h"
 #include "Collision/SceneCollision.h"
 #include "PlayTimer.h"
-#include "../Core/Input.h"
 #include "../Manager/GameManager.h"
+#include "../Manager/InputManager.h"
 #include "../Manager/SceneManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -67,7 +67,7 @@ void CPlayScene::Update(float deltaTime)
 	mPlayTimer->Update(deltaTime);
 	static_cast<CPlayUI*>(mSceneUI)->SetGameTime(mPlayTimer->GetTime());
 
-	if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
+	if (CInputManager::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
 		CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);
 }
 
@@ -93,7 +93,7 @@ CObject* CPlayScene::InstantiatePlayer()
 {
     CObject* player = nullptr;
 
-    switch (CGameDataManager::GetInst()->GetPlayerState()->GetSelectedCharacter())
+    switch (CGameDataManager::GetInst()->GetPlayerState()->GetSelectedCharacterType())
     {
     case ECharacterType::TRALALA:
         player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);

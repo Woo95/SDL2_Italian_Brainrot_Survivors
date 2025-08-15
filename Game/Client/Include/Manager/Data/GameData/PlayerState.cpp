@@ -4,12 +4,10 @@
 
 CPlayerState::CPlayerState()
 {
-
 }
 
 CPlayerState::~CPlayerState()
 {
-
 }
 
 bool CPlayerState::PurchasePowerUp(EPowerUpType type)

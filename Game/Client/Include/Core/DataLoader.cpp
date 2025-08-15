@@ -215,14 +215,26 @@ void CDataLoader::LoadAllCharacterData()
 		const int desc2Idx     = 4;
 		const int weaponIdx    = 5;
 
+		const int hpIdx          = 6;
+		const int attackIdx      = 7;
+		const int defenseIdx     = 8;
+		const int attackSpeedIdx = 9;
+		const int moveSpeedIdx   = 10;
+
 		{
 			FCharacterData data;
 			data.type = static_cast<ECharacterType>(std::stoi(row[typeIdx]));
-			data.lastName = row[lastNameIdx];
-			data.firstName = row[firstNameIdx];
-			data.description1 = row[desc1Idx];
-			data.description2 = row[desc2Idx];
+			data.lastName       = row[lastNameIdx];
+			data.firstName      = row[firstNameIdx];
+			data.description1   = row[desc1Idx];
+			data.description2   = row[desc2Idx];
 			data.startingWeapon = row[weaponIdx];
+
+			data.baseAttack      = std::stof(row[attackIdx]);
+			data.baseDefense     = std::stof(row[defenseIdx]);
+			data.baseMaxHp       = std::stof(row[hpIdx]);
+			data.baseAttackSpeed = std::stof(row[attackSpeedIdx]);
+			data.baseMoveSpeed   = std::stof(row[moveSpeedIdx]);
 
 			CDM->mData[(int)data.type] = data;
 		}
