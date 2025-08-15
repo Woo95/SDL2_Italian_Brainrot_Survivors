@@ -22,8 +22,10 @@
     <ClInclude Include="Core\Utils\GameDataTypeUtils.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Core\Utils\StatUtils.h" />
+    <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
     <ClInclude Include="Scene\PlayTimer.h" />
     <ClInclude Include="Entity\Component\StatusComponent.h" />
+    <ClInclude Include="Entity\Component\VFXComponent.h" />
     <ClInclude Include="Widget\TimeHUD.h" />
     <ClInclude Include="Widget\KillCounter.h" />
     <ClInclude Include="Widget\Portrait.h" />
@@ -185,7 +187,7 @@
     <ClInclude Include="Core\External\SDL\SDL_video.h" />
     <ClInclude Include="Core\External\SDL\SDL_vulkan.h" />
     <ClInclude Include="Core\GameInfo.h" />
-    <ClInclude Include="Core\Input.h" />
+    <ClInclude Include="Manager\InputManager.h" />
     <ClInclude Include="Core\Utils\SceneUtils.h" />
     <ClInclude Include="Core\StaticMemoryPool.h" />
     <ClInclude Include="Core\Timer.h" />
@@ -212,8 +214,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
+    <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Scene\PlayTimer.cpp" />
-    <ClCompile Include="Entity\Component\StatusComponent.cpp" />
+    <ClCompile Include="Entity\Component\VFXComponent.cpp" />
     <ClCompile Include="Widget\TimeHUD.cpp" />
     <ClCompile Include="Widget\KillCounter.cpp" />
     <ClCompile Include="Widget\Portrait.cpp" />
@@ -274,7 +277,7 @@
     <ClCompile Include="Manager\CollisionManager.cpp" />
     <ClCompile Include="Entity\Component\Collider\Collider.cpp" />
     <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Core\Input.cpp" />
+    <ClCompile Include="Manager\InputManager.cpp" />
     <ClCompile Include="Core\Timer.cpp" />
     <ClCompile Include="Core\Vector2D.cpp" />
     <ClCompile Include="Entity\Component\Component.cpp" />

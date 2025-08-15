@@ -1,6 +1,6 @@
 #include "Player.h"
 #include "../Component/AllComponents.h"
-#include "../../Core/Input.h"
+#include "../../Manager/InputManager.h"
 
 CPlayer::CPlayer() :
 	mMovement(nullptr),
