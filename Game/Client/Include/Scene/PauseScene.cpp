@@ -1,7 +1,7 @@
 #include "PauseScene.h"
 #include "../Manager/SceneManager.h"
+#include "../Manager/InputManager.h"
 #include "../Scene/UI/PauseUI.h"
-#include "../Core/Input.h"
 
 CPauseScene::CPauseScene()
 {
@@ -29,7 +29,7 @@ void CPauseScene::Update(float deltaTime)
 {
 	CScene::Update(deltaTime);
 
-	if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
+	if (CInputManager::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKeyAction::PRESS))
 		CSceneManager::GetInst()->ChangeRequest(ETransition::POP, ESceneState::PAUSE);
 }
 

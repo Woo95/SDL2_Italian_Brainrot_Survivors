@@ -4,7 +4,7 @@
 #include "../Manager/Data/GameData/PlayerState.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Core/Input.h"
+#include "../Manager/InputManager.h"
 
 CMainMenuPanel::CMainMenuPanel()
 {
@@ -104,7 +104,7 @@ void CMainMenuPanel::Update(float deltaTime)
 {
     CUserWidget::Update(deltaTime);
 
-    if (CInput::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKey::State::PRESS))
+    if (CInputManager::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKeyAction::PRESS))
     {
         if (mOptionPanel->GetEnable() || mCharSelectPanel->GetEnable() || mPowerUpSelectPanel->GetEnable() || mCreditsPanel->GetEnable())
         {

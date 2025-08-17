@@ -28,9 +28,6 @@
     <Filter Include="Framework\01. Core\Lib\Timer">
       <UniqueIdentifier>{b988f21a-2a7e-45be-84c2-a6a6a6dec500}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\01. Core\Lib\Input">
-      <UniqueIdentifier>{3e84e11b-3d68-4517-98e3-38767547663b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\01. Core\Lib\Math">
       <UniqueIdentifier>{b34f2160-b592-483e-bfc2-5322bb366b9d}</UniqueIdentifier>
     </Filter>
@@ -193,13 +190,13 @@
     <Filter Include="Framework\06. Widget\00. UserWidget">
       <UniqueIdentifier>{bccdbab3-76b7-4a15-92fd-52b9cc8437e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Framework\04. Entity\02. Component\01. Components\VFX">
+      <UniqueIdentifier>{3190dcef-c16d-40f0-82d4-ff30c49ffb48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
       <Filter>Framework\01. Core\Lib\Timer</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\Input.h">
-      <Filter>Framework\01. Core\Lib\Input</Filter>
     </ClInclude>
     <ClInclude Include="Core\GameInfo.h">
       <Filter>Framework\01. Core\Lib</Filter>
@@ -765,13 +762,19 @@
     <ClInclude Include="Entity\Component\StatusComponent.h">
       <Filter>Game\04. Entity\02. Component</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Component\PlayerStatusComponent.h">
+      <Filter>Game\04. Entity\02. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\VFXComponent.h">
+      <Filter>Framework\04. Entity\02. Component\01. Components\VFX</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\InputManager.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
       <Filter>Framework\01. Core\Lib\Timer</Filter>
-    </ClCompile>
-    <ClCompile Include="Core\Input.cpp">
-      <Filter>Framework\01. Core\Lib\Input</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Scene.cpp">
       <Filter>Framework\03. Scene</Filter>
@@ -1011,8 +1014,14 @@
     <ClCompile Include="Scene\PlayTimer.cpp">
       <Filter>Game\02. Scenes\02. Play</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Component\StatusComponent.cpp">
+    <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp">
       <Filter>Game\04. Entity\02. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\VFXComponent.cpp">
+      <Filter>Framework\04. Entity\02. Component\01. Components\VFX</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\InputManager.cpp">
+      <Filter>Framework\02. Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
