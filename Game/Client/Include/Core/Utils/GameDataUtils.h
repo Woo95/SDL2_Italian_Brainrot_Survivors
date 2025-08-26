@@ -21,4 +21,10 @@ struct FCharacterData
 	std::string description1;
 	std::string description2;
 	std::string startingWeapon;
+
+	float baseMaxHp;
+	float baseAttack;
+	float baseDefense;
+	float baseAttackSpeed;
+	float baseMoveSpeed;
 };

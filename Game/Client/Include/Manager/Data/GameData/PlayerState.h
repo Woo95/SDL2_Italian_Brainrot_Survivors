@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../../../Core/Utils/StatUtils.h"
 #include "../../../Core/Utils/GameDataUtils.h"
 
 // CPlayerState는 모든 씬에서 사용되는 플레이어의 영구 데이터를 관리하는 클래스
@@ -14,39 +13,35 @@ private:
 	~CPlayerState();
 
 private:
-	ECharacterType mSelectedCharacter = ECharacterType::NONE;
-	int mOwnedPowerUp[(int)EPowerUpType::MAX] = {};
+	ECharacterType mType = ECharacterType::NONE;
+	int mPowerUps[(int)EPowerUpType::MAX] = {};
 	int mMoneyBalance = 5900;
 
 public:
 	// 캐릭터 관련 //
-	std::string GetSelectedCharacterName() const
+	const std::string& GetName() const;
+	ECharacterType GetType() const
 	{
-		switch (mSelectedCharacter)
-		{
-		case ECharacterType::TRALALA:
-			return "Tralala";
-		case ECharacterType::SAHUR:
-			return "Sahur";
-		case ECharacterType::BANANINI:
-			return "Bananini";
-		default:
-			return "Unknown";
-		}
+		return mType;
 	}
-	ECharacterType GetSelectedCharacter() const { return mSelectedCharacter; }
-	void SetSelectedCharacter(ECharacterType type)
+	void SetType(ECharacterType type)
 	{ 
-		mSelectedCharacter = type;
+		mType = type;
 	}
 
 	// 파워 업 관련 //
-	int  GetOwnedPowerUpCount(EPowerUpType type) const { return mOwnedPowerUp[(int)type]; }
+	int GetPowerUpLvl(EPowerUpType type) const
+	{
+		return mPowerUps[(int)type];
+	}
 	bool PurchasePowerUp(EPowerUpType type);
 	bool RefundAllPowerUp();
 
 	// 돈 관련 //
-	int GetBalance() const { return mMoneyBalance; }
+	int GetBalance() const
+	{
+		return mMoneyBalance;
+	}
 	void AddBalance(int amount)
 	{ 
 		mMoneyBalance += amount; 

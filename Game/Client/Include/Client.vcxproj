@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClInclude Include="Core\Utils\GameDataTypeUtils.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
-    <ClInclude Include="Core\Utils\StatUtils.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
     <ClInclude Include="Scene\PlayTimer.h" />
     <ClInclude Include="Entity\Component\StatusComponent.h" />

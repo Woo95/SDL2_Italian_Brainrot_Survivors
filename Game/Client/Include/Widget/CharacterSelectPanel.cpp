@@ -109,7 +109,7 @@ void CCharacterSelectPanel::OnBackButton()
 void CCharacterSelectPanel::OnSlotClicked(CCharacterSlot* slot)
 {
     // Data
-    CGameDataManager::GetInst()->GetPlayerState()->SetSelectedCharacter(slot->GetType());
+    CGameDataManager::GetInst()->GetPlayerState()->SetType(slot->GetType());
 
     // UI 
     mHighlight->Enable();

@@ -30,7 +30,7 @@ bool CPlayUI::Init()
     portrait->GetTransform()->SetWorldScale(resolution * FVector2D(0.1f, 0.15f));
     portrait->GetTransform()->SetWorldPos(resolution * (FVector2D(0.07f, 0.086f)));
     portrait->GetTransform()->SetPivot(0.5f, 0.5f);
-    portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerState()->GetSelectedCharacterName() + "Portrait");
+    portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerState()->GetName() + "Portrait");
     AddWidget(portrait);
 
     mHealthBar = CWidgetUtils::AllocateWidget<CProgressBar, 2>("PlayUI_ProgressBar_Hp");

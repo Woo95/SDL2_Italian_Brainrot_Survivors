@@ -48,15 +48,15 @@ void CPowerUpSelectPanel::Construct()
     const FVector2D slotScale = FVector2D(0.217f, 0.188f);
     const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.14f, 0.32f);
 
-    mSlots[(int)EPowerUpType::MIGHT]      = CreatePowerUpSlot(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0), "Might");
-    mSlots[(int)EPowerUpType::ARMOR]      = CreatePowerUpSlot(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0), "Armor");
-    mSlots[(int)EPowerUpType::MAX_HEALTH] = CreatePowerUpSlot(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0), "Max Health");
-    mSlots[(int)EPowerUpType::RECOVERY]   = CreatePowerUpSlot(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0), "Recovery");
+    mSlots[(int)EPowerUpType::MIGHT]        = CreatePowerUpSlot(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0), "Might");
+    mSlots[(int)EPowerUpType::ARMOR]        = CreatePowerUpSlot(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0), "Armor");
+    mSlots[(int)EPowerUpType::MAX_HEALTH]   = CreatePowerUpSlot(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0), "Max Health");
+    mSlots[(int)EPowerUpType::RECOVERY]     = CreatePowerUpSlot(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0), "Recovery");
 
-    mSlots[(int)EPowerUpType::SPEED]      = CreatePowerUpSlot(EPowerUpType::ATTACK_SPEED, slotScale, slotStartPos + CalcSlotPos(0, 1), "Speed");
-    mSlots[(int)EPowerUpType::MOVE_SPEED] = CreatePowerUpSlot(EPowerUpType::MOVE_SPEED,   slotScale, slotStartPos + CalcSlotPos(1, 1), "Move Speed");
-    mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlot(EPowerUpType::MAGNET,       slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
-    mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlot(EPowerUpType::GROWTH,       slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
+    mSlots[(int)EPowerUpType::ATTACK_SPEED] = CreatePowerUpSlot(EPowerUpType::ATTACK_SPEED, slotScale, slotStartPos + CalcSlotPos(0, 1), "Speed");
+    mSlots[(int)EPowerUpType::MOVE_SPEED]   = CreatePowerUpSlot(EPowerUpType::MOVE_SPEED,   slotScale, slotStartPos + CalcSlotPos(1, 1), "Move Speed");
+    mSlots[(int)EPowerUpType::MAGNET]       = CreatePowerUpSlot(EPowerUpType::MAGNET,       slotScale, slotStartPos + CalcSlotPos(2, 1), "Magnet");
+    mSlots[(int)EPowerUpType::GROWTH]       = CreatePowerUpSlot(EPowerUpType::GROWTH,       slotScale, slotStartPos + CalcSlotPos(3, 1), "Growth");
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("PowerUpSelectPanel_HighlightSelectedSlot");
     mHighlight->Disable();
@@ -150,7 +150,7 @@ CPowerUpSlot* CPowerUpSelectPanel::CreatePowerUpSlot(EPowerUpType type, const FV
 
     slot->GetNameTextBlock()->SetText(textLabel);
     slot->GetIconImage()->SetFrame(powerUpData.name);
-    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerState()->GetOwnedPowerUpCount(slot->GetType()));
+    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerState()->GetPowerUpLvl(slot->GetType()));
     AddChild(slot);
 
     return slot;

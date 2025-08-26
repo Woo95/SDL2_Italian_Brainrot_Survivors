@@ -690,9 +690,6 @@
     <ClInclude Include="Manager\Data\GameData\PlayerState.h">
       <Filter>Game\05. Manager\01. GameData</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Utils\StatUtils.h">
-      <Filter>Game\01. Core\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Core\Utils\GameDataUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>

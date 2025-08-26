@@ -1,15 +1,21 @@
 #include "PlayerState.h"
 #include "GameDataManager.h"
+#include "CharacterDataManager.h"
 #include "PowerUpDataManager.h"
 
 CPlayerState::CPlayerState()
 {
-
 }
 
 CPlayerState::~CPlayerState()
 {
+}
 
+const std::string& CPlayerState::GetName() const
+{
+    const FCharacterData& charData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(mType);
+
+    return charData.lastName;
 }
 
 bool CPlayerState::PurchasePowerUp(EPowerUpType type)
@@ -20,7 +26,7 @@ bool CPlayerState::PurchasePowerUp(EPowerUpType type)
         return false;
 
 	mMoneyBalance -= powerUpData.price;
-	mOwnedPowerUp[(int)type] += 1;
+    mPowerUps[(int)type] += 1;
 
 	return true;
 }
@@ -31,12 +37,12 @@ bool CPlayerState::RefundAllPowerUp()
 
     for (int i = 0; i < (int)EPowerUpType::MAX; i++)
     {
-        if (mOwnedPowerUp[i])
+        if (mPowerUps[i])
         {
             const EPowerUpType& type = static_cast<EPowerUpType>(i);
 
-            mMoneyBalance += mOwnedPowerUp[i] * PowerUpDataManager->GetPowerUpData(type).price;
-            mOwnedPowerUp[i] = 0;
+            mMoneyBalance += mPowerUps[i] * PowerUpDataManager->GetPowerUpData(type).price;
+            mPowerUps[i] = 0;
         }
     }
     return true;
