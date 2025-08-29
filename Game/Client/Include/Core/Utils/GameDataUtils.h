@@ -27,4 +27,6 @@ struct FCharacterData
 	float baseDefense;
 	float baseAttackSpeed;
 	float baseMoveSpeed;
+	float basePickUpRange;
+	float baseGrowthExp;
 };

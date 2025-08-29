@@ -3,6 +3,7 @@
 #include "Object.h"
 #include "../../Core/Vector2D.h"
 
+class CPlayerStatusComponent;
 class CMovementComponent;
 class CSpriteComponent;
 class CInputComponent;
@@ -15,6 +16,7 @@ public:
 	virtual ~CPlayer();
 
 protected:
+	CPlayerStatusComponent* mStatus;
 	CMovementComponent* mMovement;
 	CSpriteComponent* mSprite;
 	CInputComponent* mInput;

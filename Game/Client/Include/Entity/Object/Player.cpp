@@ -1,8 +1,10 @@
 #include "Player.h"
 #include "../Component/AllComponents.h"
+#include "../Component/PlayerStatusComponent.h"
 #include "../../Manager/InputManager.h"
 
 CPlayer::CPlayer() :
+	mStatus(nullptr),
 	mMovement(nullptr),
 	mSprite(nullptr),
 	mRigidbody(nullptr),
@@ -25,6 +27,9 @@ CPlayer::~CPlayer()
 
 bool CPlayer::Init()
 {
+	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Player");
+	mRootComponent->AddChild(mStatus);
+
 	BindInput();
 
 	return CObject::Init();

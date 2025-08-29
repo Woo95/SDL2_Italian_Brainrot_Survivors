@@ -6,4 +6,4 @@
 4,Speed,Attack speed increases by 10%, ,500,0.1
 5,MoveSpeed,Character moves 10% faster., ,600,0.1
 6,Magnet,Pickup range increases by 10%., ,700,0.1
-7,Growth,Gains 15% more experience., ,800,0.15
+7,Growth,Gains 10% more experience., ,800,0.1
