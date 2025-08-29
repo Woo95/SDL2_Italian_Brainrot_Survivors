@@ -28,20 +28,18 @@ bool CMenuUI::Init()
     mMainMenu->GetTransform()->SetWorldScale(resolution);
     AddWidget(mMainMenu);
 
-    SetMenuState(EMenuUIState::PressToStart);
-
     return true;
 }
 
-void CMenuUI::SetMenuState(EMenuUIState state)
+void CMenuUI::SetUIPanel(EMenuSubState state)
 {
     switch (state)
     {
-    case EMenuUIState::PressToStart:
+    case EMenuSubState::START:
         mPressToStart->Enable();
         mMainMenu->Disable();
         break;
-    case EMenuUIState::MainMenu:
+    case EMenuSubState::MENU:
         mMainMenu->Enable();
         mPressToStart->Disable();
         break;

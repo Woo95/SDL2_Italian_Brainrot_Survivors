@@ -2,7 +2,8 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Scene/UI/MenuUI.h"
+#include "../Manager/SceneManager.h"
+#include "../Scene/MenuScene.h"
 
 CPressToStartPanel::CPressToStartPanel()
 {
@@ -49,8 +50,10 @@ void CPressToStartPanel::HandleHovered(const FVector2D& mousePos, bool isPressed
 {
     if (isPressed)
     {
-        CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();
-
-        ((CMenuUI*)mSceneUI)->SetMenuState(EMenuUIState::MainMenu);
+		if (CMenuScene* menuScene = dynamic_cast<CMenuScene*>(CSceneManager::GetInst()->GetCurrentScene()))
+		{
+			CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();
+			menuScene->SetSubState(EMenuSubState::MENU);
+		}
     }
 }

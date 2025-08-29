@@ -1,11 +1,10 @@
 #pragma once
 
 #include "SceneUI.h"
+#include "../../Core/Utils/SceneUtils.h"
 
 class CPressToStartPanel;
 class CMainMenuPanel;
-
-enum class EMenuUIState : unsigned char { PressToStart, MainMenu };
 
 class CMenuUI : public CSceneUI
 {
@@ -21,5 +20,5 @@ public:
 	virtual bool Init() final;
 
 public:
-	void SetMenuState(EMenuUIState state);
+	void SetUIPanel(EMenuSubState state);
 };

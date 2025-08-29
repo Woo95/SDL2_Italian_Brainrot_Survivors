@@ -214,7 +214,6 @@
   <ItemGroup>
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
-    <ClCompile Include="Scene\PlayTimer.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
     <ClCompile Include="Widget\TimeHUD.cpp" />
     <ClCompile Include="Widget\KillCounter.cpp" />

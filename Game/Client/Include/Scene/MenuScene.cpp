@@ -15,9 +15,10 @@ CMenuScene::~CMenuScene()
 
 bool CMenuScene::Enter()
 {
-    mSceneUI->Init();
+	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_TitleIntro")->Play();
 
-    CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_TitleIntro")->Play();
+	mSceneUI->Init();
+	SetSubState(EMenuSubState::START);
 
     return true;
 }
@@ -25,6 +26,11 @@ bool CMenuScene::Enter()
 bool CMenuScene::Exit()
 {
     return true;
+}
+
+void CMenuScene::Update(float deltaTime)
+{
+    mSceneUI->Update(deltaTime);
 }
 
 void CMenuScene::LoadResources()
@@ -47,4 +53,9 @@ void CMenuScene::LoadResources()
     LoadSFX("SFX_Character_Tralala", "sfx_character_tralalero_tralala.mp3");
     LoadSFX("SFX_Character_Sahur", "sfx_character_tung_tung_tung_sahur.mp3");
     LoadSFX("SFX_Character_Bananini", "sfx_character_chimpanzini_bananini.mp3");
+}
+
+void CMenuScene::SetSubState(EMenuSubState state)
+{
+    ((CMenuUI*)mSceneUI)->SetUIPanel(state);
 }

@@ -1,5 +1,22 @@
 #pragma once
 
+enum class EMenuSubState : unsigned char
+{
+	NONE,
+	START,
+	MENU
+};
+
+enum class EPlaySubState : unsigned char
+{
+	NONE,
+	PLAY,
+	PAUSE,
+	LVLUP
+};
+
+/////////////////////////////////////////
+
 enum class ESceneState : unsigned char
 {
 	NONE,
