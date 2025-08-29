@@ -22,6 +22,8 @@
     <ClInclude Include="Core\Utils\GameDataTypeUtils.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
+    <ClInclude Include="Widget\PlayPanel.h" />
+    <ClInclude Include="Widget\PausePanel.h" />
     <ClInclude Include="Scene\PlayTimer.h" />
     <ClInclude Include="Entity\Component\StatusComponent.h" />
     <ClInclude Include="Entity\Component\VFXComponent.h" />
@@ -44,8 +46,6 @@
     <ClInclude Include="Scene\UI\ResultUI.h" />
     <ClInclude Include="Scene\ResultScene.h" />
     <ClInclude Include="Manager\Data\GameData\GameDataManager.h" />
-    <ClInclude Include="Scene\UI\PauseUI.h" />
-    <ClInclude Include="Scene\PauseScene.h" />
     <ClInclude Include="Scene\UI\PlayUI.h" />
     <ClInclude Include="Widget\Slot.h" />
     <ClInclude Include="Widget\HighlightSelectedSlot.h" />
@@ -215,6 +215,8 @@
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
+    <ClCompile Include="Widget\PlayPanel.cpp" />
+    <ClCompile Include="Widget\PausePanel.cpp" />
     <ClCompile Include="Widget\TimeHUD.cpp" />
     <ClCompile Include="Widget\KillCounter.cpp" />
     <ClCompile Include="Widget\Portrait.cpp" />
@@ -231,8 +233,6 @@
     <ClCompile Include="Scene\ResultScene.cpp" />
     <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp" />
     <ClCompile Include="Entity\Object\Tralala.cpp" />
-    <ClCompile Include="Scene\UI\PauseUI.cpp" />
-    <ClCompile Include="Scene\PauseScene.cpp" />
     <ClCompile Include="Scene\UI\PlayUI.cpp" />
     <ClCompile Include="Widget\HighlightSelectedSlot.cpp" />
     <ClCompile Include="Widget\CreditsPanel.cpp" />

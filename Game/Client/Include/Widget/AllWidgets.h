@@ -15,8 +15,10 @@
 #include "Portrait.h"
 #include "KillCounter.h"
 
-#include "MainMenuPanel.h"
 #include "PressToStartPanel.h"
+#include "MainMenuPanel.h"
+#include "PlayPanel.h"
+#include "PausePanel.h"
 #include "ResultPanel.h"
 
 #include "OptionPanel.h"

@@ -4,7 +4,6 @@
 #include "Data/Resource/SoundManager.h"
 #include "../Scene/MenuScene.h"
 #include "../Scene/PlayScene.h"
-#include "../Scene/PauseScene.h"
 #include "../Scene/ResultScene.h"
 #include "../Core/Transform.h"
 
@@ -155,9 +154,6 @@ CScene* CSceneManager::GetSceneFromState(ESceneState state)
 		break;
 	case ESceneState::PLAY:
 		newScene = new CPlayScene;
-		break;
-	case ESceneState::PAUSE:
-		newScene = new CPauseScene;
 		break;
 	case ESceneState::RESULT:
 		newScene = new CResultScene;

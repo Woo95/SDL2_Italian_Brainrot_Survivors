@@ -22,7 +22,6 @@ enum class ESceneState : unsigned char
 	NONE,
 	MENU,
 	PLAY,
-	PAUSE,
 	RESULT
 };
 

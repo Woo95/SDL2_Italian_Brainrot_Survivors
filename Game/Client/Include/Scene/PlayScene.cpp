@@ -1,11 +1,10 @@
 #include "PlayScene.h"
-#include "UI/PlayUI.h"
 #include "Camera.h"
 #include "Collision/SceneCollision.h"
+#include "UI/PlayUI.h"
 #include "PlayTimer.h"
 #include "../Manager/GameManager.h"
 #include "../Manager/InputManager.h"
-#include "../Manager/SceneManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
@@ -13,29 +12,31 @@
 #include "../Entity/Object/AllObjects.h"
 
 CPlayScene::CPlayScene() :
-	mPlayTimer(nullptr)
+	mPlayTimer(nullptr),
+    mSubState(EPlaySubState::NONE)
 {
-    mSceneUI = new CPlayUI;
+	mPlayTimer = new CPlayTimer;
 
     mCamera = new CCamera;
     mCamera->SetResolution(CGameManager::GetInst()->GetResolution());
 
-    mSceneCollision = new CSceneCollision(mCamera);
+	mSceneCollision = new CSceneCollision(mCamera);
 
-    mPlayTimer = new CPlayTimer;
+	mSceneUI = new CPlayUI;
 }
 
 CPlayScene::~CPlayScene()
 {
-    SAFE_DELETE(mSceneCollision);
-    SAFE_DELETE(mCamera);
-    SAFE_DELETE(mSceneUI);
-    SAFE_DELETE(mPlayTimer);
+	SAFE_DELETE(mSceneUI);
+	SAFE_DELETE(mSceneCollision);
+	SAFE_DELETE(mCamera);
+	SAFE_DELETE(mPlayTimer);
 }
 
 bool CPlayScene::Enter()
 {
-    mSceneUI->Init();
+	// Timer //
+	mPlayTimer->SetTime(300.5f);
 
     // Sound //
     CSoundManager* SM = CAssetManager::GetInst()->GetSoundManager();
@@ -49,8 +50,9 @@ bool CPlayScene::Enter()
     // Camera //
     mCamera->SetTarget(player);
 
-    // Timer //
-    mPlayTimer->SetTime(300.5f);
+	// UI //
+	mSceneUI->Init();
+    SetSubState(EPlaySubState::PLAY);
 
     return true;
 }
@@ -62,13 +64,32 @@ bool CPlayScene::Exit()
 
 void CPlayScene::Update(float deltaTime)
 {
-	CScene::Update(deltaTime);
+	/* UpdateState */
+	switch (mSubState)
+	{
+	case EPlaySubState::PLAY:
+		CScene::Update(deltaTime);
+		((CPlayUI*)mSceneUI)->SetGameTime(mPlayTimer->Update(deltaTime));
+		break;
+	case EPlaySubState::PAUSE:
+	case EPlaySubState::LVLUP:
+		mSceneUI->Update(deltaTime);
+		break;
+	}
 
-	mPlayTimer->Update(deltaTime);
-	static_cast<CPlayUI*>(mSceneUI)->SetGameTime(mPlayTimer->GetTime());
-
+	/* UpdateInput */
 	if (CInputManager::GetInst()->GetKeyState(SDL_SCANCODE_ESCAPE, EKeyAction::PRESS))
-		CSceneManager::GetInst()->ChangeRequest(ETransition::PUSH, ESceneState::PAUSE);
+	{
+		switch (mSubState)
+		{
+		case EPlaySubState::PLAY:
+			SetSubState(EPlaySubState::PAUSE);
+			break;
+		case EPlaySubState::PAUSE:
+			SetSubState(EPlaySubState::PLAY);
+			break;
+		}
+	}
 }
 
 void CPlayScene::LoadResources()
@@ -87,6 +108,12 @@ void CPlayScene::LoadResources()
 
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");
     LoadSFX("SFX_PressOut", "sfx_pressOut.wav");
+}
+
+void CPlayScene::SetSubState(EPlaySubState state)
+{
+	mSubState = state;
+    ((CPlayUI*)mSceneUI)->SetUIPanel(state);
 }
 
 CObject* CPlayScene::InstantiatePlayer()

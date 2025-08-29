@@ -1,15 +1,15 @@
 #pragma once
 
-#include "SceneUI.h"
+#include "UserWidget.h"
 
 class CButton;
 class COptionPanel;
 
-class CPauseUI : public CSceneUI
+class CPausePanel : public CUserWidget
 {
 public:
-	CPauseUI();
-	virtual ~CPauseUI();
+	CPausePanel();
+	virtual ~CPausePanel();
 
 private:
 	CButton* mBtnQuit   = nullptr;
@@ -18,8 +18,9 @@ private:
 
 	COptionPanel* mOptionPanel = nullptr;
 
-public:
-	virtual bool Init() final;
+protected:
+	virtual void Construct() final;
+	virtual void Release() final;
 
 private:
 	void ShowPanel(CWidget* panel);

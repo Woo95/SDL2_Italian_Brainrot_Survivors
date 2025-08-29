@@ -1,11 +1,10 @@
 #pragma once
 
 #include "SceneUI.h"
+#include "../../Core/Utils/SceneUtils.h"
 
-class CProgressBar;
-class CExpBar;
-class CKillCounter;
-class CTimeHUD;
+class CPlayPanel;
+class CPausePanel;
 
 class CPlayUI : public CSceneUI
 {
@@ -14,15 +13,15 @@ public:
 	virtual ~CPlayUI();
 
 private:
-    CProgressBar* mHealthBar = nullptr;
-    CExpBar* mExpBar = nullptr;
-    CKillCounter* mKillCounter = nullptr;
-    CTimeHUD* mTimeHUD = nullptr;
+    CPlayPanel*  mPlay  = nullptr;
+    CPausePanel* mPause = nullptr;
 
 public:
 	virtual bool Init() final;
 
 public:
+    void SetUIPanel(EPlaySubState state);
+
     void SetHealthPercent(float percent);
     void SetExpPercent(float percent);
     void SetPlayerLevel(int level);

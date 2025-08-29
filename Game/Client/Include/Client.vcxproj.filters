@@ -58,9 +58,6 @@
     <Filter Include="Game\02. Scenes\02. Play">
       <UniqueIdentifier>{c23aa1c8-628b-4094-965a-45b3da21b13e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\02. Scenes\03. Pause">
-      <UniqueIdentifier>{5502f9c3-409e-4ed9-8adf-b3767a2918f4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\02. Scenes\04. GameOver">
       <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
     </Filter>
@@ -108,12 +105,6 @@
     </Filter>
     <Filter Include="Game\03. UserWidgets\03. ETC">
       <UniqueIdentifier>{ea084ed6-4223-4198-8292-b7ef269e37c7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\01. Character">
-      <UniqueIdentifier>{e8bde7d7-624b-4f97-9dbf-b38c88677a90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\02. PowerUp">
-      <UniqueIdentifier>{1504c296-c338-4da2-a8f8-eddffe706403}</UniqueIdentifier>
     </Filter>
     <Filter Include="Framework\03. Scene\01. Layer">
       <UniqueIdentifier>{616b5466-feb5-4a9b-bfd6-4df11cb7bd98}</UniqueIdentifier>
@@ -192,6 +183,21 @@
     </Filter>
     <Filter Include="Framework\04. Entity\02. Component\01. Components\VFX">
       <UniqueIdentifier>{3190dcef-c16d-40f0-82d4-ff30c49ffb48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu">
+      <UniqueIdentifier>{d509d1d3-8080-4757-abd8-fa45d4de0f33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets\01. Panels\02. Play">
+      <UniqueIdentifier>{3a24e883-86f6-4850-8363-e60616826a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets\01. Panels\03. Result">
+      <UniqueIdentifier>{043c99a7-6e65-4e96-8a06-efe81bbc0b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu\01. Character">
+      <UniqueIdentifier>{e8bde7d7-624b-4f97-9dbf-b38c88677a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp">
+      <UniqueIdentifier>{1504c296-c338-4da2-a8f8-eddffe706403}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -639,12 +645,6 @@
     <ClInclude Include="Scene\UI\PlayUI.h">
       <Filter>Game\02. Scenes\02. Play</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\PauseScene.h">
-      <Filter>Game\02. Scenes\03. Pause</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\UI\PauseUI.h">
-      <Filter>Game\02. Scenes\03. Pause</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\ResultScene.h">
       <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClInclude>
@@ -706,16 +706,16 @@
       <Filter>Game\03. UserWidgets\02. Slots</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharacterInfoPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Character</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharacterSelectPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Character</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpInfoPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\02. PowerUp</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpSelectPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\02. PowerUp</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharacterSlot.h">
       <Filter>Game\03. UserWidgets\02. Slots\01. Character</Filter>
@@ -725,18 +725,6 @@
     </ClInclude>
     <ClInclude Include="Widget\MoneyHUD.h">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\CreditsPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\PressToStartPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\ResultPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
-    </ClInclude>
-    <ClInclude Include="Widget\MainMenuPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
     </ClInclude>
     <ClInclude Include="Widget\ExpBar.h">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
@@ -767,6 +755,24 @@
     </ClInclude>
     <ClInclude Include="Manager\InputManager.h">
       <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PausePanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PlayPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\CreditsPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\MainMenuPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\PressToStartPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\ResultPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\03. Result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -915,12 +921,6 @@
       <Filter>Game\02. Scenes\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Scene\PauseScene.cpp">
-      <Filter>Game\02. Scenes\03. Pause</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\UI\PauseUI.cpp">
-      <Filter>Game\02. Scenes\03. Pause</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\ResultScene.cpp">
       <Filter>Game\02. Scenes\04. GameOver</Filter>
     </ClCompile>
@@ -961,16 +961,16 @@
       <Filter>Game\03. UserWidgets\02. Slots</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharacterInfoPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Character</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharacterSelectPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Character</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpInfoPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\02. PowerUp</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpSelectPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\02. PowerUp</Filter>
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharacterSlot.cpp">
       <Filter>Game\03. UserWidgets\02. Slots\01. Character</Filter>
@@ -980,18 +980,6 @@
     </ClCompile>
     <ClCompile Include="Widget\MoneyHUD.cpp">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\CreditsPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\PressToStartPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\ResultPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Widget\MainMenuPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
     </ClCompile>
     <ClCompile Include="Widget\ExpBar.cpp">
       <Filter>Game\03. UserWidgets\03. ETC</Filter>
@@ -1008,9 +996,6 @@
     <ClCompile Include="Scene\Layer.cpp">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\PlayTimer.cpp">
-      <Filter>Game\02. Scenes\02. Play</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp">
       <Filter>Game\04. Entity\02. Component</Filter>
     </ClCompile>
@@ -1019,6 +1004,24 @@
     </ClCompile>
     <ClCompile Include="Manager\InputManager.cpp">
       <Filter>Framework\02. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PausePanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PlayPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CreditsPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\MainMenuPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\PressToStartPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\ResultPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\03. Result</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
