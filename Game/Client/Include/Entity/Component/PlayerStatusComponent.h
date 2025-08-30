@@ -1,7 +1,6 @@
 #pragma once
 
 #include "StatusComponent.h"
-#include "../../Core/Utils/GameDataTypeUtils.h"
 
 class CPowerUpDataManager;
 

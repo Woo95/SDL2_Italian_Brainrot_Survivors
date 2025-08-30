@@ -1,7 +1,7 @@
 #pragma once
 
 #include "UserWidget.h"
-#include "../Core/Utils/GameDataTypeUtils.h"
+#include "../Core/Utils/GameDataUtils.h"
 
 class CButton;
 class CCharacterSlot;

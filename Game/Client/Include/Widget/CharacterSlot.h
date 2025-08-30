@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Slot.h"
-#include "../Core/Utils/GameDataTypeUtils.h"
 
 class CTextBlock;
 class CAnimatedImage;

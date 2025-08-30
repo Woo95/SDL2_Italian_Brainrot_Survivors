@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Component.h"
+#include "../../Core/Utils/GameDataUtils.h"
 
 class CStatusComponent abstract : public CComponent
 {
