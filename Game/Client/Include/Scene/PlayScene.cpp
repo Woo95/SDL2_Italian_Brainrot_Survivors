@@ -95,6 +95,7 @@ void CPlayScene::Update(float deltaTime)
 void CPlayScene::LoadResources()
 {
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
+    LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
 
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
@@ -108,6 +109,7 @@ void CPlayScene::LoadResources()
 
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");
     LoadSFX("SFX_PressOut", "sfx_pressOut.wav");
+    LoadSFX("SFX_LevelUp", "sfx_levelup.wav");
 }
 
 void CPlayScene::SetSubState(EPlaySubState state)

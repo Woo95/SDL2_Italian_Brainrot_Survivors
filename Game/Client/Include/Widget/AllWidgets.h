@@ -19,6 +19,7 @@
 #include "MainMenuPanel.h"
 #include "PlayPanel.h"
 #include "PausePanel.h"
+#include "LevelUpPanel.h"
 #include "ResultPanel.h"
 
 #include "OptionPanel.h"
@@ -32,3 +33,4 @@
 #include "HighlightSelectedSlot.h"
 #include "CharacterSlot.h"
 #include "PowerUpSlot.h"
+#include "LevelUpSlot.h"

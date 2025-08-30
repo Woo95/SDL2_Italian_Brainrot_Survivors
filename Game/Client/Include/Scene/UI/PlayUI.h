@@ -5,6 +5,7 @@
 
 class CPlayPanel;
 class CPausePanel;
+class CLevelUpPanel;
 
 class CPlayUI : public CSceneUI
 {
@@ -13,8 +14,9 @@ public:
 	virtual ~CPlayUI();
 
 private:
-    CPlayPanel*  mPlay  = nullptr;
-    CPausePanel* mPause = nullptr;
+    CPlayPanel*    mPlay    = nullptr;
+    CPausePanel*   mPause   = nullptr;
+    CLevelUpPanel* mLevelUp = nullptr;
 
 public:
 	virtual bool Init() final;

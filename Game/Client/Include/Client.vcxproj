@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Utils\GameDataTypeUtils.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
+    <ClInclude Include="Widget\LevelUpSlot.h" />
+    <ClInclude Include="Widget\LevelUpPanel.h" />
     <ClInclude Include="Widget\PlayPanel.h" />
     <ClInclude Include="Widget\PausePanel.h" />
     <ClInclude Include="Scene\PlayTimer.h" />
@@ -215,6 +216,8 @@
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
+    <ClCompile Include="Widget\LevelUpPanel.cpp" />
+    <ClCompile Include="Widget\LevelUpSlot.cpp" />
     <ClCompile Include="Widget\PlayPanel.cpp" />
     <ClCompile Include="Widget\PausePanel.cpp" />
     <ClCompile Include="Widget\TimeHUD.cpp" />

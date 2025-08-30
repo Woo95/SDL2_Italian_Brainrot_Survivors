@@ -199,6 +199,12 @@
     <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp">
       <UniqueIdentifier>{1504c296-c338-4da2-a8f8-eddffe706403}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\03. UserWidgets\02. Slots\03. LevelUp">
+      <UniqueIdentifier>{4aa58256-4257-46d1-a7f1-b385c573b208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\01. Core\Lib\Collision">
+      <UniqueIdentifier>{e1d06568-6a8d-4735-9ec1-bee9c8e835c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -462,9 +468,6 @@
     <ClInclude Include="Core\Vector2D.h">
       <Filter>Framework\01. Core\Lib\Math</Filter>
     </ClInclude>
-    <ClInclude Include="Core\CollisionProfile.h">
-      <Filter>Framework\01. Core\Lib</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\CollisionManager.h">
       <Filter>Framework\02. Manager</Filter>
     </ClInclude>
@@ -485,9 +488,6 @@
     </ClInclude>
     <ClInclude Include="Core\SharedPtr.h">
       <Filter>Framework\01. Core\Lib\SmartPtr</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\ColliderPair.h">
-      <Filter>Framework\01. Core\Lib</Filter>
     </ClInclude>
     <ClInclude Include="Entity\EntityBase.h">
       <Filter>Framework\04. Entity</Filter>
@@ -560,9 +560,6 @@
     </ClInclude>
     <ClInclude Include="Entity\Component\Rigidbody.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Rigidbody</Filter>
-    </ClInclude>
-    <ClInclude Include="Core\PhysicsConfig.h">
-      <Filter>Framework\01. Core\Lib</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utils\PhysicsUtils.h">
       <Filter>Framework\01. Core\Lib\Utils</Filter>
@@ -693,9 +690,6 @@
     <ClInclude Include="Core\Utils\GameDataUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Utils\GameDataTypeUtils.h">
-      <Filter>Game\01. Core\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="Widget\OptionPanel.h">
       <Filter>Game\03. UserWidgets\01. Panels</Filter>
     </ClInclude>
@@ -773,6 +767,21 @@
     </ClInclude>
     <ClInclude Include="Widget\ResultPanel.h">
       <Filter>Game\03. UserWidgets\01. Panels\03. Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\LevelUpPanel.h">
+      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\CollisionProfile.h">
+      <Filter>Framework\01. Core\Lib\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\ColliderPair.h">
+      <Filter>Framework\01. Core\Lib\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\PhysicsConfig.h">
+      <Filter>Framework\01. Core\Lib\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\LevelUpSlot.h">
+      <Filter>Game\03. UserWidgets\02. Slots\03. LevelUp</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1022,6 +1031,12 @@
     </ClCompile>
     <ClCompile Include="Widget\ResultPanel.cpp">
       <Filter>Game\03. UserWidgets\01. Panels\03. Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\LevelUpPanel.cpp">
+      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\LevelUpSlot.cpp">
+      <Filter>Game\03. UserWidgets\02. Slots\03. LevelUp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
