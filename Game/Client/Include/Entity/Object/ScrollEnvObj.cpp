@@ -2,7 +2,7 @@
 #include "../Component/AllComponents.h"
 #include "../../Manager/SceneManager.h"
 #include "../../Scene/PlayScene.h"
-#include "../../Scene/Camera.h"
+#include "../../Scene/Extension/Camera.h"
 
 CScrollEnvObj::CScrollEnvObj() :
     mCamera(nullptr),

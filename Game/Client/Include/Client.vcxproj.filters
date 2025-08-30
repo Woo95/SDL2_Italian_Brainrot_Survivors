@@ -34,74 +34,17 @@
     <Filter Include="Framework\01. Core\Lib\Utils">
       <UniqueIdentifier>{864f2210-c647-41c2-8d5a-56af69addf9a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\03. Scene\03. Camera">
-      <UniqueIdentifier>{825e3b1d-8348-4dbc-90c3-9d9b09cc2e77}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\01. Core\Lib\Data">
       <UniqueIdentifier>{c570d90b-d10d-4efb-8b9f-c1b852ca2f4e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\02. Scenes">
-      <UniqueIdentifier>{c57d5f5f-65c0-4d6d-b084-a2fe4fd50c26}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\02. Scenes\01. Menu">
-      <UniqueIdentifier>{804796d2-4f80-4bfd-9481-ea3c881619f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\02. Scenes\02. Play">
-      <UniqueIdentifier>{c23aa1c8-628b-4094-965a-45b3da21b13e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets">
-      <UniqueIdentifier>{e569e8fb-ad9d-4334-ae14-1f64ad2abb66}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\04. Entity">
-      <UniqueIdentifier>{c975c223-c0ef-4c16-bdab-a78723605b31}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\04. Entity\01. Object">
-      <UniqueIdentifier>{09e36b8f-abb1-485f-82d2-3b87ab06f51f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\04. Entity\01. Object\Player">
-      <UniqueIdentifier>{e2280d53-d31c-44c4-8522-9dfeeb7cdebf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\04. Entity\01. Object\Map">
-      <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\04. Entity\02. Component">
-      <UniqueIdentifier>{9ceeea20-6648-49f5-9302-5290fbbba191}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\05. Manager">
-      <UniqueIdentifier>{18494aaa-50d5-4b20-927a-4c6642a2469b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\01. Core">
       <UniqueIdentifier>{af1eeaa7-794e-4547-819a-16fa583c6b91}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\05. Manager\01. GameData">
-      <UniqueIdentifier>{4cfcf3fe-16f9-4d58-8629-22752a68b31b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\01. Core\Utils">
       <UniqueIdentifier>{125d717f-733b-4dae-a7d1-8323f179b83e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels">
-      <UniqueIdentifier>{e8b82587-b2ed-4f40-bc29-8fb737a49a22}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\02. Slots">
-      <UniqueIdentifier>{e7738a38-04b8-477a-a11b-7468c0c02ad0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\02. Slots\01. Character">
-      <UniqueIdentifier>{80709666-2aef-4a73-8bbb-ca7315492ebf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\02. Slots\02. PowerUp">
-      <UniqueIdentifier>{77296015-bf41-476f-9e22-cbff06997b29}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\03. ETC">
-      <UniqueIdentifier>{ea084ed6-4223-4198-8292-b7ef269e37c7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\03. Scene\01. Layer">
       <UniqueIdentifier>{616b5466-feb5-4a9b-bfd6-4df11cb7bd98}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\03. Scene\02. UI">
-      <UniqueIdentifier>{81d21286-dc7b-475b-91d0-cb58d4517747}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\03. Scene\04. Collision">
-      <UniqueIdentifier>{5f949429-47db-4625-860f-1c3d6575c0cb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Framework\04. Entity">
       <UniqueIdentifier>{d5738d80-d9e6-41f0-8741-9bbca96ceb12}</UniqueIdentifier>
@@ -139,9 +82,6 @@
     <Filter Include="Framework\05. Resource">
       <UniqueIdentifier>{6ca350ca-fbac-4558-a30b-dd3800174ad5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\05. Resource\Sound">
-      <UniqueIdentifier>{da8f1731-e4b8-4b9a-bb31-714cfd9c64b0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\06. Widget">
       <UniqueIdentifier>{da9c17e3-b3ba-47ea-9466-274356354b9c}</UniqueIdentifier>
     </Filter>
@@ -166,29 +106,8 @@
     <Filter Include="Framework\06. Widget\01. Widgets\TextBlock">
       <UniqueIdentifier>{ee739951-4a35-442e-ad79-8741f0fc563d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\06. Widget\00. UserWidget">
-      <UniqueIdentifier>{bccdbab3-76b7-4a15-92fd-52b9cc8437e3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\04. Entity\02. Component\01. Components\VFX">
       <UniqueIdentifier>{3190dcef-c16d-40f0-82d4-ff30c49ffb48}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu">
-      <UniqueIdentifier>{d509d1d3-8080-4757-abd8-fa45d4de0f33}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\02. Play">
-      <UniqueIdentifier>{3a24e883-86f6-4850-8363-e60616826a20}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\03. Result">
-      <UniqueIdentifier>{043c99a7-6e65-4e96-8a06-efe81bbc0b57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu\01. Character">
-      <UniqueIdentifier>{e8bde7d7-624b-4f97-9dbf-b38c88677a90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp">
-      <UniqueIdentifier>{1504c296-c338-4da2-a8f8-eddffe706403}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\03. UserWidgets\02. Slots\03. LevelUp">
-      <UniqueIdentifier>{4aa58256-4257-46d1-a7f1-b385c573b208}</UniqueIdentifier>
     </Filter>
     <Filter Include="Framework\01. Core\Lib\Collision">
       <UniqueIdentifier>{e1d06568-6a8d-4735-9ec1-bee9c8e835c9}</UniqueIdentifier>
@@ -196,14 +115,92 @@
     <Filter Include="Framework\02. Manager">
       <UniqueIdentifier>{2ca341f6-ad67-423f-b335-7b88c3472463}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\02. Manager\01. Data">
+    <Filter Include="Framework\02. Manager\Data">
       <UniqueIdentifier>{fdd86622-7b5d-4cc8-808b-89194f8f9b5b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\02. Manager\01. Data\01. Resource">
+    <Filter Include="Framework\02. Manager\Data\Resource">
       <UniqueIdentifier>{2b3de1e7-2a2d-490f-acb2-99bb82192459}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Game\02. Scenes\03. Result">
+    <Filter Include="Framework\03. Scene\04. UI">
+      <UniqueIdentifier>{81d21286-dc7b-475b-91d0-cb58d4517747}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\03. Scene\02. Camera">
+      <UniqueIdentifier>{825e3b1d-8348-4dbc-90c3-9d9b09cc2e77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\03. Scene\03. Collision">
+      <UniqueIdentifier>{5f949429-47db-4625-860f-1c3d6575c0cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\06. Widget\02. UserWidget">
+      <UniqueIdentifier>{bccdbab3-76b7-4a15-92fd-52b9cc8437e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Manager">
+      <UniqueIdentifier>{18494aaa-50d5-4b20-927a-4c6642a2469b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. Scenes">
+      <UniqueIdentifier>{c57d5f5f-65c0-4d6d-b084-a2fe4fd50c26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. Scenes\01. Menu">
+      <UniqueIdentifier>{804796d2-4f80-4bfd-9481-ea3c881619f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. Scenes\02. Play">
+      <UniqueIdentifier>{c23aa1c8-628b-4094-965a-45b3da21b13e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\03. Scenes\03. Result">
       <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets">
+      <UniqueIdentifier>{e569e8fb-ad9d-4334-ae14-1f64ad2abb66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\01. Panels">
+      <UniqueIdentifier>{e8b82587-b2ed-4f40-bc29-8fb737a49a22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\01. Panels\01. Menu">
+      <UniqueIdentifier>{d509d1d3-8080-4757-abd8-fa45d4de0f33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\01. Panels\01. Menu\01. Character">
+      <UniqueIdentifier>{e8bde7d7-624b-4f97-9dbf-b38c88677a90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\01. Panels\01. Menu\02. PowerUp">
+      <UniqueIdentifier>{1504c296-c338-4da2-a8f8-eddffe706403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\01. Panels\02. Play">
+      <UniqueIdentifier>{3a24e883-86f6-4850-8363-e60616826a20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\01. Panels\03. Result">
+      <UniqueIdentifier>{043c99a7-6e65-4e96-8a06-efe81bbc0b57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\02. Slots">
+      <UniqueIdentifier>{e7738a38-04b8-477a-a11b-7468c0c02ad0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\02. Slots\01. Character">
+      <UniqueIdentifier>{80709666-2aef-4a73-8bbb-ca7315492ebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\02. Slots\02. PowerUp">
+      <UniqueIdentifier>{77296015-bf41-476f-9e22-cbff06997b29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\02. Slots\03. LevelUp">
+      <UniqueIdentifier>{4aa58256-4257-46d1-a7f1-b385c573b208}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\04. UserWidgets\03. ETC">
+      <UniqueIdentifier>{ea084ed6-4223-4198-8292-b7ef269e37c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity">
+      <UniqueIdentifier>{c975c223-c0ef-4c16-bdab-a78723605b31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity\01. Object">
+      <UniqueIdentifier>{09e36b8f-abb1-485f-82d2-3b87ab06f51f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity\01. Object\Player">
+      <UniqueIdentifier>{e2280d53-d31c-44c4-8522-9dfeeb7cdebf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity\01. Object\Map">
+      <UniqueIdentifier>{d1b46638-4721-4be6-b1e6-f91d445c564f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity\02. Component">
+      <UniqueIdentifier>{9ceeea20-6648-49f5-9302-5290fbbba191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Manager\GameData">
+      <UniqueIdentifier>{4cfcf3fe-16f9-4d58-8629-22752a68b31b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -471,14 +468,14 @@
     <ClInclude Include="Manager\CollisionManager.h">
       <Filter>Framework\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Collision\QuadTree.h">
-      <Filter>Framework\03. Scene\04. Collision</Filter>
+    <ClInclude Include="Scene\Extension\QuadTree.h">
+      <Filter>Framework\03. Scene\03. Collision</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Collision\SceneCollision.h">
-      <Filter>Framework\03. Scene\04. Collision</Filter>
+    <ClInclude Include="Scene\Extension\SceneCollision.h">
+      <Filter>Framework\03. Scene\03. Collision</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Collision\QTNode.h">
-      <Filter>Framework\03. Scene\04. Collision</Filter>
+    <ClInclude Include="Scene\Extension\QTNode.h">
+      <Filter>Framework\03. Scene\03. Collision</Filter>
     </ClInclude>
     <ClInclude Include="Core\RefCounter.h">
       <Filter>Framework\01. Core\Lib\SmartPtr</Filter>
@@ -513,11 +510,11 @@
     <ClInclude Include="Entity\Component\MovementComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Movement</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Camera.h">
-      <Filter>Framework\03. Scene\03. Camera</Filter>
+    <ClInclude Include="Scene\Extension\Camera.h">
+      <Filter>Framework\03. Scene\02. Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\UI\SceneUI.h">
-      <Filter>Framework\03. Scene\02. UI</Filter>
+    <ClInclude Include="Scene\Extension\SceneUI.h">
+      <Filter>Framework\03. Scene\04. UI</Filter>
     </ClInclude>
     <ClInclude Include="Widget\WidgetBase.h">
       <Filter>Framework\06. Widget</Filter>
@@ -533,12 +530,6 @@
     </ClInclude>
     <ClInclude Include="Core\External\SDL\SDL_mixer.h">
       <Filter>Framework\01. Core\External\SDL</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\Sound\BGM.h">
-      <Filter>Framework\05. Resource\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource\Sound\SFX.h">
-      <Filter>Framework\05. Resource\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utils\InputUtils.h">
       <Filter>Framework\01. Core\Lib\Utils</Filter>
@@ -571,13 +562,13 @@
       <Filter>Framework\06. Widget</Filter>
     </ClInclude>
     <ClInclude Include="Scene\MenuScene.h">
-      <Filter>Game\02. Scenes\01. Menu</Filter>
+      <Filter>Game\03. Scenes\01. Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\UI\MenuUI.h">
-      <Filter>Game\02. Scenes\01. Menu</Filter>
+    <ClInclude Include="Scene\Extension\MenuUI.h">
+      <Filter>Game\03. Scenes\01. Menu</Filter>
     </ClInclude>
     <ClInclude Include="Scene\PlayScene.h">
-      <Filter>Game\02. Scenes\02. Play</Filter>
+      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\Component.h">
       <Filter>Framework\04. Entity\02. Component</Filter>
@@ -604,142 +595,139 @@
       <Filter>Framework\06. Widget\01. Widgets</Filter>
     </ClInclude>
     <ClInclude Include="Widget\UserWidget.h">
-      <Filter>Framework\06. Widget\00. UserWidget</Filter>
+      <Filter>Framework\06. Widget\02. UserWidget</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\MadForest.h">
-      <Filter>Game\04. Entity\01. Object\Map</Filter>
+      <Filter>Game\05. Entity\01. Object\Map</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\AllComponents.h">
       <Filter>Framework\04. Entity\02. Component</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\ScrollMapComponent.h">
-      <Filter>Game\04. Entity\02. Component</Filter>
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Player.h">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Sahur.h">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\AllObjects.h">
       <Filter>Framework\04. Entity\01. Object</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\ScrollEnvObj.h">
-      <Filter>Game\04. Entity\01. Object\Map</Filter>
+      <Filter>Game\05. Entity\01. Object\Map</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Bananini.h">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Tralala.h">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\InputComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\UI\PlayUI.h">
-      <Filter>Game\02. Scenes\02. Play</Filter>
+    <ClInclude Include="Scene\Extension\PlayUI.h">
+      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Scene\ResultScene.h">
-      <Filter>Game\02. Scenes\03. Result</Filter>
+      <Filter>Game\03. Scenes\03. Result</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\UI\ResultUI.h">
-      <Filter>Game\02. Scenes\03. Result</Filter>
+    <ClInclude Include="Scene\Extension\ResultUI.h">
+      <Filter>Game\03. Scenes\03. Result</Filter>
     </ClInclude>
     <ClInclude Include="Core\DataLoader.h">
       <Filter>Framework\01. Core\Lib\Data</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\AnimationManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\AssetManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\FontManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\SoundManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\SpriteManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\TextureManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\Resource\UIManager.h">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\PathManager.h">
-      <Filter>Framework\02. Manager\01. Data</Filter>
+      <Filter>Framework\02. Manager\Data</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h">
-      <Filter>Game\05. Manager\01. GameData</Filter>
+      <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\GameData\GameDataManager.h">
-      <Filter>Game\05. Manager\01. GameData</Filter>
+      <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h">
-      <Filter>Game\05. Manager\01. GameData</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager\Data\GameData\PlayerState.h">
-      <Filter>Game\05. Manager\01. GameData</Filter>
+      <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utils\GameDataUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
     <ClInclude Include="Widget\OptionPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels</Filter>
     </ClInclude>
     <ClInclude Include="Widget\HighlightSelectedSlot.h">
-      <Filter>Game\03. UserWidgets\02. Slots</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots</Filter>
     </ClInclude>
     <ClInclude Include="Widget\Slot.h">
-      <Filter>Game\03. UserWidgets\02. Slots</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharacterInfoPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharacterSelectPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpInfoPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpSelectPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CharacterSlot.h">
-      <Filter>Game\03. UserWidgets\02. Slots\01. Character</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots\01. Character</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PowerUpSlot.h">
-      <Filter>Game\03. UserWidgets\02. Slots\02. PowerUp</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots\02. PowerUp</Filter>
     </ClInclude>
     <ClInclude Include="Widget\MoneyHUD.h">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClInclude>
     <ClInclude Include="Widget\ExpBar.h">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClInclude>
     <ClInclude Include="Widget\Portrait.h">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClInclude>
     <ClInclude Include="Widget\KillCounter.h">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClInclude>
     <ClInclude Include="Widget\TimeHUD.h">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Layer.h">
+    <ClInclude Include="Scene\Extension\Layer.h">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\PlayTimer.h">
-      <Filter>Game\02. Scenes\02. Play</Filter>
+    <ClInclude Include="Scene\Extension\PlayTimer.h">
+      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\StatusComponent.h">
-      <Filter>Game\04. Entity\02. Component</Filter>
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h">
-      <Filter>Game\04. Entity\02. Component</Filter>
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Component\VFXComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\VFX</Filter>
@@ -748,25 +736,25 @@
       <Filter>Framework\02. Manager</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PausePanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PlayPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Widget\CreditsPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu</Filter>
     </ClInclude>
     <ClInclude Include="Widget\MainMenuPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu</Filter>
     </ClInclude>
     <ClInclude Include="Widget\PressToStartPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu</Filter>
     </ClInclude>
     <ClInclude Include="Widget\ResultPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\03. Result</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\03. Result</Filter>
     </ClInclude>
     <ClInclude Include="Widget\LevelUpPanel.h">
-      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Core\CollisionProfile.h">
       <Filter>Framework\01. Core\Lib\Collision</Filter>
@@ -774,14 +762,20 @@
     <ClInclude Include="Core\ColliderPair.h">
       <Filter>Framework\01. Core\Lib\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="Core\PhysicsConfig.h">
-      <Filter>Framework\01. Core\Lib\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="Widget\LevelUpSlot.h">
-      <Filter>Game\03. UserWidgets\02. Slots\03. LevelUp</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots\03. LevelUp</Filter>
     </ClInclude>
     <ClInclude Include="Engine.h">
       <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\BGM.h">
+      <Filter>Framework\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource\SFX.h">
+      <Filter>Framework\05. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\GameData\PlayerState.h">
+      <Filter>Game\01. Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -809,14 +803,14 @@
     <ClCompile Include="Manager\CollisionManager.cpp">
       <Filter>Framework\02. Manager</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Collision\QuadTree.cpp">
-      <Filter>Framework\03. Scene\04. Collision</Filter>
+    <ClCompile Include="Scene\Extension\QuadTree.cpp">
+      <Filter>Framework\03. Scene\03. Collision</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Collision\SceneCollision.cpp">
-      <Filter>Framework\03. Scene\04. Collision</Filter>
+    <ClCompile Include="Scene\Extension\SceneCollision.cpp">
+      <Filter>Framework\03. Scene\03. Collision</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Collision\QTNode.cpp">
-      <Filter>Framework\03. Scene\04. Collision</Filter>
+    <ClCompile Include="Scene\Extension\QTNode.cpp">
+      <Filter>Framework\03. Scene\03. Collision</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Texture.cpp">
       <Filter>Framework\05. Resource</Filter>
@@ -839,23 +833,17 @@
     <ClCompile Include="Entity\Component\MovementComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Movement</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Camera.cpp">
-      <Filter>Framework\03. Scene\03. Camera</Filter>
+    <ClCompile Include="Scene\Extension\Camera.cpp">
+      <Filter>Framework\03. Scene\02. Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\UI\SceneUI.cpp">
-      <Filter>Framework\03. Scene\02. UI</Filter>
+    <ClCompile Include="Scene\Extension\SceneUI.cpp">
+      <Filter>Framework\03. Scene\04. UI</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Font.cpp">
       <Filter>Framework\05. Resource</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\WidgetComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Widget</Filter>
-    </ClCompile>
-    <ClCompile Include="Resource\Sound\BGM.cpp">
-      <Filter>Framework\05. Resource\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Resource\Sound\SFX.cpp">
-      <Filter>Framework\05. Resource\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\Rigidbody.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Rigidbody</Filter>
@@ -864,13 +852,13 @@
       <Filter>Framework\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Scene\MenuScene.cpp">
-      <Filter>Game\02. Scenes\01. Menu</Filter>
+      <Filter>Game\03. Scenes\01. Menu</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\UI\MenuUI.cpp">
-      <Filter>Game\02. Scenes\01. Menu</Filter>
+    <ClCompile Include="Scene\Extension\MenuUI.cpp">
+      <Filter>Game\03. Scenes\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Scene\PlayScene.cpp">
-      <Filter>Game\02. Scenes\02. Play</Filter>
+      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\Component.cpp">
       <Filter>Framework\04. Entity\02. Component</Filter>
@@ -897,113 +885,110 @@
       <Filter>Framework\06. Widget\01. Widgets</Filter>
     </ClCompile>
     <ClCompile Include="Widget\UserWidget.cpp">
-      <Filter>Framework\06. Widget\00. UserWidget</Filter>
+      <Filter>Framework\06. Widget\02. UserWidget</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\MadForest.cpp">
-      <Filter>Game\04. Entity\01. Object\Map</Filter>
+      <Filter>Game\05. Entity\01. Object\Map</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\ScrollMapComponent.cpp">
-      <Filter>Game\04. Entity\02. Component</Filter>
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Player.cpp">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Sahur.cpp">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\ScrollEnvObj.cpp">
-      <Filter>Game\04. Entity\01. Object\Map</Filter>
+      <Filter>Game\05. Entity\01. Object\Map</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Bananini.cpp">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Tralala.cpp">
-      <Filter>Game\04. Entity\01. Object\Player</Filter>
+      <Filter>Game\05. Entity\01. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\InputComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\UI\PlayUI.cpp">
-      <Filter>Game\02. Scenes\02. Play</Filter>
+    <ClCompile Include="Scene\Extension\PlayUI.cpp">
+      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Scene\ResultScene.cpp">
-      <Filter>Game\02. Scenes\03. Result</Filter>
+      <Filter>Game\03. Scenes\03. Result</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\UI\ResultUI.cpp">
-      <Filter>Game\02. Scenes\03. Result</Filter>
+    <ClCompile Include="Scene\Extension\ResultUI.cpp">
+      <Filter>Game\03. Scenes\03. Result</Filter>
     </ClCompile>
     <ClCompile Include="Core\DataLoader.cpp">
       <Filter>Framework\01. Core\Lib\Data</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\Resource\AnimationManager.cpp">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\Resource\AssetManager.cpp">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\Resource\FontManager.cpp">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\Resource\SoundManager.cpp">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\Resource\TextureManager.cpp">
-      <Filter>Framework\02. Manager\01. Data\01. Resource</Filter>
+      <Filter>Framework\02. Manager\Data\Resource</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\PathManager.cpp">
-      <Filter>Framework\02. Manager\01. Data</Filter>
+      <Filter>Framework\02. Manager\Data</Filter>
     </ClCompile>
     <ClCompile Include="Manager\Data\GameData\GameDataManager.cpp">
-      <Filter>Game\05. Manager\01. GameData</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\Data\GameData\PlayerState.cpp">
-      <Filter>Game\05. Manager\01. GameData</Filter>
+      <Filter>Game\02. Manager\GameData</Filter>
     </ClCompile>
     <ClCompile Include="Widget\OptionPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels</Filter>
     </ClCompile>
     <ClCompile Include="Widget\HighlightSelectedSlot.cpp">
-      <Filter>Game\03. UserWidgets\02. Slots</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharacterInfoPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharacterSelectPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\01. Character</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpInfoPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpSelectPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu\02. PowerUp</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CharacterSlot.cpp">
-      <Filter>Game\03. UserWidgets\02. Slots\01. Character</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots\01. Character</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PowerUpSlot.cpp">
-      <Filter>Game\03. UserWidgets\02. Slots\02. PowerUp</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots\02. PowerUp</Filter>
     </ClCompile>
     <ClCompile Include="Widget\MoneyHUD.cpp">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClCompile>
     <ClCompile Include="Widget\ExpBar.cpp">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClCompile>
     <ClCompile Include="Widget\Portrait.cpp">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClCompile>
     <ClCompile Include="Widget\KillCounter.cpp">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClCompile>
     <ClCompile Include="Widget\TimeHUD.cpp">
-      <Filter>Game\03. UserWidgets\03. ETC</Filter>
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\Layer.cpp">
+    <ClCompile Include="Scene\Extension\Layer.cpp">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp">
-      <Filter>Game\04. Entity\02. Component</Filter>
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\VFXComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\VFX</Filter>
@@ -1012,31 +997,40 @@
       <Filter>Framework\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PausePanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PlayPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Widget\CreditsPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Widget\MainMenuPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Widget\PressToStartPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\01. Menu</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\01. Menu</Filter>
     </ClCompile>
     <ClCompile Include="Widget\ResultPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\03. Result</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\03. Result</Filter>
     </ClCompile>
     <ClCompile Include="Widget\LevelUpPanel.cpp">
-      <Filter>Game\03. UserWidgets\01. Panels\02. Play</Filter>
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Widget\LevelUpSlot.cpp">
-      <Filter>Game\03. UserWidgets\02. Slots\03. LevelUp</Filter>
+      <Filter>Game\04. UserWidgets\02. Slots\03. LevelUp</Filter>
     </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\BGM.cpp">
+      <Filter>Framework\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Resource\SFX.cpp">
+      <Filter>Framework\05. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager\Data\GameData\PlayerState.cpp">
+      <Filter>Game\01. Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

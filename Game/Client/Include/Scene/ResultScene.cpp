@@ -1,5 +1,5 @@
 #include "ResultScene.h"
-#include "../Scene/UI/ResultUI.h"
+#include "../Scene/Extension/ResultUI.h"
 
 CResultScene::CResultScene()
 {

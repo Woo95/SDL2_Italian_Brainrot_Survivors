@@ -5,7 +5,7 @@
 #include "../../Manager/SceneManager.h"
 #include "../../Resource/Texture.h"
 #include "../../Scene/Scene.h"
-#include "../../Scene/Camera.h"
+#include "../../Scene/Extension/Camera.h"
 
 CScrollMapComponent::CScrollMapComponent() :
 	mCamera(nullptr),
