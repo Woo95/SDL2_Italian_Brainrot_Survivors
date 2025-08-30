@@ -7,9 +7,6 @@
     <Filter Include="Framework\03. Scene">
       <UniqueIdentifier>{605f8d33-accc-441c-920e-f3b614dfdfd0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\02. Manager">
-      <UniqueIdentifier>{2ca341f6-ad67-423f-b335-7b88c3472463}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Framework\01. Core">
       <UniqueIdentifier>{45893dea-8266-40b1-b6ce-64534ea7e696}</UniqueIdentifier>
     </Filter>
@@ -43,12 +40,6 @@
     <Filter Include="Framework\01. Core\Lib\Data">
       <UniqueIdentifier>{c570d90b-d10d-4efb-8b9f-c1b852ca2f4e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Framework\02. Manager\01. Data">
-      <UniqueIdentifier>{fdd86622-7b5d-4cc8-808b-89194f8f9b5b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Framework\02. Manager\01. Data\01. Resource">
-      <UniqueIdentifier>{2b3de1e7-2a2d-490f-acb2-99bb82192459}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game\02. Scenes">
       <UniqueIdentifier>{c57d5f5f-65c0-4d6d-b084-a2fe4fd50c26}</UniqueIdentifier>
     </Filter>
@@ -57,9 +48,6 @@
     </Filter>
     <Filter Include="Game\02. Scenes\02. Play">
       <UniqueIdentifier>{c23aa1c8-628b-4094-965a-45b3da21b13e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game\02. Scenes\04. GameOver">
-      <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Game\03. UserWidgets">
       <UniqueIdentifier>{e569e8fb-ad9d-4334-ae14-1f64ad2abb66}</UniqueIdentifier>
@@ -204,6 +192,18 @@
     </Filter>
     <Filter Include="Framework\01. Core\Lib\Collision">
       <UniqueIdentifier>{e1d06568-6a8d-4735-9ec1-bee9c8e835c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager">
+      <UniqueIdentifier>{2ca341f6-ad67-423f-b335-7b88c3472463}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager\01. Data">
+      <UniqueIdentifier>{fdd86622-7b5d-4cc8-808b-89194f8f9b5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework\02. Manager\01. Data\01. Resource">
+      <UniqueIdentifier>{2b3de1e7-2a2d-490f-acb2-99bb82192459}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\02. Scenes\03. Result">
+      <UniqueIdentifier>{b045c45d-e6fe-4ad4-895f-26910f652de6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -480,9 +480,6 @@
     <ClInclude Include="Scene\Collision\QTNode.h">
       <Filter>Framework\03. Scene\04. Collision</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\GameManager.h">
-      <Filter>Framework\02. Manager</Filter>
-    </ClInclude>
     <ClInclude Include="Core\RefCounter.h">
       <Filter>Framework\01. Core\Lib\SmartPtr</Filter>
     </ClInclude>
@@ -643,10 +640,10 @@
       <Filter>Game\02. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Scene\ResultScene.h">
-      <Filter>Game\02. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\03. Result</Filter>
     </ClInclude>
     <ClInclude Include="Scene\UI\ResultUI.h">
-      <Filter>Game\02. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\03. Result</Filter>
     </ClInclude>
     <ClInclude Include="Core\DataLoader.h">
       <Filter>Framework\01. Core\Lib\Data</Filter>
@@ -783,6 +780,9 @@
     <ClInclude Include="Widget\LevelUpSlot.h">
       <Filter>Game\03. UserWidgets\02. Slots\03. LevelUp</Filter>
     </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -817,9 +817,6 @@
     </ClCompile>
     <ClCompile Include="Scene\Collision\QTNode.cpp">
       <Filter>Framework\03. Scene\04. Collision</Filter>
-    </ClCompile>
-    <ClCompile Include="Manager\GameManager.cpp">
-      <Filter>Framework\02. Manager</Filter>
     </ClCompile>
     <ClCompile Include="Resource\Texture.cpp">
       <Filter>Framework\05. Resource</Filter>
@@ -931,10 +928,10 @@
     </ClCompile>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Scene\ResultScene.cpp">
-      <Filter>Game\02. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\03. Result</Filter>
     </ClCompile>
     <ClCompile Include="Scene\UI\ResultUI.cpp">
-      <Filter>Game\02. Scenes\04. GameOver</Filter>
+      <Filter>Game\02. Scenes\03. Result</Filter>
     </ClCompile>
     <ClCompile Include="Core\DataLoader.cpp">
       <Filter>Framework\01. Core\Lib\Data</Filter>
@@ -1037,6 +1034,9 @@
     </ClCompile>
     <ClCompile Include="Widget\LevelUpSlot.cpp">
       <Filter>Game\03. UserWidgets\02. Slots\03. LevelUp</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

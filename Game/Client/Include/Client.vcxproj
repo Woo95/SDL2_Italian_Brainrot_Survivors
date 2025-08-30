@@ -194,7 +194,7 @@
     <ClInclude Include="Entity\EntityBase.h" />
     <ClInclude Include="Entity\Component\Component.h" />
     <ClInclude Include="Entity\Object\Object.h" />
-    <ClInclude Include="Manager\GameManager.h" />
+    <ClInclude Include="Engine.h" />
     <ClInclude Include="Manager\MemoryPoolManager.h" />
     <ClInclude Include="Manager\SceneManager.h" />
     <ClInclude Include="Entity\Component\MovementComponent.h" />
@@ -283,7 +283,7 @@
     <ClCompile Include="Core\Vector2D.cpp" />
     <ClCompile Include="Entity\Component\Component.cpp" />
     <ClCompile Include="Entity\Object\Object.cpp" />
-    <ClCompile Include="Manager\GameManager.cpp" />
+    <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Manager\MemoryPoolManager.cpp" />
     <ClCompile Include="Manager\SceneManager.cpp" />
     <ClCompile Include="Entity\Component\MovementComponent.cpp" />

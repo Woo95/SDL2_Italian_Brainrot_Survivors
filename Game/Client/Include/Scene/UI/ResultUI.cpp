@@ -1,6 +1,6 @@
 #include "ResultUI.h"
+#include "../../Engine.h"
 #include "../../Widget/AllWidgets.h"
-#include "../../Manager/GameManager.h"
 #include "../../Manager/SceneManager.h"
 #include "../../Manager/Data/Resource/AssetManager.h"
 #include "../../Manager/Data/Resource/SoundManager.h"
@@ -15,7 +15,7 @@ CResultUI::~CResultUI()
 
 bool CResultUI::Init()
 {
-    const FVector2D& resolution = CGameManager::GetInst()->GetResolution();
+    const FVector2D& resolution = CEngine::GetInst()->GetResolution();
 
     CImage* background = CWidgetUtils::AllocateWidget<CImage>("ResultUI_Image_ResultBG");
     background->GetTransform()->SetWorldScale(resolution);

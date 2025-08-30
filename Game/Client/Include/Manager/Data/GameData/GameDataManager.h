@@ -4,7 +4,7 @@
 
 class CGameDataManager
 {
-	friend class CGameManager;
+	friend class CEngine;
 
 private:
 	CGameDataManager() = delete;

@@ -1,25 +1,23 @@
-#include "GameManager.h"
-#include "../Core/Timer.h"
-#include "InputManager.h"
-#include "MemoryPoolManager.h"
-#include "Data/PathManager.h"
-#include "Data/Resource/AssetManager.h"
-#include "Data/GameData/GameDataManager.h"
-#include "../Core/DataLoader.h"
-#include "CollisionManager.h"
-#include "PhysicsManager.h"
-#include "SceneManager.h"
+#include "Engine.h"
+#include "Core/Timer.h"
+#include "Manager/MemoryPoolManager.h"
+#include "Manager/InputManager.h"
+#include "Manager/CollisionManager.h"
+#include "Manager/PhysicsManager.h"
+#include "Manager/SceneManager.h"
+#include "Manager/Data/PathManager.h"
+#include "Manager/Data/Resource/AssetManager.h"
+#include "Manager/Data/GameData/GameDataManager.h"
+#include "Core/DataLoader.h"
 
-CGameManager* CGameManager::mInst = nullptr;
 
-CGameManager::CGameManager() :
-	mWindow(nullptr),
-	mRenderer(nullptr),
-	mLoop(true)
+CEngine* CEngine::mInst = nullptr;
+
+CEngine::CEngine()
 {
 }
 
-CGameManager::~CGameManager()
+CEngine::~CEngine()
 {
 	CSceneManager::DestroyInst();
 
@@ -46,7 +44,7 @@ CGameManager::~CGameManager()
 	SDL_Quit();
 }
 
-bool CGameManager::Init()
+bool CEngine::Init()
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0)
         return false;
@@ -78,7 +76,7 @@ bool CGameManager::Init()
     return true;
 }
 
-void CGameManager::Run()
+void CEngine::Run()
 {
 	SDL_Event event;
 
@@ -96,7 +94,7 @@ void CGameManager::Run()
 	}
 }
 
-void CGameManager::Update()
+void CEngine::Update()
 {
     CTimer::GetInst()->Update();
 
@@ -105,12 +103,12 @@ void CGameManager::Update()
     CSceneManager::GetInst()->Update(CTimer::GetInst()->GetDeltaTime());
 }
 
-void CGameManager::LateUpdate()
+void CEngine::LateUpdate()
 {
     CSceneManager::GetInst()->LateUpdate(CTimer::GetInst()->GetDeltaTime());
 }
 
-void CGameManager::Render()
+void CEngine::Render()
 {
     // 현재 렌더 색상 검정으로 설정
     SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255);

@@ -1,9 +1,9 @@
 #include "PlayScene.h"
+#include "PlayTimer.h"
 #include "Camera.h"
 #include "Collision/SceneCollision.h"
 #include "UI/PlayUI.h"
-#include "PlayTimer.h"
-#include "../Manager/GameManager.h"
+#include "../Engine.h"
 #include "../Manager/InputManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -18,7 +18,7 @@ CPlayScene::CPlayScene() :
 	mPlayTimer = new CPlayTimer;
 
     mCamera = new CCamera;
-    mCamera->SetResolution(CGameManager::GetInst()->GetResolution());
+    mCamera->SetResolution(CEngine::GetInst()->GetResolution());
 
 	mSceneCollision = new CSceneCollision(mCamera);
 

@@ -1,6 +1,6 @@
 #include "MenuUI.h"
+#include "../../Engine.h"
 #include "../../Widget/AllWidgets.h"
-#include "../../Manager/GameManager.h"
 
 CMenuUI::CMenuUI()
 {
@@ -12,7 +12,7 @@ CMenuUI::~CMenuUI()
 
 bool CMenuUI::Init()
 {
-    const FVector2D& resolution = CGameManager::GetInst()->GetResolution();
+    const FVector2D& resolution = CEngine::GetInst()->GetResolution();
 
     CImage* background = CWidgetUtils::AllocateWidget<CImage>("MenuUI_Image_MenuBG");
     background->GetTransform()->SetWorldScale(resolution);
