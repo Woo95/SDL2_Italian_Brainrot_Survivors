@@ -720,9 +720,6 @@
     <ClInclude Include="Scene\Extension\Layer.h">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\Extension\PlayTimer.h">
-      <Filter>Game\03. Scenes\02. Play</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Component\StatusComponent.h">
       <Filter>Game\05. Entity\02. Component</Filter>
     </ClInclude>
@@ -776,6 +773,12 @@
     </ClInclude>
     <ClInclude Include="Manager\Data\GameData\PlayerState.h">
       <Filter>Game\01. Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Extension\PlayMobSpawner.h">
+      <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\GameOverPanel.h">
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1031,6 +1034,12 @@
     </ClCompile>
     <ClCompile Include="Manager\Data\GameData\PlayerState.cpp">
       <Filter>Game\01. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Extension\PlayMobSpawner.cpp">
+      <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\GameOverPanel.cpp">
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

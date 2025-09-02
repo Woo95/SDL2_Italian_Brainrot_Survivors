@@ -20,6 +20,7 @@
 #include "PlayPanel.h"
 #include "PausePanel.h"
 #include "LevelUpPanel.h"
+#include "GameOverPanel.h"
 #include "ResultPanel.h"
 
 #include "OptionPanel.h"

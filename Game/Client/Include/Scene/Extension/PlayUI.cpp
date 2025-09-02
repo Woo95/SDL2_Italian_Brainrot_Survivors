@@ -31,6 +31,11 @@ bool CPlayUI::Init()
 	mLevelUp->Disable();
 	AddWidget(mLevelUp);
 
+	mGameOver = CWidgetUtils::AllocateWidget<CGameOverPanel, 1>("PlayUI_GameOverPanel");
+	mGameOver->GetTransform()->SetWorldScale(resolution);
+	mGameOver->Disable();
+	AddWidget(mGameOver);
+
     return true;
 }
 
@@ -42,6 +47,9 @@ void CPlayUI::SetUIPanel(EPlaySubState state)
 		mPlay->Enable();
 		mPause->Disable();
 		mLevelUp->Disable();
+		mGameOver->Disable();
+
+		mPause->HideOptionPanel();
 		break;
 	case EPlaySubState::PAUSE:
 		mPause->Enable();
@@ -49,6 +57,11 @@ void CPlayUI::SetUIPanel(EPlaySubState state)
 	case EPlaySubState::LVLUP:
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		mLevelUp->Enable();
+		break;
+	case EPlaySubState::GAMEOVER:
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
+		mGameOver->Enable();
 		break;
 	}
 }

@@ -12,7 +12,8 @@ enum class EPlaySubState : unsigned char
 	NONE,
 	PLAY,
 	PAUSE,
-	LVLUP
+	LVLUP,
+	GAMEOVER
 };
 
 /////////////////////////////////////////

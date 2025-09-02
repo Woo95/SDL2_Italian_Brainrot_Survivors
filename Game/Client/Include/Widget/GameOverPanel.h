@@ -3,28 +3,16 @@
 #include "UserWidget.h"
 
 class CButton;
-class COptionPanel;
 
-class CPausePanel : public CUserWidget
+class CGameOverPanel : public CUserWidget
 {
 public:
-	CPausePanel();
-	virtual ~CPausePanel();
-
-private:
-	CButton* mBtnQuit   = nullptr;
-	CButton* mBtnOption = nullptr;
-	CButton* mBtnResume = nullptr;
-
-	COptionPanel* mOptionPanel = nullptr;
+	CGameOverPanel();
+	virtual ~CGameOverPanel();
 
 protected:
 	virtual void Construct() final;
 	virtual void Release() final;
-
-public:
-	void ShowOptionPanel(CWidget* panel);
-	void HideOptionPanel();
 
 private:
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);

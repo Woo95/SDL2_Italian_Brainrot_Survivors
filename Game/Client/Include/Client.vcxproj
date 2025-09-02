@@ -21,13 +21,14 @@
   <ItemGroup>
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
+    <ClInclude Include="Widget\GameOverPanel.h" />
+    <ClInclude Include="Scene\Extension\PlayMobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />
     <ClInclude Include="Resource\SFX.h" />
     <ClInclude Include="Widget\LevelUpSlot.h" />
     <ClInclude Include="Widget\LevelUpPanel.h" />
     <ClInclude Include="Widget\PlayPanel.h" />
     <ClInclude Include="Widget\PausePanel.h" />
-    <ClInclude Include="Scene\Extension\PlayTimer.h" />
     <ClInclude Include="Entity\Component\StatusComponent.h" />
     <ClInclude Include="Entity\Component\VFXComponent.h" />
     <ClInclude Include="Widget\TimeHUD.h" />
@@ -215,6 +216,8 @@
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
+    <ClCompile Include="Widget\GameOverPanel.cpp" />
+    <ClCompile Include="Scene\Extension\PlayMobSpawner.cpp" />
     <ClCompile Include="Resource\BGM.cpp" />
     <ClCompile Include="Resource\SFX.cpp" />
     <ClCompile Include="Widget\LevelUpPanel.cpp" />

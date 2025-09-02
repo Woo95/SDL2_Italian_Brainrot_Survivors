@@ -16,7 +16,7 @@ CPausePanel::~CPausePanel()
 
 void CPausePanel::Construct()
 {
-	CImage* background = CWidgetUtils::AllocateWidget<CImage>("PauseUI_Image_PauseBG");
+	CImage* background = CWidgetUtils::AllocateWidget<CImage>("PausePanel_Image_PauseBG");
 	background->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
 	background->SetTexture("Texture_UIAtlas");
 	background->SetFrame("PauseBG");
@@ -35,22 +35,22 @@ void CPausePanel::Construct()
 	mBtnOption->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
 	mBtnOption->SetCornerRatio(2.0f);
 	mBtnOption->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
-	mBtnOption->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowPanel(mOptionPanel);});
+	mBtnOption->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->ShowOptionPanel(mOptionPanel);});
 
 	mBtnResume = CreateButton("Resume", "BlueButton", FVector2D(0.17f, 0.09f), "RESUME", FVector2D(0.65f, 0.6f));
 	mBtnResume->GetTransform()->SetRelativePos(FVector2D(0.61f, 0.9f));
 	mBtnResume->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
 	mBtnResume->SetCornerRatio(2.0f);
 	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
-	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HidePanel();});
+	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HideOptionPanel();});
 	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {((CPlayScene*)CSceneManager::GetInst()->GetCurrentScene())->SetSubState(EPlaySubState::PLAY);});
 
-	mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel>("UserWidget_OptionPanel");
+	mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel>("PausePanel_OptionPanel");
 	mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));
 	mOptionPanel->GetTransform()->SetRelativePos(FVector2D(0.27f, 0.075f));
 	AddChild(mOptionPanel);
 
-	HidePanel();
+	HideOptionPanel();
 }
 
 void CPausePanel::Release()
@@ -58,14 +58,14 @@ void CPausePanel::Release()
 	CMemoryPoolManager::GetInst()->Deallocate<CPausePanel>(this);
 }
 
-void CPausePanel::ShowPanel(CWidget* panel)
+void CPausePanel::ShowOptionPanel(CWidget* panel)
 {
 	mBtnQuit->Enable();
 	mBtnOption->Disable();
 	panel->Enable();
 }
 
-void CPausePanel::HidePanel()
+void CPausePanel::HideOptionPanel()
 {
 	mBtnOption->Enable();
 	mBtnQuit->Disable();
@@ -74,14 +74,14 @@ void CPausePanel::HidePanel()
 
 CButton* CPausePanel::CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize)
 {
-	CButton* button = CWidgetUtils::AllocateWidget<CButton>("PauseUI_Button_" + widgetName);
+	CButton* button = CWidgetUtils::AllocateWidget<CButton>("PausePanel_Button_" + widgetName);
 	button->GetTransform()->SetRelativeScale(buttonSize);
 	button->GetTransform()->SetPivot(0.5f, 0.5f);
 	button->SetTexture("Texture_UIAtlas");
 	button->SetFrame(buttonFrame);
 	AddChild(button);
 
-	CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("PauseUI_TextBlock_" + widgetName);
+	CTextBlock* text = CWidgetUtils::AllocateWidget<CTextBlock>("PausePanel_TextBlock_" + widgetName);
 	button->AddChild(text);
 	text->GetTransform()->SetRelativeScale(textSize);
 	text->GetTransform()->SetPivot(0.5f, 0.5f);

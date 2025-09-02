@@ -1,8 +1,8 @@
 #include "PlayScene.h"
-#include "Extension/PlayTimer.h"
 #include "Extension/Camera.h"
 #include "Extension/SceneCollision.h"
 #include "Extension/PlayUI.h"
+#include "Extension/PlayMobSpawner.h"
 #include "../Engine.h"
 #include "../Manager/InputManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
@@ -11,33 +11,27 @@
 #include "../Manager/Data/GameData/PlayerState.h"
 #include "../Entity/Object/AllObjects.h"
 
-CPlayScene::CPlayScene() :
-	mPlayTimer(nullptr),
-    mSubState(EPlaySubState::NONE)
+CPlayScene::CPlayScene()
 {
-	mPlayTimer = new CPlayTimer;
-
     mCamera = new CCamera;
     mCamera->SetResolution(CEngine::GetInst()->GetResolution());
-
 	mSceneCollision = new CSceneCollision(mCamera);
-
 	mSceneUI = new CPlayUI;
+
+	mMobSpawner = new CPlayMobSpawner;
 }
 
 CPlayScene::~CPlayScene()
 {
+	SAFE_DELETE(mMobSpawner);
+
 	SAFE_DELETE(mSceneUI);
 	SAFE_DELETE(mSceneCollision);
 	SAFE_DELETE(mCamera);
-	SAFE_DELETE(mPlayTimer);
 }
 
 bool CPlayScene::Enter()
 {
-	// Timer //
-	mPlayTimer->SetTime(300.5f);
-
     // Sound //
     CSoundManager* SM = CAssetManager::GetInst()->GetSoundManager();
     SM->SetVolume<CBGM>(SM->GetVolume<CBGM>());
@@ -52,7 +46,10 @@ bool CPlayScene::Enter()
 
 	// UI //
 	mSceneUI->Init();
-    SetSubState(EPlaySubState::PLAY);
+	SetSubState(EPlaySubState::PLAY);
+
+	// Spawner //
+	mMobSpawner->Init();
 
     return true;
 }
@@ -69,10 +66,15 @@ void CPlayScene::Update(float deltaTime)
 	{
 	case EPlaySubState::PLAY:
 		CScene::Update(deltaTime);
-		((CPlayUI*)mSceneUI)->SetGameTime(mPlayTimer->Update(deltaTime));
+
+		mTime += deltaTime;
+		((CPlayUI*)mSceneUI)->SetGameTime(mTime);
+
+		mMobSpawner->Update(deltaTime);
 		break;
 	case EPlaySubState::PAUSE:
 	case EPlaySubState::LVLUP:
+	case EPlaySubState::GAMEOVER:
 		mSceneUI->Update(deltaTime);
 		break;
 	}
@@ -95,7 +97,8 @@ void CPlayScene::Update(float deltaTime)
 void CPlayScene::LoadResources()
 {
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
-    LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
+	LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
+	LoadTexture("Texture_GameOverBG", "GameOverBG.png");
 
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
@@ -109,7 +112,8 @@ void CPlayScene::LoadResources()
 
     LoadSFX("SFX_PressIn", "sfx_pressIn.wav");
     LoadSFX("SFX_PressOut", "sfx_pressOut.wav");
-    LoadSFX("SFX_LevelUp", "sfx_levelup.wav");
+	LoadSFX("SFX_LevelUp", "sfx_levelup.wav");
+	LoadSFX("SFX_GameOver", "sfx_gameOver.wav");
 }
 
 void CPlayScene::SetSubState(EPlaySubState state)
