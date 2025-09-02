@@ -71,11 +71,31 @@ public:
     }
 
     template <typename T>
+    std::vector<T*> GetObjectVec()
+    {
+        std::vector<T*> objVec;
+
+        for (CLayer* layer : mLayers)
+        {
+			const std::vector<CObject*>& objVec = layer->GetObjectVec();
+
+			for (CObject* obj : objVec)
+			{
+				if (T* castedObj = dynamic_cast<T*>(obj))
+				{
+                    objVec.emplace_back(castedObj);
+				}
+			}
+        }
+        return objVec;
+    }
+
+    template <typename T>
     void CallEventByType(void(T::*func)())
     {
         for (CLayer* layer : mLayers)
         {
-            std::vector<CObject*> objVec = layer->GetObjectVec();
+            const std::vector<CObject*>& objVec = layer->GetObjectVec();
 
             for (CObject* obj : objVec)
             {

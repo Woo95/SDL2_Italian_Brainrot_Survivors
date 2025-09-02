@@ -19,19 +19,15 @@ private:
 	virtual void Release() final;
 
 public:
-	const FVector2D& GetFacingDir() const { return mFacingDir; }
 	float GetSpeed() const { return mSpeed; }
+	const FVector2D& GetFacingDir() const { return mFacingDir; }
 
 	void SetSpeed(float speed)
 	{
 		mSpeed = speed;
 	}
-
-	void AddMoveDir(const FVector2D& direction)
+	void SetMoveDir(const FVector2D& direction)
 	{
 		mMoveDir += direction;
 	}
-
-private:
-	void Move(float deltaTime);
 };
