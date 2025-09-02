@@ -2,7 +2,8 @@
 #include "../Component/AllComponents.h"
 #include "../../Resource/Animation.h"
 
-CTralala::CTralala()
+CTralala::CTralala() :
+	mFootCollider(nullptr)
 {
 }
 
@@ -12,9 +13,6 @@ CTralala::~CTralala()
 
 bool CTralala::Init()
 {
-	mMovement = AllocateComponent<CMovementComponent>("Movement_Tralala");
-	mRootComponent->AddChild(mMovement);
-
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Tralala");
 	mSprite->SetTexture("Texture_Tralala");
 	mSprite->SetAnimation("Tralala");
@@ -37,9 +35,6 @@ bool CTralala::Init()
 	mFootCollider->GetTransform()->SetRelativePos(-10.0f, 22.5f);
 	mFootCollider->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mFootCollider);
-
-	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Tralala");
-	mRootComponent->AddChild(mRigidbody);
 
 	return CPlayer::Init();
 }

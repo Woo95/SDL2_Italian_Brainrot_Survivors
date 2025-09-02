@@ -22,12 +22,14 @@ CScrollMapComponent::~CScrollMapComponent()
 
 bool CScrollMapComponent::Init()
 {
+	CComponent::Init();
+
 	if (!mTexture)
 		return false;
 
 	mCamera = CSceneManager::GetInst()->GetCurrentScene()->GetCamera();
 
-	return CComponent::Init();
+	return true;
 }
 
 void CScrollMapComponent::Render(SDL_Renderer* renderer)

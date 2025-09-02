@@ -17,8 +17,9 @@ CPlayerStatusComponent::~CPlayerStatusComponent()
 
 bool CPlayerStatusComponent::Init()
 {
-	CGameDataManager* GDM = CGameDataManager::GetInst();
+	CComponent::Init();
 
+	CGameDataManager* GDM = CGameDataManager::GetInst();
 	CPlayerState* playerState = GDM->GetPlayerState();
 	mPowerUpDataManager = GDM->GetPowerUpDataManager();
 
@@ -44,7 +45,7 @@ bool CPlayerStatusComponent::Init()
 			mPowerUpLevel[i] += playerState->GetPowerUpLvl((EPowerUpType)i);
 	}
 
-	return CComponent::Init();
+	return true;
 }
 
 void CPlayerStatusComponent::Release()

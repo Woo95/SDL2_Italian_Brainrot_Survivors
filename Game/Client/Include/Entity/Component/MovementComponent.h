@@ -9,10 +9,10 @@ public:
 	virtual ~CMovementComponent();
 
 private:
+	float mSpeed;
+
 	FVector2D mMoveDir;
 	FVector2D mFacingDir;
-
-	float mSpeed;
 
 private:
 	virtual void Update(float deltaTime) final;

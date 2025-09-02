@@ -12,9 +12,6 @@ CSahur::~CSahur()
 
 bool CSahur::Init()
 {
-	mMovement = AllocateComponent<CMovementComponent>("Movement_Sahur");
-	mRootComponent->AddChild(mMovement);
-
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Sahur");
 	mSprite->SetTexture("Texture_Sahur");
 	mSprite->SetAnimation("Sahur");
@@ -37,9 +34,6 @@ bool CSahur::Init()
 	foot->GetTransform()->SetRelativePos(0.0f, 30.0f);
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);
-
-	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Sahur");
-	mRootComponent->AddChild(mRigidbody);
 
 	return CPlayer::Init();
 }

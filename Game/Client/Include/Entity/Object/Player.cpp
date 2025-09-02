@@ -30,6 +30,12 @@ bool CPlayer::Init()
 	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Player");
 	mRootComponent->AddChild(mStatus);
 
+	mMovement = AllocateComponent<CMovementComponent, 1>("Movement_Player");
+	mRootComponent->AddChild(mMovement);
+
+	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Player");
+	mRootComponent->AddChild(mRigidbody);
+
 	BindInput();
 
 	return CObject::Init();

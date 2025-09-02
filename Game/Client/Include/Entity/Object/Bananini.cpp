@@ -12,9 +12,6 @@ CBananini::~CBananini()
 
 bool CBananini::Init()
 {
-	mMovement = AllocateComponent<CMovementComponent>("Movement_Bananini");
-	mRootComponent->AddChild(mMovement);
-
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Bananini");
 	mSprite->SetTexture("Texture_Bananini");
 	mSprite->SetAnimation("Bananini");
@@ -37,9 +34,6 @@ bool CBananini::Init()
 	foot->GetTransform()->SetRelativePos(0.0f, 30.0f);
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);
-
-	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Bananini");
-	mRootComponent->AddChild(mRigidbody);
 
 	return CPlayer::Init();
 }
