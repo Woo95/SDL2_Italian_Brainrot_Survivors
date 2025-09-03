@@ -25,7 +25,7 @@ bool CResultScene::Exit()
 
 void CResultScene::LoadResources()
 {
-	LoadTexture("Texture_IntroBG", "IntroBG.png");
+	LoadTexture("Texture_OverlayBG", "OverlayBG.png");
 	LoadTexture("Texture_UIAtlas", "UIAtlas.png");
 
 	LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);

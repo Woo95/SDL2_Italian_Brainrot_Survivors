@@ -17,10 +17,10 @@ bool CResultUI::Init()
 {
     const FVector2D& resolution = CEngine::GetInst()->GetResolution();
 
-    CImage* background = CWidgetUtils::AllocateWidget<CImage>("ResultUI_Image_ResultBG");
+    CImage* background = CWidgetUtils::AllocateWidget<CImage>("ResultUI_Image_OverlayBG");
     background->GetTransform()->SetWorldScale(resolution);
-    background->SetTexture("Texture_IntroBG");
-    background->SetFrame("IntroBG");
+    background->SetTexture("Texture_OverlayBG");
+    background->SetFrame("OverlayBG");
     AddWidget(background);
 
     CResultPanel* resultPanel = CWidgetUtils::AllocateWidget<CResultPanel, 1>("ResultUI_ResultPanel");

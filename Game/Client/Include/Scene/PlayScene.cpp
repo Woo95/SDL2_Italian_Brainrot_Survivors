@@ -98,7 +98,8 @@ void CPlayScene::LoadResources()
 {
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
 	LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
-	LoadTexture("Texture_GameOverBG", "GameOverBG.png");
+	LoadTexture("Texture_OverlayBG", "OverlayBG.png");
+	LoadTexture("Texture_GameOver", "GameOver.png");
 
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");

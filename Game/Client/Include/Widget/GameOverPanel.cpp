@@ -15,12 +15,21 @@ CGameOverPanel::~CGameOverPanel()
 
 void CGameOverPanel::Construct()
 {
-	CImage* background = CWidgetUtils::AllocateWidget<CImage>("GameOverPanel_Image_GameOverBG");
+	CImage* background = CWidgetUtils::AllocateWidget<CImage>("GameOverPanel_Image_OverlayBG");
 	background->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
-	background->SetTexture("Texture_GameOverBG");
-	background->SetFrame("GameOverBG");
-	background->SetAlpha(100);
+	background->SetTexture("Texture_OverlayBG");
+	background->SetFrame("OverlayBG");
+	background->SetAlpha(120);
 	AddChild(background);
+
+	CImage* gameOver = CWidgetUtils::AllocateWidget<CImage>("GameOverPanel_Image_GameOver");
+	gameOver->GetTransform()->SetRelativeScale(FVector2D(0.3f, 0.1f));
+	gameOver->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.2f));
+	gameOver->GetTransform()->SetPivot(0.5f, 0.0f);
+	gameOver->SetTexture("Texture_GameOver");
+	gameOver->SetFrame("GameOver");
+	gameOver->SetAlpha(220);
+	AddChild(gameOver);
 
 	CButton* button = CreateButton("Quit", "RedButton", FVector2D(0.17f, 0.09f), "QUIT", FVector2D(0.5f, 0.6f));
 	button->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.7f));
