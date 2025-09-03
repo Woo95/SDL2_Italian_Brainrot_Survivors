@@ -11,3 +11,5 @@
 
 #include "StatusComponent.h"
 //#include "PlayerStatusComponent.h"
+
+#include "ChaseComponent.h"

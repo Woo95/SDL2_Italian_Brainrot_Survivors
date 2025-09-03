@@ -23,4 +23,7 @@ protected:
 	float mBaseMoveSpeed   = 0.0f;
 	float mBasePickupRange = 0.0f;
 	float mBaseGrowthExp   = 0.0f;
+
+private:
+	virtual void Release() = 0;
 };

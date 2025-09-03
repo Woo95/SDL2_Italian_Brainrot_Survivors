@@ -19,7 +19,7 @@ private:
 	float mExpToLevelUp = 12.0f;
 	int mLevelUpNotifyCount = 0;
 
-public:
+private:
 	virtual bool Init()    final;
 	virtual void Release() final;
 
