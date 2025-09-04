@@ -76,7 +76,7 @@ void CPlayer::BindInput()
 
 void CPlayer::MoveDir(const FVector2D& dir)
 {
-	mMovement->SetMoveDir(dir);
+	mMovement->AddMoveDir(dir);
 
 	OnMoveDirChanged(dir);
 }

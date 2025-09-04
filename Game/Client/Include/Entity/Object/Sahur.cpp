@@ -45,11 +45,11 @@ void CSahur::Release()
 
 void CSahur::OnMoveDirChanged(const FVector2D& dir)
 {
-	if (dir == FVector2D::LEFT)
+	if (mMovement->GetMoveDir().x < 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_NONE);
 	}
-	else if (dir == FVector2D::RIGHT)
+	if (mMovement->GetMoveDir().x > 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	}
