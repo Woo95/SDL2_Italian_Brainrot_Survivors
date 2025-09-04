@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Component\ChaseComponent.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
+    <ClInclude Include="Entity\Object\Enemy.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
     <ClInclude Include="Scene\Extension\PlayMobSpawner.h" />
@@ -213,7 +215,9 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Component\ChaseComponent.cpp" />
     <ClCompile Include="Core\DataLoader.cpp" />
+    <ClCompile Include="Entity\Object\Enemy.cpp" />
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
     <ClCompile Include="Widget\GameOverPanel.cpp" />

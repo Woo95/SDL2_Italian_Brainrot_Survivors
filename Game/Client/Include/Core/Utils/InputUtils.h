@@ -18,8 +18,8 @@ enum class EKeyAction : unsigned char
 // 단일 입력상태 정보를 담는 구조체
 struct FKeyState
 {
-	bool Press = false;
-	bool Hold = false;
+	bool Press   = false;
+	bool Hold    = false;
 	bool Release = false;
 };
 

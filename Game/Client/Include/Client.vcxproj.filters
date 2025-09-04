@@ -202,6 +202,9 @@
     <Filter Include="Game\02. Manager\GameData">
       <UniqueIdentifier>{4cfcf3fe-16f9-4d58-8629-22752a68b31b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\05. Entity\01. Object\Enemy">
+      <UniqueIdentifier>{4310cd1a-7088-490e-8139-7868ef67733a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -780,6 +783,12 @@
     <ClInclude Include="Widget\GameOverPanel.h">
       <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\Enemy.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\ChaseComponent.h">
+      <Filter>Game\05. Entity\02. Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1040,6 +1049,12 @@
     </ClCompile>
     <ClCompile Include="Widget\GameOverPanel.cpp">
       <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Enemy.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\ChaseComponent.cpp">
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

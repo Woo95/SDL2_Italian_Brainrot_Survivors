@@ -36,8 +36,8 @@ void CScrollEnvObj::Update(float deltaTime)
 {
     CObject::Update(deltaTime);
 
-    FVector2D cameraPos = mCamera->GetLookAt();
-    FVector2D objPos = GetTransform()->GetWorldPos();
+    const FVector2D& cameraPos = mCamera->GetLookAt();
+    const FVector2D& objPos = GetTransform()->GetWorldPos();
     FVector2D delta = cameraPos - objPos;
 
     // 카메라 기준으로 오브젝트가 얼마나 떨어졌는지 거리 계산
