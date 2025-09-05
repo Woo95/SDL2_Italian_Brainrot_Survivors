@@ -3,7 +3,7 @@
 #include "Scene.h"
 #include "../Core/Utils/SceneUtils.h"
 
-class CPlayMobSpawner;
+class CMobSpawner;
 class CObject;
 
 class CPlayScene : public CScene
@@ -18,7 +18,7 @@ private:
 	EPlaySubState mSubState = EPlaySubState::NONE;
 
 	float mTime = 0.0f;
-	CPlayMobSpawner* mMobSpawner = nullptr;
+	CMobSpawner* mMobSpawner = nullptr;
 
 public:
 	virtual bool Enter() final;

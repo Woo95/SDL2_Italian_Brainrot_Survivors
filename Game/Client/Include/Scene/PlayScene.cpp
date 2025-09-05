@@ -2,7 +2,7 @@
 #include "Extension/Camera.h"
 #include "Extension/SceneCollision.h"
 #include "Extension/PlayUI.h"
-#include "Extension/PlayMobSpawner.h"
+#include "Extension/MobSpawner.h"
 #include "../Engine.h"
 #include "../Manager/InputManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
@@ -18,7 +18,7 @@ CPlayScene::CPlayScene()
 	mSceneCollision = new CSceneCollision(mCamera);
 	mSceneUI = new CPlayUI;
 
-	mMobSpawner = new CPlayMobSpawner;
+	mMobSpawner = new CMobSpawner(mCamera);
 }
 
 CPlayScene::~CPlayScene()
@@ -50,6 +50,7 @@ bool CPlayScene::Enter()
 
 	// Spawner //
 	mMobSpawner->Init();
+	mMobSpawner->SetPlayer(player);
 
     return true;
 }

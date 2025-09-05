@@ -24,7 +24,7 @@
     <ClInclude Include="Entity\Object\Enemy.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
-    <ClInclude Include="Scene\Extension\PlayMobSpawner.h" />
+    <ClInclude Include="Scene\Extension\MobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />
     <ClInclude Include="Resource\SFX.h" />
     <ClInclude Include="Widget\LevelUpSlot.h" />
@@ -221,7 +221,7 @@
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
     <ClCompile Include="Widget\GameOverPanel.cpp" />
-    <ClCompile Include="Scene\Extension\PlayMobSpawner.cpp" />
+    <ClCompile Include="Scene\Extension\MobSpawner.cpp" />
     <ClCompile Include="Resource\BGM.cpp" />
     <ClCompile Include="Resource\SFX.cpp" />
     <ClCompile Include="Widget\LevelUpPanel.cpp" />
