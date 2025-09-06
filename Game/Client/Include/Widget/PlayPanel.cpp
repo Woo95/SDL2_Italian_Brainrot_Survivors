@@ -1,7 +1,7 @@
 #include "PlayPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PlayerState.h"
+#include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Manager/SceneManager.h"
 #include "../Scene/PlayScene.h"
 
@@ -29,7 +29,7 @@ void CPlayPanel::Construct()
 	portrait->GetTransform()->SetRelativeScale(FVector2D(0.1f, 0.15f));
 	portrait->GetTransform()->SetRelativePos(FVector2D(0.07f, 0.086f));
 	portrait->GetTransform()->SetPivot(0.5f, 0.5f);
-	portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerState()->GetName() + "Portrait");
+	portrait->SetPortrait(CGameDataManager::GetInst()->GetPlayerProfile()->GetName() + "Portrait");
 	AddChild(portrait);
 
 	mHealthBar = CWidgetUtils::AllocateWidget<CProgressBar, 2>("PlayUI_ProgressBar_Hp");

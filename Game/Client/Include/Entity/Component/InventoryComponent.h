@@ -17,7 +17,7 @@ private:
 	int mWeaponCount;
 
 private:
-	virtual bool Init() final;
+	virtual bool Init()    final;
 	virtual void Release() final;
 
 public:

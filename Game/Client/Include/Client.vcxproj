@@ -23,6 +23,8 @@
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Entity\Object\Enemy.h" />
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h" />
+    <ClInclude Include="Entity\Component\InventoryComponent.h" />
+    <ClInclude Include="Core\Utils\InventoryUtils.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
     <ClInclude Include="Scene\Extension\MobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />
@@ -40,7 +42,7 @@
     <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h" />
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h" />
     <ClInclude Include="Core\DataLoader.h" />
-    <ClInclude Include="Manager\Data\GameData\PlayerState.h" />
+    <ClInclude Include="Manager\Data\GameData\PlayerProfile.h" />
     <ClInclude Include="Widget\PowerUpInfoPanel.h" />
     <ClInclude Include="Widget\PowerUpSlot.h" />
     <ClInclude Include="Widget\ResultPanel.h" />
@@ -220,6 +222,7 @@
     <ClCompile Include="Entity\Object\Enemy.cpp" />
     <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp" />
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
+    <ClCompile Include="Entity\Component\InventoryComponent.cpp" />
     <ClCompile Include="Widget\GameOverPanel.cpp" />
     <ClCompile Include="Scene\Extension\MobSpawner.cpp" />
     <ClCompile Include="Resource\BGM.cpp" />
@@ -232,7 +235,7 @@
     <ClCompile Include="Widget\KillCounter.cpp" />
     <ClCompile Include="Widget\Portrait.cpp" />
     <ClCompile Include="Widget\ExpBar.cpp" />
-    <ClCompile Include="Manager\Data\GameData\PlayerState.cpp" />
+    <ClCompile Include="Manager\Data\GameData\PlayerProfile.cpp" />
     <ClCompile Include="Widget\PowerUpInfoPanel.cpp" />
     <ClCompile Include="Widget\PowerUpSlot.cpp" />
     <ClCompile Include="Widget\ResultPanel.cpp" />

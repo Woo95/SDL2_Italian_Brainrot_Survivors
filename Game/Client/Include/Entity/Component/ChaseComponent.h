@@ -17,8 +17,8 @@ private:
 
 	CTransform* mSelf;
 	CTransform* mTarget;
-
-public:
+	
+private:
 	virtual bool Init() final;
 	virtual void Update(float deltaTime) final;
 	virtual void Release() final;

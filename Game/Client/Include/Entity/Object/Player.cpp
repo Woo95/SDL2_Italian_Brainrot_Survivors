@@ -1,10 +1,12 @@
 #include "Player.h"
 #include "../Component/AllComponents.h"
-#include "../Component/PlayerStatusComponent.h"
 #include "../../Manager/InputManager.h"
+#include "../../Manager/Data/GameData/GameDataManager.h"
+#include "../../Manager/Data/GameData/PlayerProfile.h"
 
 CPlayer::CPlayer() :
 	mStatus(nullptr),
+	mInventory(nullptr),
 	mMovement(nullptr),
 	mSprite(nullptr),
 	mRigidbody(nullptr),
@@ -79,4 +81,76 @@ void CPlayer::MoveDir(const FVector2D& dir)
 	mMovement->AddMoveDir(dir);
 
 	OnMoveDirChanged(dir);
+}
+
+float CPlayer::GetAttack() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::MIGHT);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::MIGHT);
+	const float itemAttack = mStatus->GetBaseAttack() * itemLevel * mStatus->GetStatModifier(EPowerUpType::MIGHT);
+
+	return mStatus->GetBaseAttack() + itemAttack;
+}
+
+float CPlayer::GetDefense() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::ARMOR);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::ARMOR);
+	const float itemArmor = itemLevel * mStatus->GetStatModifier(EPowerUpType::ARMOR);
+
+	return mStatus->GetBaseDefense() + itemArmor;
+}
+
+float CPlayer::GetMaxHP() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::MAX_HEALTH);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::MAX_HEALTH);
+	const float itemMaxHP = mStatus->GetBaseMaxHP() * itemLevel * mStatus->GetStatModifier(EPowerUpType::MAX_HEALTH);
+
+	return mStatus->GetBaseMaxHP() + itemMaxHP;
+}
+
+float CPlayer::GetRecoveryHP() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::RECOVERY);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::RECOVERY);
+	const float itemRecovery = itemLevel * mStatus->GetStatModifier(EPowerUpType::RECOVERY);
+
+	return itemRecovery;
+}
+
+float CPlayer::GetAttackSpeed() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::ATTACK_SPEED);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::ATTACK_SPEED);
+	const float itemAttackSpeed = mStatus->GetBaseAttackSpeed() * itemLevel * mStatus->GetStatModifier(EPowerUpType::ATTACK_SPEED);
+
+	return mStatus->GetBaseAttackSpeed() + itemAttackSpeed;
+}
+
+float CPlayer::GetMoveSpeed() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::MOVE_SPEED);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::MOVE_SPEED);
+	const float itemMoveSpeed = mStatus->GetBaseMoveSpeed() * itemLevel * mStatus->GetStatModifier(EPowerUpType::MOVE_SPEED);
+
+	return mStatus->GetBaseMoveSpeed() + itemMoveSpeed;
+}
+
+float CPlayer::GetPickupRange() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::MAGNET);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::MAGNET);
+	const float itemPickupRange = mStatus->GetBasePickupRange() * itemLevel * mStatus->GetStatModifier(EPowerUpType::MAGNET);
+
+	return mStatus->GetBasePickupRange() + itemPickupRange;
+}
+
+float CPlayer::GetGrwothExp() const
+{
+	int itemLevel = CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(EPowerUpType::GROWTH);
+	itemLevel += mInventory->GetPowerUpLevel(EPowerUpType::GROWTH);
+	const float itemGrowth = itemLevel * mStatus->GetStatModifier(EPowerUpType::GROWTH);
+
+	return mStatus->GetBaseGrowthExp() + itemGrowth;
 }

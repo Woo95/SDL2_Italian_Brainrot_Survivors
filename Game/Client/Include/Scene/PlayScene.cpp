@@ -8,7 +8,7 @@
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PlayerState.h"
+#include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Entity/Object/AllObjects.h"
 
 CPlayScene::CPlayScene()
@@ -105,7 +105,7 @@ void CPlayScene::LoadResources()
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
 
-    std::string charName = CGameDataManager::GetInst()->GetPlayerState()->GetName();
+    std::string charName = CGameDataManager::GetInst()->GetPlayerProfile()->GetName();
     LoadTexture("Texture_" + charName, (charName + ".png").c_str());
 
     LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);
@@ -128,7 +128,7 @@ CObject* CPlayScene::InstantiatePlayer()
 {
     CObject* player = nullptr;
 
-    switch (CGameDataManager::GetInst()->GetPlayerState()->GetType())
+    switch (CGameDataManager::GetInst()->GetPlayerProfile()->GetType())
     {
     case ECharacterType::TRALALA:
         player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
