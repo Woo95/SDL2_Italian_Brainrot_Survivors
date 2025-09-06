@@ -25,6 +25,15 @@ enum class ECharacterType : signed char
 	MAX
 };
 
+enum class EWeaponType : signed char
+{
+	NONE = -1,
+	BUBBLE,
+	BAT,
+	BANANA,
+	MAX
+};
+
 ////////////////////////////////////////
 
 struct FPowerUpData

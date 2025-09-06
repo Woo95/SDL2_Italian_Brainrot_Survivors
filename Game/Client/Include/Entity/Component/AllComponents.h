@@ -9,7 +9,9 @@
 #include "InputComponent.h"
 #include "Rigidbody.h"
 
+#include "InventoryComponent.h"
+
 #include "StatusComponent.h"
-//#include "PlayerStatusComponent.h"
+#include "PlayerStatusComponent.h"
 
 #include "ChaseComponent.h"
