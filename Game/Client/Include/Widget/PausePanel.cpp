@@ -16,6 +16,8 @@ CPausePanel::~CPausePanel()
 
 void CPausePanel::Construct()
 {
+	SetInteractable(true);
+
 	CImage* background = CWidgetUtils::AllocateWidget<CImage>("PausePanel_Image_PauseBG");
 	background->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
 	background->SetTexture("Texture_UIAtlas");

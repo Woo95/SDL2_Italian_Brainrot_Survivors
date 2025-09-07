@@ -12,6 +12,8 @@ CLevelUpPanel::~CLevelUpPanel()
 
 void CLevelUpPanel::Construct()
 {
+	SetInteractable(true);
+
 	CImage* panel = CWidgetUtils::AllocateWidget<CImage>("LevelUpPanel_Image_Panel");
 	panel->GetTransform()->SetRelativeScale(FVector2D(0.4f, 0.8f));
 	panel->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.075f));

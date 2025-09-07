@@ -15,6 +15,8 @@ CGameOverPanel::~CGameOverPanel()
 
 void CGameOverPanel::Construct()
 {
+	SetInteractable(true);
+
 	CImage* background = CWidgetUtils::AllocateWidget<CImage>("GameOverPanel_Image_OverlayBG");
 	background->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
 	background->SetTexture("Texture_OverlayBG");
