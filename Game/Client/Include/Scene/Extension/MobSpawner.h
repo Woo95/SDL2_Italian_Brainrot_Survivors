@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 #include "../../Core/Vector2D.h"
 
 class CCamera;
@@ -21,8 +22,8 @@ private:
 	CObject* mPlayer = nullptr;
 
 	// -- Mob Pools --
-	std::vector<CObject*> mRegularMobPool;
-	std::vector<CObject*> mSubBossMobPool;
+	std::vector<std::function<CObject*()>> mRegularMobPool;
+	std::vector<std::function<CObject*()>> mSubBossMobPool;
 	std::vector<CObject*> mSpawnedMobs;
 
 	int mRegSpawnAmount = 0;

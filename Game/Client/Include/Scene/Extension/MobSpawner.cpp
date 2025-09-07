@@ -21,13 +21,8 @@ bool CMobSpawner::Init()
 	mDespawnThreshold = mExtendCamRes.Length() * 0.5f;
 
 	// Set-Up Mob Pools //
-	mRegularMobPool = { };
-	for (CObject* mob : mRegularMobPool)
-		mob->Disable();
-
-	mSubBossMobPool = { };
-	for (CObject* mob : mSubBossMobPool)
-		mob->Disable();
+	//mRegularMobPool.emplace_back([]() -> CObject* { return new CMonster; });
+	//mSubBossMobPool.emplace_back([]() -> CObject* { return new CBoss; });
 
 	return true;
 }
@@ -52,8 +47,7 @@ void CMobSpawner::SpawnMob()
 
 		// SPAWN REGULAR MOB
 		int idx = rand() % (mUnlockedRegIdx + 1);
-		CObject* mob = mRegularMobPool[idx]->Clone();
-		mob->Enable();
+		CObject* mob = mRegularMobPool[idx]();
 		mSpawnedMobs.emplace_back(mob);
 
 		// INDEX CONTROL
@@ -70,8 +64,7 @@ void CMobSpawner::SpawnMob()
 		mSubBossSpawnTime = CONST_SUBBOSS_MOB_SPAWN_INTERVAL;
 
 		// SPAWN SUB BOSS
-		CObject* mob = mSubBossMobPool[mUnlockedBosIdx]->Clone();
-		mob->Enable();
+		CObject* mob = mSubBossMobPool[mUnlockedBosIdx]();
 		mSpawnedMobs.emplace_back(mob);
 
 		// INDEX CONTROL
