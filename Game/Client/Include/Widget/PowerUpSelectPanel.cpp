@@ -1,7 +1,7 @@
 #include "PowerUpSelectPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PlayerState.h"
+#include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Manager/Data/GameData/PowerUpDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -77,8 +77,8 @@ void CPowerUpSelectPanel::Release()
 
 void CPowerUpSelectPanel::OnRefundButton()
 {
-    CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
-    if (!playerState->RefundAllPowerUp())
+    CPlayerProfile* playerProfile = CGameDataManager::GetInst()->GetPlayerProfile();
+    if (!playerProfile->RefundAllMenuPowerUp())
         return;
 
     mInfo->OnPurchase(false);
@@ -86,20 +86,20 @@ void CPowerUpSelectPanel::OnRefundButton()
         slot->OnPurchase(false);
 
     if (CMainMenuPanel* menu = dynamic_cast<CMainMenuPanel*>(mParent))
-        menu->GetMoneyHUD()->SetBalance(playerState->GetBalance());
+        menu->GetMoneyHUD()->SetBalance(playerProfile->GetBalance());
 }
 
 void CPowerUpSelectPanel::OnBuyButton()
 {
-    CPlayerState* playerState = CGameDataManager::GetInst()->GetPlayerState();
-    if (!playerState->PurchasePowerUp(mSelectedSlot->GetType()))
+    CPlayerProfile* playerProfile = CGameDataManager::GetInst()->GetPlayerProfile();
+    if (!playerProfile->PurchaseMenuPowerUp(mSelectedSlot->GetType()))
         return;
 
     mInfo->OnPurchase(true);
     mSelectedSlot->OnPurchase(true);
 
     if (CMainMenuPanel* menu = dynamic_cast<CMainMenuPanel*>(mParent))
-        menu->GetMoneyHUD()->SetBalance(playerState->GetBalance());
+        menu->GetMoneyHUD()->SetBalance(playerProfile->GetBalance());
 }
 
 void CPowerUpSelectPanel::OnBackButton()
@@ -150,7 +150,7 @@ CPowerUpSlot* CPowerUpSelectPanel::CreatePowerUpSlot(EPowerUpType type, const FV
 
     slot->GetNameTextBlock()->SetText(textLabel);
     slot->GetIconImage()->SetFrame(powerUpData.name);
-    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerState()->GetPowerUpLvl(slot->GetType()));
+    slot->OnPurchase(CGameDataManager::GetInst()->GetPlayerProfile()->GetMenuPowerUpLvl(slot->GetType()));
     AddChild(slot);
 
     return slot;

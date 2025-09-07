@@ -774,11 +774,8 @@
     <ClInclude Include="Resource\SFX.h">
       <Filter>Framework\05. Resource</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Data\GameData\PlayerState.h">
+    <ClInclude Include="Manager\Data\GameData\PlayerProfile.h">
       <Filter>Game\01. Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene\Extension\PlayMobSpawner.h">
-      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClInclude>
     <ClInclude Include="Widget\GameOverPanel.h">
       <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
@@ -788,6 +785,15 @@
     </ClInclude>
     <ClInclude Include="Entity\Component\ChaseComponent.h">
       <Filter>Game\05. Entity\02. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Extension\MobSpawner.h">
+      <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\InventoryComponent.h">
+      <Filter>Game\05. Entity\02. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\InventoryUtils.h">
+      <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1041,11 +1047,8 @@
     <ClCompile Include="Resource\SFX.cpp">
       <Filter>Framework\05. Resource</Filter>
     </ClCompile>
-    <ClCompile Include="Manager\Data\GameData\PlayerState.cpp">
+    <ClCompile Include="Manager\Data\GameData\PlayerProfile.cpp">
       <Filter>Game\01. Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene\Extension\PlayMobSpawner.cpp">
-      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClCompile>
     <ClCompile Include="Widget\GameOverPanel.cpp">
       <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
@@ -1054,6 +1057,12 @@
       <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Component\ChaseComponent.cpp">
+      <Filter>Game\05. Entity\02. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Extension\MobSpawner.cpp">
+      <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\InventoryComponent.cpp">
       <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
   </ItemGroup>

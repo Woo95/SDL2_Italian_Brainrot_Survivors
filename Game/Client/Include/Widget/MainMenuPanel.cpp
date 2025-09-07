@@ -1,7 +1,7 @@
 #include "MainMenuPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PlayerState.h"
+#include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/InputManager.h"
@@ -36,7 +36,7 @@ void CMainMenuPanel::Construct()
     mMoneyHUD = CWidgetUtils::AllocateWidget<CMoneyHUD, 1>("MainMenuPanel_MoneyHUD");
     mMoneyHUD->GetTransform()->SetRelativeScale(FVector2D(0.1758f, 0.08f));
     mMoneyHUD->GetTransform()->SetRelativePos(FVector2D(0.4121f, 0.009625f));
-    mMoneyHUD->SetBalance(CGameDataManager::GetInst()->GetPlayerState()->GetBalance());
+    mMoneyHUD->SetBalance(CGameDataManager::GetInst()->GetPlayerProfile()->GetBalance());
     AddChild(mMoneyHUD);
 
     mBtnQuit = CreateButton("Quit", "RedButton", FVector2D(0.08515f, 0.075f), "QUIT", FVector2D(0.5f, 0.4f));

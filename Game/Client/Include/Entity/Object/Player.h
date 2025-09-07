@@ -4,6 +4,7 @@
 #include "../../Core/Vector2D.h"
 
 class CPlayerStatusComponent;
+class CInventoryComponent;
 class CMovementComponent;
 class CSpriteComponent;
 class CInputComponent;
@@ -17,6 +18,7 @@ public:
 
 protected:
 	CPlayerStatusComponent* mStatus;
+	CInventoryComponent* mInventory;
 	CMovementComponent* mMovement;
 	CSpriteComponent* mSprite;
 	CInputComponent* mInput;
@@ -32,4 +34,13 @@ private:
 private:
 	void BindInput();
 	void MoveDir(const FVector2D& dir);
+
+	float GetAttack()      const;
+	float GetDefense()     const;
+	float GetMaxHP()       const;
+	float GetRecoveryHP()  const;
+	float GetAttackSpeed() const;
+	float GetMoveSpeed()   const;
+	float GetPickupRange() const;
+	float GetGrwothExp()   const;
 };

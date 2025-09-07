@@ -1,20 +1,20 @@
 #include "GameDataManager.h"
 #include "CharacterDataManager.h"
 #include "PowerUpDataManager.h"
-#include "PlayerState.h"
+#include "PlayerProfile.h"
 
 CGameDataManager* CGameDataManager::mInst = nullptr;
 
 CGameDataManager::CGameDataManager(void* memoryBlock)
 {
-	mPlayerState          = PlacementNew<CPlayerState>(memoryBlock);
+	mPlayerProfile        = PlacementNew<CPlayerProfile>(memoryBlock);
 	mCharacterDataManager = PlacementNew<CCharacterDataManager>(memoryBlock);
 	mPowerUpDataManager   = PlacementNew<CPowerUpDataManager>(memoryBlock);
 }
 
 CGameDataManager::~CGameDataManager()
 {
-	PlacementDelete<CPlayerState>(mPlayerState);
+	PlacementDelete<CPlayerProfile>(mPlayerProfile);
 	PlacementDelete<CCharacterDataManager>(mCharacterDataManager);
 	PlacementDelete<CPowerUpDataManager>(mPowerUpDataManager);
 }
@@ -23,7 +23,7 @@ CGameDataManager* CGameDataManager::GetInst()
 {
 	if (!mInst)
 	{
-		const size_t totalSize = sizeof(CGameDataManager) + sizeof(CPlayerState) + sizeof(CCharacterDataManager) +
+		const size_t totalSize = sizeof(CGameDataManager) + sizeof(CPlayerProfile) + sizeof(CCharacterDataManager) +
 			sizeof(CPowerUpDataManager);
 
 		void* memoryBlock = malloc(totalSize);

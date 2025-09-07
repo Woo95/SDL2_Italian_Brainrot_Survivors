@@ -1,24 +1,24 @@
-#include "PlayerState.h"
+#include "PlayerProfile.h"
 #include "GameDataManager.h"
 #include "CharacterDataManager.h"
 #include "PowerUpDataManager.h"
 
-CPlayerState::CPlayerState()
+CPlayerProfile::CPlayerProfile()
 {
 }
 
-CPlayerState::~CPlayerState()
+CPlayerProfile::~CPlayerProfile()
 {
 }
 
-const std::string& CPlayerState::GetName() const
+const std::string& CPlayerProfile::GetName() const
 {
     const FCharacterData& charData = CGameDataManager::GetInst()->GetCharacterDataManager()->GetCharacterData(mType);
 
     return charData.lastName;
 }
 
-bool CPlayerState::PurchasePowerUp(EPowerUpType type)
+bool CPlayerProfile::PurchaseMenuPowerUp(EPowerUpType type)
 {
     const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(type);
 
@@ -26,23 +26,23 @@ bool CPlayerState::PurchasePowerUp(EPowerUpType type)
         return false;
 
 	mMoneyBalance -= powerUpData.price;
-    mPowerUps[(int)type] += 1;
+    mMenuPowerUps[(int)type] += 1;
 
 	return true;
 }
 
-bool CPlayerState::RefundAllPowerUp()
+bool CPlayerProfile::RefundAllMenuPowerUp()
 {
     CPowerUpDataManager* PowerUpDataManager = CGameDataManager::GetInst()->GetPowerUpDataManager();
 
     for (int i = 0; i < (int)EPowerUpType::MAX; i++)
     {
-        if (mPowerUps[i])
+        if (mMenuPowerUps[i])
         {
             const EPowerUpType& type = static_cast<EPowerUpType>(i);
 
-            mMoneyBalance += mPowerUps[i] * PowerUpDataManager->GetPowerUpData(type).price;
-            mPowerUps[i] = 0;
+            mMoneyBalance += mMenuPowerUps[i] * PowerUpDataManager->GetPowerUpData(type).price;
+            mMenuPowerUps[i] = 0;
         }
     }
     return true;

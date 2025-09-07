@@ -1,6 +1,6 @@
 #include "WidgetComponent.h"
-#include "../../Widget/Widget.h"
 #include "../Object/Object.h"
+#include "../../Widget/Widget.h"
 #include "../../Scene/Scene.h"
 #include "../../Scene/Extension/Camera.h"
 
@@ -28,7 +28,7 @@ void CWidgetComponent::LateUpdate(float deltaTime)
 {
 	CComponent::LateUpdate(deltaTime);
 
-	if (mWidget) 
+	if (mWidget)
 		mWidget->LateUpdate(deltaTime);
 }
 
@@ -43,6 +43,14 @@ void CWidgetComponent::Render(SDL_Renderer* renderer)
 void CWidgetComponent::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CWidgetComponent>(this);
+}
+
+void CWidgetComponent::SetWidget(CWidget* widget)
+{
+	if (mWidget)
+		mWidget->Release();
+
+	mWidget = widget;
 }
 
 SDL_Rect CWidgetComponent::GetWidgetDest() const

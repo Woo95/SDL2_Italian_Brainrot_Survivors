@@ -14,12 +14,12 @@ private:
 private:
 	static CGameDataManager* mInst;
 
-	class CPlayerState*          mPlayerState;
+	class CPlayerProfile*        mPlayerProfile;
 	class CCharacterDataManager* mCharacterDataManager;
 	class CPowerUpDataManager*   mPowerUpDataManager;
 
 public:
-	CPlayerState*          GetPlayerState()          const { return mPlayerState; }
+	CPlayerProfile*        GetPlayerProfile()        const { return mPlayerProfile; }
 	CCharacterDataManager* GetCharacterDataManager() const { return mCharacterDataManager; }
 	CPowerUpDataManager*   GetPowerUpDataManager()   const { return mPowerUpDataManager; }
 
