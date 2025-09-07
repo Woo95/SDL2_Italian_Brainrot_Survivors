@@ -1,8 +1,6 @@
 #include "PlayUI.h"
 #include "../../Engine.h"
 #include "../../Widget/AllWidgets.h"
-#include "../../Manager/Data/Resource/AssetManager.h"
-#include "../../Manager/Data/Resource/SoundManager.h"
 
 CPlayUI::CPlayUI()
 {
@@ -55,12 +53,9 @@ void CPlayUI::SetUIPanel(EPlaySubState state)
 		mPause->Enable();
 		break;
 	case EPlaySubState::LVLUP:
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		mLevelUp->Enable();
 		break;
 	case EPlaySubState::GAMEOVER:
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
 		mGameOver->Enable();
 		break;
 	}

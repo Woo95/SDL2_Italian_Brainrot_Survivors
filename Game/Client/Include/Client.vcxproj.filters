@@ -723,9 +723,6 @@
     <ClInclude Include="Scene\Extension\Layer.h">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Component\StatusComponent.h">
-      <Filter>Game\05. Entity\02. Component</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Component\PlayerStatusComponent.h">
       <Filter>Game\05. Entity\02. Component</Filter>
     </ClInclude>

@@ -31,6 +31,9 @@ private:
 	virtual void Release() = 0;
 	virtual void OnMoveDirChanged(const FVector2D& dir) = 0;
 
+public:
+	CPlayerStatusComponent* GetStatus() const { return mStatus; }
+
 private:
 	void BindInput();
 	void MoveDir(const FVector2D& dir);

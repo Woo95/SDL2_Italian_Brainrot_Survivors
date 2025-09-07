@@ -4,7 +4,7 @@
 #include "../Core/Utils/SceneUtils.h"
 
 class CMobSpawner;
-class CObject;
+class CPlayer;
 
 class CPlayScene : public CScene
 {
@@ -18,6 +18,7 @@ private:
 	EPlaySubState mSubState = EPlaySubState::NONE;
 
 	float mTime = 0.0f;
+	CPlayer* mPlayer = nullptr;
 	CMobSpawner* mMobSpawner = nullptr;
 
 public:
@@ -32,5 +33,6 @@ public:
 	void SetSubState(EPlaySubState state);
 
 private:
-	CObject* InstantiatePlayer();
+	CPlayer* InstantiatePlayer();
+	void BindPlayerEvents();
 };

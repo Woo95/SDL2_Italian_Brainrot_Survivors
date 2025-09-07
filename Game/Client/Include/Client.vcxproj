@@ -33,7 +33,6 @@
     <ClInclude Include="Widget\LevelUpPanel.h" />
     <ClInclude Include="Widget\PlayPanel.h" />
     <ClInclude Include="Widget\PausePanel.h" />
-    <ClInclude Include="Entity\Component\StatusComponent.h" />
     <ClInclude Include="Entity\Component\VFXComponent.h" />
     <ClInclude Include="Widget\TimeHUD.h" />
     <ClInclude Include="Widget\KillCounter.h" />

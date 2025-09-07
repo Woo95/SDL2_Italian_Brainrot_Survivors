@@ -10,6 +10,7 @@
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Entity/Object/AllObjects.h"
+#include "../Entity/Component/AllComponents.h"
 
 CPlayScene::CPlayScene()
 {
@@ -39,10 +40,11 @@ bool CPlayScene::Enter()
 
     // Entity //
     InstantiateObject<CMadForest, 1>("Object_MadForest", ELayer::BACKGROUND);
-    CObject* player = InstantiatePlayer();
+    mPlayer = InstantiatePlayer();
+	BindPlayerEvents();
 
     // Camera //
-    mCamera->SetTarget(player);
+    mCamera->SetTarget(mPlayer);
 
 	// UI //
 	mSceneUI->Init();
@@ -50,7 +52,7 @@ bool CPlayScene::Enter()
 
 	// Spawner //
 	mMobSpawner->Init();
-	mMobSpawner->SetPlayer(player);
+	mMobSpawner->SetPlayer(mPlayer);
 
     return true;
 }
@@ -66,11 +68,9 @@ void CPlayScene::Update(float deltaTime)
 	switch (mSubState)
 	{
 	case EPlaySubState::PLAY:
-		CScene::Update(deltaTime);
-
 		mTime += deltaTime;
 		((CPlayUI*)mSceneUI)->SetGameTime(mTime);
-
+		CScene::Update(deltaTime);
 		mMobSpawner->Update(deltaTime);
 		break;
 	case EPlaySubState::PAUSE:
@@ -124,9 +124,9 @@ void CPlayScene::SetSubState(EPlaySubState state)
     ((CPlayUI*)mSceneUI)->SetUIPanel(state);
 }
 
-CObject* CPlayScene::InstantiatePlayer()
+CPlayer* CPlayScene::InstantiatePlayer()
 {
-    CObject* player = nullptr;
+	CPlayer* player = nullptr;
 
     switch (CGameDataManager::GetInst()->GetPlayerProfile()->GetType())
     {
@@ -141,4 +141,34 @@ CObject* CPlayScene::InstantiatePlayer()
         break;
     }
     return player;
+}
+
+void CPlayScene::BindPlayerEvents()
+{
+	// 경험치 관련
+	mPlayer->GetStatus()->AddExpCallback([this](float percent)
+	{
+		((CPlayUI*)mSceneUI)->SetExpPercent(percent);
+	});
+
+	// 레벨업 관련
+	mPlayer->GetStatus()->AddLevelUpCallback([this]()
+	{
+		SetSubState(EPlaySubState::LVLUP);
+		((CPlayUI*)mSceneUI)->SetPlayerLevel(mPlayer->GetStatus()->GetLevel());
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
+	});
+	
+	// 체력 관련
+	mPlayer->GetStatus()->AddHPChangedCallback([this](float percent)
+	{
+		((CPlayUI*)mSceneUI)->SetHealthPercent(percent);
+
+		if (percent <= 0.0f)
+		{
+			SetSubState(EPlaySubState::GAMEOVER);
+			CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
+			CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
+		}
+	});
 }

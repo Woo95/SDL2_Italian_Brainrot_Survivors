@@ -22,7 +22,7 @@ bool CPlayerStatusComponent::Init()
 	CCharacterDataManager* CDM = GDM->GetCharacterDataManager();
 	CPowerUpDataManager* PDM = GDM->GetPowerUpDataManager();
 
-	/* Apply Base Status */
+	/* 초기 스탯 저장 */
 	{
 		const FCharacterData& data = CDM->GetCharacterData(profile->GetType());
 
@@ -33,15 +33,22 @@ bool CPlayerStatusComponent::Init()
 		mBaseMoveSpeed   = data.baseMoveSpeed;
 		mBasePickupRange = data.basePickUpRange;
 		mBaseGrowthExp   = data.baseGrowthExp;
-
-		mHP = mBaseMaxHP;
 	}
 
-	/* Apply PowerUp Stat Modifiers */
+	/* 파워업 관련 */
 	{
+		/* 메뉴에서 구매한 파워업 저장 */
+		for (int i = 0; i < (int)EPowerUpType::MAX; i++)
+			mMenuPowerUps[i] = profile->GetMenuPowerUpLvl((EPowerUpType)i);
+
+		/* 파워업 레벨업 당 증가비율 저장 */
 		for (int i = 0; i < (int)EPowerUpType::MAX; i++)
 			mPowerUpModifiers[i] = PDM->GetPowerUpData((EPowerUpType)i).statModifier;
 	}
+
+	// 초기 체력 설정
+	mMaxHP = mBaseMaxHP + mMenuPowerUps[(int)EPowerUpType::MAX_HEALTH] * mPowerUpModifiers[(int)EPowerUpType::MAX_HEALTH];
+	mHP = mMaxHP;
 
 	return true;
 }
@@ -49,26 +56,4 @@ bool CPlayerStatusComponent::Init()
 void CPlayerStatusComponent::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CPlayerStatusComponent>(this);
-}
-
-int CPlayerStatusComponent::PopLevelUpNotify()
-{
-	const int returnVal = mLevelUpNotifyCount;
-	mLevelUpNotifyCount = 0;
-
-	return returnVal;
-}
-
-void CPlayerStatusComponent::AddExp(float exp)
-{
-	mExp += exp;
-
-	while (mExp >= mExpToLevelUp)
-	{
-		mLevel++;
-		mLevelUpNotifyCount++;
-		mExp -= mExpToLevelUp;
-
-		mExpToLevelUp = (float)(2 * mLevel * mLevel + 10);
-	}
 }
