@@ -792,6 +792,9 @@
     <ClInclude Include="Core\Utils\InventoryUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\Reaper.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1061,6 +1064,9 @@
     </ClCompile>
     <ClCompile Include="Entity\Component\InventoryComponent.cpp">
       <Filter>Game\05. Entity\02. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Reaper.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

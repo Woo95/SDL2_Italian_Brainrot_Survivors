@@ -19,7 +19,7 @@ CPlayScene::CPlayScene()
 	mSceneCollision = new CSceneCollision(mCamera);
 	mSceneUI = new CPlayUI;
 
-	mMobSpawner = new CMobSpawner(mCamera);
+	mMobSpawner = new CMobSpawner(this, mCamera);
 }
 
 CPlayScene::~CPlayScene()
@@ -107,6 +107,8 @@ void CPlayScene::LoadResources()
 
     std::string charName = CGameDataManager::GetInst()->GetPlayerProfile()->GetName();
     LoadTexture("Texture_" + charName, (charName + ".png").c_str());
+
+	LoadTexture("Texture_Boss", "BossAtlas.png");
 
     LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);
 

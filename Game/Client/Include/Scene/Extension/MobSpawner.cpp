@@ -1,11 +1,14 @@
 #include "MobSpawner.h"
 #include "Camera.h"
+#include "../Scene.h"
 #include "../../Entity/Object/AllObjects.h"
+#include "../../Entity/Component/AllComponents.h"
 
-CMobSpawner::CMobSpawner(CCamera* camera)
+CMobSpawner::CMobSpawner(CScene* scene, CCamera* camera)
 {
+	mScene = scene;
 	// 스프라이트 크기 고려하여 영역을 확장 
-	mExtendCamRes = camera->GetResolution() * 1.1f;
+	mExtendCamRes = camera->GetResolution() * 1.15f;
 }
 
 CMobSpawner::~CMobSpawner()
@@ -18,11 +21,11 @@ bool CMobSpawner::Init()
 	mRegularSpawnTime = CONST_REGULAR_MOB_SPAWN_INTERVAL;
 	mSubBossSpawnTime = CONST_SUBBOSS_MOB_SPAWN_INTERVAL;
 
-	mDespawnThreshold = mExtendCamRes.Length() * 0.5f;
+	mDespawnThreshold = mExtendCamRes.Length();
 
 	// Set-Up Mob Pools //
-	//mRegularMobPool.emplace_back([]() -> CObject* { return new CMonster; });
-	//mSubBossMobPool.emplace_back([]() -> CObject* { return new CBoss; });
+	mRegularMobPool.emplace_back([this]() -> CEnemy* { return this->CreateMob<CReaper, 1>("Enemy_Boss_Reaper"); });
+	mSubBossMobPool.emplace_back([this]() -> CEnemy* { return this->CreateMob<CReaper, 1>("Enemy_Boss_Reaper"); });
 
 	return true;
 }
@@ -35,8 +38,14 @@ void CMobSpawner::Update(float deltaTime)
 	mRegularSpawnTime -= deltaTime;
 	mSubBossSpawnTime -= deltaTime;
 
-	//SpawnMob();
-	//RespawnMob();
+	SpawnMob();
+	RespawnMob();
+}
+
+template <typename T, int initialCapacity>
+T* CMobSpawner::CreateMob(const std::string& name)
+{
+	return mScene->InstantiateObject<T, initialCapacity>(name);
 }
 
 void CMobSpawner::SpawnMob()
@@ -47,7 +56,10 @@ void CMobSpawner::SpawnMob()
 
 		// SPAWN REGULAR MOB
 		int idx = rand() % (mUnlockedRegIdx + 1);
-		CObject* mob = mRegularMobPool[idx]();
+		CEnemy* mob = mRegularMobPool[idx]();
+		mob->GetTransform()->SetWorldPos(FVector2D::ZERO);
+		mob->GetTransform()->SetWorldPos(GetRandomSpawnPos());
+		mob->GetChase()->SetTarget(mPlayer->GetTransform());
 		mSpawnedMobs.emplace_back(mob);
 
 		// INDEX CONTROL
@@ -55,7 +67,7 @@ void CMobSpawner::SpawnMob()
 		if (mRegSpawnAmount <= 0)
 		{
 			mRegSpawnAmount = CONST_REGULAR_MOB_SPAWN_AMOUNT;
-			mUnlockedRegIdx = std::min(mUnlockedRegIdx + 1, (int)mRegularMobPool.size());
+			mUnlockedRegIdx = std::min(mUnlockedRegIdx + 1, (int)mRegularMobPool.size() - 1);
 		}
 	}
 
@@ -64,11 +76,13 @@ void CMobSpawner::SpawnMob()
 		mSubBossSpawnTime = CONST_SUBBOSS_MOB_SPAWN_INTERVAL;
 
 		// SPAWN SUB BOSS
-		CObject* mob = mSubBossMobPool[mUnlockedBosIdx]();
+		CEnemy* mob = mSubBossMobPool[mUnlockedBosIdx]();
+		mob->GetTransform()->SetWorldPos(GetRandomSpawnPos());
+		mob->GetChase()->SetTarget(mPlayer->GetTransform());
 		mSpawnedMobs.emplace_back(mob);
 
 		// INDEX CONTROL
-		mUnlockedBosIdx = std::min(mUnlockedBosIdx + 1, (int)mSubBossMobPool.size());
+		mUnlockedBosIdx = std::min(mUnlockedBosIdx + 1, (int)mSubBossMobPool.size() - 1);
 	}
 }
 
@@ -86,10 +100,10 @@ void CMobSpawner::RespawnMob()
 			continue;
 		}
 
-		FVector2D delta = mPlayer->GetTransform()->GetWorldPos() - mob->GetTransform()->GetWorldPos();
+		FVector2D delta = mob->GetTransform()->GetWorldPos() - mPlayer->GetTransform()->GetWorldPos();
 		if (delta.Length() >= mDespawnThreshold)
 		{
-			mob->GetTransform()->SetWorldPos(delta * -1);
+			mob->GetTransform()->SetWorldPos(mPlayer->GetTransform()->GetWorldPos() - delta);
 		}
 	}
 }
@@ -98,7 +112,7 @@ FVector2D CMobSpawner::GetRandomSpawnPos() const
 {
 	const FVector2D& playerPos = mPlayer->GetTransform()->GetWorldPos();
 
-	float scale = 1.2f;
+	float scale = 1.3f;
 	float halfW = mExtendCamRes.x * 0.5f * scale;
 	float halfH = mExtendCamRes.y * 0.5f * scale;
 
