@@ -17,7 +17,11 @@ protected:
 
 public:
 	virtual bool Init() override;
+	virtual void Update(float deltaTime) override;
 
 private:
 	virtual void Release() = 0;
+
+public:
+	CChaseComponent* GetChase() const { return mChase; }
 };

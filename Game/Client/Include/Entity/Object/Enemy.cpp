@@ -18,3 +18,17 @@ bool CEnemy::Init()
 
 	return CObject::Init();
 }
+
+void CEnemy::Update(float deltaTime)
+{
+	CObject::Update(deltaTime);
+
+	if (mChase->GetFacingDir().x < 0)
+	{
+		mSprite->SetFlip(SDL_FLIP_NONE);
+	}
+	else if (mChase->GetFacingDir().x > 0)
+	{
+		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
+	}
+}
