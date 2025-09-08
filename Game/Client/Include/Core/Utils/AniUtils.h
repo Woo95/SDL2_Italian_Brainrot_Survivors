@@ -15,7 +15,7 @@ enum class EAnimationState : unsigned char
 
 	IDLE,
 	WALK,
-	JUMP,
+	DEAD,
 
 	VFX
 };
