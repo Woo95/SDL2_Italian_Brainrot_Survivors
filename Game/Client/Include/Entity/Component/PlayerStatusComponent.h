@@ -33,44 +33,13 @@ private:
 	float mExpToLevelUp = 12.0f;
 	int mKillCount = 0;
 
-	// 경험치 관련 콜백
-	std::function<void(float)> mAddExpCallback;
-	std::function<void()> mLevelUpCallback;
-	// 체력 관련 콜백
-	std::function<void(float)> mHPChangedCallback;
-
 private:
 	virtual bool Init()    final;
 	virtual void Release() final;
 
 public:
-	void AddExpCallback(const std::function<void(float)>& callback) { mAddExpCallback = callback; }
-	void AddLevelUpCallback(const std::function<void()>& callback) { mLevelUpCallback = callback; }
-	void AddHPChangedCallback(const std::function<void(float)>& callback) { mHPChangedCallback = callback; }
-
-	void AddExp(float exp)
-	{
-		mExp += exp;
-
-		while (mExp >= mExpToLevelUp)
-		{
-			mExp -= mExpToLevelUp;
-			mLevel++;
-			mExpToLevelUp = (float)(2 * mLevel * mLevel + 10);
-
-			if (mLevelUpCallback)
-				mLevelUpCallback();
-		}
-		if (mAddExpCallback)
-			mAddExpCallback(mExp / mExpToLevelUp);
-	}
-	void AddHP(float hp)
-	{
-		mHP = std::clamp(mHP + hp, 0.0f, mMaxHP);
-
-		if (mHPChangedCallback)
-			mHPChangedCallback(mHP / mMaxHP);
-	}
+	void AddExp(float exp);
+	void AddHP(float hp);
 
 	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
 	int GetMenuPowerUpLvl(EPowerUpType type) const { return mMenuPowerUps[(int)type]; }

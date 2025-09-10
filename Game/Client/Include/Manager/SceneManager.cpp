@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "MemoryPoolManager.h"
+#include "EventManager.h"
 #include "Data/Resource/AssetManager.h"
 #include "Data/Resource/SoundManager.h"
 #include "../Scene/MenuScene.h"
@@ -105,6 +106,8 @@ void CSceneManager::PopScene()
 		oldScene->UnloadResources();
 		SAFE_DELETE(oldScene);
 		mScenes.pop_back();
+
+		CEventManager::GetInst()->ClearAllListener();
 	}
 }
 

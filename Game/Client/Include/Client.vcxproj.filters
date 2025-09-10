@@ -795,6 +795,15 @@
     <ClInclude Include="Entity\Object\Reaper.h">
       <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Manager\EventManager.h">
+      <Filter>Game\02. Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Utils\EventUtils.h">
+      <Filter>Game\01. Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\AllManagers.h">
+      <Filter>Framework\02. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">

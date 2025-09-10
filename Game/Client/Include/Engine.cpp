@@ -1,15 +1,7 @@
 #include "Engine.h"
 #include "Core/Timer.h"
-#include "Manager/MemoryPoolManager.h"
-#include "Manager/InputManager.h"
-#include "Manager/CollisionManager.h"
-#include "Manager/PhysicsManager.h"
-#include "Manager/SceneManager.h"
-#include "Manager/Data/PathManager.h"
-#include "Manager/Data/Resource/AssetManager.h"
-#include "Manager/Data/GameData/GameDataManager.h"
 #include "Core/DataLoader.h"
-
+#include "Manager/AllManagers.h"
 
 CEngine* CEngine::mInst = nullptr;
 
@@ -20,6 +12,8 @@ CEngine::CEngine()
 CEngine::~CEngine()
 {
 	CSceneManager::DestroyInst();
+
+    CEventManager::DestroyInst();
 
 	CPhysicsManager::DestroyInst();
 

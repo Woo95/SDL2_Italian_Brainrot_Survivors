@@ -3,9 +3,8 @@
 #include "../../Core/GameInfo.h"
 #include "../../Core/Vector2D.h"
 
-class CScene;
 class CCamera;
-class CObject;
+class CPlayer;
 class CEnemy;
 
 class CMobSpawner
@@ -14,19 +13,15 @@ class CMobSpawner
 
 private:
 	CMobSpawner() = delete;
-	CMobSpawner(CScene* scene, CCamera* camera);
+	CMobSpawner(CCamera* camera);
 	~CMobSpawner();
 
 private:
-	CScene* mScene;
-
 	// Player & Camera
 	FVector2D mExtendCamRes = FVector2D::ZERO;
-	CObject* mPlayer = nullptr;
+	CPlayer* mPlayer = nullptr;
 
-	// Mob Pools
-	std::vector<std::function<CEnemy*()>> mRegularMobPool;
-	std::vector<std::function<CEnemy*()>> mSubBossMobPool;
+	// Spawn related variables
 	std::vector<CEnemy*> mSpawnedMobs;
 
 	int mRegSpawnAmount = 0;
@@ -40,7 +35,7 @@ private:
 
 	// Constants
 	const int   CONST_REGULAR_MOB_SPAWN_AMOUNT   = 30;
-	const float CONST_REGULAR_MOB_SPAWN_INTERVAL = 1.0f;
+	const float CONST_REGULAR_MOB_SPAWN_INTERVAL = 0.75f;
 	const float CONST_SUBBOSS_MOB_SPAWN_INTERVAL = 50.0f;
 
 private:
@@ -48,10 +43,12 @@ private:
 	void Update(float deltaTime);
 
 private:
-	template <typename T, int initialCapacity>
-	T* CreateMob(const std::string& name);
 	void SpawnMob();
 	void RespawnMob();
+	void RegisterMob(CEnemy* mob)
+	{
+		mSpawnedMobs.emplace_back(mob);
+	}
 
 	FVector2D GetRandomSpawnPos() const;
 	float GetRandomRange(float min, float max) const
@@ -59,7 +56,7 @@ private:
 		return min + (float)std::rand() / (RAND_MAX + 1.0f) * (max - min);
 	}
 
-	void SetPlayer(CObject* player)
+	void SetPlayer(CPlayer* player)
 	{
 		mPlayer = player;
 	}

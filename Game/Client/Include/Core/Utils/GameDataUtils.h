@@ -2,6 +2,34 @@
 
 #include "../GameInfo.h"
 
+enum class ERegularMobType : signed char
+{
+	NONE = -1,
+	SKELETON,
+	MAX
+};
+
+enum class ESubBossMobType : signed char
+{
+	NONE = -1,
+	REAPER,
+	DROWNER,
+	TRICKSTER,
+	STALKER,
+	MADDENER,
+	ENDER,
+	MAX
+};
+
+enum class ECharacterType : signed char
+{
+	NONE = -1,
+	TRALALA,
+	SAHUR,
+	BANANINI,
+	MAX
+};
+
 enum class EPowerUpType : signed char
 {
 	NONE = -1,
@@ -16,15 +44,6 @@ enum class EPowerUpType : signed char
 	MAX
 };
 
-enum class ECharacterType : signed char
-{
-	NONE = -1,
-	TRALALA,
-	SAHUR,
-	BANANINI,
-	MAX
-};
-
 enum class EWeaponType : signed char
 {
 	NONE = -1,
@@ -35,16 +54,6 @@ enum class EWeaponType : signed char
 };
 
 ////////////////////////////////////////
-
-struct FPowerUpData
-{
-	EPowerUpType type;
-	std::string name;
-	std::string description1;
-	std::string description2;
-	int price = 0;
-	float statModifier = 0.0f;
-};
 
 struct FCharacterData
 {
@@ -62,4 +71,14 @@ struct FCharacterData
 	float baseMoveSpeed;
 	float basePickUpRange;
 	float baseGrowthExp;
+};
+
+struct FPowerUpData
+{
+	EPowerUpType type;
+	std::string name;
+	std::string description1;
+	std::string description2;
+	int price = 0;
+	float statModifier = 0.0f;
 };

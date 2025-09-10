@@ -5,6 +5,7 @@
 #include "Extension/MobSpawner.h"
 #include "../Engine.h"
 #include "../Manager/InputManager.h"
+#include "../Manager/EventManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
@@ -19,7 +20,7 @@ CPlayScene::CPlayScene()
 	mSceneCollision = new CSceneCollision(mCamera);
 	mSceneUI = new CPlayUI;
 
-	mMobSpawner = new CMobSpawner(this, mCamera);
+	mMobSpawner = new CMobSpawner(mCamera);
 }
 
 CPlayScene::~CPlayScene()
@@ -41,7 +42,7 @@ bool CPlayScene::Enter()
     // Entity //
     InstantiateObject<CMadForest, 1>("Object_MadForest", ELayer::BACKGROUND);
     mPlayer = InstantiatePlayer();
-	BindPlayerEvents();
+	BindEventListeners();
 
     // Camera //
     mCamera->SetTarget(mPlayer);
@@ -145,32 +146,69 @@ CPlayer* CPlayScene::InstantiatePlayer()
     return player;
 }
 
-void CPlayScene::BindPlayerEvents()
+void CPlayScene::BindEventListeners()
 {
+	CEventManager* EM = CEventManager::GetInst();
+
 	// 경험치 관련
-	mPlayer->GetStatus()->AddExpCallback([this](float percent)
+	EM->AddListener(EEventType::PLAYER_EXP_GAINED, [this](void* data)
 	{
+		float percent = *(float*)data;
 		((CPlayUI*)mSceneUI)->SetExpPercent(percent);
 	});
 
 	// 레벨업 관련
-	mPlayer->GetStatus()->AddLevelUpCallback([this]()
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void*)
 	{
-		SetSubState(EPlaySubState::LVLUP);
 		((CPlayUI*)mSceneUI)->SetPlayerLevel(mPlayer->GetStatus()->GetLevel());
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
+		SetSubState(EPlaySubState::LVLUP);
 	});
-	
-	// 체력 관련
-	mPlayer->GetStatus()->AddHPChangedCallback([this](float percent)
-	{
-		((CPlayUI*)mSceneUI)->SetHealthPercent(percent);
 
-		if (percent <= 0.0f)
+	// 체력 관련
+	EM->AddListener(EEventType::PLAYER_HP_CHANGED, [this](void* data)
+	{
+		float percent = *(float*)data;
+		((CPlayUI*)mSceneUI)->SetHealthPercent(percent);
+	});
+
+	// 죽음 관련
+	EM->AddListener(EEventType::PLAYER_DIED, [this](void*)
+	{
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
+		SetSubState(EPlaySubState::GAMEOVER);
+	});
+
+	// 몬스터 스포너 관련
+	EM->AddListener(EEventType::REGULAR_MOB_SPAWN, [this](void* data)
+	{
+		ERegularMobType type = (ERegularMobType)(*(int*)data);
+
+		CEnemy* mob = nullptr;
+		switch (type)
 		{
-			SetSubState(EPlaySubState::GAMEOVER);
-			CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
-			CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
+		case ERegularMobType::SKELETON:
+			mob = InstantiateObject<CReaper, 1>("Enemy_Boss_Reaper");
+			break;
 		}
+		mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
+		mob->GetChase()->SetTarget(mPlayer->GetTransform());
+		mMobSpawner->RegisterMob(mob);
+	});
+	EM->AddListener(EEventType::SUBBOSS_MOB_SPAWN, [this](void* data)
+	{
+		ESubBossMobType type = (ESubBossMobType)(*(int*)data);
+
+		CEnemy* mob = nullptr;
+		switch (type)
+		{
+		case ESubBossMobType::REAPER:
+			mob = InstantiateObject<CReaper, 1>("Enemy_Boss_Reaper");
+			break;
+		}
+		mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
+		mob->GetChase()->SetTarget(mPlayer->GetTransform());
+		mMobSpawner->RegisterMob(mob);
 	});
 }

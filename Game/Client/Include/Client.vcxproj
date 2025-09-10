@@ -26,6 +26,9 @@
     <ClInclude Include="Entity\Component\InventoryComponent.h" />
     <ClInclude Include="Core\Utils\InventoryUtils.h" />
     <ClInclude Include="Entity\Object\Reaper.h" />
+    <ClInclude Include="Manager\AllManagers.h" />
+    <ClInclude Include="Manager\EventManager.h" />
+    <ClInclude Include="Core\Utils\EventUtils.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
     <ClInclude Include="Scene\Extension\MobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />

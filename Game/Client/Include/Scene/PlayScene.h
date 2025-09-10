@@ -34,5 +34,5 @@ public:
 
 private:
 	CPlayer* InstantiatePlayer();
-	void BindPlayerEvents();
+	void BindEventListeners();
 };

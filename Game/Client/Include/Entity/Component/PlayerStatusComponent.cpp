@@ -3,6 +3,7 @@
 #include "../../Manager/Data/GameData/PlayerProfile.h"
 #include "../../Manager/Data/GameData/CharacterDataManager.h"
 #include "../../Manager/Data/GameData/PowerUpDataManager.h"
+#include "../../Manager/EventManager.h"
 
 CPlayerStatusComponent::CPlayerStatusComponent()
 {
@@ -56,4 +57,31 @@ bool CPlayerStatusComponent::Init()
 void CPlayerStatusComponent::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CPlayerStatusComponent>(this);
+}
+
+void CPlayerStatusComponent::AddExp(float exp)
+{
+	mExp += exp;
+
+	while (mExp >= mExpToLevelUp)
+	{
+		mExp -= mExpToLevelUp;
+		mLevel++;
+		mExpToLevelUp = (float)(2 * mLevel * mLevel + 10);
+
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP);
+	}
+	float percent = mExp / mExpToLevelUp;
+	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_EXP_GAINED, &percent);
+}
+
+void CPlayerStatusComponent::AddHP(float hp)
+{
+	mHP = std::clamp(mHP + hp, 0.0f, mMaxHP);
+
+	float percent = mHP / mMaxHP;
+	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_HP_CHANGED, &percent);
+
+	if (mHP <= 0.0f)
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_DIED);
 }
