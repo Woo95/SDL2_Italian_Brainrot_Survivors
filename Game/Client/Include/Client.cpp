@@ -10,6 +10,9 @@ private:
 public:
 	static void Launch()
 	{
+		// 난수 생성 시드 초기화
+		std::srand(static_cast<unsigned int>(std::time(nullptr)));
+
 		// 기본적으로 콘솔 창 숨기기
 		ShowWindow(GetConsoleWindow(), SW_HIDE);
 

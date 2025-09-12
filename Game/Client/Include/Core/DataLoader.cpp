@@ -9,7 +9,7 @@
 #include "../Manager/Data/Resource/UIManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/CharacterDataManager.h"
-#include "../Manager/Data/GameData/PowerUpDataManager.h"
+#include "../Manager/Data/GameData/ItemDataManager.h"
 
 CDataLoader::CDataLoader()
 {
@@ -28,6 +28,7 @@ bool CDataLoader::Init()
 
 	LoadAllCharacterData();
 	LoadAllPowerUpData();
+	LoadAllWeaponData();
 
 	return true;
 }
@@ -260,7 +261,7 @@ void CDataLoader::LoadAllPowerUpData()
 		return;
 	}
 
-	CPowerUpDataManager* PDM = CGameDataManager::GetInst()->GetPowerUpDataManager();
+	CItemDataManager* IDM = CGameDataManager::GetInst()->GetItemDataManager();
 
 	std::string line;
 	while (std::getline(file, line))
@@ -272,23 +273,27 @@ void CDataLoader::LoadAllPowerUpData()
 
 		const int typeIdx     = 0;
 		const int nameIdx     = 1;
-		const int desc1Idx    = 2;
-		const int desc2Idx    = 3;
-		const int priceIdx    = 4;
-		const int modifierIdx = 5;
+		const int descIdx     = 2;
+		const int priceIdx    = 3;
+		const int modifierIdx = 4;
 
 		{
 			FPowerUpData data;
 			data.type = static_cast<EPowerUpType>(std::stoi(row[typeIdx]));
 			data.name = row[nameIdx];
-			data.description1 = row[desc1Idx];
-			data.description2 = row[desc2Idx];
+			data.description = row[descIdx];
 			data.price = std::stoi(row[priceIdx]);
 			data.statModifier = std::stof(row[modifierIdx]);
 
-			PDM->mData[(int)data.type] = data;
+			
+			IDM->mPowerUpData[(int)data.type] = data;
 		}
 		row.clear();
 	}
 	file.close();
+}
+
+void CDataLoader::LoadAllWeaponData()
+{
+
 }

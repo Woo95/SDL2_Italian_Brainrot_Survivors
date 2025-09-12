@@ -19,8 +19,7 @@ protected:
 
 private:
     CTextBlock* mName = nullptr;
-    CTextBlock* mDescription1 = nullptr;
-    CTextBlock* mDescription2 = nullptr;
+    CTextBlock* mDescription = nullptr;
     CImage* mMoneyIcon = nullptr;
     CTextBlock* mPrice = nullptr;
     CImage* mPowerUpIcon = nullptr;

@@ -1,7 +1,7 @@
 #include "PlayerProfile.h"
 #include "GameDataManager.h"
 #include "CharacterDataManager.h"
-#include "PowerUpDataManager.h"
+#include "ItemDataManager.h"
 
 CPlayerProfile::CPlayerProfile()
 {
@@ -20,7 +20,7 @@ const std::string& CPlayerProfile::GetName() const
 
 bool CPlayerProfile::PurchaseMenuPowerUp(EPowerUpType type)
 {
-    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(type);
+    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetItemDataManager()->GetPowerUpData(type);
 
     if (mMoneyBalance < powerUpData.price)
         return false;
@@ -33,7 +33,7 @@ bool CPlayerProfile::PurchaseMenuPowerUp(EPowerUpType type)
 
 bool CPlayerProfile::RefundAllMenuPowerUp()
 {
-    CPowerUpDataManager* PowerUpDataManager = CGameDataManager::GetInst()->GetPowerUpDataManager();
+    CItemDataManager* itemDataManager = CGameDataManager::GetInst()->GetItemDataManager();
 
     for (int i = 0; i < (int)EPowerUpType::MAX; i++)
     {
@@ -41,7 +41,7 @@ bool CPlayerProfile::RefundAllMenuPowerUp()
         {
             const EPowerUpType& type = static_cast<EPowerUpType>(i);
 
-            mMoneyBalance += mMenuPowerUps[i] * PowerUpDataManager->GetPowerUpData(type).price;
+            mMoneyBalance += mMenuPowerUps[i] * itemDataManager->GetPowerUpData(type).price;
             mMenuPowerUps[i] = 0;
         }
     }

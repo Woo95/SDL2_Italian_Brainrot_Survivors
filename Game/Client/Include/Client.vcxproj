@@ -47,7 +47,7 @@
     <ClInclude Include="Widget\KillCounter.h" />
     <ClInclude Include="Widget\Portrait.h" />
     <ClInclude Include="Widget\ExpBar.h" />
-    <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h" />
+    <ClInclude Include="Manager\Data\GameData\ItemDataManager.h" />
     <ClInclude Include="Manager\Data\GameData\CharacterDataManager.h" />
     <ClInclude Include="Core\DataLoader.h" />
     <ClInclude Include="Manager\Data\GameData\PlayerProfile.h" />

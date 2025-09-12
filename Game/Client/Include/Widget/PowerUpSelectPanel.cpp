@@ -2,7 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/PlayerProfile.h"
-#include "../Manager/Data/GameData/PowerUpDataManager.h"
+#include "../Manager/Data/GameData/ItemDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
@@ -139,7 +139,7 @@ CButton* CPowerUpSelectPanel::CreateButton(const std::string& widgetName, const 
 
 CPowerUpSlot* CPowerUpSelectPanel::CreatePowerUpSlot(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel)
 {
-    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(type);
+    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetItemDataManager()->GetPowerUpData(type);
 
     CPowerUpSlot* slot = CWidgetUtils::AllocateWidget<CPowerUpSlot, 12>("PowerUpSelectPanel_PowerUpSlot_" + powerUpData.name);
     slot->SetType(type);

@@ -16,12 +16,12 @@ private:
 
 	class CPlayerProfile*        mPlayerProfile;
 	class CCharacterDataManager* mCharacterDataManager;
-	class CPowerUpDataManager*   mPowerUpDataManager;
+	class CItemDataManager*      mItemDataManager;
 
 public:
 	CPlayerProfile*        GetPlayerProfile()        const { return mPlayerProfile; }
 	CCharacterDataManager* GetCharacterDataManager() const { return mCharacterDataManager; }
-	CPowerUpDataManager*   GetPowerUpDataManager()   const { return mPowerUpDataManager; }
+	CItemDataManager*      GetItemDataManager()      const { return mItemDataManager; }
 
 private:
 	template <typename T>

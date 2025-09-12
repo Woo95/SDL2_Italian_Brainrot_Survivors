@@ -21,4 +21,5 @@ private:
 
 	void LoadAllCharacterData();
 	void LoadAllPowerUpData();
+	void LoadAllWeaponData();
 };

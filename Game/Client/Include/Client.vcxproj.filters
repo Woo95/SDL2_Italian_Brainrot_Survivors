@@ -672,7 +672,7 @@
     <ClInclude Include="Manager\Data\GameData\GameDataManager.h">
       <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
-    <ClInclude Include="Manager\Data\GameData\PowerUpDataManager.h">
+    <ClInclude Include="Manager\Data\GameData\ItemDataManager.h">
       <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
     <ClInclude Include="Core\Utils\GameDataUtils.h">

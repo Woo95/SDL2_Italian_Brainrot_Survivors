@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "../../Core/Utils/GameDataUtils.h"
 
-class CPowerUpDataManager;
+class CItemDataManager;
 
 class CPlayerStatusComponent : public CComponent
 {

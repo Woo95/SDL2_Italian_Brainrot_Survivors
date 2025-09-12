@@ -1,7 +1,7 @@
 #include "PowerUpInfoPanel.h"
 #include "AllWidgets.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
-#include "../Manager/Data/GameData/PowerUpDataManager.h"
+#include "../Manager/Data/GameData/ItemDataManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
 
@@ -48,23 +48,14 @@ void CPowerUpInfoPanel::Construct()
     mPowerUpIcon->SetFrame("Empty");
     powerUpBox->AddChild(mPowerUpIcon);
 
-    mDescription1 = CWidgetUtils::AllocateWidget<CTextBlock>("PowerUpInfoPanel_TextBlock_Desc1");
-    mDescription1->GetTransform()->SetRelativeScale(0.55f, 0.19f);
-    mDescription1->GetTransform()->SetRelativePos(0.5f, 2.5f);
-    mDescription1->SetAlignment(ETextBlock::Alignment::LEFT);
-    mDescription1->SetCharWidth(12.5f);
-    mDescription1->SetFont("Font64_CourierPrime_Regular");
-    mDescription1->SetText(" ");
-    AddChild(mDescription1);
-
-    mDescription2 = CWidgetUtils::AllocateWidget<CTextBlock>("PowerUpInfoPanel_TextBlock_Desc2");
-    mDescription2->GetTransform()->SetRelativeScale(0.55f, 0.19f);
-    mDescription2->GetTransform()->SetRelativePos(0.5f, 4.0f);
-    mDescription2->SetAlignment(ETextBlock::Alignment::LEFT);
-    mDescription2->SetCharWidth(12.5f);
-    mDescription2->SetFont("Font64_CourierPrime_Regular");
-    mDescription2->SetText(" ");
-    AddChild(mDescription2);
+    mDescription = CWidgetUtils::AllocateWidget<CTextBlock>("PowerUpInfoPanel_TextBlock_Desc1");
+    mDescription->GetTransform()->SetRelativeScale(0.55f, 0.19f);
+    mDescription->GetTransform()->SetRelativePos(0.5f, 2.5f);
+    mDescription->SetAlignment(ETextBlock::Alignment::LEFT);
+    mDescription->SetCharWidth(12.5f);
+    mDescription->SetFont("Font64_CourierPrime_Regular");
+    mDescription->SetText(" ");
+    AddChild(mDescription);
 
     mMoneyIcon = CWidgetUtils::AllocateWidget<CImage>("PowerUpInfoPanel_Image_MoneyIcon");
     mMoneyIcon->GetTransform()->SetRelativeScale(FVector2D(0.039f, 0.2f));
@@ -97,11 +88,10 @@ void CPowerUpInfoPanel::Release()
 
 void CPowerUpInfoPanel::ShowInfo(CPowerUpSlot* slot)
 {
-    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetPowerUpDataManager()->GetPowerUpData(slot->GetType());
+    const FPowerUpData& powerUpData = CGameDataManager::GetInst()->GetItemDataManager()->GetPowerUpData(slot->GetType());
 
     mName->SetText(slot->GetNameTextBlock()->GetText());
-    mDescription1->SetText(powerUpData.description1);
-    mDescription2->SetText(powerUpData.description2);
+    mDescription->SetText(powerUpData.description);
     mPrice->SetText(std::to_string(powerUpData.price));
     mPowerUpIcon->SetFrame(powerUpData.name);
 
