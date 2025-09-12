@@ -4,6 +4,7 @@
 
 class CChaseComponent;
 class CSpriteComponent;
+class CRigidbody;
 
 class CEnemy abstract : public CObject
 {
@@ -14,6 +15,7 @@ public:
 protected:
 	CChaseComponent* mChase;
 	CSpriteComponent* mSprite;
+	CRigidbody* mRigidbody;
 
 public:
 	virtual bool Init() override;

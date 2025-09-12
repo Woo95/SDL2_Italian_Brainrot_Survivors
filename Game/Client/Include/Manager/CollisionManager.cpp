@@ -22,13 +22,27 @@ CCollisionManager::~CCollisionManager()
 
 bool CCollisionManager::Init()
 {
-	CreateProfile("PlayerHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::BLOCK);
-	CreateProfile("PlayerFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::IGNORE);
-	CreateProfile("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
+	CreateProfile("PlayerHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::OVERLAP);
 
-	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
+	CreateProfile("PlayerFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
-	SetCollisionInteraction("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::BLOCK);
+
+
+	CreateProfile("EnemyHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
+
+
+	CreateProfile("EnemyFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("EnemyFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
+	SetCollisionInteraction("EnemyFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::BLOCK);
+	SetCollisionInteraction("EnemyFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::BLOCK);
+
+
+	CreateProfile("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("Environment", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::BLOCK);
+	SetCollisionInteraction("Environment", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::BLOCK);
 
 	return true;
 }

@@ -10,7 +10,8 @@ namespace ECollision
 		DEFAULT,
 		PLAYER_HITBOX,
 		PLAYER_FOOT,
-		MONSTER,
+		ENEMY_HITBOX,
+		ENEMY_FOOT,
 		ENVIRONMENT,
 		END
 	};

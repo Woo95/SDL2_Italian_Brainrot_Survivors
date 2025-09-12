@@ -33,7 +33,7 @@ bool CPlayer::Init()
 	mMovement = AllocateComponent<CMovementComponent, 1>("Movement_Player");
 	mRootComponent->AddChild(mMovement);
 
-	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Player");
+	mRigidbody = AllocateComponent<CRigidbody, 50>("Rigidbody_Player");
 	mRootComponent->AddChild(mRigidbody);
 
 	BindInput();

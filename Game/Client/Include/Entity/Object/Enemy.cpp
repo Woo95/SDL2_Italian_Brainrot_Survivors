@@ -16,6 +16,9 @@ bool CEnemy::Init()
 	mChase = AllocateComponent<CChaseComponent, 50>("Chase_Enemy");
 	mRootComponent->AddChild(mChase);
 
+	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Enemy");
+	mRootComponent->AddChild(mRigidbody);
+
 	return CObject::Init();
 }
 
