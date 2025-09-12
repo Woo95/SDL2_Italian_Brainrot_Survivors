@@ -804,6 +804,9 @@
     <ClInclude Include="Manager\AllManagers.h">
       <Filter>Framework\02. Manager</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\Drowner.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1075,6 +1078,9 @@
       <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Reaper.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Drowner.cpp">
       <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>

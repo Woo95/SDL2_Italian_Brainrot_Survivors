@@ -30,7 +30,7 @@ void CMobSpawner::Update(float deltaTime)
 	if (!mPlayer)
 		return;
 
-	mRegularSpawnTime -= deltaTime;
+	//mRegularSpawnTime -= deltaTime;
 	mSubBossSpawnTime -= deltaTime;
 
 	SpawnMob();

@@ -14,10 +14,10 @@ enum class ESubBossMobType : signed char
 	NONE = -1,
 	REAPER,
 	DROWNER,
-	TRICKSTER,
-	STALKER,
-	MADDENER,
-	ENDER,
+	//TRICKSTER,
+	//STALKER,
+	//MADDENER,
+	//ENDER,
 	MAX
 };
 

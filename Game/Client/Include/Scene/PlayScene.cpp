@@ -189,7 +189,6 @@ void CPlayScene::BindEventListeners()
 		switch (type)
 		{
 		case ERegularMobType::SKELETON:
-			mob = InstantiateObject<CReaper, 1>("Enemy_Boss_Reaper");
 			break;
 		}
 		mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
@@ -205,6 +204,9 @@ void CPlayScene::BindEventListeners()
 		{
 		case ESubBossMobType::REAPER:
 			mob = InstantiateObject<CReaper, 1>("Enemy_Boss_Reaper");
+			break;
+		case ESubBossMobType::DROWNER:
+			mob = InstantiateObject<CDrowner, 1>("Enemy_Boss_Drowner");
 			break;
 		}
 		mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Object\Drowner.h" />
     <ClInclude Include="Entity\Component\ChaseComponent.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
     <ClInclude Include="Entity\Object\Enemy.h" />
@@ -220,6 +221,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Object\Drowner.cpp" />
     <ClCompile Include="Entity\Component\ChaseComponent.cpp" />
     <ClCompile Include="Core\DataLoader.cpp" />
     <ClCompile Include="Entity\Object\Enemy.cpp" />
