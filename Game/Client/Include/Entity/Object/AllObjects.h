@@ -9,3 +9,7 @@
 
 #include "Reaper.h"
 #include "Drowner.h"
+#include "Trickster.h"
+#include "Stalker.h"
+#include "Maddener.h"
+#include "Ender.h"

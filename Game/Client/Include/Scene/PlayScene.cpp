@@ -191,9 +191,13 @@ void CPlayScene::BindEventListeners()
 		case ERegularMobType::SKELETON:
 			break;
 		}
-		mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
-		mob->GetChase()->SetTarget(mPlayer->GetTransform());
-		mMobSpawner->RegisterMob(mob);
+
+		if (mob)
+		{
+			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
+			mob->GetChase()->SetTarget(mPlayer->GetTransform());
+			mMobSpawner->RegisterMob(mob);
+		}
 	});
 	EM->AddListener(EEventType::SUBBOSS_MOB_SPAWN, [this](void* data)
 	{
@@ -208,9 +212,25 @@ void CPlayScene::BindEventListeners()
 		case ESubBossMobType::DROWNER:
 			mob = InstantiateObject<CDrowner, 1>("Enemy_Boss_Drowner");
 			break;
+		case ESubBossMobType::TRICKSTER:
+			mob = InstantiateObject<CTrickster, 1>("Enemy_Boss_Trickster");
+			break;
+		case ESubBossMobType::STALKER:
+			mob = InstantiateObject<CStalker, 1>("Enemy_Boss_Stalker");
+			break;
+		case ESubBossMobType::MADDENER:
+			mob = InstantiateObject<CMaddener, 1>("Enemy_Boss_Maddener");
+			break;
+		case ESubBossMobType::ENDER:
+			mob = InstantiateObject<CEnder, 1>("Enemy_Boss_Ender");
+			break;
 		}
-		mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
-		mob->GetChase()->SetTarget(mPlayer->GetTransform());
-		mMobSpawner->RegisterMob(mob);
+
+		if (mob)
+		{
+			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
+			mob->GetChase()->SetTarget(mPlayer->GetTransform());
+			mMobSpawner->RegisterMob(mob);
+		}
 	});
 }

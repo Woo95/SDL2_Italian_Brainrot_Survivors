@@ -807,6 +807,18 @@
     <ClInclude Include="Entity\Object\Drowner.h">
       <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Object\Trickster.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Ender.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Maddener.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Stalker.h">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1081,6 +1093,18 @@
       <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Drowner.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Ender.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Maddener.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Stalker.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Trickster.cpp">
       <Filter>Game\05. Entity\01. Object\Enemy</Filter>
     </ClCompile>
   </ItemGroup>

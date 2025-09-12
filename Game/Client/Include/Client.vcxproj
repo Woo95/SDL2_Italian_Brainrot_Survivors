@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Object\Ender.h" />
     <ClInclude Include="Entity\Object\Drowner.h" />
     <ClInclude Include="Entity\Component\ChaseComponent.h" />
     <ClInclude Include="Core\Utils\GameDataUtils.h" />
@@ -27,9 +28,12 @@
     <ClInclude Include="Entity\Component\InventoryComponent.h" />
     <ClInclude Include="Core\Utils\InventoryUtils.h" />
     <ClInclude Include="Entity\Object\Reaper.h" />
+    <ClInclude Include="Entity\Object\Maddener.h" />
     <ClInclude Include="Manager\AllManagers.h" />
     <ClInclude Include="Manager\EventManager.h" />
     <ClInclude Include="Core\Utils\EventUtils.h" />
+    <ClInclude Include="Entity\Object\Stalker.h" />
+    <ClInclude Include="Entity\Object\Trickster.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
     <ClInclude Include="Scene\Extension\MobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />
@@ -221,6 +225,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Object\Ender.cpp" />
     <ClCompile Include="Entity\Object\Drowner.cpp" />
     <ClCompile Include="Entity\Component\ChaseComponent.cpp" />
     <ClCompile Include="Core\DataLoader.cpp" />
@@ -229,6 +234,9 @@
     <ClCompile Include="Entity\Component\VFXComponent.cpp" />
     <ClCompile Include="Entity\Component\InventoryComponent.cpp" />
     <ClCompile Include="Entity\Object\Reaper.cpp" />
+    <ClCompile Include="Entity\Object\Maddener.cpp" />
+    <ClCompile Include="Entity\Object\Stalker.cpp" />
+    <ClCompile Include="Entity\Object\Trickster.cpp" />
     <ClCompile Include="Widget\GameOverPanel.cpp" />
     <ClCompile Include="Scene\Extension\MobSpawner.cpp" />
     <ClCompile Include="Resource\BGM.cpp" />
