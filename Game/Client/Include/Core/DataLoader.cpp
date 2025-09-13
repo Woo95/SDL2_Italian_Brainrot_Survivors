@@ -285,7 +285,6 @@ void CDataLoader::LoadAllPowerUpData()
 			data.price = std::stoi(row[priceIdx]);
 			data.statModifier = std::stof(row[modifierIdx]);
 
-			
 			IDM->mPowerUpData[(int)data.type] = data;
 		}
 		row.clear();
@@ -295,5 +294,40 @@ void CDataLoader::LoadAllPowerUpData()
 
 void CDataLoader::LoadAllWeaponData()
 {
+	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
+	filePath += "GameData\\WEAPON_DATA.csv";
 
+	std::ifstream file(filePath);
+
+	if (!file.is_open())
+	{
+		std::cerr << "Cannot open file at: " << filePath << "\n";
+		return;
+	}
+
+	CItemDataManager* IDM = CGameDataManager::GetInst()->GetItemDataManager();
+
+	std::string line;
+	while (std::getline(file, line))
+	{
+		if (line[0] == '#')
+			continue;
+
+		std::vector<std::string> row = Split(line, ',');
+
+		const int typeIdx = 0;
+		const int nameIdx = 1;
+		const int descIdx = 2;
+
+		{
+			FWeaponData data;
+			data.type = static_cast<EWeaponType>(std::stoi(row[typeIdx]));
+			data.name = row[nameIdx];
+			data.description = row[descIdx];
+
+			IDM->mWeaponData[(int)data.type] = data;
+		}
+		row.clear();
+	}
+	file.close();
 }

@@ -30,6 +30,9 @@ bool CPlayer::Init()
 	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Player");
 	mRootComponent->AddChild(mStatus);
 
+	mInventory = AllocateComponent<CInventoryComponent, 1>("Inventory_Player");
+	mRootComponent->AddChild(mInventory);
+
 	mMovement = AllocateComponent<CMovementComponent, 1>("Movement_Player");
 	mRootComponent->AddChild(mMovement);
 
@@ -44,6 +47,56 @@ bool CPlayer::Init()
 void CPlayer::Release()
 {
     CMemoryPoolManager::GetInst()->Deallocate<CPlayer>(this);
+}
+
+std::vector<FItem> CPlayer::GetLevelUpPool() const
+{
+	std::vector<FItem> pool;
+	{
+		// 가능한 파워업 + 무기를 선택 옵션에 추가
+		for (int i = 0; i < (int)EPowerUpType::MAX; i++)
+		{
+			EPowerUpType type = static_cast<EPowerUpType>(i);
+			int level = mInventory->GetPowerUpLevel(type);
+			if (level >= CONST_MAX_POWERUP_LEVEL)
+				continue;
+
+			if (mInventory->HasEmptySlot(EItemCategory::POWERUP) || (mInventory->HasItem(EItemCategory::POWERUP, (int)type) && level < CONST_MAX_POWERUP_LEVEL))
+			{
+				pool.emplace_back(EItemCategory::POWERUP, (signed char)type, level);
+			}
+		}
+		for (int i = 0; i < (int)EWeaponType::MAX; i++)
+		{
+			EWeaponType type = static_cast<EWeaponType>(i);
+			int level = mInventory->GetWeaponLevel(type);
+			if (level >= CONST_MAX_WEAPON_LEVEL)
+				continue;
+
+			if (mInventory->HasEmptySlot(EItemCategory::WEAPON) || (mInventory->HasItem(EItemCategory::WEAPON, (int)type) && level < CONST_MAX_WEAPON_LEVEL))
+			{
+				pool.emplace_back(EItemCategory::WEAPON, (signed char)type, level);
+			}
+		}
+
+		// 선택 옵션이 없을 경우
+		if (pool.empty())
+		{
+			// TODO: 치킨 + 돈
+		}
+	}
+
+	{
+		// 옵션 섞은 뒤, 3개만 유지
+		for (int i = 0; i < pool.size(); i++)
+		{
+			int randIdx = std::rand() % pool.size();
+			std::swap(pool[i], pool[randIdx]);
+		}
+		if (pool.size() > 3)
+			pool.resize(3);
+	}
+	return pool;
 }
 
 void CPlayer::BindInput()

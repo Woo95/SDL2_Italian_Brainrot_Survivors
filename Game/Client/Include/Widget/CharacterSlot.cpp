@@ -53,7 +53,7 @@ void CCharacterSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bo
 {
     if (isPressed)
     {
-        CCharacterSelectPanel* panel = dynamic_cast<CCharacterSelectPanel*>(mParent);
+        CCharacterSelectPanel* panel = static_cast<CCharacterSelectPanel*>(mParent);
         panel->OnSlotClicked(this);
     }
 }

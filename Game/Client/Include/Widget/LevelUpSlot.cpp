@@ -1,5 +1,8 @@
 #include "LevelUpSlot.h"
 #include "AllWidgets.h"
+#include "../Manager/Data/GameData/GameDataManager.h"
+#include "../Manager/Data/GameData/ItemDataManager.h"
+#include "../Manager/EventManager.h"
 
 CLevelUpSlot::CLevelUpSlot()
 {
@@ -12,6 +15,8 @@ CLevelUpSlot::~CLevelUpSlot()
 
 void CLevelUpSlot::Construct()
 {
+	SetInteractable(true);
+
 	CImage* panel = CWidgetUtils::AllocateWidget<CImage>("LevelUpSlot_Image_Panel");
 	panel->GetTransform()->SetRelativeScale(FVector2D(1.0f, 1.0f));
 	panel->SetTexture("Texture_UIAtlas");
@@ -29,16 +34,16 @@ void CLevelUpSlot::Construct()
 	mName->SetText("NAME");
 	AddChild(mName);
 
-	mNew = CWidgetUtils::AllocateWidget<CTextBlock>("LevelUpSlot_TextBlock_New");
-	mNew->GetTransform()->SetRelativeScale(0.1f, 0.2f);
-	mNew->GetTransform()->SetRelativePos(0.7f, 0.125f);
-	mNew->SetAlignment(ETextBlock::Alignment::LEFT);
-	mNew->SetCharWidth(12.5f);
-	mNew->SetColor(255, 255, 0);
-	mNew->EnableShadow(true);
-	mNew->SetFont("Font64_CourierPrime_Regular");
-	mNew->SetText("New!");
-	AddChild(mNew);
+	mStatus = CWidgetUtils::AllocateWidget<CTextBlock>("LevelUpSlot_TextBlock_New");
+	mStatus->GetTransform()->SetRelativeScale(0.12f, 0.2f);
+	mStatus->GetTransform()->SetRelativePos(0.7f, 0.125f);
+	mStatus->SetAlignment(ETextBlock::Alignment::LEFT);
+	mStatus->SetCharWidth(12.5f);
+	mStatus->SetColor(255, 255, 0);
+	mStatus->EnableShadow(true);
+	mStatus->SetFont("Font64_CourierPrime_Regular");
+	mStatus->SetText("New!");
+	AddChild(mStatus);
 
 	mDescription = CWidgetUtils::AllocateWidget<CTextBlock>("LevelUpSlot_TextBlock_Desc");
 	mDescription->GetTransform()->SetRelativeScale(0.9f, 0.2f);
@@ -68,4 +73,49 @@ void CLevelUpSlot::Construct()
 void CLevelUpSlot::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CLevelUpSlot>(this);
+}
+
+void CLevelUpSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
+{
+	if (isReleased)
+	{
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_SELECTED, &mItem);
+		mItem = { EItemCategory::NONE, -1, 0 };
+	}
+}
+
+void CLevelUpSlot::UpdateSlot(const FItem& item)
+{
+	CItemDataManager* itemDataManager = CGameDataManager::GetInst()->GetItemDataManager();
+	if (item.category == EItemCategory::POWERUP)
+	{
+		const FPowerUpData& powerUpData = itemDataManager->GetPowerUpData((EPowerUpType)item.type);
+		UpdateSlotData(powerUpData.name, powerUpData.description, powerUpData.name, item.level);
+	}
+	else if (item.category == EItemCategory::WEAPON)
+	{
+		const FWeaponData& weaponData = itemDataManager->GetWeaponData((EWeaponType)item.type);
+		UpdateSlotData(weaponData.name, weaponData.description, weaponData.name, item.level);
+	}
+	mItem = item;
+}
+
+void CLevelUpSlot::UpdateSlotData(const std::string& name, const std::string& description, const std::string& iconFrame, int level)
+{
+	mName->SetText(name);
+	mDescription->SetText(description);
+	mWeaponIcon->SetFrame(iconFrame);
+
+	if (level == 0)
+	{
+		mStatus->SetColor(255, 255, 0);
+		mStatus->EnableShadow(true);
+		mStatus->SetText("New!");
+	}
+	else
+	{
+		mStatus->SetColor(255, 255, 255);
+		mStatus->EnableShadow(false);
+		mStatus->SetText("Level " + std::to_string(level));
+	}
 }

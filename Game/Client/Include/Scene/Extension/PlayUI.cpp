@@ -61,6 +61,23 @@ void CPlayUI::SetUIPanel(EPlaySubState state)
 	}
 }
 
+void CPlayUI::SetLevelUpChoice(std::vector<FItem> pool)
+{
+	const std::vector<CLevelUpSlot*>& slots = mLevelUp->GetSlots();
+	for (size_t i = 0; i < slots.size(); i++)
+	{
+		if (i < pool.size())
+		{
+			slots[i]->UpdateSlot(pool[i]);
+			slots[i]->Enable();
+		}
+		else
+		{
+			slots[i]->Disable();
+		}
+	}
+}
+
 void CPlayUI::SetHealthPercent(float percent)
 {
     mPlay->SetHealthPercent(percent);

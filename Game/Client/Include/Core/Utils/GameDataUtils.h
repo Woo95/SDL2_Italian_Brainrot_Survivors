@@ -30,6 +30,14 @@ enum class ECharacterType : signed char
 	MAX
 };
 
+enum class EItemCategory : signed char
+{
+	NONE = -1,
+	POWERUP,
+	WEAPON,
+	MAX
+};
+
 enum class EPowerUpType : signed char
 {
 	NONE = -1,
@@ -55,9 +63,16 @@ enum class EWeaponType : signed char
 
 ////////////////////////////////////////
 
+struct FItem
+{
+	EItemCategory category = EItemCategory::NONE;
+	signed char type = -1;
+	int level = 0;
+};
+
 struct FCharacterData
 {
-	ECharacterType type;
+	ECharacterType type = ECharacterType::NONE;
 	std::string lastName;
 	std::string firstName;
 	std::string description1;
@@ -75,10 +90,16 @@ struct FCharacterData
 
 struct FPowerUpData
 {
-	EPowerUpType type;
+	EPowerUpType type = EPowerUpType::NONE;
 	std::string name;
-	std::string description1;
-	std::string description2;
+	std::string description;
 	int price = 0;
 	float statModifier = 0.0f;
+};
+
+struct FWeaponData
+{
+	EWeaponType type = EWeaponType::NONE;
+	std::string name;
+	std::string description;
 };

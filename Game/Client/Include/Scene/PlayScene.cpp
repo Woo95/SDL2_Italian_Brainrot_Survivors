@@ -160,9 +160,25 @@ void CPlayScene::BindEventListeners()
 	// 레벨업 관련
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void*)
 	{
+		((CPlayUI*)mSceneUI)->SetLevelUpChoice(mPlayer->GetLevelUpPool());
 		((CPlayUI*)mSceneUI)->SetPlayerLevel(mPlayer->GetStatus()->GetLevel());
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		SetSubState(EPlaySubState::LVLUP);
+	});
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
+	{
+		FItem selectedItem = *(FItem*)item;
+		switch (selectedItem.category)
+		{
+		case EItemCategory::POWERUP:
+			mPlayer->GetInventory()->AddPowerUp((EPowerUpType)selectedItem.type);
+			break;
+		case EItemCategory::WEAPON:
+			mPlayer->GetInventory()->AddWeapon((EWeaponType)selectedItem.type);
+			break;
+		}
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
+		SetSubState(EPlaySubState::PLAY);
 	});
 
 	// 체력 관련

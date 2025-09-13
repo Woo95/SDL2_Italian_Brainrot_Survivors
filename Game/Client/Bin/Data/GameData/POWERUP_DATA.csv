@@ -1,4 +1,4 @@
-#Type{ NONE / MIGHT / ARMOR / MAX_HEALTH / RECOVERY / ATTACK_SPEED / MOVE_SPEED / MAGNET / GROWTH / MAX },#Name,#Description1,#Price,#StatModifier
+#Type{ NONE / MIGHT / ARMOR / MAX_HEALTH / RECOVERY / ATTACK_SPEED / MOVE_SPEED / MAGNET / GROWTH / MAX },#Name,#Description,#Price,#StatModifier
 0,Might,Raises inflicted Damage by 10%.,100,0.1
 1,Armor,Reduces incoming Damage by 1.,200,1
 2,MaxHealth,Augments Max Health by 10%.,300,0.1

@@ -85,7 +85,7 @@ void CPowerUpSelectPanel::OnRefundButton()
     for (CPowerUpSlot* slot : mSlots)
         slot->OnPurchase(false);
 
-    if (CMainMenuPanel* menu = dynamic_cast<CMainMenuPanel*>(mParent))
+    if (CMainMenuPanel* menu = static_cast<CMainMenuPanel*>(mParent))
         menu->GetMoneyHUD()->SetBalance(playerProfile->GetBalance());
 }
 
@@ -98,7 +98,7 @@ void CPowerUpSelectPanel::OnBuyButton()
     mInfo->OnPurchase(true);
     mSelectedSlot->OnPurchase(true);
 
-    if (CMainMenuPanel* menu = dynamic_cast<CMainMenuPanel*>(mParent))
+    if (CMainMenuPanel* menu = static_cast<CMainMenuPanel*>(mParent))
         menu->GetMoneyHUD()->SetBalance(playerProfile->GetBalance());
 }
 

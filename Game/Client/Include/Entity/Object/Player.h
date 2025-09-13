@@ -2,6 +2,7 @@
 
 #include "Object.h"
 #include "../../Core/Vector2D.h"
+#include "../../Core/Utils/GameDataUtils.h"
 
 class CPlayerStatusComponent;
 class CInventoryComponent;
@@ -33,6 +34,8 @@ private:
 
 public:
 	CPlayerStatusComponent* GetStatus() const { return mStatus; }
+	CInventoryComponent* GetInventory() const { return mInventory; }
+	std::vector<FItem> GetLevelUpPool() const;
 
 private:
 	void BindInput();

@@ -50,7 +50,7 @@ void CPressToStartPanel::HandleHovered(const FVector2D& mousePos, bool isPressed
 {
     if (isPressed)
     {
-		if (CMenuScene* menuScene = dynamic_cast<CMenuScene*>(CSceneManager::GetInst()->GetCurrentScene()))
+		if (CMenuScene* menuScene = static_cast<CMenuScene*>(CSceneManager::GetInst()->GetCurrentScene()))
 		{
 			CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();
 			menuScene->SetSubState(EMenuSubState::MENU);

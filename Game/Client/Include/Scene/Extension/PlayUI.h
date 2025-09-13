@@ -2,6 +2,7 @@
 
 #include "SceneUI.h"
 #include "../../Core/Utils/SceneUtils.h"
+#include "../../Core/Utils/GameDataUtils.h"
 
 class CPlayPanel;
 class CPausePanel;
@@ -25,6 +26,8 @@ public:
 
 public:
     void SetUIPanel(EPlaySubState state);
+
+    void SetLevelUpChoice(std::vector<FItem> pool);
 
     void SetHealthPercent(float percent);
     void SetExpPercent(float percent);

@@ -11,11 +11,14 @@ public:
 	virtual ~CLevelUpPanel();
 
 private:
-	CLevelUpSlot* mSlots[3] = {};
+	std::vector<CLevelUpSlot*> mSlots;
 
 protected:
 	virtual void Construct() final;
 	virtual void Release() final;
+
+public:
+	const std::vector<CLevelUpSlot*>& GetSlots() const { return mSlots; }
 
 private:
 	CLevelUpSlot* CreateLevelUpSlot(int idx, const FVector2D& scale, const FVector2D& pos);

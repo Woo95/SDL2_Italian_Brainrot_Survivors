@@ -26,6 +26,23 @@ public:
 
 	int GetPowerUpLevel(EPowerUpType type) const { return mPowerUps[(int)type]; }
 	int GetWeaponLevel(EWeaponType type) const { return mWeapons[(int)type]; }
-	int GetPowerUpCount() const { return mPowerUpCount; }
-	int GetWeaponCount() const { return mWeaponCount; }
+
+	bool HasEmptySlot(EItemCategory category) const
+	{
+		if (category == EItemCategory::POWERUP)
+		{
+			return mPowerUpCount < CONST_MAX_POWERUP_SLOT;
+		}
+		else
+		{
+			return mWeaponCount < CONST_MAX_WEAPON_SLOT;
+		}
+	}
+	bool HasItem(EItemCategory category, int type) const
+	{
+		if (category == EItemCategory::POWERUP)
+			return mPowerUps[type] > 0;
+		else if (category == EItemCategory::WEAPON)
+			return mWeapons[type] > 0;
+	}
 };

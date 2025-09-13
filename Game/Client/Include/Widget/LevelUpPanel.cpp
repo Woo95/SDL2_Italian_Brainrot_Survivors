@@ -49,7 +49,7 @@ void CLevelUpPanel::Construct()
 	const FVector2D slotStartPos = FVector2D(panel->GetTransform()->GetRelativePos().x - slotScale.x * 0.5f, 0.2f);
 	for (int i = 0; i < 3; i++)
 	{
-		mSlots[i] = CreateLevelUpSlot(i, slotScale, slotStartPos + FVector2D(0.0f, slotScale.y * i * 1.03f));
+		mSlots.emplace_back(CreateLevelUpSlot(i, slotScale, slotStartPos + FVector2D(0.0f, slotScale.y * i * 1.03f)));
 	}
 }
 

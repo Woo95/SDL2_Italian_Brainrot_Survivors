@@ -32,7 +32,7 @@ bool CTralala::Init()
 	mFootCollider = AllocateComponent<CBoxCollider>("BoxCollider_TralalaFoot");
 	mFootCollider->SetProfile("PlayerFoot");
 	mFootCollider->GetTransform()->SetRelativeScale(42.0f, 13.0f);
-	mFootCollider->GetTransform()->SetRelativePos(-10.0f, 22.5f);
+	mFootCollider->GetTransform()->SetRelativePos(10.0f, 22.5f);
 	mFootCollider->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mFootCollider);
 
