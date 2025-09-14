@@ -67,8 +67,10 @@ void CPlayerStatusComponent::AddExp(float exp)
 		mLevel++;
 		mExpToLevelUp = (float)(2 * mLevel * mLevel + 10);
 
-		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP);
+		mPendingLevelUps++;
 	}
+	ProcessPendingLevelUp(0.0f);
+
 	float percent = mExp / mExpToLevelUp;
 	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_EXP_GAINED, &percent);
 }
@@ -82,4 +84,13 @@ void CPlayerStatusComponent::AddHP(float hp)
 
 	if (mHP <= 0.0f)
 		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_DIED);
+}
+
+void CPlayerStatusComponent::ProcessPendingLevelUp(float delayTime)
+{
+	if (mPendingLevelUps)
+	{
+		mPendingLevelUps--;
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP, nullptr, delayTime);
+	}
 }

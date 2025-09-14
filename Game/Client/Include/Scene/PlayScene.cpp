@@ -161,7 +161,7 @@ void CPlayScene::BindEventListeners()
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void*)
 	{
 		((CPlayUI*)mSceneUI)->SetLevelUpChoice(mPlayer->GetLevelUpPool());
-		((CPlayUI*)mSceneUI)->SetPlayerLevel(mPlayer->GetStatus()->GetLevel());
+		((CPlayUI*)mSceneUI)->SetPlayerLevel(mPlayer->GetStatus()->GetLevel() - mPlayer->GetStatus()->GetPendingLevelUps());
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		SetSubState(EPlaySubState::LVLUP);
 	});
@@ -178,6 +178,7 @@ void CPlayScene::BindEventListeners()
 			break;
 		}
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
+		mPlayer->GetStatus()->ProcessPendingLevelUp(0.05f);
 		SetSubState(EPlaySubState::PLAY);
 	});
 

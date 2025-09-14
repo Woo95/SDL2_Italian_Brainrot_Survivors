@@ -32,6 +32,7 @@ private:
 	float mExp = 0.0f;
 	float mExpToLevelUp = 12.0f;
 	int mKillCount = 0;
+	int mPendingLevelUps = 0;
 
 private:
 	virtual bool Init()    final;
@@ -56,4 +57,6 @@ public:
 	float GetHP()      const { return mHP; }
 	float GetExp()     const { return mExp; }
 	int GetKillCount() const { return mKillCount; }
+	int GetPendingLevelUps() const { return mPendingLevelUps; }
+	void ProcessPendingLevelUp(float delayTime);
 };

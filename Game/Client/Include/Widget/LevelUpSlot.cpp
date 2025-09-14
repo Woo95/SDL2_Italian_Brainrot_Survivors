@@ -35,7 +35,7 @@ void CLevelUpSlot::Construct()
 	AddChild(mName);
 
 	mStatus = CWidgetUtils::AllocateWidget<CTextBlock>("LevelUpSlot_TextBlock_New");
-	mStatus->GetTransform()->SetRelativeScale(0.12f, 0.2f);
+	mStatus->GetTransform()->SetRelativeScale(0.15f, 0.2f);
 	mStatus->GetTransform()->SetRelativePos(0.7f, 0.125f);
 	mStatus->SetAlignment(ETextBlock::Alignment::LEFT);
 	mStatus->SetCharWidth(12.5f);

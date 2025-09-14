@@ -33,7 +33,7 @@ public:
 
 	void Broadcast(EEventType type, void* data = nullptr, float delaySec = 0.0f)
 	{
-		if (delaySec <= 0)
+		if (delaySec <= 0.0f)
 		{
 			for (auto& callback : mListener[(int)type])
 				callback(data);
@@ -50,7 +50,7 @@ private:
 			FPendingEvent& event = mPendingEvents[i - 1];
 
 			event.timeDelay -= deltaTime;
-			if (event.timeDelay <= 0)
+			if (event.timeDelay <= 0.0f)
 			{
 				for (auto& callback : mListener[(int)event.type])
 					callback(event.data);
