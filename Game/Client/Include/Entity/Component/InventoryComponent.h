@@ -44,5 +44,7 @@ public:
 			return mPowerUps[type] > 0;
 		else if (category == EItemCategory::WEAPON)
 			return mWeapons[type] > 0;
+
+		return false;
 	}
 };

@@ -94,7 +94,9 @@ void CEngine::Update()
 
     CInputManager::GetInst()->Update();
 
-    CSceneManager::GetInst()->Update(CTimer::GetInst()->GetDeltaTime());
+	CEventManager::GetInst()->Update(CTimer::GetInst()->GetDeltaTime());
+
+	CSceneManager::GetInst()->Update(CTimer::GetInst()->GetDeltaTime());
 }
 
 void CEngine::LateUpdate()
