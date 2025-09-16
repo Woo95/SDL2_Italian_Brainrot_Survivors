@@ -80,8 +80,9 @@ void CSceneManager::ChangeApply()
 	}
 
 	// 새로운 씬 플래그 초기화
-	mPending.transition = ETransition::NONE;
+	mPending.transition   = ETransition::NONE;
 	mPending.pendingState = ESceneState::NONE;
+	mPending.payload      = nullptr;
 }
 
 void CSceneManager::PushScene()
@@ -92,7 +93,7 @@ void CSceneManager::PushScene()
 
 	// 새로운 씬 추가
 	mScenes.push_back(newScene);
-	mScenes.back()->Enter();
+	mScenes.back()->Enter(mPending.payload);
 }
 
 void CSceneManager::PopScene()
@@ -122,7 +123,7 @@ void CSceneManager::SwapScene()
 
 	// 새로운 씬 추가
 	mScenes.push_back(newScene);
-	mScenes.back()->Enter();
+	mScenes.back()->Enter(mPending.payload);
 }
 
 void CSceneManager::ClearScenes()
@@ -143,7 +144,7 @@ void CSceneManager::ClearThenPushScene()
 
 	// 새로운 씬 추가
 	mScenes.push_back(newScene);
-	mScenes.back()->Enter();
+	mScenes.back()->Enter(mPending.payload);
 }
 
 CScene* CSceneManager::GetSceneFromState(ESceneState state)

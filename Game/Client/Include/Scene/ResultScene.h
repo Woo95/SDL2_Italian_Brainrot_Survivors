@@ -11,8 +11,11 @@ private:
     virtual ~CResultScene();
 
 public:
-    virtual bool Enter() final;
+    virtual bool Enter(void* payload = nullptr) final;
     virtual bool Exit()  final;
 
     virtual void LoadResources() final;
+
+private:
+	void BindEventListeners();
 };

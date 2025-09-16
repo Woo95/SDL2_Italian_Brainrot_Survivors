@@ -12,7 +12,7 @@ private:
     virtual ~CMenuScene();
 
 public:
-    virtual bool Enter() final;
+    virtual bool Enter(void* payload = nullptr) final;
     virtual bool Exit()  final;
 
     virtual void Update(float deltaTime) final;
@@ -21,4 +21,7 @@ public:
 
 public:
     void SetSubState(EMenuSubState state);
+
+private:
+    void BindEventListeners();
 };
