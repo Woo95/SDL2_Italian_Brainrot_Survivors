@@ -88,7 +88,8 @@ std::vector<FItem> CPlayer::GetLevelUpPool() const
 	// 선택 옵션이 없을 경우
 	if (pool.empty())
 	{
-		// TODO: 치킨 + 돈
+		pool.emplace_back(EItemCategory::CONSUMABLE, 0, 0);
+		pool.emplace_back(EItemCategory::CONSUMABLE, 1, 0);
 	}
 
 	return pool;

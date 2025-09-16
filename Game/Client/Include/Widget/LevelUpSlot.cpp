@@ -62,12 +62,12 @@ void CLevelUpSlot::Construct()
 	weaponBox->SetFrame("WeaponBox");
 	AddChild(weaponBox);
 
-	mWeaponIcon = CWidgetUtils::AllocateWidget<CImage>("LevelUpSlot_Image_WeaponIcon");
-	mWeaponIcon->GetTransform()->SetRelativeScale(FVector2D(0.65f, 0.65f));
-	mWeaponIcon->GetTransform()->SetPivot(0.5f, 0.5f);
-	mWeaponIcon->SetTexture("Texture_ItemAtlas");
-	mWeaponIcon->SetFrame("Empty");
-	weaponBox->AddChild(mWeaponIcon);
+	mItemIcon = CWidgetUtils::AllocateWidget<CImage>("LevelUpSlot_Image_WeaponIcon");
+	mItemIcon->GetTransform()->SetRelativeScale(FVector2D(0.65f, 0.65f));
+	mItemIcon->GetTransform()->SetPivot(0.5f, 0.5f);
+	mItemIcon->SetTexture("Texture_ItemAtlas");
+	mItemIcon->SetFrame("Empty");
+	weaponBox->AddChild(mItemIcon);
 }
 
 void CLevelUpSlot::Release()
@@ -97,6 +97,11 @@ void CLevelUpSlot::UpdateSlot(const FItem& item)
 		const FWeaponData& weaponData = itemDataManager->GetWeaponData((EWeaponType)item.type);
 		UpdateSlotData(weaponData.name, weaponData.description, weaponData.name, item.level);
 	}
+	else if (item.category == EItemCategory::CONSUMABLE)
+	{
+		const FConsumableData& consumableData = itemDataManager->GetConsumableData((EConsumableType)item.type);
+		UpdateSlotData(consumableData.name, consumableData.description, consumableData.name, item.level);
+	}
 	mItem = item;
 }
 
@@ -104,7 +109,7 @@ void CLevelUpSlot::UpdateSlotData(const std::string& name, const std::string& de
 {
 	mName->SetText(name);
 	mDescription->SetText(description);
-	mWeaponIcon->SetFrame(iconFrame);
+	mItemIcon->SetFrame(iconFrame);
 
 	if (level == 0)
 	{

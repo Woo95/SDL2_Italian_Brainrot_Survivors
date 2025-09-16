@@ -35,6 +35,7 @@ enum class EItemCategory : signed char
 	NONE = -1,
 	POWERUP,
 	WEAPON,
+	CONSUMABLE,
 	MAX
 };
 
@@ -58,6 +59,14 @@ enum class EWeaponType : signed char
 	BUBBLE,
 	BAT,
 	BANANA,
+	MAX
+};
+
+enum class EConsumableType : signed char
+{
+	NONE = -1,
+	COIN_BAG,
+	CHICKEN,
 	MAX
 };
 
@@ -100,6 +109,13 @@ struct FPowerUpData
 struct FWeaponData
 {
 	EWeaponType type = EWeaponType::NONE;
+	std::string name;
+	std::string description;
+};
+
+struct FConsumableData
+{
+	EConsumableType type = EConsumableType::NONE;
 	std::string name;
 	std::string description;
 };

@@ -34,6 +34,6 @@ public:
 
 private:
 	CButton* CreateButton(const std::string& widgetName, const std::string& buttonFrame, const FVector2D& buttonSize, const std::string& textLabel, const FVector2D& textSize);
-	CPowerUpSlot* CreatePowerUpSlot(EPowerUpType type, const FVector2D& scale, const FVector2D& pos, const std::string& textLabel);
+	CPowerUpSlot* CreatePowerUpSlot(EPowerUpType type, const FVector2D& scale, const FVector2D& pos);
 	const FVector2D CalcSlotPos(int col, int row) const;
 };

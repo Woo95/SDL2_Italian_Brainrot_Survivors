@@ -13,8 +13,10 @@ private:
 	~CItemDataManager() = default;
 
 private:
-	FPowerUpData mPowerUpData[(int)EPowerUpType::MAX];
-	FWeaponData mWeaponData[(int)EWeaponType::MAX];
+	FPowerUpData    mPowerUpData[(int)EPowerUpType::MAX];
+	FWeaponData     mWeaponData[(int)EWeaponType::MAX];
+	FConsumableData mConsumableData[(int)EConsumableType::MAX];
+
 
 public:
 	const FPowerUpData& GetPowerUpData(EPowerUpType type) const
@@ -24,5 +26,9 @@ public:
 	const FWeaponData& GetWeaponData(EWeaponType type) const
 	{
 		return mWeaponData[(int)type];
+	}
+	const FConsumableData& GetConsumableData(EConsumableType type) const
+	{
+		return mConsumableData[(int)type];
 	}
 };

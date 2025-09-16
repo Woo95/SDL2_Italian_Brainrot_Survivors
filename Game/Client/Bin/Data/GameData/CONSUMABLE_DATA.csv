@@ -1,0 +1,3 @@
+#Type { NONE, BIG_COIN_BAG, FLOOR_CHICKEN },#Name,#Description
+0,Coin Bag,Adds 100 to your Gold coins total.
+1,Chicken,Restores 50 Health points.

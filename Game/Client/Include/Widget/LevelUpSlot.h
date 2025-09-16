@@ -18,7 +18,7 @@ private:
 	CTextBlock* mName = nullptr;
 	CTextBlock* mStatus = nullptr;
 	CTextBlock* mDescription = nullptr;
-	CImage* mWeaponIcon = nullptr;
+	CImage* mItemIcon = nullptr;
 
 protected:
 	virtual void Construct() final;
