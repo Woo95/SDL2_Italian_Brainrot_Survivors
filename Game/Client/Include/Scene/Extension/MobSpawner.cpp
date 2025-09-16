@@ -85,16 +85,15 @@ void CMobSpawner::RespawnMob()
 		FVector2D delta = mob->GetTransform()->GetWorldPos() - mPlayer->GetTransform()->GetWorldPos();
 		if (delta.Length() >= mDespawnThreshold)
 		{
-			mob->GetTransform()->SetWorldPos(mPlayer->GetTransform()->GetWorldPos() - delta);
+			mob->GetTransform()->SetWorldPos(GetRandomSpawnPos(1.1f));
 		}
 	}
 }
 
-FVector2D CMobSpawner::GetRandomSpawnPos() const
+FVector2D CMobSpawner::GetRandomSpawnPos(float scale) const
 {
 	const FVector2D& playerPos = mPlayer->GetTransform()->GetWorldPos();
 
-	float scale = 1.2f;
 	float halfW = mExtendCamRes.x * 0.5f * scale;
 	float halfH = mExtendCamRes.y * 0.5f * scale;
 

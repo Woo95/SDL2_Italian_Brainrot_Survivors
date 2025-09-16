@@ -50,7 +50,7 @@ private:
 		mSpawnedMobs.emplace_back(mob);
 	}
 
-	FVector2D GetRandomSpawnPos() const;
+	FVector2D GetRandomSpawnPos(float scale) const;
 	float GetRandomRange(float min, float max) const
 	{
 		return min + (float)std::rand() / (RAND_MAX + 1.0f) * (max - min);

@@ -211,7 +211,7 @@ void CPlayScene::BindEventListeners()
 
 		if (mob)
 		{
-			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
+			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos(1.2f));
 			mob->GetChase()->SetTarget(mPlayer->GetTransform());
 			mMobSpawner->RegisterMob(mob);
 		}
@@ -245,7 +245,7 @@ void CPlayScene::BindEventListeners()
 
 		if (mob)
 		{
-			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos());
+			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos(1.2f));
 			mob->GetChase()->SetTarget(mPlayer->GetTransform());
 			mMobSpawner->RegisterMob(mob);
 		}
