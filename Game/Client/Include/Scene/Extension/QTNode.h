@@ -2,7 +2,7 @@
 
 #include "../../Core/GameInfo.h"
 
-#define MAX_COLLIDERS_PER_NODE 15
+#define MAX_COLLIDERS_PER_NODE 25
 #define MAX_SPLIT 3
 
 class CCollider;
