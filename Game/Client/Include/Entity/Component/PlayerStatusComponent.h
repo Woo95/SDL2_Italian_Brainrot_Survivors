@@ -32,6 +32,7 @@ private:
 	float mExp = 0.0f;
 	float mExpToLevelUp = 12.0f;
 	int mKillCount = 0;
+	int mGoldEarned = 0;
 	int mPendingLevelUps = 0;
 
 private:
@@ -41,7 +42,16 @@ private:
 public:
 	void AddExp(float exp);
 	void AddHP(float hp);
+	void AddKill()
+	{
+		mKillCount++;
+	}
+	void AddGold(int money)
+	{
+		mGoldEarned += money;
+	}
 
+public:
 	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
 	int GetMenuPowerUpLvl(EPowerUpType type) const { return mMenuPowerUps[(int)type]; }
 
@@ -53,10 +63,11 @@ public:
 	float GetBasePickupRange() const { return mBasePickupRange; }
 	float GetBaseGrowthExp()   const { return mBaseGrowthExp; }
 
-	int GetLevel()     const { return mLevel; }
-	float GetHP()      const { return mHP; }
-	float GetExp()     const { return mExp; }
-	int GetKillCount() const { return mKillCount; }
+	int GetLevel()      const { return mLevel; }
+	float GetHP()       const { return mHP; }
+	float GetExp()      const { return mExp; }
+	int GetKillCount()  const { return mKillCount; }
+	int GetGoldEarned() const { return mGoldEarned; }
 	int GetPendingLevelUps() const { return mPendingLevelUps; }
 	void ProcessPendingLevelUp(float delayTime);
 };

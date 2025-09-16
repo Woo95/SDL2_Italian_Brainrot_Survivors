@@ -4,6 +4,10 @@
 
 enum class EEventType : unsigned char
 {
+	GOTO_MENU_SCENE,
+	GOTO_PLAY_SCENE,
+	GOTO_RESULT_SCENE,
+
 	PLAYER_EXP_GAINED,
 	PLAYER_LEVEL_UP,
 	PLAYER_LEVEL_UP_SELECTED,
@@ -11,5 +15,6 @@ enum class EEventType : unsigned char
 	PLAYER_DIED,
 	REGULAR_MOB_SPAWN,
 	SUBBOSS_MOB_SPAWN,
+
 	MAX
 };

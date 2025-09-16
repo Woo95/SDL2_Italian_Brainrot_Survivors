@@ -1,7 +1,9 @@
 #include "MenuScene.h"
+#include "Extension/MenuUI.h"
+#include "../Manager/SceneManager.h"
+#include "../Manager/EventManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Scene/Extension/MenuUI.h"
 
 CMenuScene::CMenuScene()
 {
@@ -13,13 +15,15 @@ CMenuScene::~CMenuScene()
     SAFE_DELETE(mSceneUI);
 }
 
-bool CMenuScene::Enter()
+bool CMenuScene::Enter(void* payload)
 {
-	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_TitleIntro")->Play();
+    BindEventListeners();
 
-	mSceneUI->Init();
-	SetSubState(EMenuSubState::START);
-
+    CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_TitleIntro")->Play();
+    
+    mSceneUI->Init();
+    SetSubState(EMenuSubState::START);
+    
     return true;
 }
 
@@ -58,4 +62,14 @@ void CMenuScene::LoadResources()
 void CMenuScene::SetSubState(EMenuSubState state)
 {
     ((CMenuUI*)mSceneUI)->SetUIPanel(state);
+}
+
+void CMenuScene::BindEventListeners()
+{
+    CEventManager* EM = CEventManager::GetInst();
+
+    EM->AddListener(EEventType::GOTO_PLAY_SCENE, [this](void*)
+    {
+        CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::PLAY);
+    });
 }

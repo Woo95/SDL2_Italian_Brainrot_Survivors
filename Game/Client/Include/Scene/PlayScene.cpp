@@ -5,6 +5,7 @@
 #include "Extension/MobSpawner.h"
 #include "../Engine.h"
 #include "../Manager/InputManager.h"
+#include "../Manager/SceneManager.h"
 #include "../Manager/EventManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
@@ -32,8 +33,10 @@ CPlayScene::~CPlayScene()
 	SAFE_DELETE(mCamera);
 }
 
-bool CPlayScene::Enter()
+bool CPlayScene::Enter(void* payload)
 {
+	BindEventListeners();
+
     // Sound //
     CSoundManager* SM = CAssetManager::GetInst()->GetSoundManager();
     SM->SetVolume<CBGM>(SM->GetVolume<CBGM>());
@@ -42,7 +45,6 @@ bool CPlayScene::Enter()
     // Entity //
     InstantiateObject<CMadForest, 1>("Object_MadForest", ELayer::BACKGROUND);
     mPlayer = InstantiatePlayer();
-	BindEventListeners();
 
     // Camera //
     mCamera->SetTarget(mPlayer);
@@ -150,6 +152,22 @@ void CPlayScene::BindEventListeners()
 {
 	CEventManager* EM = CEventManager::GetInst();
 
+	// 씬 관련
+	EM->AddListener(EEventType::GOTO_PLAY_SCENE, [this](void* data)
+	{
+		SetSubState(EPlaySubState::PLAY);
+	});
+	EM->AddListener(EEventType::GOTO_RESULT_SCENE, [this](void* data)
+	{
+		FResultData* resultData = new FResultData(
+			mTime,
+			mPlayer->GetStatus()->GetLevel(),
+			mPlayer->GetStatus()->GetGoldEarned(),
+			mPlayer->GetStatus()->GetKillCount()
+		);
+		CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::RESULT, resultData);
+	});
+
 	// 경험치 관련
 	EM->AddListener(EEventType::PLAYER_EXP_GAINED, [this](void* data)
 	{
@@ -175,6 +193,16 @@ void CPlayScene::BindEventListeners()
 			break;
 		case EItemCategory::WEAPON:
 			mPlayer->GetInventory()->AddWeapon((EWeaponType)selectedItem.type);
+			break;
+		case EItemCategory::CONSUMABLE:
+			if ((EConsumableType)selectedItem.type == EConsumableType::COIN_BAG)
+			{
+				mPlayer->GetStatus()->AddGold(100);
+			}
+			else if ((EConsumableType)selectedItem.type == EConsumableType::CHICKEN)
+			{
+				mPlayer->GetStatus()->AddHP(50);
+			}
 			break;
 		}
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();

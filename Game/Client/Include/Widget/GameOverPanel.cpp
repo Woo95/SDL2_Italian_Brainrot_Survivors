@@ -2,7 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Manager/SceneManager.h"
+#include "../Manager/EventManager.h"
 
 CGameOverPanel::CGameOverPanel()
 {
@@ -38,7 +38,7 @@ void CGameOverPanel::Construct()
 	button->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
 	button->SetCornerRatio(2.0f);
 	button->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
-	button->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::CLEAR_THEN_PUSH, ESceneState::RESULT);});
+	button->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_RESULT_SCENE);});
 }
 
 void CGameOverPanel::Release()

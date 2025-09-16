@@ -119,3 +119,11 @@ struct FConsumableData
 	std::string name;
 	std::string description;
 };
+
+struct FResultData
+{
+	float survivedTime = 0.0f;
+	int levelReached = 0;
+	int goldEarned = 0;
+	int killCount = 0;
+};

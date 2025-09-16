@@ -2,8 +2,7 @@
 #include "AllWidgets.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Manager/SceneManager.h"
-#include "../Scene/PlayScene.h"
+#include "../Manager/EventManager.h"
 
 CPausePanel::CPausePanel()
 {
@@ -30,7 +29,7 @@ void CPausePanel::Construct()
 	mBtnQuit->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
 	mBtnQuit->SetCornerRatio(2.0f);
 	mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
-	mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::CLEAR_THEN_PUSH, ESceneState::RESULT);});
+	mBtnQuit->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_RESULT_SCENE);});
 
 	mBtnOption = CreateButton("Option", "BlueButton", FVector2D(0.17f, 0.09f), "OPTIONS", FVector2D(0.65f, 0.6f));
 	mBtnOption->GetTransform()->SetRelativePos(FVector2D(0.39f, 0.9f));
@@ -45,7 +44,7 @@ void CPausePanel::Construct()
 	mBtnResume->SetCornerRatio(2.0f);
 	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
 	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HideOptionPanel();});
-	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {((CPlayScene*)CSceneManager::GetInst()->GetCurrentScene())->SetSubState(EPlaySubState::PLAY);});
+	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SCENE);});
 
 	mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel>("PausePanel_OptionPanel");
 	mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));

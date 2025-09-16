@@ -5,7 +5,7 @@
 #include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Manager/SceneManager.h"
+#include "../Manager/EventManager.h"
 
 CCharacterSelectPanel::CCharacterSelectPanel()
 {
@@ -82,7 +82,7 @@ void CCharacterSelectPanel::Construct()
     mBtnStart->Set9SlicingCorner(FVector2D(10.0f, 7.0f));
     mBtnStart->SetCornerRatio(2.0f);
     mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressIn")->Play();});
-    mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::PLAY);});
+    mBtnStart->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SCENE);});
     mBtnStart->Disable();
 }
 
