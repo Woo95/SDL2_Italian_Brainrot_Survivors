@@ -21,7 +21,7 @@ CPlayScene::CPlayScene()
 	mSceneCollision = new CSceneCollision(mCamera);
 	mSceneUI = new CPlayUI;
 
-	mMobSpawner = new CMobSpawner(mCamera);
+	mMobSpawner = new CMobSpawner(this);
 }
 
 CPlayScene::~CPlayScene()
@@ -226,77 +226,5 @@ void CPlayScene::BindEventListeners()
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
 		SetSubState(EPlaySubState::GAMEOVER);
-	});
-
-	// 몬스터 스포너 관련
-	EM->AddListener(EEventType::REGULAR_MOB_SPAWN, [this](void* data)
-	{
-		ERegularMobType type = (ERegularMobType)(*(int*)data);
-
-		CEnemy* mob = nullptr;
-		switch (type)
-		{
-		case ERegularMobType::SKELETON:
-			mob = InstantiateObject<CSkeleton, 30>("Enemy_Mob_Skeleton");
-			break;
-		case ERegularMobType::SKELETON_KNIFE:
-			mob = InstantiateObject<CSkeletonKnife, 30>("Enemy_Mob_SkeletonKnife");
-			break;
-		case ERegularMobType::SKULL:
-			break;
-		case ERegularMobType::SKELETON_PANTHER:
-			break;
-		case ERegularMobType::SKELETON_XL:
-			break;
-		case ERegularMobType::SKELETON_MAD:
-			break;
-		case ERegularMobType::SKELETON_ANGEL:
-			break;
-		case ERegularMobType::SKELETON_NINJA:
-			break;
-		case ERegularMobType::SKELETON_DRAGON:
-			break;
-		}
-
-		if (mob)
-		{
-			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos(1.2f));
-			mob->GetChase()->SetTarget(mPlayer->GetTransform());
-			mMobSpawner->RegisterMob(mob);
-		}
-	});
-	EM->AddListener(EEventType::SUBBOSS_MOB_SPAWN, [this](void* data)
-	{
-		ESubBossMobType type = (ESubBossMobType)(*(int*)data);
-
-		CEnemy* mob = nullptr;
-		switch (type)
-		{
-		case ESubBossMobType::REAPER:
-			mob = InstantiateObject<CReaper, 1>("Enemy_Boss_Reaper");
-			break;
-		case ESubBossMobType::DROWNER:
-			mob = InstantiateObject<CDrowner, 1>("Enemy_Boss_Drowner");
-			break;
-		case ESubBossMobType::TRICKSTER:
-			mob = InstantiateObject<CTrickster, 1>("Enemy_Boss_Trickster");
-			break;
-		case ESubBossMobType::STALKER:
-			mob = InstantiateObject<CStalker, 1>("Enemy_Boss_Stalker");
-			break;
-		case ESubBossMobType::MADDENER:
-			mob = InstantiateObject<CMaddener, 1>("Enemy_Boss_Maddener");
-			break;
-		case ESubBossMobType::ENDER:
-			mob = InstantiateObject<CEnder, 1>("Enemy_Boss_Ender");
-			break;
-		}
-
-		if (mob)
-		{
-			mob->GetTransform()->SetWorldPos(mMobSpawner->GetRandomSpawnPos(1.2f));
-			mob->GetChase()->SetTarget(mPlayer->GetTransform());
-			mMobSpawner->RegisterMob(mob);
-		}
 	});
 }

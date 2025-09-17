@@ -1,13 +1,14 @@
 #include "MobSpawner.h"
 #include "Camera.h"
+#include "../Scene.h"
 #include "../../Core/Utils/GameDataUtils.h"
-#include "../../Manager/EventManager.h"
 #include "../../Entity/Object/AllObjects.h"
+#include "../../Entity/Component/AllComponents.h"
+#include "../../Manager/EventManager.h"
 
-CMobSpawner::CMobSpawner(CCamera* camera)
+CMobSpawner::CMobSpawner(CScene* scene)
 {
-	// 스프라이트 크기 고려하여 영역을 확장 
-	mExtendCamRes = camera->GetResolution() * 1.1f;
+	mScene = scene;
 }
 
 CMobSpawner::~CMobSpawner()
@@ -16,11 +17,13 @@ CMobSpawner::~CMobSpawner()
 
 bool CMobSpawner::Init()
 {
+	BindEventListeners();
+
 	mRegSpawnAmount   = CONST_REGULAR_MOB_SPAWN_AMOUNT;
 	mRegularSpawnTime = CONST_REGULAR_MOB_SPAWN_INTERVAL;
 	mSubBossSpawnTime = CONST_SUBBOSS_MOB_SPAWN_INTERVAL;
 
-	mDespawnThreshold = mExtendCamRes.Length() * 0.75f;
+	mDespawnThreshold = mScene->GetCamera()->GetResolution().Length() * 0.75f;
 
 	return true;
 }
@@ -30,7 +33,7 @@ void CMobSpawner::Update(float deltaTime)
 	if (!mPlayer)
 		return;
 
-	//mRegularSpawnTime -= deltaTime;
+	mRegularSpawnTime -= deltaTime;
 	mSubBossSpawnTime -= deltaTime;
 
 	SpawnMob();
@@ -45,7 +48,7 @@ void CMobSpawner::SpawnMob()
 
 		// SPAWN REGULAR MOB
 		int idx = rand() % (mUnlockedRegIdx + 1);
-		CEventManager::GetInst()->Broadcast(EEventType::REGULAR_MOB_SPAWN, &mUnlockedRegIdx);
+		CEventManager::GetInst()->Broadcast(EEventType::REGULAR_MOB_SPAWN, &idx);
 
 		// INDEX CONTROL
 		mRegSpawnAmount--;
@@ -94,28 +97,114 @@ FVector2D CMobSpawner::GetRandomSpawnPos(float scale) const
 {
 	const FVector2D& playerPos = mPlayer->GetTransform()->GetWorldPos();
 
-	float halfW = mExtendCamRes.x * 0.5f * scale;
-	float halfH = mExtendCamRes.y * 0.5f * scale;
+	float halfW = mScene->GetCamera()->GetResolution().x * 0.5f;
+	float halfH = mScene->GetCamera()->GetResolution().y * 0.5f;
+	float scaledHalfW = halfW * scale;
+	float scaledHalfH = halfH * scale;
 
 	FVector2D pos = FVector2D::ZERO;
 	switch (std::rand() % 4)
 	{
 	case 0: // 왼쪽
-		pos.x = GetRandomRange(playerPos.x - halfW, playerPos.x - mExtendCamRes.x * 0.5f);
-		pos.y = GetRandomRange(playerPos.y + halfH, playerPos.y - mExtendCamRes.y * 0.5f);
+		pos.x = GetRandomRange(playerPos.x - scaledHalfW, playerPos.x - halfW);
+		pos.y = GetRandomRange(playerPos.y + scaledHalfH, playerPos.y - halfH);
 		break;
 	case 1: // 오른쪽
-		pos.x = GetRandomRange(playerPos.x + mExtendCamRes.x * 0.5f, playerPos.x + halfW);
-		pos.y = GetRandomRange(playerPos.y + mExtendCamRes.y * 0.5f, playerPos.y - halfH);
+		pos.x = GetRandomRange(playerPos.x + halfW, playerPos.x + scaledHalfW);
+		pos.y = GetRandomRange(playerPos.y + halfH, playerPos.y - scaledHalfH);
 		break;
 	case 2: // 위
-		pos.x = GetRandomRange(playerPos.x - halfW, playerPos.x + mExtendCamRes.x * 0.5f);
-		pos.y = GetRandomRange(playerPos.y - mExtendCamRes.y * 0.5f, playerPos.y - halfH);
+		pos.x = GetRandomRange(playerPos.x - scaledHalfW, playerPos.x + halfW);
+		pos.y = GetRandomRange(playerPos.y - halfH, playerPos.y - scaledHalfH);
 		break;
 	case 3: // 아래
-		pos.x = GetRandomRange(playerPos.x - mExtendCamRes.x * 0.5f, playerPos.x + halfW);
-		pos.y = GetRandomRange(playerPos.y + halfH, playerPos.y + mExtendCamRes.y * 0.5f);
+		pos.x = GetRandomRange(playerPos.x - halfW, playerPos.x + scaledHalfW);
+		pos.y = GetRandomRange(playerPos.y + scaledHalfH, playerPos.y + halfH);
 		break;
 	}
 	return pos;
+}
+
+void CMobSpawner::BindEventListeners()
+{
+	CEventManager* EM = CEventManager::GetInst();
+
+	// 몬스터 스포너 관련
+	EM->AddListener(EEventType::REGULAR_MOB_SPAWN, [this](void* data)
+	{
+		ERegularMobType type = (ERegularMobType)(*(int*)data);
+
+		CEnemy* mob = nullptr;
+		switch (type)
+		{
+		case ERegularMobType::SKELETON:
+			mob = mScene->InstantiateObject<CSkeleton, 25>("Enemy_Mob_Skeleton");
+			break;
+		case ERegularMobType::SKELETON_KNIFE:
+			mob = mScene->InstantiateObject<CSkeletonKnife, 25>("Enemy_Mob_SkeletonKnife");
+			break;
+		case ERegularMobType::SKULL:
+			mob = mScene->InstantiateObject<CSkull, 25>("Enemy_Mob_Skull");
+			break;
+		case ERegularMobType::SKELETON_PANTHER:
+			mob = mScene->InstantiateObject<CSkeletonPanther, 25>("Enemy_Mob_SkeletonPanther");
+			break;
+		case ERegularMobType::SKELETON_XL:
+			mob = mScene->InstantiateObject<CSkeletonXL, 25>("Enemy_Mob_SkeletonXL");
+			break;
+		case ERegularMobType::SKELETON_MAD:
+			mob = mScene->InstantiateObject<CSkeletonMad, 25>("Enemy_Mob_SkeletonMad");
+			break;
+		case ERegularMobType::SKELETON_ANGEL:
+			mob = mScene->InstantiateObject<CSkeletonAngel, 25>("Enemy_Mob_SSkeletonAngel");
+			break;
+		case ERegularMobType::SKELETON_NINJA:
+			mob = mScene->InstantiateObject<CSkeletonNinja, 25>("Enemy_Mob_SkeletonNinja");
+			break;
+		case ERegularMobType::SKELETON_DRAGON:
+			mob = mScene->InstantiateObject<CSkeletonDragon, 25>("Enemy_Mob_SkeletonDragon");
+			break;
+		}
+
+		if (mob)
+		{
+			mob->GetTransform()->SetWorldPos(GetRandomSpawnPos(1.2f));
+			mob->GetChase()->SetTarget(mPlayer->GetTransform());
+			mSpawnedMobs.emplace_back(mob);
+		}
+	});
+	EM->AddListener(EEventType::SUBBOSS_MOB_SPAWN, [this](void* data)
+	{
+		ESubBossMobType type = (ESubBossMobType)(*(int*)data);
+
+		CEnemy* mob = nullptr;
+		switch (type)
+		{
+		case ESubBossMobType::REAPER:
+			mob = mScene->InstantiateObject<CReaper, 1>("Enemy_Boss_Reaper");
+			break;
+		case ESubBossMobType::DROWNER:
+			mob = mScene->InstantiateObject<CDrowner, 1>("Enemy_Boss_Drowner");
+			break;
+		case ESubBossMobType::TRICKSTER:
+			mob = mScene->InstantiateObject<CTrickster, 1>("Enemy_Boss_Trickster");
+			break;
+		case ESubBossMobType::STALKER:
+			mob = mScene->InstantiateObject<CStalker, 1>("Enemy_Boss_Stalker");
+			break;
+		case ESubBossMobType::MADDENER:
+			mob = mScene->InstantiateObject<CMaddener, 1>("Enemy_Boss_Maddener");
+			break;
+		case ESubBossMobType::ENDER:
+			mob = mScene->InstantiateObject<CEnder, 1>("Enemy_Boss_Ender");
+			break;
+		}
+
+		if (mob)
+		{
+			mob->GetTransform()->SetWorldPos(GetRandomSpawnPos(1.2f));
+			mob->GetChase()->SetTarget(mPlayer->GetTransform());
+			mSpawnedMobs.emplace_back(mob);
+		}
+	});
 }

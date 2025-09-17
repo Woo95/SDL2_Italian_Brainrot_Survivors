@@ -3,7 +3,7 @@
 #include "../../Core/GameInfo.h"
 #include "../../Core/Vector2D.h"
 
-class CCamera;
+class CScene;
 class CPlayer;
 class CEnemy;
 
@@ -13,12 +13,12 @@ class CMobSpawner
 
 private:
 	CMobSpawner() = delete;
-	CMobSpawner(CCamera* camera);
+	CMobSpawner(CScene* scene);
 	~CMobSpawner();
 
 private:
-	// Player & Camera
-	FVector2D mExtendCamRes = FVector2D::ZERO;
+	// Scene & Player
+	CScene*  mScene  = nullptr;
 	CPlayer* mPlayer = nullptr;
 
 	// Spawn related variables
@@ -34,7 +34,7 @@ private:
 	float mDespawnThreshold = 0.0f;
 
 	// Constants
-	const int   CONST_REGULAR_MOB_SPAWN_AMOUNT   = 30;
+	const int   CONST_REGULAR_MOB_SPAWN_AMOUNT   = 25;
 	const float CONST_REGULAR_MOB_SPAWN_INTERVAL = 0.75f;
 	const float CONST_SUBBOSS_MOB_SPAWN_INTERVAL = 50.0f;
 
@@ -45,10 +45,6 @@ private:
 private:
 	void SpawnMob();
 	void RespawnMob();
-	void RegisterMob(CEnemy* mob)
-	{
-		mSpawnedMobs.emplace_back(mob);
-	}
 
 	FVector2D GetRandomSpawnPos(float scale) const;
 	float GetRandomRange(float min, float max) const
@@ -60,4 +56,6 @@ private:
 	{
 		mPlayer = player;
 	}
+
+	void BindEventListeners();
 };
