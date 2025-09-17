@@ -14,7 +14,7 @@ private:
 
 	// 이벤트 타입별로 등록된 리스너 목록
 	using EventCallback = std::function<void(void*)>;
-	std::vector<EventCallback> mListener[(int)EEventType::MAX] = {};
+	std::vector<EventCallback> mListener[(int)EEventType::MAX];
 
 	// 다음 n 프레임에 처리할 이벤트를 임시로 보관
 	struct FPendingEvent { EEventType type; void* data; float timeDelay; };
@@ -24,6 +24,10 @@ public:
 	void AddListener(EEventType type, EventCallback callback)
 	{
 		mListener[(int)type].emplace_back(callback);
+	}
+	void ClearListener(EEventType type)
+	{
+		mListener[(int)type].clear();
 	}
 	void ClearAllListener()
 	{

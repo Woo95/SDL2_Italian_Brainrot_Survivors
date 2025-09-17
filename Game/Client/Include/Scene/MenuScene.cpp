@@ -13,6 +13,8 @@ CMenuScene::CMenuScene()
 CMenuScene::~CMenuScene()
 {
     SAFE_DELETE(mSceneUI);
+
+	CEventManager::GetInst()->ClearAllListener();
 }
 
 bool CMenuScene::Enter(void* payload)

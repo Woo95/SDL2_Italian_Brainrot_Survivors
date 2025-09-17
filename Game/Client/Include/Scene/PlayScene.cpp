@@ -31,6 +31,8 @@ CPlayScene::~CPlayScene()
 	SAFE_DELETE(mSceneUI);
 	SAFE_DELETE(mSceneCollision);
 	SAFE_DELETE(mCamera);
+
+	CEventManager::GetInst()->ClearAllListener();
 }
 
 bool CPlayScene::Enter(void* payload)
@@ -112,6 +114,7 @@ void CPlayScene::LoadResources()
     LoadTexture("Texture_" + charName, (charName + ".png").c_str());
 
 	LoadTexture("Texture_Boss", "BossAtlas.png");
+	LoadTexture("Texture_Mob", "MobAtlas.png");
 
     LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);
 
@@ -234,6 +237,24 @@ void CPlayScene::BindEventListeners()
 		switch (type)
 		{
 		case ERegularMobType::SKELETON:
+			mob = InstantiateObject<CSkeleton, 30>("Enemy_Mob_Skeleton");
+			break;
+		case ERegularMobType::SKELETON_KNIFE:
+			mob = InstantiateObject<CSkeletonKnife, 30>("Enemy_Mob_SkeletonKnife");
+			break;
+		case ERegularMobType::SKULL:
+			break;
+		case ERegularMobType::SKELETON_PANTHER:
+			break;
+		case ERegularMobType::SKELETON_XL:
+			break;
+		case ERegularMobType::SKELETON_MAD:
+			break;
+		case ERegularMobType::SKELETON_ANGEL:
+			break;
+		case ERegularMobType::SKELETON_NINJA:
+			break;
+		case ERegularMobType::SKELETON_DRAGON:
 			break;
 		}
 
