@@ -13,3 +13,13 @@
 #include "Stalker.h"
 #include "Maddener.h"
 #include "Ender.h"
+
+#include "Skeleton.h"
+#include "SkeletonKnife.h"
+#include "Skull.h"
+#include "SkeletonPanther.h"
+#include "SkeletonXL.h"
+#include "SkeletonMad.h"
+#include "SkeletonAngel.h"
+#include "SkeletonNinja.h"
+#include "SkeletonDragon.h"

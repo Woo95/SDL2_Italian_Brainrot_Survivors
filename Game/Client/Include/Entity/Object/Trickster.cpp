@@ -27,13 +27,6 @@ bool CTrickster::Init()
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(hitbox);
 
-	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_TricksterFoot");
-	foot->SetProfile("EnemyFoot");
-	foot->GetTransform()->SetRelativeScale(23.0f, 10.0f);
-	foot->GetTransform()->SetRelativePos(0.0f, 30.0f);
-	foot->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(foot);
-
 	return CEnemy::Init();
 }
 

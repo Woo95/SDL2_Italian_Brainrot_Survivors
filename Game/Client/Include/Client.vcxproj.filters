@@ -205,6 +205,12 @@
     <Filter Include="Game\05. Entity\01. Object\Enemy">
       <UniqueIdentifier>{4310cd1a-7088-490e-8139-7868ef67733a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\05. Entity\01. Object\Enemy\01. Mob">
+      <UniqueIdentifier>{105385b1-98d0-4b21-9b60-cc289cbeca0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity\01. Object\Enemy\02. Boss">
+      <UniqueIdentifier>{3f30e95c-805c-4c8f-af4d-d2b2ab6ed45e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -792,9 +798,6 @@
     <ClInclude Include="Core\Utils\InventoryUtils.h">
       <Filter>Game\01. Core\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Object\Reaper.h">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\EventManager.h">
       <Filter>Game\02. Manager</Filter>
     </ClInclude>
@@ -804,20 +807,50 @@
     <ClInclude Include="Manager\AllManagers.h">
       <Filter>Framework\02. Manager</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Object\Drowner.h">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Object\Trickster.h">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Drowner.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Ender.h">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Maddener.h">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Reaper.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClInclude>
     <ClInclude Include="Entity\Object\Stalker.h">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Skeleton.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonAngel.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonDragon.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonKnife.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonMad.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonNinja.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonPanther.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\SkeletonXL.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Skull.h">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1089,23 +1122,50 @@
     <ClCompile Include="Entity\Component\InventoryComponent.cpp">
       <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Object\Reaper.cpp">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Object\Drowner.cpp">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Ender.cpp">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Maddener.cpp">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Reaper.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Stalker.cpp">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
     </ClCompile>
     <ClCompile Include="Entity\Object\Trickster.cpp">
-      <Filter>Game\05. Entity\01. Object\Enemy</Filter>
+      <Filter>Game\05. Entity\01. Object\Enemy\02. Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Skeleton.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonAngel.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonDragon.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonKnife.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonMad.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonNinja.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonPanther.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\SkeletonXL.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Skull.cpp">
+      <Filter>Game\05. Entity\01. Object\Enemy\01. Mob</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
