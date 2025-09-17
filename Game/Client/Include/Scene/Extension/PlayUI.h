@@ -34,4 +34,7 @@ public:
     void SetPlayerLevel(int level);
     void SetKillCounter(int count);
     void SetGameTime(float seconds);
+
+private:
+    void BindEventListeners();
 };

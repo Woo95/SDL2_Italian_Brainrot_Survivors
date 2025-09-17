@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "../Component/AllComponents.h"
 #include "../../Manager/InputManager.h"
+#include "../../Manager/EventManager.h"
 
 CPlayer::CPlayer() :
 	mStatus(nullptr),
@@ -14,6 +15,8 @@ CPlayer::CPlayer() :
 
 CPlayer::~CPlayer()
 {
+	BindEventListeners();
+
 	mInput->DeleteFunctionFromBinder("W_MoveUp",    this);
 	mInput->DeleteFunctionFromBinder("A_MoveLeft",  this);
 	mInput->DeleteFunctionFromBinder("S_MoveDown",  this);
@@ -192,4 +195,34 @@ float CPlayer::GetGrwothExp() const
 	const float itemGrowth = itemLevel * mStatus->GetStatModifier(EPowerUpType::GROWTH);
 
 	return mStatus->GetBaseGrowthExp() + itemGrowth;
+}
+
+void CPlayer::BindEventListeners()
+{
+	CEventManager* EM = CEventManager::GetInst();
+
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
+	{
+		FItem selectedItem = *(FItem*)item;
+		switch (selectedItem.category)
+		{
+		case EItemCategory::POWERUP:
+			mInventory->AddPowerUp((EPowerUpType)selectedItem.type);
+			break;
+		case EItemCategory::WEAPON:
+			mInventory->AddWeapon((EWeaponType)selectedItem.type);
+			break;
+		case EItemCategory::CONSUMABLE:
+			if ((EConsumableType)selectedItem.type == EConsumableType::COIN_BAG)
+			{
+				mStatus->AddGold(100);
+			}
+			else if ((EConsumableType)selectedItem.type == EConsumableType::CHICKEN)
+			{
+				mStatus->AddHP(50);
+			}
+			break;
+		}
+		mStatus->ProcessPendingLevelUp(0.05f);
+	});
 }

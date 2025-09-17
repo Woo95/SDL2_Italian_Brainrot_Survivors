@@ -155,7 +155,7 @@ void CPlayScene::BindEventListeners()
 {
 	CEventManager* EM = CEventManager::GetInst();
 
-	// 씬 관련
+	// 씬 전환 관련
 	EM->AddListener(EEventType::GOTO_PLAY_SCENE, [this](void* data)
 	{
 		SetSubState(EPlaySubState::PLAY);
@@ -171,56 +171,17 @@ void CPlayScene::BindEventListeners()
 		CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::RESULT, resultData);
 	});
 
-	// 경험치 관련
-	EM->AddListener(EEventType::PLAYER_EXP_GAINED, [this](void* data)
+	// 서브 씬 전환 관련
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
 	{
-		float percent = *(float*)data;
-		((CPlayUI*)mSceneUI)->SetExpPercent(percent);
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
+		SetSubState(EPlaySubState::PLAY);
 	});
-
-	// 레벨업 관련
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void*)
 	{
-		((CPlayUI*)mSceneUI)->SetLevelUpChoice(mPlayer->GetLevelUpPool());
-		((CPlayUI*)mSceneUI)->SetPlayerLevel(mPlayer->GetStatus()->GetLevel() - mPlayer->GetStatus()->GetPendingLevelUps());
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		SetSubState(EPlaySubState::LVLUP);
 	});
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
-	{
-		FItem selectedItem = *(FItem*)item;
-		switch (selectedItem.category)
-		{
-		case EItemCategory::POWERUP:
-			mPlayer->GetInventory()->AddPowerUp((EPowerUpType)selectedItem.type);
-			break;
-		case EItemCategory::WEAPON:
-			mPlayer->GetInventory()->AddWeapon((EWeaponType)selectedItem.type);
-			break;
-		case EItemCategory::CONSUMABLE:
-			if ((EConsumableType)selectedItem.type == EConsumableType::COIN_BAG)
-			{
-				mPlayer->GetStatus()->AddGold(100);
-			}
-			else if ((EConsumableType)selectedItem.type == EConsumableType::CHICKEN)
-			{
-				mPlayer->GetStatus()->AddHP(50);
-			}
-			break;
-		}
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
-		mPlayer->GetStatus()->ProcessPendingLevelUp(0.05f);
-		SetSubState(EPlaySubState::PLAY);
-	});
-
-	// 체력 관련
-	EM->AddListener(EEventType::PLAYER_HP_CHANGED, [this](void* data)
-	{
-		float percent = *(float*)data;
-		((CPlayUI*)mSceneUI)->SetHealthPercent(percent);
-	});
-
-	// 죽음 관련
 	EM->AddListener(EEventType::PLAYER_DIED, [this](void*)
 	{
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();

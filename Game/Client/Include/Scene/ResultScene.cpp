@@ -56,6 +56,7 @@ void CResultScene::BindEventListeners()
 {
 	CEventManager* EM = CEventManager::GetInst();
 
+	// 씬 전환 관련
 	EM->AddListener(EEventType::GOTO_MENU_SCENE, [this](void*)
 	{
 		CSceneManager::GetInst()->ChangeRequest(ETransition::SWAP, ESceneState::MENU);

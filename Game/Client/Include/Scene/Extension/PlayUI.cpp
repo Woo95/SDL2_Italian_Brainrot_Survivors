@@ -1,6 +1,9 @@
 #include "PlayUI.h"
 #include "../../Engine.h"
 #include "../../Widget/AllWidgets.h"
+#include "../../Manager/EventManager.h"
+#include "../../Entity/Object/Player.h"
+#include "../../Entity/Component/AllComponents.h"
 
 CPlayUI::CPlayUI()
 {
@@ -12,6 +15,8 @@ CPlayUI::~CPlayUI()
 
 bool CPlayUI::Init()
 {
+	BindEventListeners();
+
     const FVector2D& resolution = CEngine::GetInst()->GetResolution();
 
 	mPlay = CWidgetUtils::AllocateWidget<CPlayPanel, 1>("PlayUI_PlayPanel");
@@ -101,4 +106,31 @@ void CPlayUI::SetKillCounter(int count)
 void CPlayUI::SetGameTime(float seconds)
 {
     mPlay->SetGameTime(seconds);
+}
+
+void CPlayUI::BindEventListeners()
+{
+	CEventManager* EM = CEventManager::GetInst();
+
+	// 경험치 관련
+	EM->AddListener(EEventType::PLAYER_EXP_GAINED, [this](void* data)
+	{
+		float percent = *(float*)data;
+		SetExpPercent(percent);
+	});
+
+	// 체력 관련
+	EM->AddListener(EEventType::PLAYER_HP_CHANGED, [this](void* data)
+	{
+		float percent = *(float*)data;
+		SetHealthPercent(percent);
+	});
+
+	// 레벨업 관련
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void* data)
+	{
+		CPlayer* player = (CPlayer*)data;
+		SetLevelUpChoice(player->GetLevelUpPool());
+		SetPlayerLevel(player->GetStatus()->GetLevel() - player->GetStatus()->GetPendingLevelUps());
+	});
 }

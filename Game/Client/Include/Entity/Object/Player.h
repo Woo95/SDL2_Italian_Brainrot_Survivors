@@ -49,4 +49,6 @@ private:
 	float GetMoveSpeed()   const;
 	float GetPickupRange() const;
 	float GetGrwothExp()   const;
+
+	void BindEventListeners();
 };
