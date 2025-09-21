@@ -7,7 +7,7 @@ namespace ELayer
 		NONE = -1,
 		BACKGROUND,
 		OBJECT,
-		PROJECTILE,
+		WEAPON,
 		EFFECT,
 		MAX
 	};

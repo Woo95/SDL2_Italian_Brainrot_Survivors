@@ -1,7 +1,9 @@
 #include "Player.h"
+#include "AllObjects.h"
 #include "../Component/AllComponents.h"
 #include "../../Manager/InputManager.h"
 #include "../../Manager/EventManager.h"
+#include "../../Scene/PlayScene.h"
 
 CPlayer::CPlayer() :
 	mStatus(nullptr),
@@ -15,8 +17,6 @@ CPlayer::CPlayer() :
 
 CPlayer::~CPlayer()
 {
-	BindEventListeners();
-
 	mInput->DeleteFunctionFromBinder("W_MoveUp",    this);
 	mInput->DeleteFunctionFromBinder("A_MoveLeft",  this);
 	mInput->DeleteFunctionFromBinder("S_MoveDown",  this);
@@ -30,6 +30,8 @@ CPlayer::~CPlayer()
 
 bool CPlayer::Init()
 {
+	BindEventListeners();
+
 	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Player");
 	mRootComponent->AddChild(mStatus);
 
@@ -47,11 +49,6 @@ bool CPlayer::Init()
 	return CObject::Init();
 }
 
-void CPlayer::Release()
-{
-    CMemoryPoolManager::GetInst()->Deallocate<CPlayer>(this);
-}
-
 std::vector<FItem> CPlayer::GetLevelUpPool() const
 {
 	std::vector<FItem> pool;
@@ -63,7 +60,7 @@ std::vector<FItem> CPlayer::GetLevelUpPool() const
 		if (level >= CONST_MAX_POWERUP_LEVEL)
 			continue;
 
-		if (mInventory->HasEmptySlot(EItemCategory::POWERUP) || (mInventory->HasItem(EItemCategory::POWERUP, (int)type) && level < CONST_MAX_POWERUP_LEVEL))
+		if (mInventory->HasEmptySlot(EItemCategory::POWERUP) || mInventory->GetPowerUpFromInventory(type))
 		{
 			pool.emplace_back(EItemCategory::POWERUP, (signed char)type, level);
 		}
@@ -76,7 +73,7 @@ std::vector<FItem> CPlayer::GetLevelUpPool() const
 		if (level >= CONST_MAX_WEAPON_LEVEL)
 			continue;
 
-		if (mInventory->HasEmptySlot(EItemCategory::WEAPON) || (mInventory->HasItem(EItemCategory::WEAPON, (int)type) && level < CONST_MAX_WEAPON_LEVEL))
+		if (mInventory->HasEmptySlot(EItemCategory::WEAPON) || mInventory->GetWeaponFromInventory(type))
 		{
 			pool.emplace_back(EItemCategory::WEAPON, (signed char)type, level);
 		}
@@ -207,22 +204,61 @@ void CPlayer::BindEventListeners()
 		switch (selectedItem.category)
 		{
 		case EItemCategory::POWERUP:
-			mInventory->AddPowerUp((EPowerUpType)selectedItem.type);
+			HandlePowerUp((EPowerUpType)selectedItem.type);
 			break;
 		case EItemCategory::WEAPON:
-			mInventory->AddWeapon((EWeaponType)selectedItem.type);
+			HandleWeapon((EWeaponType)selectedItem.type);
 			break;
 		case EItemCategory::CONSUMABLE:
-			if ((EConsumableType)selectedItem.type == EConsumableType::COIN_BAG)
-			{
-				mStatus->AddGold(100);
-			}
-			else if ((EConsumableType)selectedItem.type == EConsumableType::CHICKEN)
-			{
-				mStatus->AddHP(50);
-			}
+			HandleConsumable((EConsumableType)selectedItem.type);
 			break;
 		}
 		mStatus->ProcessPendingLevelUp(0.05f);
 	});
+}
+
+void CPlayer::HandlePowerUp(EPowerUpType type)
+{
+	mInventory->AddPowerUp(type);
+}
+
+void CPlayer::HandleWeapon(EWeaponType type)
+{
+	CWeapon* weapon = mInventory->GetWeaponFromInventory(type);
+	if (weapon == nullptr)
+	{
+		weapon = CreateWeapon(type);
+	}
+	mInventory->AddWeapon(weapon);
+}
+
+void CPlayer::HandleConsumable(EConsumableType type)
+{
+	switch (type)
+	{
+	case EConsumableType::COIN_BAG:
+		mStatus->AddGold(100);
+		break;
+	case EConsumableType::CHICKEN:
+		mStatus->AddHP(50);
+		break;
+	}
+}
+
+CWeapon* CPlayer::CreateWeapon(EWeaponType type)
+{
+	CWeapon* weapon = nullptr;
+	switch (type)
+	{
+	case EWeaponType::BUBBLE:
+		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
+		break;
+	case EWeaponType::BAT:
+		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		break;
+	case EWeaponType::BANANA:
+		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
+		break;
+	}
+	return weapon;
 }

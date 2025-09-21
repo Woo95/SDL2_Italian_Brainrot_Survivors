@@ -76,7 +76,7 @@ void CPlayScene::Update(float deltaTime)
 		mTime += deltaTime;
 		((CPlayUI*)mSceneUI)->SetGameTime(mTime);
 		CScene::Update(deltaTime);
-		mMobSpawner->Update(deltaTime);
+		//mMobSpawner->Update(deltaTime);
 		break;
 	case EPlaySubState::PAUSE:
 	case EPlaySubState::LVLUP:
@@ -135,20 +135,29 @@ void CPlayScene::SetSubState(EPlaySubState state)
 CPlayer* CPlayScene::InstantiatePlayer()
 {
 	CPlayer* player = nullptr;
-
-    switch (CGameDataManager::GetInst()->GetPlayerProfile()->GetType())
-    {
-    case ECharacterType::TRALALA:
-        player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
-        break;
-    case ECharacterType::SAHUR:
-        player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
-        break;
-    case ECharacterType::BANANINI:
-        player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
-        break;
-    }
-    return player;
+	CWeapon* weapon = nullptr;
+	switch (CGameDataManager::GetInst()->GetPlayerProfile()->GetType())
+	{
+	case ECharacterType::TRALALA:
+	    player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
+		//weapon = InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
+		player->GetInventory()->AddWeapon(weapon);
+	    break;
+	case ECharacterType::SAHUR:
+	{
+		player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
+		//weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		player->GetInventory()->AddWeapon(weapon);
+		break;
+	}
+	
+	case ECharacterType::BANANINI:
+	    player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
+		//weapon = InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
+		player->GetInventory()->AddWeapon(weapon);
+	    break;
+	}
+	return player;
 }
 
 void CPlayScene::BindEventListeners()

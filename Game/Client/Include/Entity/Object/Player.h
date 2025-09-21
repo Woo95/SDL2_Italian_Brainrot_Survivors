@@ -11,6 +11,8 @@ class CSpriteComponent;
 class CInputComponent;
 class CRigidbody;
 
+class CWeapon;
+
 class CPlayer abstract : public CObject
 {
 public:
@@ -51,4 +53,8 @@ private:
 	float GetGrwothExp()   const;
 
 	void BindEventListeners();
+	void HandlePowerUp(EPowerUpType type);
+	void HandleWeapon(EWeaponType type);
+	void HandleConsumable(EConsumableType type);
+	CWeapon* CreateWeapon(EWeaponType type);
 };

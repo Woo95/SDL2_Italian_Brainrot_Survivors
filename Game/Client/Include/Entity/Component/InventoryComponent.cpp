@@ -1,4 +1,5 @@
 #include "InventoryComponent.h"
+#include "../Object/Weapon.h"
 
 CInventoryComponent::CInventoryComponent() :
 	mPowerUps({}),
@@ -13,13 +14,6 @@ CInventoryComponent::~CInventoryComponent()
 {
 }
 
-bool CInventoryComponent::Init()
-{
-	// 최초 시작시 플레이어의 시작무기를 가져와야함.
-
-	return true;
-}
-
 void CInventoryComponent::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CInventoryComponent>(this);
@@ -27,44 +21,57 @@ void CInventoryComponent::Release()
 
 bool CInventoryComponent::AddPowerUp(EPowerUpType type)
 {
-	int idx = (int)type;
-
-	// 이미 최대 레벨일 경우
-	if (mPowerUps[idx] >= CONST_MAX_POWERUP_LEVEL)
+	// 빈 슬롯이 없을 경우
+	if (!HasEmptySlot(EItemCategory::POWERUP))
 		return false;
 
-	if (mPowerUps[idx] == 0)
+	// 등록된 파워업이 아닐 경우
+	if (GetPowerUpFromInventory(type) == 0)
 	{
-		// 빈 슬롯이 없을 경우
-		if (mPowerUpCount >= CONST_MAX_POWERUP_SLOT)
-			return false;
-
-		// 빈 슬롯이 있을 경우
+		mPowerUps[(int)type]++;
 		mPowerUpCount++;
 	}
-	mPowerUps[idx]++;
+	else
+	{
+		// 최대 레벨이 아닐 경우
+		if (mPowerUps[(int)type] < CONST_MAX_POWERUP_LEVEL)
+			mPowerUps[(int)type]++;
+	}
+	return true;
+}
+
+bool CInventoryComponent::AddWeapon(CWeapon* weapon)
+{
+	// 빈 슬롯이 없을 경우
+	if (!HasEmptySlot(EItemCategory::WEAPON))
+		return false;
+
+	// 등록된 무기가 아닐 경우
+	if (GetWeaponFromInventory(weapon->GetWeaponType()) == nullptr)
+	{
+		mWeapons[mWeaponCount] = weapon;
+		mWeaponCount++;
+	}
+	weapon->AddWeaponLevel();
 
 	return true;
 }
 
-bool CInventoryComponent::AddWeapon(EWeaponType type)
+CWeapon* CInventoryComponent::GetWeaponFromInventory(EWeaponType type) const
 {
-	int idx = (int)type;
-
-	// 이미 최대 레벨일 경우
-	if (mWeapons[idx] >= CONST_MAX_WEAPON_LEVEL)
-		return false;
-
-	if (mWeapons[idx] == 0)
+	for (int i = 0; i < mWeaponCount; i++)
 	{
-		// 빈 슬롯이 없을 경우
-		if (mWeaponCount >= CONST_MAX_WEAPON_SLOT)
-			return false;
-
-		// 빈 슬롯이 있을 경우
-		mWeaponCount++;
+		if (mWeapons[i]->GetWeaponType() == type)
+			return mWeapons[i];
 	}
-	mWeapons[idx]++;
+	return nullptr;
+}
 
-	return true;
+int CInventoryComponent::GetWeaponLevel(EWeaponType type) const
+{
+	if (CWeapon* weapon = GetWeaponFromInventory(type))
+	{
+		return weapon->GetWeaponLevel();
+	}
+	return 0;
 }

@@ -87,20 +87,28 @@ void CLevelUpSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bool
 void CLevelUpSlot::UpdateSlot(const FItem& item)
 {
 	CItemDataManager* itemDataManager = CGameDataManager::GetInst()->GetItemDataManager();
-	if (item.category == EItemCategory::POWERUP)
+	switch (item.category)
+	{
+	case EItemCategory::POWERUP:
 	{
 		const FPowerUpData& powerUpData = itemDataManager->GetPowerUpData((EPowerUpType)item.type);
 		UpdateSlotData(powerUpData.name, powerUpData.description, powerUpData.name, item.level);
+		break;
 	}
-	else if (item.category == EItemCategory::WEAPON)
+	case EItemCategory::WEAPON:
 	{
 		const FWeaponData& weaponData = itemDataManager->GetWeaponData((EWeaponType)item.type);
 		UpdateSlotData(weaponData.name, weaponData.description, weaponData.name, item.level);
+		break;
 	}
-	else if (item.category == EItemCategory::CONSUMABLE)
+	case EItemCategory::CONSUMABLE:
 	{
 		const FConsumableData& consumableData = itemDataManager->GetConsumableData((EConsumableType)item.type);
 		UpdateSlotData(consumableData.name, consumableData.description, consumableData.name, item.level);
+		break;
+	}
+	default:
+		break;
 	}
 	mItem = item;
 }

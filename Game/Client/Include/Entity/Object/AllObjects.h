@@ -3,9 +3,15 @@
 #include "MadForest.h"
 //#include "ScrollEnvObj.h"
 
+//#include "Player.h"
 #include "Tralala.h"
 #include "Sahur.h"
 #include "Bananini.h"
+
+//#include "Weapon.h"
+//#include "BubbleWeapon.h"
+#include "BatWeapon.h"
+//#include "BananaWeapon.h"
 
 #include "Reaper.h"
 #include "Drowner.h"

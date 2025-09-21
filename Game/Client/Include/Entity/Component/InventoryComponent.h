@@ -3,6 +3,8 @@
 #include "Component.h"
 #include "../../Core/Utils/InventoryUtils.h"
 
+class CWeapon;
+
 class CInventoryComponent : public CComponent
 {
 public:
@@ -13,38 +15,34 @@ private:
 	int mPowerUps[(int)EPowerUpType::MAX];
 	int mPowerUpCount;
 
-	int mWeapons[(int)EWeaponType::MAX];
+	CWeapon* mWeapons[CONST_MAX_WEAPON_SLOT];
 	int mWeaponCount;
 
 private:
-	virtual bool Init()    final;
 	virtual void Release() final;
 
 public:
 	bool AddPowerUp(EPowerUpType type);
-	bool AddWeapon(EWeaponType type);
+	bool AddWeapon(CWeapon* weapon);
 
+	int& GetPowerUpFromInventory(EPowerUpType type) { return mPowerUps[(int)type]; }
 	int GetPowerUpLevel(EPowerUpType type) const { return mPowerUps[(int)type]; }
-	int GetWeaponLevel(EWeaponType type) const { return mWeapons[(int)type]; }
+
+	CWeapon* GetWeaponFromInventory(EWeaponType type) const;
+	int GetWeaponLevel(EWeaponType type) const;
 
 	bool HasEmptySlot(EItemCategory category) const
 	{
-		if (category == EItemCategory::POWERUP)
+		bool hasEmpty = false;
+		switch (category)
 		{
-			return mPowerUpCount < CONST_MAX_POWERUP_SLOT;
+		case EItemCategory::POWERUP:
+			hasEmpty = mPowerUpCount < CONST_MAX_POWERUP_SLOT;
+			break;
+		case EItemCategory::WEAPON:
+			hasEmpty = mWeaponCount < CONST_MAX_WEAPON_SLOT;
+			break;
 		}
-		else
-		{
-			return mWeaponCount < CONST_MAX_WEAPON_SLOT;
-		}
-	}
-	bool HasItem(EItemCategory category, int type) const
-	{
-		if (category == EItemCategory::POWERUP)
-			return mPowerUps[type] > 0;
-		else if (category == EItemCategory::WEAPON)
-			return mWeapons[type] > 0;
-
-		return false;
+		return hasEmpty;
 	}
 };

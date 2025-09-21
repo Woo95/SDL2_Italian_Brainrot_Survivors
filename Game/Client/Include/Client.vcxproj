@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Object\BatWeapon.h" />
     <ClInclude Include="Entity\Object\Ender.h" />
     <ClInclude Include="Entity\Object\Drowner.h" />
     <ClInclude Include="Entity\Component\ChaseComponent.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="Entity\Object\SkeletonMad.h" />
     <ClInclude Include="Entity\Object\SkeletonNinja.h" />
     <ClInclude Include="Entity\Object\SkeletonXL.h" />
+    <ClInclude Include="Entity\Object\Weapon.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
     <ClInclude Include="Scene\Extension\MobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />
@@ -234,6 +236,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Object\BatWeapon.cpp" />
     <ClCompile Include="Entity\Object\Ender.cpp" />
     <ClCompile Include="Entity\Object\Drowner.cpp" />
     <ClCompile Include="Entity\Component\ChaseComponent.cpp" />
