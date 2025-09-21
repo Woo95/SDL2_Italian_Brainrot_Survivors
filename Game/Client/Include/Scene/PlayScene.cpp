@@ -146,7 +146,7 @@ CPlayer* CPlayScene::InstantiatePlayer()
 	case ECharacterType::SAHUR:
 	{
 		player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
-		//weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
 		player->GetInventory()->AddWeapon(weapon);
 		break;
 	}

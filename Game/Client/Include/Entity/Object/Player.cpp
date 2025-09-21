@@ -254,7 +254,7 @@ CWeapon* CPlayer::CreateWeapon(EWeaponType type)
 		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
 		break;
 	case EWeaponType::BAT:
-		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		weapon = ((CPlayScene*)mScene)->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
 		break;
 	case EWeaponType::BANANA:
 		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
