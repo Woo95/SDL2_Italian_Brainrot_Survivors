@@ -30,8 +30,12 @@
 #include "CharacterInfoPanel.h"
 #include "PowerUpSelectPanel.h"
 #include "PowerUpInfoPanel.h"
+#include "InventoryPanel.h"
 
 #include "HighlightSelectedSlot.h"
 #include "CharacterSlot.h"
 #include "PowerUpSlot.h"
 #include "LevelUpSlot.h"
+
+#include "InventoryWeaponSlot.h"
+#include "InventoryPowerUpSlot.h"

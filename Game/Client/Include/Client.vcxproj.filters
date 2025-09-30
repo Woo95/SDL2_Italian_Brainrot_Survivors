@@ -214,6 +214,9 @@
     <Filter Include="Game\05. Entity\01. Object\04. Weapon">
       <UniqueIdentifier>{1fdf0db8-00f2-40ef-8133-0e38c7e6eff0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\04. UserWidgets\02. Slots\04. Inventory">
+      <UniqueIdentifier>{44fc983d-e58f-465d-a20d-d732115b8c35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -867,6 +870,15 @@
     <ClInclude Include="Manager\Data\GameData\MobDataManager.h">
       <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\InventoryPanel.h">
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\InventoryWeaponSlot.h">
+      <Filter>Game\04. UserWidgets\02. Slots\04. Inventory</Filter>
+    </ClInclude>
+    <ClInclude Include="Widget\InventoryPowerUpSlot.h">
+      <Filter>Game\04. UserWidgets\02. Slots\04. Inventory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1187,6 +1199,15 @@
     </ClCompile>
     <ClCompile Include="Entity\Component\EnemyStatusComponent.cpp">
       <Filter>Game\05. Entity\02. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\InventoryPanel.cpp">
+      <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\InventoryWeaponSlot.cpp">
+      <Filter>Game\04. UserWidgets\02. Slots\04. Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\InventoryPowerUpSlot.cpp">
+      <Filter>Game\04. UserWidgets\02. Slots\04. Inventory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

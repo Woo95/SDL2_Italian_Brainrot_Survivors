@@ -13,6 +13,7 @@
 #include "../Manager/Data/GameData/PlayerProfile.h"
 #include "../Entity/Object/AllObjects.h"
 #include "../Entity/Component/AllComponents.h"
+#include "../Widget/AllWidgets.h"
 
 CPlayScene::CPlayScene()
 {
@@ -39,6 +40,10 @@ bool CPlayScene::Enter(void* payload)
 {
 	BindEventListeners();
 
+	// UI //
+	mSceneUI->Init();
+	SetSubState(EPlaySubState::PLAY);
+
     // Sound //
     CSoundManager* SM = CAssetManager::GetInst()->GetSoundManager();
     SM->SetVolume<CBGM>(SM->GetVolume<CBGM>());
@@ -50,10 +55,6 @@ bool CPlayScene::Enter(void* payload)
 
     // Camera //
     mCamera->SetTarget(mPlayer);
-
-	// UI //
-	mSceneUI->Init();
-	SetSubState(EPlaySubState::PLAY);
 
 	// Spawner //
 	mMobSpawner->Init();
@@ -74,7 +75,7 @@ void CPlayScene::Update(float deltaTime)
 	{
 	case EPlaySubState::PLAY:
 		mTime += deltaTime;
-		((CPlayUI*)mSceneUI)->SetGameTime(mTime);
+		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetGameTime(mTime);
 		CScene::Update(deltaTime);
 		//mMobSpawner->Update(deltaTime);
 		break;
@@ -141,18 +142,21 @@ CPlayer* CPlayScene::InstantiatePlayer()
 	case ECharacterType::TRALALA:
 	    player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
 		//weapon = InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
+		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BUBBLE);
 		player->GetInventory()->AddWeapon(weapon);
 	    break;
 	case ECharacterType::SAHUR:
 	{
 		player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
 		weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BAT);
 		player->GetInventory()->AddWeapon(weapon);
 		break;
 	}
 	case ECharacterType::BANANINI:
 	    player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
 		//weapon = InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
+		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BANANA);
 		player->GetInventory()->AddWeapon(weapon);
 	    break;
 	}
@@ -181,15 +185,15 @@ void CPlayScene::BindEventListeners()
 	});
 
 	// 서브 씬 전환 관련
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
-	{
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
-		SetSubState(EPlaySubState::PLAY);
-	});
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void*)
 	{
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		SetSubState(EPlaySubState::LVLUP);
+	});
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
+	{
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
+		SetSubState(EPlaySubState::PLAY);
 	});
 	EM->AddListener(EEventType::PLAYER_DIED, [this](void*)
 	{

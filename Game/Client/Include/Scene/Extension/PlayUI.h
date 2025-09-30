@@ -25,15 +25,10 @@ public:
 	virtual bool Init() final;
 
 public:
+    CPlayPanel* GetPlayPanel() { return mPlay; }
+
     void SetUIPanel(EPlaySubState state);
-
     void SetLevelUpChoice(std::vector<FItem> pool);
-
-    void SetHealthPercent(float percent);
-    void SetExpPercent(float percent);
-    void SetPlayerLevel(int level);
-    void SetKillCounter(int count);
-    void SetGameTime(float seconds);
 
 private:
     void BindEventListeners();

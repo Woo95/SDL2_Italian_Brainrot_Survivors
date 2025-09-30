@@ -60,6 +60,12 @@ void CPlayPanel::Construct()
 	mTimeHUD->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.1f));
 	mTimeHUD->GetTransform()->SetPivot(0.5f, 0.5f);
 	AddChild(mTimeHUD);
+
+	mInventory = CWidgetUtils::AllocateWidget<CInventoryPanel, 1>("PlayUI_InventoryPanel");
+	mInventory->GetTransform()->SetRelativeScale(FVector2D(0.2109f, 0.115f));
+	mInventory->GetTransform()->SetRelativePos(FVector2D(0.24f, 0.133f));
+	mInventory->GetTransform()->SetPivot(0.5f, 0.5f);
+	AddChild(mInventory);
 }
 
 void CPlayPanel::Release()
@@ -90,4 +96,14 @@ void CPlayPanel::SetKillCounter(int count)
 void CPlayPanel::SetGameTime(float seconds)
 {
 	mTimeHUD->SetTimeText(seconds);
+}
+
+void CPlayPanel::SetInventorySlot(EWeaponType type)
+{
+	mInventory->AddWeapon(type);
+}
+
+void CPlayPanel::SetInventorySlot(EPowerUpType type)
+{
+	mInventory->AddPowerUp(type);
 }
