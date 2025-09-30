@@ -23,4 +23,6 @@ private:
 	void LoadAllPowerUpData();
 	void LoadAllWeaponData();
 	void LoadAllConsumableData();
+	void LoadAllRegularMobData();
+	void LoadAllSubBossMobData();
 };

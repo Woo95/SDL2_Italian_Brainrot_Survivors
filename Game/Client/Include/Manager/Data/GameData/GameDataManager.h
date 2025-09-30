@@ -17,11 +17,13 @@ private:
 	class CPlayerProfile*        mPlayerProfile;
 	class CCharacterDataManager* mCharacterDataManager;
 	class CItemDataManager*      mItemDataManager;
+	class CMobDataManager*       mMobDataManager;
 
 public:
 	CPlayerProfile*        GetPlayerProfile()        const { return mPlayerProfile; }
 	CCharacterDataManager* GetCharacterDataManager() const { return mCharacterDataManager; }
 	CItemDataManager*      GetItemDataManager()      const { return mItemDataManager; }
+	CMobDataManager*       GetMobDataManager()       const { return mMobDataManager;}
 
 private:
 	template <typename T>

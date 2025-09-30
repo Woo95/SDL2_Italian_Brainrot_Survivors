@@ -10,6 +10,7 @@
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/CharacterDataManager.h"
 #include "../Manager/Data/GameData/ItemDataManager.h"
+#include "../Manager/Data/GameData/MobDataManager.h"
 
 CDataLoader::CDataLoader()
 {
@@ -30,6 +31,8 @@ bool CDataLoader::Init()
 	LoadAllPowerUpData();
 	LoadAllWeaponData();
 	LoadAllConsumableData();
+	LoadAllRegularMobData();
+	LoadAllSubBossMobData();
 
 	return true;
 }
@@ -114,7 +117,7 @@ void CDataLoader::LoadAllEntityAnimationData()
 		std::vector<std::string> row = Split(line, ',');
 
 		const std::string& key = row[0];
-		EAnimationType     type = static_cast<EAnimationType>(std::stoi(row[1]));
+		EAnimationType     type  = static_cast<EAnimationType>(std::stoi(row[1]));
 		EAnimationState    state = static_cast<EAnimationState>(std::stoi(row[2]));
 
 		// 애니메이션이 없을 경우, 애니메이션 생성
@@ -236,7 +239,7 @@ void CDataLoader::LoadAllCharacterData()
 
 			data.baseAttack      = std::stof(row[attackIdx]);
 			data.baseDefense     = std::stof(row[defenseIdx]);
-			data.baseMaxHp       = std::stof(row[hpIdx]);
+			data.baseMaxHP       = std::stof(row[hpIdx]);
 			data.baseAttackSpeed = std::stof(row[attackSpeedIdx]);
 			data.baseMoveSpeed   = std::stof(row[moveSpeedIdx]);
 			data.basePickUpRange = std::stof(row[pickUpIdx]);
@@ -281,9 +284,9 @@ void CDataLoader::LoadAllPowerUpData()
 		{
 			FPowerUpData data;
 			data.type = static_cast<EPowerUpType>(std::stoi(row[typeIdx]));
-			data.name = row[nameIdx];
-			data.description = row[descIdx];
-			data.price = std::stoi(row[priceIdx]);
+			data.name         = row[nameIdx];
+			data.description  = row[descIdx];
+			data.price        = std::stoi(row[priceIdx]);
 			data.statModifier = std::stof(row[modifierIdx]);
 
 			IDM->mPowerUpData[(int)data.type] = data;
@@ -367,6 +370,100 @@ void CDataLoader::LoadAllConsumableData()
 			data.description = row[descIdx];
 
 			IDM->mConsumableData[(int)data.type] = data;
+		}
+		row.clear();
+	}
+	file.close();
+}
+
+void CDataLoader::LoadAllRegularMobData()
+{
+	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
+	filePath += "GameData\\REGULAR_MOB_DATA.csv";
+
+	std::ifstream file(filePath);
+
+	if (!file.is_open())
+	{
+		std::cerr << "Cannot open file at: " << filePath << "\n";
+		return;
+	}
+
+	CMobDataManager* MDM = CGameDataManager::GetInst()->GetMobDataManager();
+
+	std::string line;
+	while (std::getline(file, line))
+	{
+		if (line[0] == '#')
+			continue;
+
+		std::vector<std::string> row = Split(line, ',');
+
+		const int typeIdx      = 0;
+
+		const int hpIdx        = 1;
+		const int attackIdx    = 2;
+		const int moveSpeedIdx = 3;
+		const int expIdx       = 4;
+		const int goldIdx      = 5;
+
+		{
+			FRegularMobData data;
+			data.type = static_cast<ERegularMobType>(std::stoi(row[typeIdx]));
+			data.baseHP        = std::stof(row[hpIdx]);
+			data.baseAttack    = std::stof(row[attackIdx]);
+			data.baseMoveSpeed = std::stof(row[moveSpeedIdx]);
+			data.baseExp       = std::stof(row[expIdx]);
+			data.baseGold      = std::stoi(row[goldIdx]);
+
+			MDM->mRegularMobData[(int)data.type] = data;
+		}
+		row.clear();
+	}
+	file.close();
+}
+
+void CDataLoader::LoadAllSubBossMobData()
+{
+	std::string filePath = CPathManager::GetInst()->FindPath(DATA_PATH);
+	filePath += "GameData\\SUBBOSS_MOB_DATA.csv";
+
+	std::ifstream file(filePath);
+
+	if (!file.is_open())
+	{
+		std::cerr << "Cannot open file at: " << filePath << "\n";
+		return;
+	}
+
+	CMobDataManager* MDM = CGameDataManager::GetInst()->GetMobDataManager();
+
+	std::string line;
+	while (std::getline(file, line))
+	{
+		if (line[0] == '#')
+			continue;
+
+		std::vector<std::string> row = Split(line, ',');
+
+		const int typeIdx      = 0;
+
+		const int hpIdx        = 1;
+		const int attackIdx    = 2;
+		const int moveSpeedIdx = 3;
+		const int expIdx       = 4;
+		const int goldIdx      = 5;
+
+		{
+			FSubBossMobData data;
+			data.type = static_cast<ESubBossMobType>(std::stoi(row[typeIdx]));
+			data.baseHP        = std::stof(row[hpIdx]);
+			data.baseAttack    = std::stof(row[attackIdx]);
+			data.baseMoveSpeed = std::stof(row[moveSpeedIdx]);
+			data.baseExp       = std::stof(row[expIdx]);
+			data.baseGold      = std::stoi(row[goldIdx]);
+
+			MDM->mSubBossMobData[(int)data.type] = data;
 		}
 		row.clear();
 	}

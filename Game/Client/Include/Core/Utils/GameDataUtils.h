@@ -87,6 +87,26 @@ struct FItem
 	int level = 0;
 };
 
+struct FRegularMobData
+{
+	ERegularMobType type = ERegularMobType::NONE;
+	float baseHP		= 0.0f;
+	float baseAttack	= 0.0f;
+	float baseMoveSpeed	= 0.0f;
+	float baseExp		= 0.0f;
+	int   baseGold		= 0;
+};
+
+struct FSubBossMobData
+{
+	ESubBossMobType type = ESubBossMobType::NONE;
+	float baseHP		= 0.0f;
+	float baseAttack	= 0.0f;
+	float baseMoveSpeed	= 0.0f;
+	float baseExp		= 0.0f;
+	int   baseGold		= 0;
+};
+
 struct FCharacterData
 {
 	ECharacterType type = ECharacterType::NONE;
@@ -96,7 +116,7 @@ struct FCharacterData
 	std::string description2;
 	std::string startingWeapon;
 
-	float baseMaxHp;
+	float baseMaxHP;
 	float baseAttack;
 	float baseDefense;
 	float baseAttackSpeed;
@@ -130,8 +150,8 @@ struct FConsumableData
 
 struct FResultData
 {
-	float survivedTime = 0.0f;
-	int levelReached = 0;
-	int goldEarned = 0;
-	int killCount = 0;
+	float survivedTime	= 0.0f;
+	int   levelReached	= 0;
+	int   goldEarned	= 0;
+	int   killCount		= 0;
 };
