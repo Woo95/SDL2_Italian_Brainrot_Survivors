@@ -12,6 +12,10 @@ CSkeletonDragon::~CSkeletonDragon()
 
 bool CSkeletonDragon::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonDragon");
+	mStatus->SetStatus(ERegularMobType::SKELETON_DRAGON);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonDragon");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonDragon");

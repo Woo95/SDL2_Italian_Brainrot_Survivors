@@ -12,6 +12,10 @@ CTrickster::~CTrickster()
 
 bool CTrickster::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Trickster");
+	mStatus->SetStatus(ESubBossMobType::TRICKSTER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Trickster");
 	mSprite->SetTexture("Texture_Boss");
 	mSprite->SetAnimation("Trickster");

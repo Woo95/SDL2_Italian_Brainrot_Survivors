@@ -12,6 +12,10 @@ CDrowner::~CDrowner()
 
 bool CDrowner::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Drowner");
+	mStatus->SetStatus(ESubBossMobType::DROWNER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Drowner");
 	mSprite->SetTexture("Texture_Boss");
 	mSprite->SetAnimation("Drowner");

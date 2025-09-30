@@ -146,11 +146,10 @@ CPlayer* CPlayScene::InstantiatePlayer()
 	case ECharacterType::SAHUR:
 	{
 		player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
-		//weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
 		player->GetInventory()->AddWeapon(weapon);
 		break;
 	}
-	
 	case ECharacterType::BANANINI:
 	    player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
 		//weapon = InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
@@ -171,7 +170,8 @@ void CPlayScene::BindEventListeners()
 	});
 	EM->AddListener(EEventType::GOTO_RESULT_SCENE, [this](void* data)
 	{
-		FResultData* resultData = new FResultData(
+		FResultData* resultData = new FResultData
+		(
 			mTime,
 			mPlayer->GetStatus()->GetLevel(),
 			mPlayer->GetStatus()->GetGoldEarned(),

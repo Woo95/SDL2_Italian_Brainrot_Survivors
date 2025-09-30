@@ -12,6 +12,10 @@ CSkull::~CSkull()
 
 bool CSkull::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Skull");
+	mStatus->SetStatus(ERegularMobType::SKULL);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Skull");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("Skull");

@@ -861,6 +861,12 @@
     <ClInclude Include="Entity\Object\BatWeapon.h">
       <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
     </ClInclude>
+    <ClInclude Include="Entity\Component\EnemyStatusComponent.h">
+      <Filter>Game\05. Entity\02. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager\Data\GameData\MobDataManager.h">
+      <Filter>Game\02. Manager\GameData</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1178,6 +1184,9 @@
     </ClCompile>
     <ClCompile Include="Entity\Object\BatWeapon.cpp">
       <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\EnemyStatusComponent.cpp">
+      <Filter>Game\05. Entity\02. Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,8 +2,10 @@
 #include "../Component/AllComponents.h"
 
 CEnemy::CEnemy() :
+	mStatus(nullptr),
 	mChase(nullptr),
-	mSprite(nullptr)
+	mSprite(nullptr),
+	mRigidbody(nullptr)
 {
 }
 

@@ -47,8 +47,7 @@ void CMobSpawner::SpawnMob()
 		mRegularSpawnTime = CONST_REGULAR_MOB_SPAWN_INTERVAL;
 
 		// SPAWN REGULAR MOB
-		int idx = rand() % (mUnlockedRegIdx + 1);
-		CEventManager::GetInst()->Broadcast(EEventType::REGULAR_MOB_SPAWN, &idx);
+		CEventManager::GetInst()->Broadcast(EEventType::REGULAR_MOB_SPAWN, &mUnlockedRegIdx);
 
 		// INDEX CONTROL
 		mRegSpawnAmount--;

@@ -12,6 +12,10 @@ CSkeletonAngel::~CSkeletonAngel()
 
 bool CSkeletonAngel::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonAngel");
+	mStatus->SetStatus(ERegularMobType::SKELETON_ANGEL);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonAngel");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonAngel");

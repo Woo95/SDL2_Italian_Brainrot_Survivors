@@ -26,30 +26,17 @@ private:
 	float mBaseGrowthExp   = 0.0f;
 
 	// 현재 상태
-	int mLevel = 1;
-	float mHP = 0.0f;
+	int mLevel   = 1;
+	float mHP    = 0.0f;
 	float mMaxHP = 0.0f;
-	float mExp = 0.0f;
+	float mExp   = 0.0f;
 	float mExpToLevelUp = 12.0f;
-	int mKillCount = 0;
+	int mKillCount  = 0;
 	int mGoldEarned = 0;
 	int mPendingLevelUps = 0;
 
 private:
-	virtual bool Init()    final;
 	virtual void Release() final;
-
-public:
-	void AddExp(float exp);
-	void AddHP(float hp);
-	void AddKill()
-	{
-		mKillCount++;
-	}
-	void AddGold(int money)
-	{
-		mGoldEarned += money;
-	}
 
 public:
 	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
@@ -69,5 +56,18 @@ public:
 	int GetKillCount()  const { return mKillCount; }
 	int GetGoldEarned() const { return mGoldEarned; }
 	int GetPendingLevelUps() const { return mPendingLevelUps; }
+
+public:
+	void SetStatus(ECharacterType type);
+	void AddExp(float exp);
+	void AddHP(float hp);
+	void AddKill()
+	{
+		mKillCount++;
+	}
+	void AddGold(int money)
+	{
+		mGoldEarned += money;
+	}
 	void ProcessPendingLevelUp(float delayTime);
 };

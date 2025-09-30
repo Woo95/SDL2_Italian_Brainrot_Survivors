@@ -12,6 +12,10 @@ CSkeletonNinja::~CSkeletonNinja()
 
 bool CSkeletonNinja::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonNinja");
+	mStatus->SetStatus(ERegularMobType::SKELETON_NINJA);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonNinja");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonNinja");

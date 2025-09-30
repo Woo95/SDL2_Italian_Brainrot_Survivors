@@ -12,6 +12,10 @@ CSkeletonPanther::~CSkeletonPanther()
 
 bool CSkeletonPanther::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonPanther");
+	mStatus->SetStatus(ERegularMobType::SKELETON_PANTHER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonPanther");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonPanther");

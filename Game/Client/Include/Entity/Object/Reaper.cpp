@@ -12,6 +12,10 @@ CReaper::~CReaper()
 
 bool CReaper::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Reaper");
+	mStatus->SetStatus(ESubBossMobType::REAPER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Reaper");
 	mSprite->SetTexture("Texture_Boss");
 	mSprite->SetAnimation("Reaper");

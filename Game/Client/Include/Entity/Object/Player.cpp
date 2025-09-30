@@ -32,9 +32,6 @@ bool CPlayer::Init()
 {
 	BindEventListeners();
 
-	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Player");
-	mRootComponent->AddChild(mStatus);
-
 	mInventory = AllocateComponent<CInventoryComponent, 1>("Inventory_Player");
 	mRootComponent->AddChild(mInventory);
 
@@ -251,13 +248,13 @@ CWeapon* CPlayer::CreateWeapon(EWeaponType type)
 	switch (type)
 	{
 	case EWeaponType::BUBBLE:
-		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
+		//weapon = mScene->InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
 		break;
 	case EWeaponType::BAT:
-		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
+		weapon = mScene->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
 		break;
 	case EWeaponType::BANANA:
-		//weapon = ((CPlayScene*)mScene)->InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
+		//weapon = mScene->InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
 		break;
 	}
 	return weapon;

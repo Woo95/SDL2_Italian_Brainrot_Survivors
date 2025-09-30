@@ -14,20 +14,22 @@ CPlayerStatusComponent::~CPlayerStatusComponent()
 {
 }
 
-bool CPlayerStatusComponent::Init()
+void CPlayerStatusComponent::Release()
 {
-	CComponent::Init();
+	CMemoryPoolManager::GetInst()->Deallocate<CPlayerStatusComponent>(this);
+}
 
+void CPlayerStatusComponent::SetStatus(ECharacterType type)
+{
 	CGameDataManager* GDM = CGameDataManager::GetInst();
-	CPlayerProfile* profile = GDM->GetPlayerProfile();
 
 	/* 초기 스탯 저장 */
 	{
-		const FCharacterData& data = GDM->GetCharacterDataManager()->GetCharacterData(profile->GetType());
+		const FCharacterData& data = GDM->GetCharacterDataManager()->GetCharacterData(type);
 
 		mBaseAttack      = data.baseAttack;
 		mBaseDefense     = data.baseDefense;
-		mBaseMaxHP       = data.baseMaxHp;
+		mBaseMaxHP       = data.baseMaxHP;
 		mBaseAttackSpeed = data.baseAttackSpeed;
 		mBaseMoveSpeed   = data.baseMoveSpeed;
 		mBasePickupRange = data.basePickUpRange;
@@ -38,7 +40,7 @@ bool CPlayerStatusComponent::Init()
 	{
 		/* 메뉴에서 구매한 파워업 저장 */
 		for (int i = 0; i < (int)EPowerUpType::MAX; i++)
-			mMenuPowerUps[i] = profile->GetMenuPowerUpLvl((EPowerUpType)i);
+			mMenuPowerUps[i] = GDM->GetPlayerProfile()->GetMenuPowerUpLvl((EPowerUpType)i);
 
 		/* 파워업 레벨업 당 증가비율 저장 */
 		for (int i = 0; i < (int)EPowerUpType::MAX; i++)
@@ -47,14 +49,7 @@ bool CPlayerStatusComponent::Init()
 
 	// 초기 체력 설정
 	mMaxHP = mBaseMaxHP + mMenuPowerUps[(int)EPowerUpType::MAX_HEALTH] * mPowerUpModifiers[(int)EPowerUpType::MAX_HEALTH];
-	mHP = mMaxHP;
-
-	return true;
-}
-
-void CPlayerStatusComponent::Release()
-{
-	CMemoryPoolManager::GetInst()->Deallocate<CPlayerStatusComponent>(this);
+	mHP	   = mMaxHP;
 }
 
 void CPlayerStatusComponent::AddExp(float exp)

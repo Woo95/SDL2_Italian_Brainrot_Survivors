@@ -12,6 +12,10 @@ CSahur::~CSahur()
 
 bool CSahur::Init()
 {
+	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Sahur");
+	mStatus->SetStatus(ECharacterType::SAHUR);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Sahur");
 	mSprite->SetTexture("Texture_Sahur");
 	mSprite->SetAnimation("Sahur");

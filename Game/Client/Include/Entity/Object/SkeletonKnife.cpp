@@ -12,6 +12,10 @@ CSkeletonKnife::~CSkeletonKnife()
 
 bool CSkeletonKnife::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonKnife");
+	mStatus->SetStatus(ERegularMobType::SKELETON_KNIFE);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonKnife");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonKnife");

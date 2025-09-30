@@ -2,8 +2,9 @@
 
 #include "Object.h"
 
-class CChaseComponent;
+class CEnemyStatusComponent;
 class CSpriteComponent;
+class CChaseComponent;
 class CRigidbody;
 
 class CEnemy abstract : public CObject
@@ -13,8 +14,9 @@ public:
 	virtual ~CEnemy();
 
 protected:
-	CChaseComponent* mChase;
+	CEnemyStatusComponent* mStatus;
 	CSpriteComponent* mSprite;
+	CChaseComponent* mChase;
 	CRigidbody* mRigidbody;
 
 public:

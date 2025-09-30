@@ -12,6 +12,10 @@ CSkeletonMad::~CSkeletonMad()
 
 bool CSkeletonMad::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonMad");
+	mStatus->SetStatus(ERegularMobType::SKELETON_MAD);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonMad");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonMad");

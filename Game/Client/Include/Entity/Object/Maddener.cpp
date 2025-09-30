@@ -12,6 +12,10 @@ CMaddener::~CMaddener()
 
 bool CMaddener::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Maddener");
+	mStatus->SetStatus(ESubBossMobType::MADDENER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Maddener");
 	mSprite->SetTexture("Texture_Boss");
 	mSprite->SetAnimation("Maddener");

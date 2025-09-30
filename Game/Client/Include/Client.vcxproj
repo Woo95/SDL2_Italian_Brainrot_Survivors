@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Component\EnemyStatusComponent.h" />
     <ClInclude Include="Entity\Object\BatWeapon.h" />
     <ClInclude Include="Entity\Object\Ender.h" />
     <ClInclude Include="Entity\Object\Drowner.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="Entity\Object\Reaper.h" />
     <ClInclude Include="Entity\Object\Maddener.h" />
     <ClInclude Include="Manager\AllManagers.h" />
+    <ClInclude Include="Manager\Data\GameData\MobDataManager.h" />
     <ClInclude Include="Manager\EventManager.h" />
     <ClInclude Include="Core\Utils\EventUtils.h" />
     <ClInclude Include="Entity\Object\Stalker.h" />
@@ -236,6 +238,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Component\EnemyStatusComponent.cpp" />
     <ClCompile Include="Entity\Object\BatWeapon.cpp" />
     <ClCompile Include="Entity\Object\Ender.cpp" />
     <ClCompile Include="Entity\Object\Drowner.cpp" />

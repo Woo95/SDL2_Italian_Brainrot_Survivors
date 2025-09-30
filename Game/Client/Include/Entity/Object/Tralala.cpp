@@ -13,6 +13,10 @@ CTralala::~CTralala()
 
 bool CTralala::Init()
 {
+	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Tralala");
+	mStatus->SetStatus(ECharacterType::TRALALA);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Tralala");
 	mSprite->SetTexture("Texture_Tralala");
 	mSprite->SetAnimation("Tralala");

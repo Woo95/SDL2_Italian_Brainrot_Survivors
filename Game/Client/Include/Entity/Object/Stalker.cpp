@@ -12,6 +12,10 @@ CStalker::~CStalker()
 
 bool CStalker::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Stalker");
+	mStatus->SetStatus(ESubBossMobType::STALKER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Stalker");
 	mSprite->SetTexture("Texture_Boss");
 	mSprite->SetAnimation("Stalker");

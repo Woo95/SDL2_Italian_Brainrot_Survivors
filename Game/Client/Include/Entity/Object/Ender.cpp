@@ -12,6 +12,10 @@ CEnder::~CEnder()
 
 bool CEnder::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_Ender");
+	mStatus->SetStatus(ESubBossMobType::ENDER);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Ender");
 	mSprite->SetTexture("Texture_Boss");
 	mSprite->SetAnimation("Ender");

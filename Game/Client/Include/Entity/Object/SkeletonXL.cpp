@@ -12,6 +12,10 @@ CSkeletonXL::~CSkeletonXL()
 
 bool CSkeletonXL::Init()
 {
+	mStatus = AllocateComponent<CEnemyStatusComponent, 50>("Status_SkeletonXL");
+	mStatus->SetStatus(ERegularMobType::SKELETON_XL);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_SkeletonXL");
 	mSprite->SetTexture("Texture_Mob");
 	mSprite->SetAnimation("SkeletonXL");

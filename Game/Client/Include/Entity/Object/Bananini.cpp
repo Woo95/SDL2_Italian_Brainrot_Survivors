@@ -12,6 +12,10 @@ CBananini::~CBananini()
 
 bool CBananini::Init()
 {
+	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Bananini");
+	mStatus->SetStatus(ECharacterType::BANANINI);
+	mRootComponent->AddChild(mStatus);
+
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Bananini");
 	mSprite->SetTexture("Texture_Bananini");
 	mSprite->SetAnimation("Bananini");

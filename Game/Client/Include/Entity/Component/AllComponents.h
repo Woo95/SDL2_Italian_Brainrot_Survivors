@@ -12,5 +12,6 @@
 #include "InventoryComponent.h"
 
 #include "PlayerStatusComponent.h"
+#include "EnemyStatusComponent.h"
 
 #include "ChaseComponent.h"
