@@ -1,8 +1,8 @@
 #include "PausePanel.h"
 #include "AllWidgets.h"
+#include "../Manager/EventManager.h"
 #include "../Manager/Data/Resource/AssetManager.h"
 #include "../Manager/Data/Resource/SoundManager.h"
-#include "../Manager/EventManager.h"
 
 CPausePanel::CPausePanel()
 {
@@ -44,7 +44,7 @@ void CPausePanel::Construct()
 	mBtnResume->SetCornerRatio(2.0f);
 	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();});
 	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, [this]() {this->HideOptionPanel();});
-	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SCENE);});
+	mBtnResume->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SUB_STATE_PLAY);});
 
 	mOptionPanel = CWidgetUtils::AllocateWidget<COptionPanel>("PausePanel_OptionPanel");
 	mOptionPanel->GetTransform()->SetRelativeScale(FVector2D(0.46f, 0.7f));

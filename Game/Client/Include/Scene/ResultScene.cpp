@@ -14,8 +14,6 @@ CResultScene::CResultScene()
 CResultScene::~CResultScene()
 {
 	SAFE_DELETE(mSceneUI);
-
-	CEventManager::GetInst()->ClearAllListener();
 }
 
 bool CResultScene::Enter(void* payload)
@@ -36,6 +34,8 @@ bool CResultScene::Enter(void* payload)
 
 bool CResultScene::Exit()
 {
+	CEventManager::GetInst()->ClearListener();
+
 	return true;
 }
 

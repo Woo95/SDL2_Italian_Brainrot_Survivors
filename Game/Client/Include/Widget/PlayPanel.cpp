@@ -1,9 +1,8 @@
 #include "PlayPanel.h"
 #include "AllWidgets.h"
+#include "../Manager/EventManager.h"
 #include "../Manager/Data/GameData/GameDataManager.h"
 #include "../Manager/Data/GameData/PlayerProfile.h"
-#include "../Manager/SceneManager.h"
-#include "../Scene/PlayScene.h"
 
 CPlayPanel::CPlayPanel()
 {
@@ -22,7 +21,7 @@ void CPlayPanel::Construct()
 	btnPause->SetTexture("Texture_UIAtlas");
 	btnPause->SetFrame("PauseButton");
 	btnPause->SetAlpha(120);
-	btnPause->AddCallback(EButton::InputEvent::RELEASE, []() {((CPlayScene*)CSceneManager::GetInst()->GetCurrentScene())->SetSubState(EPlaySubState::PAUSE);});
+	btnPause->AddCallback(EButton::InputEvent::RELEASE, []() {CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SUB_STATE_PAUSE);});
 	AddChild(btnPause);
 
 	CPortrait* portrait = CWidgetUtils::AllocateWidget<CPortrait>("PlayUI_Portrait");
