@@ -52,6 +52,17 @@ void CPlayerStatusComponent::SetStatus(ECharacterType type)
 	mHP	   = mMaxHP;
 }
 
+void CPlayerStatusComponent::AddHP(float hp)
+{
+	mHP = std::clamp(mHP + hp, 0.0f, mMaxHP);
+
+	float percent = mHP / mMaxHP;
+	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_HP_CHANGED, &percent);
+
+	if (mHP <= 0.0f)
+		CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SUB_STATE_GAMEOVER);
+}
+
 void CPlayerStatusComponent::AddExp(float exp)
 {
 	mExp += exp;
@@ -70,22 +81,13 @@ void CPlayerStatusComponent::AddExp(float exp)
 	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_EXP_GAINED, &percent);
 }
 
-void CPlayerStatusComponent::AddHP(float hp)
-{
-	mHP = std::clamp(mHP + hp, 0.0f, mMaxHP);
-
-	float percent = mHP / mMaxHP;
-	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_HP_CHANGED, &percent);
-
-	if (mHP <= 0.0f)
-		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_DIED);
-}
-
 void CPlayerStatusComponent::ProcessPendingLevelUp(float delayTime)
 {
 	if (mPendingLevelUps)
 	{
 		mPendingLevelUps--;
-		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP, mObject, delayTime);
+
+		CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SUB_STATE_LVLUP, nullptr, delayTime);
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_BEGIN, &mLevel, delayTime);
 	}
 }

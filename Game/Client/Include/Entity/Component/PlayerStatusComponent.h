@@ -59,8 +59,8 @@ public:
 
 public:
 	void SetStatus(ECharacterType type);
-	void AddExp(float exp);
 	void AddHP(float hp);
+	void AddExp(float exp);
 	void AddKill()
 	{
 		mKillCount++;

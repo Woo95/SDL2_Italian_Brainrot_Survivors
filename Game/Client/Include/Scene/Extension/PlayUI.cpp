@@ -66,33 +66,9 @@ void CPlayUI::SetUIPanel(EPlaySubState state)
 	}
 }
 
-void CPlayUI::SetLevelUpChoice(std::vector<FItem> pool)
-{
-	const std::vector<CLevelUpSlot*>& slots = mLevelUp->GetSlots();
-	for (size_t i = 0; i < slots.size(); i++)
-	{
-		if (i < pool.size())
-		{
-			slots[i]->UpdateSlot(pool[i]);
-			slots[i]->Enable();
-		}
-		else
-		{
-			slots[i]->Disable();
-		}
-	}
-}
-
 void CPlayUI::BindEventListeners()
 {
 	CEventManager* EM = CEventManager::GetInst();
-
-	// 경험치 관련
-	EM->AddListener(EEventType::PLAYER_EXP_GAINED, [this](void* data)
-	{
-		float percent = *(float*)data;
-		mPlay->SetExpPercent(percent);
-	});
 
 	// 체력 관련
 	EM->AddListener(EEventType::PLAYER_HP_CHANGED, [this](void* data)
@@ -101,14 +77,25 @@ void CPlayUI::BindEventListeners()
 		mPlay->SetHealthPercent(percent);
 	});
 
-	// 레벨업 관련
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void* data)
+	// 경험치 관련
+	EM->AddListener(EEventType::PLAYER_EXP_GAINED, [this](void* data)
 	{
-		CPlayer* player = (CPlayer*)data;
-		SetLevelUpChoice(player->GetLevelUpPool());
-		mPlay->SetPlayerLevel(player->GetStatus()->GetLevel() - player->GetStatus()->GetPendingLevelUps());
+		float percent = *(float*)data;
+		mPlay->SetExpPercent(percent);
 	});
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
+
+	// 레벨업 관련
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_BEGIN, [this](void* data)
+	{
+		int level = *(int*)data;
+		mPlay->SetPlayerLevel(level);
+	});
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_CHOICE, [this](void* data)
+	{
+		std::vector<FItem>& pool = *(std::vector<FItem>*)data;
+		mLevelUp->SetLevelUpChoicePool(pool);
+	});
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECT, [this](void* item)
 	{
 		FItem selectedItem = *(FItem*)item;
 		if (selectedItem.level > 0)

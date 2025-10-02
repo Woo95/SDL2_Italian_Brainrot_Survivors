@@ -31,6 +31,7 @@
     <ClInclude Include="Core\Utils\InventoryUtils.h" />
     <ClInclude Include="Entity\Object\Reaper.h" />
     <ClInclude Include="Entity\Object\Maddener.h" />
+    <ClInclude Include="Scene\Extension\LevelUpHandler.h" />
     <ClInclude Include="Widget\InventoryPowerUpSlot.h" />
     <ClInclude Include="Widget\InventoryWeaponSlot.h" />
     <ClInclude Include="Widget\InventoryPanel.h" />
@@ -264,6 +265,7 @@
     <ClCompile Include="Entity\Object\SkeletonMad.cpp" />
     <ClCompile Include="Entity\Object\SkeletonNinja.cpp" />
     <ClCompile Include="Entity\Object\SkeletonXL.cpp" />
+    <ClCompile Include="Scene\Extension\LevelUpHandler.cpp" />
     <ClCompile Include="Widget\InventoryPowerUpSlot.cpp" />
     <ClCompile Include="Widget\InventoryWeaponSlot.cpp" />
     <ClCompile Include="Widget\InventoryPanel.cpp" />

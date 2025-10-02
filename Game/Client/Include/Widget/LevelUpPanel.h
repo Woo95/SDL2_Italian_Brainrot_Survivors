@@ -1,6 +1,7 @@
 #pragma once
 
 #include "UserWidget.h"
+#include "../Core/Utils/GameDataUtils.h"
 
 class CLevelUpSlot;
 
@@ -18,6 +19,7 @@ protected:
 	virtual void Release() final;
 
 public:
+	void SetLevelUpChoicePool(const std::vector<FItem>& pool);
 	const std::vector<CLevelUpSlot*>& GetSlots() const { return mSlots; }
 
 private:

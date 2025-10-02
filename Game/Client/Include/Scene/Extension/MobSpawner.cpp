@@ -1,12 +1,11 @@
 #include "MobSpawner.h"
 #include "Camera.h"
-#include "../Scene.h"
-#include "../../Core/Utils/GameDataUtils.h"
+#include "../PlayScene.h"
 #include "../../Entity/Object/AllObjects.h"
 #include "../../Entity/Component/AllComponents.h"
 #include "../../Manager/EventManager.h"
 
-CMobSpawner::CMobSpawner(CScene* scene)
+CMobSpawner::CMobSpawner(CPlayScene* scene)
 {
 	mScene = scene;
 }
@@ -30,7 +29,7 @@ bool CMobSpawner::Init()
 
 void CMobSpawner::Update(float deltaTime)
 {
-	if (!mPlayer)
+	if (!mScene->GetPlayer())
 		return;
 
 	mRegularSpawnTime -= deltaTime;
@@ -84,7 +83,7 @@ void CMobSpawner::RespawnMob()
 			continue;
 		}
 
-		FVector2D delta = mob->GetTransform()->GetWorldPos() - mPlayer->GetTransform()->GetWorldPos();
+		FVector2D delta = mob->GetTransform()->GetWorldPos() - mScene->GetPlayer()->GetTransform()->GetWorldPos();
 		if (delta.Length() >= mDespawnThreshold)
 		{
 			mob->GetTransform()->SetWorldPos(GetRandomSpawnPos(1.1f));
@@ -94,7 +93,7 @@ void CMobSpawner::RespawnMob()
 
 FVector2D CMobSpawner::GetRandomSpawnPos(float scale) const
 {
-	const FVector2D& playerPos = mPlayer->GetTransform()->GetWorldPos();
+	const FVector2D& playerPos = mScene->GetPlayer()->GetTransform()->GetWorldPos();
 
 	float halfW = mScene->GetCamera()->GetResolution().x * 0.5f;
 	float halfH = mScene->GetCamera()->GetResolution().y * 0.5f;
@@ -137,38 +136,38 @@ void CMobSpawner::BindEventListeners()
 		switch (type)
 		{
 		case ERegularMobType::SKELETON:
-			mob = mScene->InstantiateObject<CSkeleton, 25>("Enemy_Mob_Skeleton");
+			mob = mScene->InstantiateObject<CSkeleton, 35>("Enemy_Mob_Skeleton");
 			break;
 		case ERegularMobType::SKELETON_KNIFE:
-			mob = mScene->InstantiateObject<CSkeletonKnife, 25>("Enemy_Mob_SkeletonKnife");
+			mob = mScene->InstantiateObject<CSkeletonKnife, 35>("Enemy_Mob_SkeletonKnife");
 			break;
 		case ERegularMobType::SKULL:
-			mob = mScene->InstantiateObject<CSkull, 25>("Enemy_Mob_Skull");
+			mob = mScene->InstantiateObject<CSkull, 35>("Enemy_Mob_Skull");
 			break;
 		case ERegularMobType::SKELETON_PANTHER:
-			mob = mScene->InstantiateObject<CSkeletonPanther, 25>("Enemy_Mob_SkeletonPanther");
+			mob = mScene->InstantiateObject<CSkeletonPanther, 35>("Enemy_Mob_SkeletonPanther");
 			break;
 		case ERegularMobType::SKELETON_XL:
-			mob = mScene->InstantiateObject<CSkeletonXL, 25>("Enemy_Mob_SkeletonXL");
+			mob = mScene->InstantiateObject<CSkeletonXL, 35>("Enemy_Mob_SkeletonXL");
 			break;
 		case ERegularMobType::SKELETON_MAD:
-			mob = mScene->InstantiateObject<CSkeletonMad, 25>("Enemy_Mob_SkeletonMad");
+			mob = mScene->InstantiateObject<CSkeletonMad, 35>("Enemy_Mob_SkeletonMad");
 			break;
 		case ERegularMobType::SKELETON_ANGEL:
-			mob = mScene->InstantiateObject<CSkeletonAngel, 25>("Enemy_Mob_SSkeletonAngel");
+			mob = mScene->InstantiateObject<CSkeletonAngel, 35>("Enemy_Mob_SSkeletonAngel");
 			break;
 		case ERegularMobType::SKELETON_NINJA:
-			mob = mScene->InstantiateObject<CSkeletonNinja, 25>("Enemy_Mob_SkeletonNinja");
+			mob = mScene->InstantiateObject<CSkeletonNinja, 35>("Enemy_Mob_SkeletonNinja");
 			break;
 		case ERegularMobType::SKELETON_DRAGON:
-			mob = mScene->InstantiateObject<CSkeletonDragon, 25>("Enemy_Mob_SkeletonDragon");
+			mob = mScene->InstantiateObject<CSkeletonDragon, 35>("Enemy_Mob_SkeletonDragon");
 			break;
 		}
 
 		if (mob)
 		{
 			mob->GetTransform()->SetWorldPos(GetRandomSpawnPos(1.2f));
-			mob->GetChase()->SetTarget(mPlayer->GetTransform());
+			mob->GetChase()->SetTarget(mScene->GetPlayer()->GetTransform());
 			mSpawnedMobs.emplace_back(mob);
 		}
 	});
@@ -202,7 +201,7 @@ void CMobSpawner::BindEventListeners()
 		if (mob)
 		{
 			mob->GetTransform()->SetWorldPos(GetRandomSpawnPos(1.2f));
-			mob->GetChase()->SetTarget(mPlayer->GetTransform());
+			mob->GetChase()->SetTarget(mScene->GetPlayer()->GetTransform());
 			mSpawnedMobs.emplace_back(mob);
 		}
 	});

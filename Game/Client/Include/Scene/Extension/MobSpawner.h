@@ -3,8 +3,7 @@
 #include "../../Core/GameInfo.h"
 #include "../../Core/Vector2D.h"
 
-class CScene;
-class CPlayer;
+class CPlayScene;
 class CEnemy;
 
 class CMobSpawner
@@ -13,13 +12,12 @@ class CMobSpawner
 
 private:
 	CMobSpawner() = delete;
-	CMobSpawner(CScene* scene);
+	CMobSpawner(CPlayScene* scene);
 	~CMobSpawner();
 
 private:
-	// Scene & Player
-	CScene*  mScene  = nullptr;
-	CPlayer* mPlayer = nullptr;
+	// Scene
+	CPlayScene* mScene  = nullptr;
 
 	// Spawn related variables
 	std::vector<CEnemy*> mSpawnedMobs;
@@ -50,11 +48,6 @@ private:
 	float GetRandomRange(float min, float max) const
 	{
 		return min + (float)std::rand() / (RAND_MAX + 1.0f) * (max - min);
-	}
-
-	void SetPlayer(CPlayer* player)
-	{
-		mPlayer = player;
 	}
 
 	void BindEventListeners();

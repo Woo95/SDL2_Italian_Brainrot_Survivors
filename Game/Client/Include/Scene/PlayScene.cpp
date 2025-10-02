@@ -3,6 +3,7 @@
 #include "Extension/SceneCollision.h"
 #include "Extension/PlayUI.h"
 #include "Extension/MobSpawner.h"
+#include "Extension/LevelUpHandler.h"
 #include "../Engine.h"
 #include "../Manager/InputManager.h"
 #include "../Manager/SceneManager.h"
@@ -23,17 +24,17 @@ CPlayScene::CPlayScene()
 	mSceneUI = new CPlayUI;
 
 	mMobSpawner = new CMobSpawner(this);
+	mLevelUpHandler = new CLevelUpHandler(this);
 }
 
 CPlayScene::~CPlayScene()
 {
+	SAFE_DELETE(mLevelUpHandler);
 	SAFE_DELETE(mMobSpawner);
 
 	SAFE_DELETE(mSceneUI);
 	SAFE_DELETE(mSceneCollision);
 	SAFE_DELETE(mCamera);
-
-	CEventManager::GetInst()->ClearAllListener();
 }
 
 bool CPlayScene::Enter(void* payload)
@@ -58,13 +59,17 @@ bool CPlayScene::Enter(void* payload)
 
 	// Spawner //
 	mMobSpawner->Init();
-	mMobSpawner->SetPlayer(mPlayer);
+
+	// LevelUpHandler //
+	mLevelUpHandler->Init();
 
     return true;
 }
 
 bool CPlayScene::Exit()
 {
+	CEventManager::GetInst()->ClearListener();
+
     return true;
 }
 
@@ -77,7 +82,7 @@ void CPlayScene::Update(float deltaTime)
 		mTime += deltaTime;
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetGameTime(mTime);
 		CScene::Update(deltaTime);
-		//mMobSpawner->Update(deltaTime);
+		mMobSpawner->Update(deltaTime);
 		break;
 	case EPlaySubState::PAUSE:
 	case EPlaySubState::LVLUP:
@@ -168,10 +173,6 @@ void CPlayScene::BindEventListeners()
 	CEventManager* EM = CEventManager::GetInst();
 
 	// 씬 전환 관련
-	EM->AddListener(EEventType::GOTO_PLAY_SCENE, [this](void* data)
-	{
-		SetSubState(EPlaySubState::PLAY);
-	});
 	EM->AddListener(EEventType::GOTO_RESULT_SCENE, [this](void* data)
 	{
 		FResultData* resultData = new FResultData
@@ -185,17 +186,25 @@ void CPlayScene::BindEventListeners()
 	});
 
 	// 서브 씬 전환 관련
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP, [this](void*)
+	EM->AddListener(EEventType::GOTO_PLAY_SUB_STATE_PLAY, [this](void*)
+	{
+		SetSubState(EPlaySubState::PLAY);
+	});
+	EM->AddListener(EEventType::GOTO_PLAY_SUB_STATE_PAUSE, [this](void*)
+	{
+		SetSubState(EPlaySubState::PAUSE);
+	});
+	EM->AddListener(EEventType::GOTO_PLAY_SUB_STATE_LVLUP, [this](void*)
 	{
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		SetSubState(EPlaySubState::LVLUP);
 	});
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
+	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECT, [this](void* item)
 	{
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PressOut")->Play();
 		SetSubState(EPlaySubState::PLAY);
 	});
-	EM->AddListener(EEventType::PLAYER_DIED, [this](void*)
+	EM->AddListener(EEventType::GOTO_PLAY_SUB_STATE_GAMEOVER, [this](void*)
 	{
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();

@@ -37,7 +37,6 @@ private:
 public:
 	CPlayerStatusComponent* GetStatus() const { return mStatus; }
 	CInventoryComponent* GetInventory() const { return mInventory; }
-	std::vector<FItem> GetLevelUpPool() const;
 
 private:
 	void BindInput();
@@ -51,10 +50,4 @@ private:
 	float GetMoveSpeed()   const;
 	float GetPickupRange() const;
 	float GetGrwothExp()   const;
-
-	void BindEventListeners();
-	void HandlePowerUp(EPowerUpType type);
-	void HandleWeapon(EWeaponType type);
-	void HandleConsumable(EConsumableType type);
-	CWeapon* CreateWeapon(EWeaponType type);
 };

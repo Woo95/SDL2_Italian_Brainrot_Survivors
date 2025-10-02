@@ -2,8 +2,6 @@
 #include "AllObjects.h"
 #include "../Component/AllComponents.h"
 #include "../../Manager/InputManager.h"
-#include "../../Manager/EventManager.h"
-#include "../../Scene/PlayScene.h"
 
 CPlayer::CPlayer() :
 	mStatus(nullptr),
@@ -30,8 +28,6 @@ CPlayer::~CPlayer()
 
 bool CPlayer::Init()
 {
-	BindEventListeners();
-
 	mInventory = AllocateComponent<CInventoryComponent, 1>("Inventory_Player");
 	mRootComponent->AddChild(mInventory);
 
@@ -41,61 +37,16 @@ bool CPlayer::Init()
 	mRigidbody = AllocateComponent<CRigidbody, 50>("Rigidbody_Player");
 	mRootComponent->AddChild(mRigidbody);
 
+	mInput = AllocateComponent<CInputComponent, 1>("Input_Player");
+	mRootComponent->AddChild(mInput);
+
 	BindInput();
 
 	return CObject::Init();
 }
 
-std::vector<FItem> CPlayer::GetLevelUpPool() const
-{
-	std::vector<FItem> pool;
-	// 가능한 파워업을 옵션에 추가
-	for (int i = 0; i < (int)EPowerUpType::MAX; i++)
-	{
-		EPowerUpType type = static_cast<EPowerUpType>(i);
-		int level = mInventory->GetPowerUpLevel(type);
-		if (level >= CONST_MAX_POWERUP_LEVEL)
-			continue;
-
-		if (mInventory->HasEmptySlot(EItemCategory::POWERUP) || mInventory->GetPowerUpFromInventory(type))
-		{
-			pool.emplace_back(EItemCategory::POWERUP, (signed char)type, level);
-		}
-	}
-	// 가능한 무기를 옵션에 추가
-	for (int i = 0; i < (int)EWeaponType::MAX; i++)
-	{
-		EWeaponType type = static_cast<EWeaponType>(i);
-		int level = mInventory->GetWeaponLevel(type);
-		if (level >= CONST_MAX_WEAPON_LEVEL)
-			continue;
-
-		if (mInventory->HasEmptySlot(EItemCategory::WEAPON) || mInventory->GetWeaponFromInventory(type))
-		{
-			pool.emplace_back(EItemCategory::WEAPON, (signed char)type, level);
-		}
-	}
-	// 옵션 섞기
-	for (int i = 0; i < pool.size(); i++)
-	{
-		int randIdx = std::rand() % pool.size();
-		std::swap(pool[i], pool[randIdx]);
-	}
-
-	// 선택 옵션이 없을 경우
-	if (pool.empty())
-	{
-		pool.emplace_back(EItemCategory::CONSUMABLE, 0, 0);
-		pool.emplace_back(EItemCategory::CONSUMABLE, 1, 0);
-	}
-
-	return pool;
-}
-
 void CPlayer::BindInput()
 {
-	mInput = AllocateComponent<CInputComponent, 1>("Input_Player");
-
 	mInput->AddFunctionToBinder("W_MoveUp",    this, [this]() { MoveDir(FVector2D::UP);    });
 	mInput->AddFunctionToBinder("A_MoveLeft",  this, [this]() { MoveDir(FVector2D::LEFT);  });
 	mInput->AddFunctionToBinder("S_MoveDown",  this, [this]() { MoveDir(FVector2D::DOWN);  });
@@ -116,8 +67,6 @@ void CPlayer::BindInput()
 	mInput->AddInputToBinder("DOWN_MoveDown",   SDL_SCANCODE_DOWN,  EKeyAction::HOLD);
 	mInput->AddInputToBinder("LEFT_MoveLeft",   SDL_SCANCODE_LEFT,  EKeyAction::HOLD);
 	mInput->AddInputToBinder("RIGHT_MoveRight", SDL_SCANCODE_RIGHT, EKeyAction::HOLD);
-
-	mRootComponent->AddChild(mInput);
 }
 
 void CPlayer::MoveDir(const FVector2D& dir)
@@ -189,73 +138,4 @@ float CPlayer::GetGrwothExp() const
 	const float itemGrowth = itemLevel * mStatus->GetStatModifier(EPowerUpType::GROWTH);
 
 	return mStatus->GetBaseGrowthExp() + itemGrowth;
-}
-
-void CPlayer::BindEventListeners()
-{
-	CEventManager* EM = CEventManager::GetInst();
-
-	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECTED, [this](void* item)
-	{
-		FItem selectedItem = *(FItem*)item;
-		switch (selectedItem.category)
-		{
-		case EItemCategory::POWERUP:
-			HandlePowerUp((EPowerUpType)selectedItem.type);
-			break;
-		case EItemCategory::WEAPON:
-			HandleWeapon((EWeaponType)selectedItem.type);
-			break;
-		case EItemCategory::CONSUMABLE:
-			HandleConsumable((EConsumableType)selectedItem.type);
-			break;
-		}
-		mStatus->ProcessPendingLevelUp(0.05f);
-	});
-}
-
-void CPlayer::HandlePowerUp(EPowerUpType type)
-{
-	mInventory->AddPowerUp(type);
-}
-
-void CPlayer::HandleWeapon(EWeaponType type)
-{
-	CWeapon* weapon = mInventory->GetWeaponFromInventory(type);
-	if (weapon == nullptr)
-	{
-		weapon = CreateWeapon(type);
-	}
-	mInventory->AddWeapon(weapon);
-}
-
-void CPlayer::HandleConsumable(EConsumableType type)
-{
-	switch (type)
-	{
-	case EConsumableType::COIN_BAG:
-		mStatus->AddGold(100);
-		break;
-	case EConsumableType::CHICKEN:
-		mStatus->AddHP(50);
-		break;
-	}
-}
-
-CWeapon* CPlayer::CreateWeapon(EWeaponType type)
-{
-	CWeapon* weapon = nullptr;
-	switch (type)
-	{
-	case EWeaponType::BUBBLE:
-		//weapon = mScene->InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
-		break;
-	case EWeaponType::BAT:
-		weapon = mScene->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
-		break;
-	case EWeaponType::BANANA:
-		//weapon = mScene->InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
-		break;
-	}
-	return weapon;
 }

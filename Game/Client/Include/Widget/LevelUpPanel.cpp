@@ -58,6 +58,22 @@ void CLevelUpPanel::Release()
 	CMemoryPoolManager::GetInst()->Deallocate<CLevelUpPanel>(this);
 }
 
+void CLevelUpPanel::SetLevelUpChoicePool(const std::vector<FItem>& pool)
+{
+	for (size_t i = 0; i < mSlots.size(); i++)
+	{
+		if (i < pool.size())
+		{
+			mSlots[i]->UpdateSlot(pool[i]);
+			mSlots[i]->Enable();
+		}
+		else
+		{
+			mSlots[i]->Disable();
+		}
+	}
+}
+
 CLevelUpSlot* CLevelUpPanel::CreateLevelUpSlot(int idx, const FVector2D& scale, const FVector2D& pos)
 {
 	CLevelUpSlot* slot = CWidgetUtils::AllocateWidget<CLevelUpSlot, 4>("LevelUpPanel_LevelUpSlot_" + idx);

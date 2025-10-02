@@ -879,6 +879,9 @@
     <ClInclude Include="Widget\InventoryPowerUpSlot.h">
       <Filter>Game\04. UserWidgets\02. Slots\04. Inventory</Filter>
     </ClInclude>
+    <ClInclude Include="Scene\Extension\LevelUpHandler.h">
+      <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1208,6 +1211,9 @@
     </ClCompile>
     <ClCompile Include="Widget\InventoryPowerUpSlot.cpp">
       <Filter>Game\04. UserWidgets\02. Slots\04. Inventory</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Extension\LevelUpHandler.cpp">
+      <Filter>Game\03. Scenes\02. Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

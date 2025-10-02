@@ -2,7 +2,6 @@
 
 #include "SceneUI.h"
 #include "../../Core/Utils/SceneUtils.h"
-#include "../../Core/Utils/GameDataUtils.h"
 
 class CPlayPanel;
 class CPausePanel;
@@ -28,7 +27,6 @@ public:
     CPlayPanel* GetPlayPanel() { return mPlay; }
 
     void SetUIPanel(EPlaySubState state);
-    void SetLevelUpChoice(std::vector<FItem> pool);
 
 private:
     void BindEventListeners();

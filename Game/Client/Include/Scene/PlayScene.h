@@ -3,8 +3,9 @@
 #include "Scene.h"
 #include "../Core/Utils/SceneUtils.h"
 
-class CMobSpawner;
 class CPlayer;
+class CMobSpawner;
+class CLevelUpHandler;
 
 class CPlayScene : public CScene
 {
@@ -18,8 +19,10 @@ private:
 	EPlaySubState mSubState = EPlaySubState::NONE;
 
 	float mTime = 0.0f;
-	CMobSpawner* mMobSpawner = nullptr;
 	CPlayer* mPlayer = nullptr;
+
+	CMobSpawner* mMobSpawner = nullptr;
+	CLevelUpHandler* mLevelUpHandler = nullptr;
 
 public:
 	virtual bool Enter(void* payload = nullptr) final;
@@ -30,10 +33,10 @@ public:
 	virtual void LoadResources() final;
 
 public:
-	void SetSubState(EPlaySubState state);
-	CPlayer* GetPlayer() { return mPlayer; }
+	CPlayer* GetPlayer() const { return mPlayer; }
 
 private:
+	void SetSubState(EPlaySubState state);
 	CPlayer* InstantiatePlayer();
 	void BindEventListeners();
 };

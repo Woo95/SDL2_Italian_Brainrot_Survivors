@@ -20,35 +20,40 @@ void CInventoryComponent::Release()
 }
 
 bool CInventoryComponent::AddPowerUp(EPowerUpType type)
-{
-	// 빈 슬롯이 없을 경우
-	if (!HasEmptySlot(EItemCategory::POWERUP))
-		return false;
+{	
+	int& level = mPowerUps[(int)type];
 
 	// 등록된 파워업이 아닐 경우
-	if (GetPowerUpFromInventory(type) == 0)
+	if (level == 0)
 	{
-		mPowerUps[(int)type]++;
+		// 빈 슬롯이 없을 경우
+		if (!HasEmptySlot(EItemCategory::POWERUP))
+			return false;
+
+		// 빈 슬롯이 있을 경우
+		level++;
 		mPowerUpCount++;
 	}
+	// 등록된 파워업이 맞을 경우
 	else
 	{
-		// 최대 레벨이 아닐 경우
-		if (mPowerUps[(int)type] < CONST_MAX_POWERUP_LEVEL)
-			mPowerUps[(int)type]++;
+		// 등록된 파워업이 최대 레벨이 아닐 경우
+		if (level < CONST_MAX_POWERUP_LEVEL)
+			level++;
 	}
 	return true;
 }
 
 bool CInventoryComponent::AddWeapon(CWeapon* weapon)
 {
-	// 빈 슬롯이 없을 경우
-	if (!HasEmptySlot(EItemCategory::WEAPON))
-		return false;
-
 	// 등록된 무기가 아닐 경우
 	if (GetWeaponFromInventory(weapon->GetWeaponType()) == nullptr)
 	{
+		// 빈 슬롯이 없을 경우
+		if (!HasEmptySlot(EItemCategory::WEAPON))
+			return false;
+
+		// 빈 슬롯이 있을 경우
 		mWeapons[mWeaponCount] = weapon;
 		mWeaponCount++;
 	}

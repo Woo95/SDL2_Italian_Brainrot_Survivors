@@ -79,7 +79,7 @@ void CLevelUpSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bool
 {
 	if (isReleased)
 	{
-		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_SELECTED, &mItem);
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_SELECT, &mItem);
 		mItem = { EItemCategory::NONE, -1, 0 };
 	}
 }
