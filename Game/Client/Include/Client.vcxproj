@@ -19,8 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Object\Bubble.h" />
+    <ClInclude Include="Entity\Component\BananaWeaponComponent.h" />
+    <ClInclude Include="Entity\Component\BubbleWeaponComponent.h" />
     <ClInclude Include="Entity\Component\EnemyStatusComponent.h" />
-    <ClInclude Include="Entity\Object\BatWeapon.h" />
+    <ClInclude Include="Entity\Component\BatWeaponComponent.h" />
     <ClInclude Include="Entity\Object\Ender.h" />
     <ClInclude Include="Entity\Object\Drowner.h" />
     <ClInclude Include="Entity\Component\ChaseComponent.h" />
@@ -50,7 +53,7 @@
     <ClInclude Include="Entity\Object\SkeletonMad.h" />
     <ClInclude Include="Entity\Object\SkeletonNinja.h" />
     <ClInclude Include="Entity\Object\SkeletonXL.h" />
-    <ClInclude Include="Entity\Object\Weapon.h" />
+    <ClInclude Include="Entity\Component\WeaponComponent.h" />
     <ClInclude Include="Widget\GameOverPanel.h" />
     <ClInclude Include="Scene\Extension\MobSpawner.h" />
     <ClInclude Include="Resource\BGM.h" />
@@ -242,8 +245,11 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Object\Bubble.cpp" />
+    <ClCompile Include="Entity\Component\BananaWeaponComponent.cpp" />
+    <ClCompile Include="Entity\Component\BubbleWeaponComponent.cpp" />
     <ClCompile Include="Entity\Component\EnemyStatusComponent.cpp" />
-    <ClCompile Include="Entity\Object\BatWeapon.cpp" />
+    <ClCompile Include="Entity\Component\BatWeaponComponent.cpp" />
     <ClCompile Include="Entity\Object\Ender.cpp" />
     <ClCompile Include="Entity\Object\Drowner.cpp" />
     <ClCompile Include="Entity\Component\ChaseComponent.cpp" />

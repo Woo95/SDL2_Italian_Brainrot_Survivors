@@ -82,7 +82,7 @@ void CPlayScene::Update(float deltaTime)
 		mTime += deltaTime;
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetGameTime(mTime);
 		CScene::Update(deltaTime);
-		mMobSpawner->Update(deltaTime);
+		//mMobSpawner->Update(deltaTime);
 		break;
 	case EPlaySubState::PAUSE:
 	case EPlaySubState::LVLUP:
@@ -110,6 +110,7 @@ void CPlayScene::LoadResources()
 {
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
 	LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
+	LoadTexture("Texture_VfxAtlas", "VfxAtlas.png");
 	LoadTexture("Texture_OverlayBG", "OverlayBG.png");
 	LoadTexture("Texture_GameOver", "GameOver.png");
 
@@ -141,28 +142,22 @@ void CPlayScene::SetSubState(EPlaySubState state)
 CPlayer* CPlayScene::InstantiatePlayer()
 {
 	CPlayer* player = nullptr;
-	CWeapon* weapon = nullptr;
+	CWeaponComponent* weapon = nullptr;
 	switch (CGameDataManager::GetInst()->GetPlayerProfile()->GetType())
 	{
 	case ECharacterType::TRALALA:
 	    player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
-		//weapon = InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BUBBLE);
-		player->GetInventory()->AddWeapon(weapon);
 	    break;
 	case ECharacterType::SAHUR:
 	{
 		player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
-		weapon = InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BAT);
-		player->GetInventory()->AddWeapon(weapon);
 		break;
 	}
 	case ECharacterType::BANANINI:
 	    player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
-		//weapon = InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BANANA);
-		player->GetInventory()->AddWeapon(weapon);
 	    break;
 	}
 	return player;

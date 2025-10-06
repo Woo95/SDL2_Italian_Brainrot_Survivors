@@ -10,6 +10,10 @@
 #include "Rigidbody.h"
 
 #include "InventoryComponent.h"
+#include "WeaponComponent.h"
+#include "BubbleWeaponComponent.h"
+#include "BatWeaponComponent.h"
+#include "BananaWeaponComponent.h"
 
 #include "PlayerStatusComponent.h"
 #include "EnemyStatusComponent.h"

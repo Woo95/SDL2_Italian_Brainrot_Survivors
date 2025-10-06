@@ -29,10 +29,11 @@ bool CCollisionManager::Init()
 	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
 	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::BLOCK);
 
+	CreateProfile("PlayerWeapon", ECollision::Channel::PLAYER_WEAPON, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerWeapon", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("EnemyHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
-
 
 	CreateProfile("EnemyFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("EnemyFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);

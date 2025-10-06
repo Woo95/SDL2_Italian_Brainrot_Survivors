@@ -217,6 +217,12 @@
     <Filter Include="Game\04. UserWidgets\02. Slots\04. Inventory">
       <UniqueIdentifier>{44fc983d-e58f-465d-a20d-d732115b8c35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\05. Entity\02. Component\01. Status">
+      <UniqueIdentifier>{c6cffbd7-935e-4a47-a512-be52b30bf536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\05. Entity\02. Component\02. Weapon">
+      <UniqueIdentifier>{ae2c6d7a-c93f-4971-86df-e50b74e48242}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Timer.h">
@@ -735,9 +741,6 @@
     <ClInclude Include="Scene\Extension\Layer.h">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Component\PlayerStatusComponent.h">
-      <Filter>Game\05. Entity\02. Component</Filter>
-    </ClInclude>
     <ClInclude Include="Entity\Component\VFXComponent.h">
       <Filter>Framework\04. Entity\02. Component\01. Components\VFX</Filter>
     </ClInclude>
@@ -858,15 +861,6 @@
     <ClInclude Include="Entity\Object\Skull.h">
       <Filter>Game\05. Entity\01. Object\03. Enemy\01. Mob</Filter>
     </ClInclude>
-    <ClInclude Include="Entity\Object\Weapon.h">
-      <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity\Object\BatWeapon.h">
-      <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity\Component\EnemyStatusComponent.h">
-      <Filter>Game\05. Entity\02. Component</Filter>
-    </ClInclude>
     <ClInclude Include="Manager\Data\GameData\MobDataManager.h">
       <Filter>Game\02. Manager\GameData</Filter>
     </ClInclude>
@@ -881,6 +875,27 @@
     </ClInclude>
     <ClInclude Include="Scene\Extension\LevelUpHandler.h">
       <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Object\Bubble.h">
+      <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\BananaWeaponComponent.h">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\BatWeaponComponent.h">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\BubbleWeaponComponent.h">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\EnemyStatusComponent.h">
+      <Filter>Game\05. Entity\02. Component\01. Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\PlayerStatusComponent.h">
+      <Filter>Game\05. Entity\02. Component\01. Status</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity\Component\WeaponComponent.h">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1092,9 +1107,6 @@
     <ClCompile Include="Scene\Extension\Layer.cpp">
       <Filter>Framework\03. Scene\01. Layer</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp">
-      <Filter>Game\05. Entity\02. Component</Filter>
-    </ClCompile>
     <ClCompile Include="Entity\Component\VFXComponent.cpp">
       <Filter>Framework\04. Entity\02. Component\01. Components\VFX</Filter>
     </ClCompile>
@@ -1197,12 +1209,6 @@
     <ClCompile Include="Entity\Object\Skull.cpp">
       <Filter>Game\05. Entity\01. Object\03. Enemy\01. Mob</Filter>
     </ClCompile>
-    <ClCompile Include="Entity\Object\BatWeapon.cpp">
-      <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity\Component\EnemyStatusComponent.cpp">
-      <Filter>Game\05. Entity\02. Component</Filter>
-    </ClCompile>
     <ClCompile Include="Widget\InventoryPanel.cpp">
       <Filter>Game\04. UserWidgets\01. Panels\02. Play</Filter>
     </ClCompile>
@@ -1214,6 +1220,24 @@
     </ClCompile>
     <ClCompile Include="Scene\Extension\LevelUpHandler.cpp">
       <Filter>Game\03. Scenes\02. Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Object\Bubble.cpp">
+      <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\BananaWeaponComponent.cpp">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\BatWeaponComponent.cpp">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\BubbleWeaponComponent.cpp">
+      <Filter>Game\05. Entity\02. Component\02. Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\EnemyStatusComponent.cpp">
+      <Filter>Game\05. Entity\02. Component\01. Status</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity\Component\PlayerStatusComponent.cpp">
+      <Filter>Game\05. Entity\02. Component\01. Status</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,10 +8,9 @@
 #include "Sahur.h"
 #include "Bananini.h"
 
-//#include "Weapon.h"
-//#include "BubbleWeapon.h"
-#include "BatWeapon.h"
-//#include "BananaWeapon.h"
+//#include "Bubble.h"
+//#include "Bat.h"
+//#include "Banana.h"
 
 #include "Reaper.h"
 #include "Drowner.h"
