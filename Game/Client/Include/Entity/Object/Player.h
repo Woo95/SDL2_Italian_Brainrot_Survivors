@@ -11,7 +11,7 @@ class CSpriteComponent;
 class CInputComponent;
 class CRigidbody;
 
-class CWeapon;
+class CWeaponComponent;
 
 class CPlayer abstract : public CObject
 {
@@ -37,11 +37,19 @@ private:
 public:
 	CPlayerStatusComponent* GetStatus() const { return mStatus; }
 	CInventoryComponent* GetInventory() const { return mInventory; }
+	CMovementComponent* GetMovement() const { return mMovement; }
+	CSpriteComponent* GetSprite() const { return mSprite; }
 
-private:
-	void BindInput();
-	void MoveDir(const FVector2D& dir);
+	void TakeDamage(float amount);
+	void Heal(float amount);
+	void AddExp(float exp);
+	void AddKill();
+	void AddGold(int money);
+	void AddPowerUp(EPowerUpType type);
+	void AddWeapon(EWeaponType type);
+	void AddConsumable(EConsumableType type);
 
+public:
 	float GetAttack()      const;
 	float GetDefense()     const;
 	float GetMaxHP()       const;
@@ -50,4 +58,8 @@ private:
 	float GetMoveSpeed()   const;
 	float GetPickupRange() const;
 	float GetGrwothExp()   const;
+
+private:
+	void BindInput();
+	void MoveDir(const FVector2D& dir);
 };

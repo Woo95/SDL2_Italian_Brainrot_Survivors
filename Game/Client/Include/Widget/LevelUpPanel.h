@@ -19,7 +19,7 @@ protected:
 	virtual void Release() final;
 
 public:
-	void SetLevelUpChoicePool(const std::vector<FItem>& pool);
+	void SetLevelUpChoicePool(const std::vector<FSelectableItem>& pool);
 	const std::vector<CLevelUpSlot*>& GetSlots() const { return mSlots; }
 
 private:

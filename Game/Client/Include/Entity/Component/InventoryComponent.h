@@ -3,7 +3,7 @@
 #include "Component.h"
 #include "../../Core/Utils/InventoryUtils.h"
 
-class CWeapon;
+class CWeaponComponent;
 
 class CInventoryComponent : public CComponent
 {
@@ -12,26 +12,26 @@ public:
 	virtual ~CInventoryComponent();
 
 private:
-	int mPowerUps[(int)EPowerUpType::MAX];
-	int mPowerUpCount;
+	FPowerUp mPowerUps[CONST_MAX_POWERUP_SLOT] = {};
+	int mPowerUpCount = 0;
 
-	CWeapon* mWeapons[CONST_MAX_WEAPON_SLOT];
-	int mWeaponCount;
+	FWeapon mWeapons[CONST_MAX_POWERUP_SLOT] = {};
+	int mWeaponCount = 0;
 
 private:
 	virtual void Release() final;
 
 public:
-	bool AddPowerUp(EPowerUpType type);
-	bool AddWeapon(CWeapon* weapon);
+	void AddPowerUp(EPowerUpType type);
+	void AddWeapon(EWeaponType type, CWeaponComponent* weapon);
 
-	int& GetPowerUpFromInventory(EPowerUpType type) { return mPowerUps[(int)type]; }
-	int GetPowerUpLevel(EPowerUpType type) const { return mPowerUps[(int)type]; }
+	FPowerUp* GetPowerUp(EPowerUpType type);
+	FWeapon* GetWeapon(EWeaponType type);
 
-	CWeapon* GetWeaponFromInventory(EWeaponType type) const;
-	int GetWeaponLevel(EWeaponType type) const;
+	int GetPowerUpLevel(EPowerUpType type);
+	int GetWeaponLevel(EWeaponType type);
 
-	bool HasEmptySlot(EItemCategory category) const
+	bool HasEmptySlot(EItemCategory category)
 	{
 		bool hasEmpty = false;
 		switch (category)

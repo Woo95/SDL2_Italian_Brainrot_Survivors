@@ -78,32 +78,29 @@ void CLevelUpSlot::Release()
 void CLevelUpSlot::HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased)
 {
 	if (isReleased)
-	{
 		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_SELECT, &mItem);
-		mItem = { EItemCategory::NONE, -1, 0 };
-	}
 }
 
-void CLevelUpSlot::UpdateSlot(const FItem& item)
+void CLevelUpSlot::UpdateSlot(const FSelectableItem& item)
 {
-	CItemDataManager* itemDataManager = CGameDataManager::GetInst()->GetItemDataManager();
+	CItemDataManager* IDM = CGameDataManager::GetInst()->GetItemDataManager();
 	switch (item.category)
 	{
 	case EItemCategory::POWERUP:
 	{
-		const FPowerUpData& powerUpData = itemDataManager->GetPowerUpData((EPowerUpType)item.type);
+		const FPowerUpData& powerUpData = IDM->GetPowerUpData((EPowerUpType)item.type);
 		UpdateSlotData(powerUpData.name, powerUpData.description, powerUpData.name, item.level);
 		break;
 	}
 	case EItemCategory::WEAPON:
 	{
-		const FWeaponData& weaponData = itemDataManager->GetWeaponData((EWeaponType)item.type);
+		const FWeaponData& weaponData = IDM->GetWeaponData((EWeaponType)item.type);
 		UpdateSlotData(weaponData.name, weaponData.description, weaponData.name, item.level);
 		break;
 	}
 	case EItemCategory::CONSUMABLE:
 	{
-		const FConsumableData& consumableData = itemDataManager->GetConsumableData((EConsumableType)item.type);
+		const FConsumableData& consumableData = IDM->GetConsumableData((EConsumableType)item.type);
 		UpdateSlotData(consumableData.name, consumableData.description, consumableData.name, item.level);
 		break;
 	}

@@ -1,11 +1,7 @@
 #include "InventoryComponent.h"
-#include "../Object/Weapon.h"
+#include "WeaponComponent.h"
 
-CInventoryComponent::CInventoryComponent() :
-	mPowerUps({}),
-	mPowerUpCount(0),
-	mWeapons({}),
-	mWeaponCount(0)
+CInventoryComponent::CInventoryComponent()
 {
 	mTypeID = typeid(CInventoryComponent).hash_code();
 }
@@ -19,64 +15,75 @@ void CInventoryComponent::Release()
 	CMemoryPoolManager::GetInst()->Deallocate<CInventoryComponent>(this);
 }
 
-bool CInventoryComponent::AddPowerUp(EPowerUpType type)
-{	
-	int& level = mPowerUps[(int)type];
-
+void CInventoryComponent::AddPowerUp(EPowerUpType type)
+{
 	// 등록된 파워업이 아닐 경우
-	if (level == 0)
+	if (!GetPowerUp(type))
 	{
 		// 빈 슬롯이 없을 경우
 		if (!HasEmptySlot(EItemCategory::POWERUP))
-			return false;
+			return;
 
 		// 빈 슬롯이 있을 경우
-		level++;
+		mPowerUps[mPowerUpCount].type = type;
+		mPowerUps[mPowerUpCount].level = 0;
 		mPowerUpCount++;
 	}
-	// 등록된 파워업이 맞을 경우
-	else
-	{
-		// 등록된 파워업이 최대 레벨이 아닐 경우
-		if (level < CONST_MAX_POWERUP_LEVEL)
-			level++;
-	}
-	return true;
+
+	if (GetPowerUpLevel(type) < CONST_MAX_POWERUP_LEVEL)
+		GetPowerUp(type)->level++;
 }
 
-bool CInventoryComponent::AddWeapon(CWeapon* weapon)
+void CInventoryComponent::AddWeapon(EWeaponType type, CWeaponComponent* weapon)
 {
 	// 등록된 무기가 아닐 경우
-	if (GetWeaponFromInventory(weapon->GetWeaponType()) == nullptr)
+	if (!GetWeapon(type))
 	{
 		// 빈 슬롯이 없을 경우
 		if (!HasEmptySlot(EItemCategory::WEAPON))
-			return false;
+			return;
 
 		// 빈 슬롯이 있을 경우
-		mWeapons[mWeaponCount] = weapon;
+		mWeapons[mWeaponCount].ptr = weapon;
 		mWeaponCount++;
 	}
-	weapon->AddWeaponLevel();
-
-	return true;
+	weapon->Upgrade();
 }
 
-CWeapon* CInventoryComponent::GetWeaponFromInventory(EWeaponType type) const
+FPowerUp* CInventoryComponent::GetPowerUp(EPowerUpType type)
 {
-	for (int i = 0; i < mWeaponCount; i++)
+	for (int i = 0; i < mPowerUpCount; i++)
 	{
-		if (mWeapons[i]->GetWeaponType() == type)
-			return mWeapons[i];
+		if (mPowerUps[i].type == type)
+			return &mPowerUps[i];
 	}
 	return nullptr;
 }
 
-int CInventoryComponent::GetWeaponLevel(EWeaponType type) const
+FWeapon* CInventoryComponent::GetWeapon(EWeaponType type)
 {
-	if (CWeapon* weapon = GetWeaponFromInventory(type))
+	for (int i = 0; i < mWeaponCount; i++)
 	{
-		return weapon->GetWeaponLevel();
+		if (mWeapons[i].ptr->GetType() == type)
+			return &mWeapons[i];
+	}
+	return nullptr;
+}
+
+int CInventoryComponent::GetPowerUpLevel(EPowerUpType type)
+{
+	if (FPowerUp* powerUp = GetPowerUp(type))
+	{
+		return powerUp->level;
+	}
+	return 0;
+}
+
+int CInventoryComponent::GetWeaponLevel(EWeaponType type)
+{
+	if (FWeapon* weapon = GetWeapon(type))
+	{
+		return weapon->ptr->GetLevel();
 	}
 	return 0;
 }

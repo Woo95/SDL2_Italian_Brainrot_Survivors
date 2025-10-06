@@ -30,34 +30,37 @@ void CLevelUpHandler::CreateItemPool()
 	{
 		EPowerUpType type = static_cast<EPowerUpType>(i);
 		int level = inventory->GetPowerUpLevel(type);
+
 		if (level >= CONST_MAX_POWERUP_LEVEL)
 			continue;
 
-		if (inventory->HasEmptySlot(EItemCategory::POWERUP) || inventory->GetPowerUpFromInventory(type))
+		if (inventory->HasEmptySlot(EItemCategory::POWERUP) || inventory->GetPowerUp(type))
 		{
-			mItemPool.emplace_back(EItemCategory::POWERUP, (signed char)type, level);
+			mItemPool.emplace_back(FSelectableItem(EItemCategory::POWERUP, (signed char)type, level));
 		}
 	}
+
 	// 가능한 무기를 옵션에 추가
 	for (int i = 0; i < (int)EWeaponType::MAX; i++)
 	{
 		EWeaponType type = static_cast<EWeaponType>(i);
 		int level = inventory->GetWeaponLevel(type);
+
 		if (level >= CONST_MAX_WEAPON_LEVEL)
 			continue;
 
-		if (inventory->HasEmptySlot(EItemCategory::WEAPON) || inventory->GetWeaponFromInventory(type))
+		if (inventory->HasEmptySlot(EItemCategory::WEAPON) || inventory->GetWeapon(type))
 		{
-			mItemPool.emplace_back(EItemCategory::WEAPON, (signed char)type, level);
+			mItemPool.emplace_back(FSelectableItem(EItemCategory::WEAPON, (signed char)type, level));
 		}
 	}
+
 	// 옵션 섞기
 	for (int i = 0; i < mItemPool.size(); i++)
 	{
 		int randIdx = std::rand() % mItemPool.size();
 		std::swap(mItemPool[i], mItemPool[randIdx]);
 	}
-
 	// 옵션 3개만 유지
 	if (mItemPool.size() > 3)
 		mItemPool.resize(3);
@@ -65,8 +68,8 @@ void CLevelUpHandler::CreateItemPool()
 	// 선택 옵션이 없을 경우
 	if (mItemPool.empty())
 	{
-		mItemPool.emplace_back(EItemCategory::CONSUMABLE, 0, 0);
-		mItemPool.emplace_back(EItemCategory::CONSUMABLE, 1, 0);
+		mItemPool.emplace_back(FSelectableItem(EItemCategory::CONSUMABLE, 0, 0));
+		mItemPool.emplace_back(FSelectableItem(EItemCategory::CONSUMABLE, 1, 0));
 	}
 }
 
@@ -81,63 +84,19 @@ void CLevelUpHandler::BindEventListener()
 	});
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECT, [this](void* item)
 	{
-		FItem selectedItem = *(FItem*)item;
-
-		switch (selectedItem.category)
+		FSelectableItem* selectedItem = (FSelectableItem*)item;
+		switch (selectedItem->category)
 		{
 		case EItemCategory::POWERUP:
-			HandlePowerUp((EPowerUpType)selectedItem.type);
+			mScene->GetPlayer()->AddPowerUp((EPowerUpType)selectedItem->type);
 			break;
 		case EItemCategory::WEAPON:
-			HandleWeapon((EWeaponType)selectedItem.type);
+			mScene->GetPlayer()->AddWeapon((EWeaponType)selectedItem->type);
 			break;
 		case EItemCategory::CONSUMABLE:
-			HandleConsumable((EConsumableType)selectedItem.type);
+			mScene->GetPlayer()->AddConsumable((EConsumableType)selectedItem->type);
 			break;
 		}
 		mScene->GetPlayer()->GetStatus()->ProcessPendingLevelUp(0.05f);
 	});
-}
-
-void CLevelUpHandler::HandlePowerUp(EPowerUpType type)
-{
-	mScene->GetPlayer()->GetInventory()->AddPowerUp(type);
-}
-
-void CLevelUpHandler::HandleWeapon(EWeaponType type)
-{
-	CInventoryComponent* inventory = mScene->GetPlayer()->GetInventory();
-
-	CWeapon* weapon = inventory->GetWeaponFromInventory(type);
-	if (weapon == nullptr)
-	{
-		switch (type)
-		{
-		case EWeaponType::BUBBLE:
-			//weapon = mScene->InstantiateObject<CBubbleWeapon, 1>("Weapon_Bubble", ELayer::WEAPON);
-			break;
-		case EWeaponType::BAT:
-			weapon = mScene->InstantiateObject<CBatWeapon, 1>("Weapon_Bat", ELayer::WEAPON);
-			break;
-		case EWeaponType::BANANA:
-			//weapon = mScene->InstantiateObject<CBananaWeapon, 1>("Weapon_Banana", ELayer::WEAPON);
-			break;
-		}
-	}
-	inventory->AddWeapon(weapon);
-}
-
-void CLevelUpHandler::HandleConsumable(EConsumableType type)
-{
-	CPlayerStatusComponent* status = mScene->GetPlayer()->GetStatus();
-
-	switch (type)
-	{
-	case EConsumableType::COIN_BAG:
-		status->AddGold(100);
-		break;
-	case EConsumableType::CHICKEN:
-		status->AddHP(50);
-		break;
-	}
 }

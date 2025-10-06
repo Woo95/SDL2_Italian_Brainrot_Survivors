@@ -7,6 +7,8 @@ class CItemDataManager;
 
 class CPlayerStatusComponent : public CComponent
 {
+	friend class CPlayer;
+
 public:
 	CPlayerStatusComponent();
 	virtual ~CPlayerStatusComponent();
@@ -39,17 +41,6 @@ private:
 	virtual void Release() final;
 
 public:
-	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
-	int GetMenuPowerUpLvl(EPowerUpType type) const { return mMenuPowerUps[(int)type]; }
-
-	float GetBaseAttack()      const { return mBaseAttack; }
-	float GetBaseDefense()     const { return mBaseDefense; }
-	float GetBaseMaxHP()       const { return mBaseMaxHP; }
-	float GetBaseAttackSpeed() const { return mBaseAttackSpeed; }
-	float GetBaseMoveSpeed()   const { return mBaseMoveSpeed; }
-	float GetBasePickupRange() const { return mBasePickupRange; }
-	float GetBaseGrowthExp()   const { return mBaseGrowthExp; }
-
 	int GetLevel()      const { return mLevel; }
 	float GetHP()       const { return mHP; }
 	float GetExp()      const { return mExp; }
@@ -59,6 +50,9 @@ public:
 
 public:
 	void SetStatus(ECharacterType type);
+	void ProcessPendingLevelUp(float delayTime);
+
+private:
 	void AddHP(float hp);
 	void AddExp(float exp);
 	void AddKill()
@@ -69,5 +63,15 @@ public:
 	{
 		mGoldEarned += money;
 	}
-	void ProcessPendingLevelUp(float delayTime);
+
+	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
+	int GetMenuPowerUpLvl(EPowerUpType type) const { return mMenuPowerUps[(int)type]; }
+
+	float GetBaseAttack()      const { return mBaseAttack; }
+	float GetBaseDefense()     const { return mBaseDefense; }
+	float GetBaseMaxHP()       const { return mBaseMaxHP; }
+	float GetBaseAttackSpeed() const { return mBaseAttackSpeed; }
+	float GetBaseMoveSpeed()   const { return mBaseMoveSpeed; }
+	float GetBasePickupRange() const { return mBasePickupRange; }
+	float GetBaseGrowthExp()   const { return mBaseGrowthExp; }
 };

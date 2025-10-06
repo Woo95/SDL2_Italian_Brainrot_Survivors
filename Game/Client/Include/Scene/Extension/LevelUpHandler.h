@@ -17,8 +17,8 @@ private:
 private:
 	CPlayScene* mScene = nullptr;
 
-	std::vector<FItem> mItemPool;
-	
+	std::vector<FSelectableItem> mItemPool;
+
 private:
 	bool Init();
 
@@ -26,7 +26,4 @@ private:
 	void CreateItemPool();
 
 	void BindEventListener();
-	void HandlePowerUp(EPowerUpType type);
-	void HandleWeapon(EWeaponType type);
-	void HandleConsumable(EConsumableType type);
 };

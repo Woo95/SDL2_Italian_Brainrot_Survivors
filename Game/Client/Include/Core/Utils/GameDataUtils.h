@@ -80,31 +80,52 @@ enum class EConsumableType : signed char
 
 ////////////////////////////////////////
 
-struct FItem
+// RUNTIME DATAs //
+
+struct FSelectableItem
 {
+public:
+	FSelectableItem() = default;
+	FSelectableItem(EItemCategory c, int t, int l) : category(c), type(t), level(l) {}
+
 	EItemCategory category = EItemCategory::NONE;
 	signed char type = -1;
 	int level = 0;
 };
 
+struct FPowerUp
+{
+	EPowerUpType type;
+	int level;
+};
+
+struct FWeapon
+{
+	class CWeaponComponent* ptr;
+};
+
+////////////////////////////////////////
+
+// STATIC DATAs //
+
 struct FRegularMobData
 {
 	ERegularMobType type = ERegularMobType::NONE;
-	float baseHP		= 0.0f;
-	float baseAttack	= 0.0f;
-	float baseMoveSpeed	= 0.0f;
-	float baseExp		= 0.0f;
-	int   baseGold		= 0;
+	float baseHP        = 0.0f;
+	float baseAttack    = 0.0f;
+	float baseMoveSpeed = 0.0f;
+	float baseExp       = 0.0f;
+	int   baseGold      = 0;
 };
 
 struct FSubBossMobData
 {
 	ESubBossMobType type = ESubBossMobType::NONE;
-	float baseHP		= 0.0f;
-	float baseAttack	= 0.0f;
-	float baseMoveSpeed	= 0.0f;
-	float baseExp		= 0.0f;
-	int   baseGold		= 0;
+	float baseHP        = 0.0f;
+	float baseAttack    = 0.0f;
+	float baseMoveSpeed = 0.0f;
+	float baseExp       = 0.0f;
+	int   baseGold      = 0;
 };
 
 struct FCharacterData
@@ -150,8 +171,8 @@ struct FConsumableData
 
 struct FResultData
 {
-	float survivedTime	= 0.0f;
-	int   levelReached	= 0;
-	int   goldEarned	= 0;
-	int   killCount		= 0;
+	float survivedTime = 0.0f;
+	int   levelReached = 0;
+	int   goldEarned   = 0;
+	int   killCount    = 0;
 };

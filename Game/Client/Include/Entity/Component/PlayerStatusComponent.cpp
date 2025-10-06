@@ -88,6 +88,6 @@ void CPlayerStatusComponent::ProcessPendingLevelUp(float delayTime)
 		mPendingLevelUps--;
 
 		CEventManager::GetInst()->Broadcast(EEventType::GOTO_PLAY_SUB_STATE_LVLUP, nullptr, delayTime);
-		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_BEGIN, &mLevel, delayTime);
+		CEventManager::GetInst()->Broadcast(EEventType::PLAYER_LEVEL_UP_BEGIN, mObject, delayTime);
 	}
 }

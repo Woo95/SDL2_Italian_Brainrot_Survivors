@@ -87,27 +87,27 @@ void CPlayUI::BindEventListeners()
 	// 레벨업 관련
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP_BEGIN, [this](void* data)
 	{
-		int level = *(int*)data;
-		mPlay->SetPlayerLevel(level);
+		CPlayer* player = (CPlayer*)data;
+		mPlay->SetPlayerLevel(player->GetStatus()->GetLevel() - player->GetStatus()->GetPendingLevelUps());
 	});
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP_CHOICE, [this](void* data)
 	{
-		std::vector<FItem>& pool = *(std::vector<FItem>*)data;
+		std::vector<FSelectableItem>& pool = *(std::vector<FSelectableItem>*)data;
 		mLevelUp->SetLevelUpChoicePool(pool);
 	});
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP_SELECT, [this](void* item)
 	{
-		FItem selectedItem = *(FItem*)item;
-		if (selectedItem.level > 0)
+		FSelectableItem* selectedItem = (FSelectableItem*)item;
+		if (selectedItem->level > 0)
 			return;
 
-		switch (selectedItem.category)
+		switch (selectedItem->category)
 		{
 		case EItemCategory::POWERUP:
-			mPlay->SetInventorySlot((EPowerUpType)selectedItem.type);
+			mPlay->SetInventorySlot((EPowerUpType)selectedItem->type);
 			break;
 		case EItemCategory::WEAPON:
-			mPlay->SetInventorySlot((EWeaponType)selectedItem.type);
+			mPlay->SetInventorySlot((EWeaponType)selectedItem->type);
 			break;
 		}
 	});

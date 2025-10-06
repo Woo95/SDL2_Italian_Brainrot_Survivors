@@ -13,7 +13,7 @@ public:
 	virtual ~CLevelUpSlot();
 
 private:
-	FItem mItem;
+	FSelectableItem mItem;
 
 	CTextBlock* mName = nullptr;
 	CTextBlock* mStatus = nullptr;
@@ -27,7 +27,7 @@ protected:
 	virtual void HandleHovered(const FVector2D& mousePos, bool isPressed, bool isHeld, bool isReleased) final;
 
 public:
-	void UpdateSlot(const FItem& item);
+	void UpdateSlot(const FSelectableItem& item);
 
 private:
 	void UpdateSlotData(const std::string& name, const std::string& description, const std::string& iconFrame, int level);

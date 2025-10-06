@@ -58,7 +58,7 @@ void CLevelUpPanel::Release()
 	CMemoryPoolManager::GetInst()->Deallocate<CLevelUpPanel>(this);
 }
 
-void CLevelUpPanel::SetLevelUpChoicePool(const std::vector<FItem>& pool)
+void CLevelUpPanel::SetLevelUpChoicePool(const std::vector<FSelectableItem>& pool)
 {
 	for (size_t i = 0; i < mSlots.size(); i++)
 	{

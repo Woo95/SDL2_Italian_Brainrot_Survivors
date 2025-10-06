@@ -13,9 +13,15 @@ CTralala::~CTralala()
 
 bool CTralala::Init()
 {
+	CPlayer::Init();
+
 	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Tralala");
 	mStatus->SetStatus(ECharacterType::TRALALA);
 	mRootComponent->AddChild(mStatus);
+
+	CWeaponComponent* weapon = AllocateComponent<CBubbleWeaponComponent, 1>("BubbleWeapon_Tralala");
+	mInventory->AddWeapon(EWeaponType::BUBBLE, weapon);
+	mRootComponent->AddChild(weapon);
 
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Tralala");
 	mSprite->SetTexture("Texture_Tralala");
@@ -40,7 +46,7 @@ bool CTralala::Init()
 	mFootCollider->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mFootCollider);
 
-	return CPlayer::Init();
+	return true;
 }
 
 void CTralala::Release()

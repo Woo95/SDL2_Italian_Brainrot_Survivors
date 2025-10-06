@@ -45,6 +45,81 @@ bool CPlayer::Init()
 	return CObject::Init();
 }
 
+void CPlayer::AddExp(float exp)
+{
+	mStatus->AddExp(exp * GetGrwothExp());
+}
+
+void CPlayer::AddKill()
+{
+	mStatus->AddKill();
+}
+
+void CPlayer::AddGold(int money)
+{
+	mStatus->AddGold(money);
+}
+
+void CPlayer::AddPowerUp(EPowerUpType type)
+{
+	mInventory->AddPowerUp(type);
+}
+
+void CPlayer::AddWeapon(EWeaponType type)
+{
+	FWeapon* weapon = mInventory->GetWeapon(type);
+	if (!weapon)
+	{
+		CWeaponComponent* weaponComponent = nullptr;
+		switch (type)
+		{
+		case EWeaponType::BUBBLE:
+			weaponComponent = AllocateComponent<CBubbleWeaponComponent, 1>("BubbleWeapon_Tralala");
+			mRootComponent->AddChild(weaponComponent);
+			break;
+		case EWeaponType::BAT:
+			weaponComponent = AllocateComponent<CBatWeaponComponent, 1>("BatWeapon_Sahur");
+			mRootComponent->AddChild(weaponComponent);
+			break;
+		case EWeaponType::BANANA:
+			weaponComponent = AllocateComponent<CBananaWeaponComponent, 1>("BananaWeapon_Bananini");
+			mRootComponent->AddChild(weaponComponent);
+			break;
+		}
+		mInventory->AddWeapon(type, weaponComponent);
+	}
+	else
+	{
+		mInventory->AddWeapon(type, weapon->ptr);
+	}
+	
+}
+
+void CPlayer::AddConsumable(EConsumableType type)
+{
+	switch (type)
+	{
+	case EConsumableType::COIN_BAG:
+		mStatus->AddGold(100);
+		break;
+	case EConsumableType::CHICKEN:
+		mStatus->AddHP(50.0f);
+		break;
+	}
+}
+
+void CPlayer::TakeDamage(float amount)
+{
+	float damage = std::max(0.0f, amount - GetDefense());
+	mStatus->AddHP(-damage);
+}
+
+void CPlayer::Heal(float amount)
+{
+	float recovery = amount + GetRecoveryHP();
+	mStatus->AddHP(recovery);
+}
+
 void CPlayer::BindInput()
 {
 	mInput->AddFunctionToBinder("W_MoveUp",    this, [this]() { MoveDir(FVector2D::UP);    });
