@@ -62,7 +62,9 @@ void CBubbleWeaponComponent::Upgrade()
 		mWeaponAttack += 1.0f;
 		mProjectile += 2;
 		break;
-	case 2: mWeaponAttack += 1.0f; break;
+	case 2:
+		mWeaponAttack += 1.0f;
+		break;
 	case 3:
 		mWeaponAttack += 1.0f;
 		mProjectile += 2;
@@ -74,19 +76,24 @@ void CBubbleWeaponComponent::Upgrade()
 		mWeaponAttack += 2.0f;
 		mProjectile += 2; 
 		break;
-	case 6: mWeaponAttack += 3.0f; break;
-	case 7: mWeaponAttack += 3.0f; break;
+	case 6:
+		mWeaponAttack += 3.0f;
+		break;
+	case 7:
+		mWeaponAttack += 3.0f;
+		break;
 	case 8:
 		mWeaponAttack += 4.0f;
 		mProjectile += 2;
 		break;
-	default: break;
+	default:
+		break;
 	}
 }
 
 void CBubbleWeaponComponent::Attack(const FVector2D& dir)
 {
-	CBubble* bubble = mObject->GetScene()->InstantiateObject<CBubble, 5>("Bullet_Bubble", ELayer::Type::EFFECT);
+	CBubble* bubble = mObject->GetScene()->InstantiateObject<CBubble, 20>("Bullet_Bubble", ELayer::Type::EFFECT);
 
 	bubble->GetTransform()->SetWorldPos(mObject->GetTransform()->GetWorldPos());
 

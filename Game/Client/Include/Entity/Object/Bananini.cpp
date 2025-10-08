@@ -42,7 +42,7 @@ bool CBananini::Init()
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);
 
-	AddWeapon(EWeaponType::BAT);
+	AddWeapon(EWeaponType::BANANA);
 
 	return CPlayer::Init();
 }
