@@ -28,9 +28,6 @@ CPlayer::~CPlayer()
 
 bool CPlayer::Init()
 {
-	mInventory = AllocateComponent<CInventoryComponent, 1>("Inventory_Player");
-	mRootComponent->AddChild(mInventory);
-
 	mMovement = AllocateComponent<CMovementComponent, 1>("Movement_Player");
 	mRootComponent->AddChild(mMovement);
 

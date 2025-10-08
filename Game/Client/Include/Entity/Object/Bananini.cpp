@@ -12,15 +12,12 @@ CBananini::~CBananini()
 
 bool CBananini::Init()
 {
-	CPlayer::Init();
-
 	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Bananini");
 	mStatus->SetStatus(ECharacterType::BANANINI);
 	mRootComponent->AddChild(mStatus);
 
-	CWeaponComponent* weapon = AllocateComponent<CBananaWeaponComponent, 1>("BananaWeapon_Bananini");
-	mInventory->AddWeapon(EWeaponType::BANANA, weapon);
-	mRootComponent->AddChild(weapon);
+	mInventory = AllocateComponent<CInventoryComponent, 1>("Inventory_Bananini");
+	mRootComponent->AddChild(mInventory);
 
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Bananini");
 	mSprite->SetTexture("Texture_Bananini");
@@ -45,7 +42,9 @@ bool CBananini::Init()
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);
 
-	return true;
+	AddWeapon(EWeaponType::BAT);
+
+	return CPlayer::Init();
 }
 
 void CBananini::Release()

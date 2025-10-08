@@ -12,15 +12,12 @@ CSahur::~CSahur()
 
 bool CSahur::Init()
 {
-	CPlayer::Init();
-
 	mStatus = AllocateComponent<CPlayerStatusComponent, 1>("Status_Sahur");
 	mStatus->SetStatus(ECharacterType::SAHUR);
 	mRootComponent->AddChild(mStatus);
 
-	CWeaponComponent* weapon = AllocateComponent<CBatWeaponComponent, 1>("BatWeapon_Sahur");
-	mInventory->AddWeapon(EWeaponType::BAT, weapon);
-	mRootComponent->AddChild(weapon);
+	mInventory = AllocateComponent<CInventoryComponent, 1>("Inventory_Sahur");
+	mRootComponent->AddChild(mInventory);
 
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Sahur");
 	mSprite->SetTexture("Texture_Sahur");
@@ -45,7 +42,9 @@ bool CSahur::Init()
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);
 
-	return true;
+	AddWeapon(EWeaponType::BAT);
+
+	return CPlayer::Init();
 }
 
 void CSahur::Release()

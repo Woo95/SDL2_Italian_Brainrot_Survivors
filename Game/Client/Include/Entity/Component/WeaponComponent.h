@@ -14,7 +14,7 @@ public:
 protected:
 	EWeaponType mWeaponType = EWeaponType::NONE;
 	int mLevel = 0;
-	int mProjectile = 1;
+	int mProjectile = 0;
 	float mWeaponAttack = 1.0f;
 
 public:
