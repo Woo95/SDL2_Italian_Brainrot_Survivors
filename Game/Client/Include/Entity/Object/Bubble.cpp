@@ -17,7 +17,7 @@ bool CBubble::Init()
 
 	CSpriteComponent* sprite = AllocateComponent<CSpriteComponent>("Sprite_BubbleVfx");
 	sprite->SetTexture("Texture_VfxAtlas");
-	sprite->SetFrame("BubbleVfx");
+	sprite->SetFrame("Bubble");
 	sprite->GetTransform()->SetWorldScale(20.0f, 20.0f);
 	sprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(sprite);

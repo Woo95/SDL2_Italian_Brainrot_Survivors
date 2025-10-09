@@ -13,7 +13,7 @@ bool CBanana::Init()
 {
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_BananaVfx");
 	mSprite->SetTexture("Texture_VfxAtlas");
-	mSprite->SetFrame("BananaVfx");
+	mSprite->SetFrame("Banana");
 	mSprite->GetTransform()->SetWorldScale(mScale);
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);

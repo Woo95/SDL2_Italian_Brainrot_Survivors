@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Entity\Object\Banana.h" />
+    <ClInclude Include="Entity\Object\Bat.h" />
     <ClInclude Include="Entity\Object\Bubble.h" />
     <ClInclude Include="Entity\Component\BananaWeaponComponent.h" />
     <ClInclude Include="Entity\Component\BubbleWeaponComponent.h" />
@@ -245,6 +247,8 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Entity\Object\Banana.cpp" />
+    <ClCompile Include="Entity\Object\Bat.cpp" />
     <ClCompile Include="Entity\Object\Bubble.cpp" />
     <ClCompile Include="Entity\Component\BananaWeaponComponent.cpp" />
     <ClCompile Include="Entity\Component\BubbleWeaponComponent.cpp" />
