@@ -54,11 +54,11 @@ void CBananini::Release()
 
 void CBananini::OnMoveDirChanged(const FVector2D& dir)
 {
-	if (mMovement->GetMoveDir().x < 0)
+	if (mMovement->GetCurrMoveDir().x < 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_NONE);
 	}
-	if (mMovement->GetMoveDir().x > 0)
+	if (mMovement->GetCurrMoveDir().x > 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	}

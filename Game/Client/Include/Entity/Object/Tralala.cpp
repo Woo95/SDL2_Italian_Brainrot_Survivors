@@ -55,12 +55,12 @@ void CTralala::Release()
 
 void CTralala::OnMoveDirChanged(const FVector2D& dir)
 {
-	if (mMovement->GetMoveDir().x < 0)
+	if (mMovement->GetCurrMoveDir().x < 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_NONE);
 		mFootCollider->GetTransform()->SetRelativePos(-10.0f, 22.5f);
 	}
-	if (mMovement->GetMoveDir().x > 0)
+	if (mMovement->GetCurrMoveDir().x > 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 		mFootCollider->GetTransform()->SetRelativePos(10.0f, 22.5f);
