@@ -903,6 +903,9 @@
     <ClInclude Include="Entity\Object\Banana.h">
       <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
     </ClInclude>
+    <ClInclude Include="Widget\CoinCounter.h">
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\Timer.cpp">
@@ -1250,6 +1253,9 @@
     </ClCompile>
     <ClCompile Include="Entity\Object\Banana.cpp">
       <Filter>Game\05. Entity\01. Object\04. Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Widget\CoinCounter.cpp">
+      <Filter>Game\04. UserWidgets\03. ETC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

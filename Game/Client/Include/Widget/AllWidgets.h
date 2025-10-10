@@ -14,6 +14,7 @@
 #include "ExpBar.h"
 #include "Portrait.h"
 #include "KillCounter.h"
+#include "CoinCounter.h"
 
 #include "PressToStartPanel.h"
 #include "MainMenuPanel.h"

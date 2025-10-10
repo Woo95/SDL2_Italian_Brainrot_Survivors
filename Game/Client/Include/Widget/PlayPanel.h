@@ -6,6 +6,7 @@
 class CProgressBar;
 class CExpBar;
 class CKillCounter;
+class CCoinCounter;
 class CTimeHUD;
 class CInventoryPanel;
 
@@ -19,6 +20,7 @@ private:
 	CProgressBar*    mHealthBar   = nullptr;
 	CExpBar*         mExpBar      = nullptr;
 	CKillCounter*    mKillCounter = nullptr;
+	CCoinCounter*    mCoinCounter = nullptr;
 	CTimeHUD*        mTimeHUD     = nullptr;
 	CInventoryPanel* mInventory   = nullptr;
 
@@ -31,6 +33,7 @@ public:
 	void SetExpPercent(float percent);
 	void SetPlayerLevel(int level);
 	void SetKillCounter(int count);
+	void SetCoinCounter(int count);
 	void SetGameTime(float seconds);
 	void SetInventorySlot(EWeaponType type);
 	void SetInventorySlot(EPowerUpType type);

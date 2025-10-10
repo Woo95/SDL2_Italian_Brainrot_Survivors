@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Widget\CoinCounter.h" />
     <ClInclude Include="Entity\Object\Banana.h" />
     <ClInclude Include="Entity\Object\Bat.h" />
     <ClInclude Include="Entity\Object\Bubble.h" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Widget\Widget.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Widget\CoinCounter.cpp" />
     <ClCompile Include="Entity\Object\Banana.cpp" />
     <ClCompile Include="Entity\Object\Bat.cpp" />
     <ClCompile Include="Entity\Object\Bubble.cpp" />

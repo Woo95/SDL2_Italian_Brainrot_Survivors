@@ -5,14 +5,14 @@
 class CImage;
 class CTextBlock;
 
-class CKillCounter : public CUserWidget
+class CCoinCounter : public CUserWidget
 {
 public:
-	CKillCounter();
-	virtual ~CKillCounter();
+	CCoinCounter();
+	virtual ~CCoinCounter();
 
 private:
-	CTextBlock* mKillCount = nullptr;
+	CTextBlock* mCoinCount = nullptr;
 
 protected:
 	virtual void Construct() final;

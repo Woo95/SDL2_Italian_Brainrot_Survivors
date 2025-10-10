@@ -54,6 +54,12 @@ void CPlayPanel::Construct()
 	mKillCounter->GetTransform()->SetPivot(0.5f, 0.5f);
 	AddChild(mKillCounter);
 
+	mCoinCounter = CWidgetUtils::AllocateWidget<CCoinCounter, 1>("PlayUI_CoinCounter");
+	mCoinCounter->GetTransform()->SetRelativeScale(FVector2D(0.08f, 0.035f));
+	mCoinCounter->GetTransform()->SetRelativePos(FVector2D(0.9f, 0.138f));
+	mCoinCounter->GetTransform()->SetPivot(0.5f, 0.5f);
+	AddChild(mCoinCounter);
+
 	mTimeHUD = CWidgetUtils::AllocateWidget<CTimeHUD, 1>("PlayUI_TimeHUD");
 	mTimeHUD->GetTransform()->SetRelativeScale(FVector2D(0.09f, 0.05f));
 	mTimeHUD->GetTransform()->SetRelativePos(FVector2D(0.5f, 0.1f));
@@ -90,6 +96,11 @@ void CPlayPanel::SetPlayerLevel(int level)
 void CPlayPanel::SetKillCounter(int count)
 {
 	mKillCounter->SetCountText(count);
+}
+
+void CPlayPanel::SetCoinCounter(int count)
+{
+	mCoinCounter->SetCountText(count);
 }
 
 void CPlayPanel::SetGameTime(float seconds)

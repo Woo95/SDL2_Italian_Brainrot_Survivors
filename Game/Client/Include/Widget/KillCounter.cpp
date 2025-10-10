@@ -20,7 +20,7 @@ void CKillCounter::Construct()
     killIcon->SetFrame("KillIcon");
     AddChild(killIcon);
 
-    mKillCount = CWidgetUtils::AllocateWidget<CTextBlock>("MoneyHUD_Text_Balance");
+    mKillCount = CWidgetUtils::AllocateWidget<CTextBlock>("KillCounter_Text_Count");
     mKillCount->GetTransform()->SetRelativeScale(0.6f, 1.0f);
     mKillCount->GetTransform()->SetRelativePos(-0.2f, 0.0f);
     mKillCount->GetTransform()->SetPivot(0.5f, 0.5f);
