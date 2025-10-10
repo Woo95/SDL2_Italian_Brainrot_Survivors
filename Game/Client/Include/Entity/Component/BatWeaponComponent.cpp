@@ -15,11 +15,6 @@ CBatWeaponComponent::~CBatWeaponComponent()
 {
 }
 
-bool CBatWeaponComponent::Init()
-{
-	return CComponent::Init();
-}
-
 void CBatWeaponComponent::Update(float deltaTime)
 {
 	CComponent::Update(deltaTime);
@@ -95,6 +90,7 @@ void CBatWeaponComponent::Upgrade()
 void CBatWeaponComponent::Attack()
 {
 	CBat* bat = mObject->GetScene()->InstantiateObject<CBat, 4>("Swing_Bat", ELayer::Type::EFFECT);
+	bat->SetDamage(((CPlayer*)mObject)->GetAttack() + mWeaponAttack);
 
 	CPlayer* player = (CPlayer*)mObject;
 	FVector2D moveDir = player->GetMovement()->GetCurrMoveDir();

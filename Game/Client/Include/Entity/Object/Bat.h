@@ -15,6 +15,7 @@ private:
 	CSpriteComponent* mSprite = nullptr;
 	CRigidbody* mRigidbody = nullptr;
 
+	float mDamage = 0.0f;
 	float mDestroyTime = 5.0f;
 
 public:
@@ -28,4 +29,8 @@ public:
 	CRigidbody* GetRigidBody() { return mRigidbody; }
 
 	void SetFlip(SDL_RendererFlip flip);
+	void SetDamage(float damage)
+	{
+		mDamage = damage;
+	}
 };

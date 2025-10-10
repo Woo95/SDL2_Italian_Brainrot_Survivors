@@ -18,6 +18,7 @@ protected:
 	float mWeaponAttack = 1.0f;
 
 public:
+	virtual bool Init() override { return true; };
 	virtual void Upgrade() = 0;
 
 public:

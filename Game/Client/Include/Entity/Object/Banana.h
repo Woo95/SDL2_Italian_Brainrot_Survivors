@@ -14,8 +14,9 @@ public:
 private:
 	CSpriteComponent* mSprite = nullptr;
 	CCircleCollider* mCollider = nullptr;
-
 	FVector2D mScale = FVector2D(75.0f, 75.0f);
+
+	float mDamage = 0.0f;
 
 public:
 	virtual bool Init() final;
@@ -25,5 +26,10 @@ private:
 
 public:
 	const FVector2D& GetScale() { return mScale; }
+
 	void SetScale(const FVector2D& scale);
+	void SetDamage(float damage)
+	{
+		mDamage = damage;
+	}
 };

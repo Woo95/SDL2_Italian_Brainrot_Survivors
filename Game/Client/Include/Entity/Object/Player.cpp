@@ -72,17 +72,16 @@ void CPlayer::AddWeapon(EWeaponType type)
 		{
 		case EWeaponType::BUBBLE:
 			weaponComponent = AllocateComponent<CBubbleWeaponComponent, 1>("BubbleWeapon_Tralala");
-			mRootComponent->AddChild(weaponComponent);
 			break;
 		case EWeaponType::BAT:
 			weaponComponent = AllocateComponent<CBatWeaponComponent, 1>("BatWeapon_Sahur");
-			mRootComponent->AddChild(weaponComponent);
 			break;
 		case EWeaponType::BANANA:
 			weaponComponent = AllocateComponent<CBananaWeaponComponent, 1>("BananaWeapon_Bananini");
-			mRootComponent->AddChild(weaponComponent);
 			break;
 		}
+		mRootComponent->AddChild(weaponComponent);
+		weaponComponent->Init();
 		mInventory->AddWeapon(type, weaponComponent);
 	}
 	else

@@ -75,4 +75,5 @@ void CBananaWeaponComponent::Upgrade()
 	default:
 		break;
 	}
+	mBanana->SetDamage(((CPlayer*)mObject)->GetAttack() + mWeaponAttack);
 }

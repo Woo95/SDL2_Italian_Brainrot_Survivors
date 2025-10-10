@@ -34,6 +34,7 @@ bool CCollisionManager::Init()
 
 	CreateProfile("EnemyHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
+	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_WEAPON, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("EnemyFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("EnemyFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);

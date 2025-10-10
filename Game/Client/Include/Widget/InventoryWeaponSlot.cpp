@@ -41,3 +41,9 @@ void CInventoryWeaponSlot::UpdateSlot(EWeaponType type)
 
 	mItemIcon->SetFrame(weaponData.name);
 }
+
+void CInventoryWeaponSlot::NotUsingSlot()
+{
+	mItemIcon->SetFrame("XSymbol");
+	mItemIcon->SetAlpha(125.0f);
+}

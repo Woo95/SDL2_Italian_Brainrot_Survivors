@@ -23,6 +23,9 @@ void CInventoryPanel::Construct()
 	{
 		FVector2D slotPos = slotStartPos + FVector2D(i * (slotScale.x + gap), 0.0f);
 		mWeaponSlots[i] = CreateWeaponSlot(i, slotScale, slotPos);
+
+		if (i >= CONST_MAX_WEAPON_SLOT)
+			mWeaponSlots[i]->NotUsingSlot();
 	}
 
 	slotStartPos = FVector2D(-0.5f + slotScale.x * 0.5f, 0.052f + slotScale.y * 0.5f);

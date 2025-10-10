@@ -146,17 +146,20 @@ CPlayer* CPlayScene::InstantiatePlayer()
 	switch (CGameDataManager::GetInst()->GetPlayerProfile()->GetType())
 	{
 	case ECharacterType::TRALALA:
-	    player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
+		player = InstantiateObject<CTralala, 1>("Player_Tralala", ELayer::OBJECT);
+		player->AddWeapon(EWeaponType::BUBBLE);
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BUBBLE);
 	    break;
 	case ECharacterType::SAHUR:
 	{
 		player = InstantiateObject<CSahur, 1>("Player_Sahur", ELayer::OBJECT);
+		player->AddWeapon(EWeaponType::BAT);
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BAT);
 		break;
 	}
 	case ECharacterType::BANANINI:
-	    player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
+		player = InstantiateObject<CBananini, 1>("Player_Bananini", ELayer::OBJECT);
+		player->AddWeapon(EWeaponType::BANANA);
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetInventorySlot(EWeaponType::BANANA);
 	    break;
 	}

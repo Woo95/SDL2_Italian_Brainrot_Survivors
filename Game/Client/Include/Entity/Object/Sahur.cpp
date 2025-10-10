@@ -42,8 +42,6 @@ bool CSahur::Init()
 	foot->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(foot);
 
-	AddWeapon(EWeaponType::BAT);
-
 	return CPlayer::Init();
 }
 

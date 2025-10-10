@@ -16,9 +16,6 @@ private:
 	const float CONST_PROJECTILE_TIMER = 0.1f;
 	const float CONST_COOLDOWN_TIMER = 1.2f;
 
-public:
-	virtual bool Init() final;
-
 private:
 	virtual void Update(float deltaTime) final;
 	virtual void Release() final;

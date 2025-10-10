@@ -20,4 +20,5 @@ protected:
 
 public:
 	void UpdateSlot(EWeaponType type);
+	void NotUsingSlot();
 };

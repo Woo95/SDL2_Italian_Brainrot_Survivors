@@ -24,11 +24,6 @@ CBubbleWeaponComponent::~CBubbleWeaponComponent()
 {
 }
 
-bool CBubbleWeaponComponent::Init()
-{
-	return CComponent::Init();
-}
-
 void CBubbleWeaponComponent::Update(float deltaTime)
 {
 	CComponent::Update(deltaTime);
@@ -94,6 +89,7 @@ void CBubbleWeaponComponent::Upgrade()
 void CBubbleWeaponComponent::Attack(const FVector2D& dir)
 {
 	CBubble* bubble = mObject->GetScene()->InstantiateObject<CBubble, 20>("Bullet_Bubble", ELayer::Type::EFFECT);
+	bubble->SetDamage(((CPlayer*)mObject)->GetAttack() + mWeaponAttack);
 
 	bubble->GetTransform()->SetWorldPos(mObject->GetTransform()->GetWorldPos());
 

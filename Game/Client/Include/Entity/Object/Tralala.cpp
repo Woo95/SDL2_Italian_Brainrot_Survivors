@@ -43,8 +43,6 @@ bool CTralala::Init()
 	mFootCollider->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mFootCollider);
 
-	AddWeapon(EWeaponType::BUBBLE);
-
 	return CPlayer::Init();
 }
 

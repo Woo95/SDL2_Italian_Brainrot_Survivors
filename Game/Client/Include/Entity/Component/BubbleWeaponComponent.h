@@ -13,9 +13,6 @@ private:
 	float mCooldownTimer = 0.0f;
 	const float CONST_COOLDOWN_TIMER = 0.75f;
 
-public:
-	virtual bool Init() final;
-
 private:
 	virtual void Update(float deltaTime) final;
 	virtual void Release() final;

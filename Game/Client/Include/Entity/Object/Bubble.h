@@ -12,8 +12,9 @@ public:
 
 private:
 	CMovementComponent* mMovement = nullptr;
-
 	FVector2D mMoveDir = FVector2D::ZERO;
+
+	float mDamage = 0.0f;
 	float mDestroyTime = 5.0f;
 
 public:
@@ -27,5 +28,9 @@ public:
 	void SetMoveDir(FVector2D dir)
 	{
 		mMoveDir = dir;
+	}
+	void SetDamage(float damage)
+	{
+		mDamage = damage;
 	}
 };
