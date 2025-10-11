@@ -27,13 +27,10 @@ void CPlayerStatusComponent::SetStatus(ECharacterType type)
 	{
 		const FCharacterData& data = GDM->GetCharacterDataManager()->GetCharacterData(type);
 
-		mBaseAttack      = data.baseAttack;
-		mBaseDefense     = data.baseDefense;
-		mBaseMaxHP       = data.baseMaxHP;
-		mBaseAttackSpeed = data.baseAttackSpeed;
-		mBaseMoveSpeed   = data.baseMoveSpeed;
-		mBasePickupRange = data.basePickUpRange;
-		mBaseGrowthExp   = data.baseGrowthExp;
+		mBaseMaxHP     = data.baseMaxHP;
+		mBaseAttack    = data.baseAttack;
+		mBaseDefense   = data.baseDefense;
+		mBaseMoveSpeed = data.baseMoveSpeed;
 	}
 
 	/* 파워업 관련 */

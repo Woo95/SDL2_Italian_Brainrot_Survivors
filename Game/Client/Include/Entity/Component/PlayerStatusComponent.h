@@ -19,13 +19,10 @@ private:
 	float mPowerUpModifiers[(int)EPowerUpType::MAX] = {};
 
 	// 초기 스탯
+	float mBaseMaxHP       = 0.0f;
 	float mBaseAttack      = 0.0f;
 	float mBaseDefense     = 0.0f;
-	float mBaseMaxHP       = 0.0f;
-	float mBaseAttackSpeed = 0.0f;
 	float mBaseMoveSpeed   = 0.0f;
-	float mBasePickupRange = 0.0f;
-	float mBaseGrowthExp   = 0.0f;
 
 	// 현재 상태
 	int mLevel   = 1;
@@ -67,11 +64,8 @@ private:
 	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
 	int GetMenuPowerUpLvl(EPowerUpType type) const { return mMenuPowerUps[(int)type]; }
 
+	float GetBaseMaxHP()       const { return mBaseMaxHP; }
 	float GetBaseAttack()      const { return mBaseAttack; }
 	float GetBaseDefense()     const { return mBaseDefense; }
-	float GetBaseMaxHP()       const { return mBaseMaxHP; }
-	float GetBaseAttackSpeed() const { return mBaseAttackSpeed; }
 	float GetBaseMoveSpeed()   const { return mBaseMoveSpeed; }
-	float GetBasePickupRange() const { return mBasePickupRange; }
-	float GetBaseGrowthExp()   const { return mBaseGrowthExp; }
 };

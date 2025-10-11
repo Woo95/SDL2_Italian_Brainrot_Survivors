@@ -69,7 +69,7 @@ void CPlayer::Heal(float amount)
 
 void CPlayer::AddExp(float exp)
 {
-	mStatus->AddExp(exp * GetGrwothExp());
+	mStatus->AddExp(exp * GetGrowthExp());
 }
 
 void CPlayer::AddKill()
@@ -79,7 +79,7 @@ void CPlayer::AddKill()
 
 void CPlayer::AddGold(int money)
 {
-	mStatus->AddGold(money);
+	mStatus->AddGold((int)(money * GetGreed()));
 }
 
 void CPlayer::AddPowerUp(EPowerUpType type)
@@ -161,14 +161,6 @@ float CPlayer::GetRecoveryHP() const
 	return itemRecovery;
 }
 
-float CPlayer::GetAttackSpeed() const
-{
-	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::ATTACK_SPEED) + mInventory->GetPowerUpLevel(EPowerUpType::ATTACK_SPEED);
-	const float itemAttackSpeed = mStatus->GetBaseAttackSpeed() * itemLevel * mStatus->GetStatModifier(EPowerUpType::ATTACK_SPEED);
-
-	return mStatus->GetBaseAttackSpeed() + itemAttackSpeed;
-}
-
 float CPlayer::GetMoveSpeed() const
 {
 	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::MOVE_SPEED) + mInventory->GetPowerUpLevel(EPowerUpType::MOVE_SPEED);
@@ -180,17 +172,25 @@ float CPlayer::GetMoveSpeed() const
 float CPlayer::GetPickupRange() const
 {
 	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::MAGNET) + mInventory->GetPowerUpLevel(EPowerUpType::MAGNET);
-	const float itemPickupRange = mStatus->GetBasePickupRange() * itemLevel * mStatus->GetStatModifier(EPowerUpType::MAGNET);
+	const float itemPickupRange = 1 + itemLevel * mStatus->GetStatModifier(EPowerUpType::MAGNET);
 
-	return mStatus->GetBasePickupRange() + itemPickupRange;
+	return itemPickupRange;
 }
 
-float CPlayer::GetGrwothExp() const
+float CPlayer::GetGrowthExp() const
 {
 	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::GROWTH) + mInventory->GetPowerUpLevel(EPowerUpType::GROWTH);
-	const float itemGrowth = itemLevel * mStatus->GetStatModifier(EPowerUpType::GROWTH);
+	const float itemGrowth = 1 + itemLevel * mStatus->GetStatModifier(EPowerUpType::GROWTH);
 
-	return mStatus->GetBaseGrowthExp() + itemGrowth;
+	return itemGrowth;
+}
+
+float CPlayer::GetGreed() const
+{
+	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::GREED) + mInventory->GetPowerUpLevel(EPowerUpType::GREED);
+	const float itemGreed = 1 + itemLevel * mStatus->GetStatModifier(EPowerUpType::GREED);
+
+	return itemGreed;
 }
 
 void CPlayer::BindInput()

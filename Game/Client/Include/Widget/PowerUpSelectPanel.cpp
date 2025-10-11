@@ -48,15 +48,15 @@ void CPowerUpSelectPanel::Construct()
     const FVector2D slotScale = FVector2D(0.217f, 0.188f);
     const FVector2D slotStartPos = outerPanel->GetTransform()->GetRelativeScale() * FVector2D(0.14f, 0.32f);
 
-    mSlots[(int)EPowerUpType::MIGHT]        = CreatePowerUpSlot(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0));
-    mSlots[(int)EPowerUpType::ARMOR]        = CreatePowerUpSlot(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0));
-    mSlots[(int)EPowerUpType::MAX_HEALTH]   = CreatePowerUpSlot(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0));
-    mSlots[(int)EPowerUpType::RECOVERY]     = CreatePowerUpSlot(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0));
+    mSlots[(int)EPowerUpType::MIGHT]      = CreatePowerUpSlot(EPowerUpType::MIGHT,      slotScale, slotStartPos + CalcSlotPos(0 ,0));
+    mSlots[(int)EPowerUpType::ARMOR]      = CreatePowerUpSlot(EPowerUpType::ARMOR,      slotScale, slotStartPos + CalcSlotPos(1, 0));
+    mSlots[(int)EPowerUpType::MAX_HEALTH] = CreatePowerUpSlot(EPowerUpType::MAX_HEALTH, slotScale, slotStartPos + CalcSlotPos(2, 0));
+    mSlots[(int)EPowerUpType::RECOVERY]   = CreatePowerUpSlot(EPowerUpType::RECOVERY,   slotScale, slotStartPos + CalcSlotPos(3, 0));
 
-    mSlots[(int)EPowerUpType::ATTACK_SPEED] = CreatePowerUpSlot(EPowerUpType::ATTACK_SPEED, slotScale, slotStartPos + CalcSlotPos(0, 1));
-    mSlots[(int)EPowerUpType::MOVE_SPEED]   = CreatePowerUpSlot(EPowerUpType::MOVE_SPEED,   slotScale, slotStartPos + CalcSlotPos(1, 1));
-    mSlots[(int)EPowerUpType::MAGNET]       = CreatePowerUpSlot(EPowerUpType::MAGNET,       slotScale, slotStartPos + CalcSlotPos(2, 1));
-    mSlots[(int)EPowerUpType::GROWTH]       = CreatePowerUpSlot(EPowerUpType::GROWTH,       slotScale, slotStartPos + CalcSlotPos(3, 1));
+    mSlots[(int)EPowerUpType::MOVE_SPEED] = CreatePowerUpSlot(EPowerUpType::MOVE_SPEED, slotScale, slotStartPos + CalcSlotPos(0, 1));
+    mSlots[(int)EPowerUpType::MAGNET]     = CreatePowerUpSlot(EPowerUpType::MAGNET,     slotScale, slotStartPos + CalcSlotPos(1, 1));
+	mSlots[(int)EPowerUpType::GROWTH]     = CreatePowerUpSlot(EPowerUpType::GROWTH,     slotScale, slotStartPos + CalcSlotPos(2, 1));
+	mSlots[(int)EPowerUpType::GREED]      = CreatePowerUpSlot(EPowerUpType::GREED,      slotScale, slotStartPos + CalcSlotPos(3, 1));
 
     mHighlight = CWidgetUtils::AllocateWidget<CHighlightSelectedSlot, 2>("PowerUpSelectPanel_HighlightSelectedSlot");
     mHighlight->Disable();

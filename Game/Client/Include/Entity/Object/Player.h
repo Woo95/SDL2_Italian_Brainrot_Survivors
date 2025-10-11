@@ -61,10 +61,10 @@ public:
 	float GetDefense()     const;
 	float GetMaxHP()       const;
 	float GetRecoveryHP()  const;
-	float GetAttackSpeed() const;
 	float GetMoveSpeed()   const;
 	float GetPickupRange() const;
-	float GetGrwothExp()   const;
+	float GetGrowthExp()   const;
+	float GetGreed()       const;
 
 private:
 	void BindInput();

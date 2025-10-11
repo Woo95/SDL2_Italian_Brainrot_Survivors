@@ -54,10 +54,10 @@ enum class EPowerUpType : signed char
 	ARMOR,
 	MAX_HEALTH,
 	RECOVERY,
-	ATTACK_SPEED,
 	MOVE_SPEED,
 	MAGNET,
 	GROWTH,
+	GREED,
 	MAX
 };
 
@@ -140,10 +140,7 @@ struct FCharacterData
 	float baseMaxHP;
 	float baseAttack;
 	float baseDefense;
-	float baseAttackSpeed;
 	float baseMoveSpeed;
-	float basePickUpRange;
-	float baseGrowthExp;
 };
 
 struct FPowerUpData
