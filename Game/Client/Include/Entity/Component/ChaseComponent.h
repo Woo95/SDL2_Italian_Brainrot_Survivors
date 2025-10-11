@@ -27,6 +27,10 @@ public:
 	float GetSpeed() const { return mSpeed; }
 	const FVector2D& GetFacingDir() const { return mFacingDir; }
 
+	void SetSpeed(float speed)
+	{
+		mSpeed = speed;
+	}
 	void SetTarget(CTransform* target)
 	{
 		mTarget = target;

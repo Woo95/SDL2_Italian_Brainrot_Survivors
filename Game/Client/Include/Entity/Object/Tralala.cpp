@@ -34,6 +34,7 @@ bool CTralala::Init()
 	hitbox->GetTransform()->SetRelativeScale(62.5f, 23.0f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, -7.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
 	mRootComponent->AddChild(hitbox);
 
 	mFootCollider = AllocateComponent<CBoxCollider>("BoxCollider_TralalaFoot");

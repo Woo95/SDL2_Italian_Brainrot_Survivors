@@ -24,6 +24,7 @@ bool CCollisionManager::Init()
 {
 	CreateProfile("PlayerHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::OVERLAP);
+	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::PICKABLE_ITEM, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("PlayerFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
@@ -31,6 +32,9 @@ bool CCollisionManager::Init()
 
 	CreateProfile("PlayerWeapon", ECollision::Channel::PLAYER_WEAPON, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerWeapon", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::OVERLAP);
+
+	CreateProfile("PlayerItemDetector", ECollision::Channel::PLAYER_ITEM_DETECTOR, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerItemDetector", ECollision::Channel::PICKABLE_ITEM, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("EnemyHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
@@ -41,6 +45,9 @@ bool CCollisionManager::Init()
 	SetCollisionInteraction("EnemyFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::BLOCK);
 	SetCollisionInteraction("EnemyFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::BLOCK);
 
+	CreateProfile("PickableItem", ECollision::Channel::PICKABLE_ITEM, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PickableItem", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
+	SetCollisionInteraction("PickableItem", ECollision::Channel::PLAYER_ITEM_DETECTOR, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("Environment", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("Environment", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::BLOCK);

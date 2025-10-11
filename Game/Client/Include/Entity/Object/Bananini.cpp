@@ -33,6 +33,7 @@ bool CBananini::Init()
 	hitbox->GetTransform()->SetRelativeScale(25.f, 55.f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, 0.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
 	mRootComponent->AddChild(hitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_BananiniFoot");

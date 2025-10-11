@@ -4,14 +4,15 @@
 #include "../../Core/Vector2D.h"
 #include "../../Core/Utils/GameDataUtils.h"
 
+class CSoundManager;
+
 class CPlayerStatusComponent;
 class CInventoryComponent;
 class CMovementComponent;
 class CSpriteComponent;
 class CInputComponent;
 class CRigidbody;
-
-class CWeaponComponent;
+class CCollider;
 
 class CPlayer abstract : public CObject
 {
@@ -20,12 +21,15 @@ public:
 	virtual ~CPlayer();
 
 protected:
-	CPlayerStatusComponent* mStatus;
-	CInventoryComponent* mInventory;
-	CMovementComponent* mMovement;
-	CSpriteComponent* mSprite;
-	CInputComponent* mInput;
-	CRigidbody* mRigidbody;
+	CSoundManager* mSoundManager = nullptr;
+
+	CPlayerStatusComponent* mStatus = nullptr;
+	CInventoryComponent* mInventory = nullptr;
+	CMovementComponent* mMovement = nullptr;
+	CSpriteComponent* mSprite = nullptr;
+	CInputComponent* mInput = nullptr;
+	CRigidbody* mRigidbody = nullptr;
+	CCollider* mPickUpZone = nullptr;
 
 public:
 	virtual bool Init() override;
@@ -39,6 +43,9 @@ public:
 	CInventoryComponent* GetInventory() const { return mInventory; }
 	CMovementComponent* GetMovement() const { return mMovement; }
 	CSpriteComponent* GetSprite() const { return mSprite; }
+
+	// Collision Events //
+	void OnHit(CCollider* self, CCollider* other);
 
 	void TakeDamage(float amount);
 	void Heal(float amount);

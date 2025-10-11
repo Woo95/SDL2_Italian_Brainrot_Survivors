@@ -131,6 +131,8 @@ void CPlayScene::LoadResources()
     LoadSFX("SFX_PressOut", "sfx_pressOut.wav");
 	LoadSFX("SFX_LevelUp", "sfx_levelup.wav");
 	LoadSFX("SFX_GameOver", "sfx_gameOver.wav");
+
+	LoadSFX("SFX_Gem", "sfx_gem.wav");
 }
 
 void CPlayScene::SetSubState(EPlaySubState state)

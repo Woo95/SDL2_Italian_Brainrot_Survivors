@@ -28,3 +28,5 @@
 #include "SkeletonAngel.h"
 #include "SkeletonNinja.h"
 #include "SkeletonDragon.h"
+
+#include "Gem.h"

@@ -33,6 +33,7 @@ bool CSahur::Init()
 	hitbox->GetTransform()->SetRelativeScale(25.0f, 50.0f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, -8.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
 	mRootComponent->AddChild(hitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_SahurFoot");
