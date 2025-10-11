@@ -9,7 +9,8 @@ public:
 	virtual ~CBubbleWeaponComponent();
 
 private:
-	FVector2D mShootDirs[8] = {};
+	FVector2D mShootDirs[5] = {};
+
 	float mCooldownTimer = 0.0f;
 	const float CONST_COOLDOWN_TIMER = 0.75f;
 
@@ -21,5 +22,5 @@ public:
 	virtual void Upgrade() final;
 
 private:
-	void Attack(const FVector2D& dir);
+	void Attack();
 };

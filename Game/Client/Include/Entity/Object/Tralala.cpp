@@ -31,7 +31,7 @@ bool CTralala::Init()
 
 	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_TralalaHitbox");
 	hitbox->SetProfile("PlayerHitBox");
-	hitbox->GetTransform()->SetRelativeScale(62.5f, 23.0f);
+	hitbox->GetTransform()->SetRelativeScale(62.5f, 22.0f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, -7.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
 	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
