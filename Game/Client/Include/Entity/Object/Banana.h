@@ -14,7 +14,7 @@ public:
 private:
 	CSpriteComponent* mSprite = nullptr;
 	CCircleCollider* mCollider = nullptr;
-	FVector2D mScale = FVector2D(75.0f, 75.0f);
+	FVector2D mScale = FVector2D(90.0f, 90.0f);
 
 	float mDamage = 0.0f;
 

@@ -3,6 +3,8 @@
 #include "../../Entity/Object/Player.h"
 #include "../../Entity/Object/Bubble.h"
 #include "../../Scene/Scene.h"
+#include "../../Manager/Data/Resource/AssetManager.h"
+#include "../../Manager/Data/Resource/SoundManager.h"
 
 CBubbleWeaponComponent::CBubbleWeaponComponent()
 {
@@ -82,6 +84,8 @@ void CBubbleWeaponComponent::Upgrade()
 
 void CBubbleWeaponComponent::Attack()
 {
+	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Bubble")->Play();
+
 	for (int i = 0; i < mProjectile; i++)
 	{
 		FVector2D dir = mShootDirs[i];

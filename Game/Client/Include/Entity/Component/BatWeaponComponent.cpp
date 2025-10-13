@@ -3,6 +3,8 @@
 #include "../../Entity/Object/Player.h"
 #include "../../Entity/Object/Bat.h"
 #include "../../Scene/Scene.h"
+#include "../../Manager/Data/Resource/AssetManager.h"
+#include "../../Manager/Data/Resource/SoundManager.h"
 
 CBatWeaponComponent::CBatWeaponComponent()
 {
@@ -89,6 +91,8 @@ void CBatWeaponComponent::Upgrade()
 
 void CBatWeaponComponent::Attack()
 {
+	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Bat")->Play();
+
 	CBat* bat = mObject->GetScene()->InstantiateObject<CBat, 4>("Swing_Bat", ELayer::Type::EFFECT);
 	bat->SetDamage(((CPlayer*)mObject)->GetAttack() + mWeaponAttack);
 

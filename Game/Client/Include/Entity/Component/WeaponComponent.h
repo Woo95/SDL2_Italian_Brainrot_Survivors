@@ -3,8 +3,6 @@
 #include "Component.h"
 #include "../../Core/Utils/GameDataUtils.h"
 
-class CPlayer;
-
 class CWeaponComponent abstract : public CComponent
 {
 public:
