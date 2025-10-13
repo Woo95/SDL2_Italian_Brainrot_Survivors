@@ -27,10 +27,11 @@ void CPlayerStatusComponent::SetStatus(ECharacterType type)
 	{
 		const FCharacterData& data = GDM->GetCharacterDataManager()->GetCharacterData(type);
 
-		mBaseMaxHP     = data.baseMaxHP;
-		mBaseAttack    = data.baseAttack;
-		mBaseDefense   = data.baseDefense;
-		mBaseMoveSpeed = data.baseMoveSpeed;
+		mBaseMaxHP       = data.baseMaxHP;
+		mBaseAttack      = data.baseAttack;
+		mBaseDefense     = data.baseDefense;
+		mBaseMoveSpeed   = data.baseMoveSpeed;
+		mBasePickUpRange = data.basePickUpRange;
 	}
 
 	/* 파워업 관련 */
@@ -43,10 +44,6 @@ void CPlayerStatusComponent::SetStatus(ECharacterType type)
 		for (int i = 0; i < (int)EPowerUpType::MAX; i++)
 			mPowerUpModifiers[i] = GDM->GetItemDataManager()->GetPowerUpData((EPowerUpType)i).statModifier;
 	}
-
-	// 초기 체력 설정
-	mMaxHP = mBaseMaxHP + mMenuPowerUps[(int)EPowerUpType::MAX_HEALTH] * mPowerUpModifiers[(int)EPowerUpType::MAX_HEALTH];
-	mHP	   = mMaxHP;
 }
 
 void CPlayerStatusComponent::AddHP(float hp)

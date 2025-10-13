@@ -8,6 +8,8 @@
 CPlayer::CPlayer()
 {
 	mSoundManager = CAssetManager::GetInst()->GetSoundManager();
+
+	mHealTimer = CONST_HEAL_TIMER;
 }
 
 CPlayer::~CPlayer()
@@ -33,7 +35,6 @@ bool CPlayer::Init()
 
 	mPickUpZone = AllocateComponent<CCircleCollider>("Collider_PickUpZone");
 	mPickUpZone->SetProfile("PlayerItemDetector");
-	mPickUpZone->GetTransform()->SetWorldScale(75.0f, 75.0f);
 	mPickUpZone->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mPickUpZone);
 
@@ -42,7 +43,24 @@ bool CPlayer::Init()
 
 	BindInput();
 
+	mMovement->SetSpeed(GetMoveSpeed());
+	mStatus->SetMaxHP(GetMaxHP());
+	mStatus->SetHP(GetMaxHP());
+	mPickUpZone->GetTransform()->SetWorldScale(FVector2D(GetPickupRange(), GetPickupRange()));
+
 	return CObject::Init();
+}
+
+void CPlayer::Update(float deltaTime)
+{
+	CObject::Update(deltaTime);
+
+	mHealTimer -= deltaTime;
+	if (mHealTimer <= 0.0f)
+	{
+		mHealTimer = CONST_HEAL_TIMER;
+		Heal(GetRecoveryHP());
+	}
 }
 
 void CPlayer::OnHit(CCollider* self, CCollider* other)
@@ -63,8 +81,7 @@ void CPlayer::TakeDamage(float amount)
 
 void CPlayer::Heal(float amount)
 {
-	float recovery = amount + GetRecoveryHP();
-	mStatus->AddHP(recovery);
+	mStatus->AddHP(amount);
 }
 
 void CPlayer::AddExp(float exp)
@@ -85,6 +102,21 @@ void CPlayer::AddGold(int money)
 void CPlayer::AddPowerUp(EPowerUpType type)
 {
 	mInventory->AddPowerUp(type);
+
+	switch (type)
+	{
+	case EPowerUpType::MAX_HEALTH:
+		mStatus->SetMaxHP(GetMaxHP());
+		break;
+	case EPowerUpType::MOVE_SPEED:
+		mMovement->SetSpeed(GetMoveSpeed());
+		break;
+	case EPowerUpType::MAGNET:
+		mPickUpZone->GetTransform()->SetWorldScale(FVector2D(GetPickupRange(), GetPickupRange()));
+		break;
+	default:
+		break;
+	}
 }
 
 void CPlayer::AddWeapon(EWeaponType type)
@@ -172,9 +204,9 @@ float CPlayer::GetMoveSpeed() const
 float CPlayer::GetPickupRange() const
 {
 	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::MAGNET) + mInventory->GetPowerUpLevel(EPowerUpType::MAGNET);
-	const float itemPickupRange = 1 + itemLevel * mStatus->GetStatModifier(EPowerUpType::MAGNET);
+	const float itemPickupRange = mStatus->GetBasePickUpRange() * itemLevel * mStatus->GetStatModifier(EPowerUpType::MAGNET);
 
-	return itemPickupRange;
+	return mStatus->GetBasePickUpRange() + itemPickupRange;
 }
 
 float CPlayer::GetGrowthExp() const
@@ -195,25 +227,25 @@ float CPlayer::GetGreed() const
 
 void CPlayer::BindInput()
 {
-	mInput->AddFunctionToBinder("W_MoveUp", this, [this]() { MoveDir(FVector2D::UP);    });
-	mInput->AddFunctionToBinder("A_MoveLeft", this, [this]() { MoveDir(FVector2D::LEFT);  });
-	mInput->AddFunctionToBinder("S_MoveDown", this, [this]() { MoveDir(FVector2D::DOWN);  });
+	mInput->AddFunctionToBinder("W_MoveUp",    this, [this]() { MoveDir(FVector2D::UP);    });
+	mInput->AddFunctionToBinder("A_MoveLeft",  this, [this]() { MoveDir(FVector2D::LEFT);  });
+	mInput->AddFunctionToBinder("S_MoveDown",  this, [this]() { MoveDir(FVector2D::DOWN);  });
 	mInput->AddFunctionToBinder("D_MoveRight", this, [this]() { MoveDir(FVector2D::RIGHT); });
 
-	mInput->AddInputToBinder("W_MoveUp", SDL_SCANCODE_W, EKeyAction::HOLD);
-	mInput->AddInputToBinder("A_MoveLeft", SDL_SCANCODE_A, EKeyAction::HOLD);
-	mInput->AddInputToBinder("S_MoveDown", SDL_SCANCODE_S, EKeyAction::HOLD);
+	mInput->AddInputToBinder("W_MoveUp",    SDL_SCANCODE_W, EKeyAction::HOLD);
+	mInput->AddInputToBinder("A_MoveLeft",  SDL_SCANCODE_A, EKeyAction::HOLD);
+	mInput->AddInputToBinder("S_MoveDown",  SDL_SCANCODE_S, EKeyAction::HOLD);
 	mInput->AddInputToBinder("D_MoveRight", SDL_SCANCODE_D, EKeyAction::HOLD);
 
 
-	mInput->AddFunctionToBinder("UP_MoveUp", this, [this]() { MoveDir(FVector2D::UP);    });
-	mInput->AddFunctionToBinder("DOWN_MoveDown", this, [this]() { MoveDir(FVector2D::DOWN);  });
-	mInput->AddFunctionToBinder("LEFT_MoveLeft", this, [this]() { MoveDir(FVector2D::LEFT);  });
+	mInput->AddFunctionToBinder("UP_MoveUp",       this, [this]() { MoveDir(FVector2D::UP);    });
+	mInput->AddFunctionToBinder("DOWN_MoveDown",   this, [this]() { MoveDir(FVector2D::DOWN);  });
+	mInput->AddFunctionToBinder("LEFT_MoveLeft",   this, [this]() { MoveDir(FVector2D::LEFT);  });
 	mInput->AddFunctionToBinder("RIGHT_MoveRight", this, [this]() { MoveDir(FVector2D::RIGHT); });
 
-	mInput->AddInputToBinder("UP_MoveUp", SDL_SCANCODE_UP, EKeyAction::HOLD);
-	mInput->AddInputToBinder("DOWN_MoveDown", SDL_SCANCODE_DOWN, EKeyAction::HOLD);
-	mInput->AddInputToBinder("LEFT_MoveLeft", SDL_SCANCODE_LEFT, EKeyAction::HOLD);
+	mInput->AddInputToBinder("UP_MoveUp",       SDL_SCANCODE_UP,    EKeyAction::HOLD);
+	mInput->AddInputToBinder("DOWN_MoveDown",   SDL_SCANCODE_DOWN,  EKeyAction::HOLD);
+	mInput->AddInputToBinder("LEFT_MoveLeft",   SDL_SCANCODE_LEFT,  EKeyAction::HOLD);
 	mInput->AddInputToBinder("RIGHT_MoveRight", SDL_SCANCODE_RIGHT, EKeyAction::HOLD);
 }
 

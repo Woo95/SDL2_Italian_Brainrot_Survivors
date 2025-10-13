@@ -23,6 +23,7 @@ private:
 	float mBaseAttack      = 0.0f;
 	float mBaseDefense     = 0.0f;
 	float mBaseMoveSpeed   = 0.0f;
+	float mBasePickUpRange = 0.0f;
 
 	// 현재 상태
 	int mLevel   = 1;
@@ -44,6 +45,15 @@ public:
 	int GetKillCount()  const { return mKillCount; }
 	int GetGoldEarned() const { return mGoldEarned; }
 	int GetPendingLevelUps() const { return mPendingLevelUps; }
+
+	void SetHP(float hp)
+	{
+		mHP = hp;
+	}
+	void SetMaxHP(float hp)
+	{
+		mMaxHP = hp;
+	}
 
 public:
 	void SetStatus(ECharacterType type);
@@ -68,4 +78,5 @@ private:
 	float GetBaseAttack()      const { return mBaseAttack; }
 	float GetBaseDefense()     const { return mBaseDefense; }
 	float GetBaseMoveSpeed()   const { return mBaseMoveSpeed; }
+	float GetBasePickUpRange() const { return mBasePickUpRange; }
 };

@@ -141,6 +141,7 @@ struct FCharacterData
 	float baseAttack;
 	float baseDefense;
 	float baseMoveSpeed;
+	float basePickUpRange;
 };
 
 struct FPowerUpData

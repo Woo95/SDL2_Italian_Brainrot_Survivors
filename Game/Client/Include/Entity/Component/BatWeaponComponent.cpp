@@ -112,7 +112,7 @@ void CBatWeaponComponent::Attack()
 	}
 
 	if (moveDir.y == 0.0f) moveDir.y = -50000.0f;
-	else if (moveDir.y < 0.0f) moveDir.y *= 100000.0f;
+	else if (moveDir.y < 0.0f) moveDir.y *= 85000.0f;
 	else if (moveDir.y > 0.0f) moveDir.y *= -25000.0f;
 
 	bat->GetRigidBody()->AddImpulse(moveDir);

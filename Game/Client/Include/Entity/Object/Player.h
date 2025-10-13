@@ -31,11 +31,14 @@ protected:
 	CRigidbody* mRigidbody = nullptr;
 	CCollider* mPickUpZone = nullptr;
 
-public:
-	virtual bool Init() override;
+	float mHealTimer = 0.0f;
+	const float CONST_HEAL_TIMER = 1.0f;
 
-private:
+protected:
+	virtual bool Init() override;
+	virtual void Update(float deltaTime) override;
 	virtual void Release() = 0;
+
 	virtual void OnMoveDirChanged(const FVector2D& dir) = 0;
 
 public:

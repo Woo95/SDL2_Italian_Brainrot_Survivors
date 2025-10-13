@@ -224,6 +224,7 @@ void CDataLoader::LoadAllCharacterData()
 		const int attackIdx      = 7;
 		const int defenseIdx     = 8;
 		const int moveSpeedIdx   = 9;
+		const int pickUpIdx      = 10;
 
 		{
 			FCharacterData data;
@@ -238,6 +239,7 @@ void CDataLoader::LoadAllCharacterData()
 			data.baseDefense     = std::stof(row[defenseIdx]);
 			data.baseMaxHP       = std::stof(row[hpIdx]);
 			data.baseMoveSpeed   = std::stof(row[moveSpeedIdx]);
+			data.basePickUpRange = std::stof(row[pickUpIdx]);
 
 			CDM->mData[(int)data.type] = data;
 		}
