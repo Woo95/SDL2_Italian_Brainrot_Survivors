@@ -8,7 +8,7 @@ CAnimation::CAnimation() :
 	mPrevPos(FVector2D::ZERO),
 	mFrameInterval(0.0f),
 	mCurrIdx(0),
-	mLooped(false)
+	mPlayedOnce(false)
 {
 }
 
@@ -29,49 +29,51 @@ void CAnimation::Update(float deltaTime)
 
 	switch (aniData->type)
 	{
-	case EAnimationType::NONE:
-		break;
+		case EAnimationType::NONE:
+			break;
 
-	case EAnimationType::MOVE:
-	{
-		const FVector2D& currentPos = mTransform->GetWorldPos();
-
-		FVector2D posDelta = currentPos - mPrevPos;
-
-		mFrameInterval += posDelta.Length();
-
-		float frameTransitionDistance = aniData->intervalPerFrame / aniData->frames.size();
-
-		if (mFrameInterval >= frameTransitionDistance)
+		case EAnimationType::MOVE:
 		{
-			mCurrIdx = (mCurrIdx + 1) % aniData->frames.size();
+			const FVector2D& currentPos = mTransform->GetWorldPos();
 
-			mFrameInterval -= frameTransitionDistance;
-		}
-		mPrevPos = currentPos;
-	}
-	break;
+			FVector2D posDelta = currentPos - mPrevPos;
 
-	case EAnimationType::TIME:
-	{
-		mFrameInterval += deltaTime;
+			mFrameInterval += posDelta.Length();
 
-		if (mFrameInterval >= aniData->intervalPerFrame)
-		{
-			if (aniData->isLoop)
+			float frameTransitionDistance = aniData->intervalPerFrame / aniData->frames.size();
+
+			if (mFrameInterval >= frameTransitionDistance)
 			{
 				mCurrIdx = (mCurrIdx + 1) % aniData->frames.size();
+
+				mFrameInterval -= frameTransitionDistance;
 			}
-			else
-			{
-				mLooped = (mCurrIdx >= aniData->frames.size() - 1) ? true : false;
-				if (!mLooped)
-					mCurrIdx++;
-			}
-			mFrameInterval = 0.0f;
+			mPrevPos = currentPos;
 		}
-	}
-	break;
+		break;
+
+		case EAnimationType::TIME:
+		{
+			if (mPlayedOnce)
+				return;
+
+			mFrameInterval += deltaTime;
+			if (mFrameInterval >= aniData->intervalPerFrame)
+			{
+				if (aniData->isLoop)
+				{
+					mCurrIdx = (mCurrIdx + 1) % aniData->frames.size();
+				}
+				else
+				{
+					mPlayedOnce = (mCurrIdx >= aniData->frames.size() - 1) ? true : false;
+					if (!mPlayedOnce)
+						mCurrIdx++;
+				}
+				mFrameInterval = 0.0f;
+			}
+		}
+		break;
 	}
 }
 
