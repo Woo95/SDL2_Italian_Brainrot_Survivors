@@ -24,12 +24,12 @@ bool CSkeletonDragon::Init()
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CCircleCollider>("CircleCollider_SkeletonDragonHitbox");
-	hitbox->SetProfile("EnemyHitBox");
-	hitbox->GetTransform()->SetRelativeScale(55.0f, 55.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, 0.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CCircleCollider>("CircleCollider_SkeletonDragonHitbox");
+	mHitbox->SetProfile("EnemyHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(55.0f, 55.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, 0.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	return CEnemy::Init();
 }

@@ -24,12 +24,12 @@ bool CReaper::Init()
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_ReaperHitbox");
-	hitbox->SetProfile("EnemyHitBox");
-	hitbox->GetTransform()->SetRelativeScale(32.0f, 52.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, -3.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_ReaperHitbox");
+	mHitbox->SetProfile("EnemyHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(32.0f, 52.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, -3.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	return CEnemy::Init();
 }

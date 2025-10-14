@@ -24,12 +24,12 @@ bool CSkeletonNinja::Init()
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonNinjaHitbox");
-	hitbox->SetProfile("EnemyHitBox");
-	hitbox->GetTransform()->SetRelativeScale(25.0f, 40.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, -3.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonNinjaHitbox");
+	mHitbox->SetProfile("EnemyHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(25.0f, 40.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, -3.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonNinjaFoot");
 	foot->SetProfile("EnemyFoot");

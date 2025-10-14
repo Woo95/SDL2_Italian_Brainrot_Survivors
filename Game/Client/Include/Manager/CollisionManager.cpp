@@ -22,9 +22,9 @@ CCollisionManager::~CCollisionManager()
 
 bool CCollisionManager::Init()
 {
-	CreateProfile("PlayerHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::IGNORE);
-	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::OVERLAP);
-	SetCollisionInteraction("PlayerHitBox", ECollision::Channel::PICKABLE_ITEM, ECollision::Interaction::OVERLAP);
+	CreateProfile("PlayerHitbox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("PlayerHitbox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::OVERLAP);
+	SetCollisionInteraction("PlayerHitbox", ECollision::Channel::PICKABLE_ITEM, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("PlayerFoot", ECollision::Channel::PLAYER_FOOT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);
@@ -36,9 +36,9 @@ bool CCollisionManager::Init()
 	CreateProfile("PlayerItemDetector", ECollision::Channel::PLAYER_ITEM_DETECTOR, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("PlayerItemDetector", ECollision::Channel::PICKABLE_ITEM, ECollision::Interaction::OVERLAP);
 
-	CreateProfile("EnemyHitBox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::IGNORE);
-	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
-	SetCollisionInteraction("EnemyHitBox", ECollision::Channel::PLAYER_WEAPON, ECollision::Interaction::OVERLAP);
+	CreateProfile("EnemyHitbox", ECollision::Channel::ENEMY_HITBOX, ECollision::Interaction::IGNORE);
+	SetCollisionInteraction("EnemyHitbox", ECollision::Channel::PLAYER_HITBOX, ECollision::Interaction::OVERLAP);
+	SetCollisionInteraction("EnemyHitbox", ECollision::Channel::PLAYER_WEAPON, ECollision::Interaction::OVERLAP);
 
 	CreateProfile("EnemyFoot", ECollision::Channel::ENEMY_FOOT, ECollision::Interaction::IGNORE);
 	SetCollisionInteraction("EnemyFoot", ECollision::Channel::ENVIRONMENT, ECollision::Interaction::BLOCK);

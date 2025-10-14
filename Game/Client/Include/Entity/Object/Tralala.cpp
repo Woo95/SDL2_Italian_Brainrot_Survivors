@@ -30,7 +30,7 @@ bool CTralala::Init()
 	mRootComponent->AddChild(mSprite);
 
 	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_TralalaHitbox");
-	hitbox->SetProfile("PlayerHitBox");
+	hitbox->SetProfile("PlayerHitbox");
 	hitbox->GetTransform()->SetRelativeScale(62.5f, 22.0f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, -7.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);

@@ -29,7 +29,7 @@ bool CBananini::Init()
 	mRootComponent->AddChild(mSprite);
 
 	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_BananiniHitbox");
-	hitbox->SetProfile("PlayerHitBox");
+	hitbox->SetProfile("PlayerHitbox");
 	hitbox->GetTransform()->SetRelativeScale(25.f, 55.f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, 0.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);

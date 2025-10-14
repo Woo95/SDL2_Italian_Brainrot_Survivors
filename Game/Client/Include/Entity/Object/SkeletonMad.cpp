@@ -24,12 +24,12 @@ bool CSkeletonMad::Init()
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonMadHitbox");
-	hitbox->SetProfile("EnemyHitBox");
-	hitbox->GetTransform()->SetRelativeScale(23.0f, 40.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, -3.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonMadHitbox");
+	mHitbox->SetProfile("EnemyHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(23.0f, 40.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, -3.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonMadFoot");
 	foot->SetProfile("EnemyFoot");

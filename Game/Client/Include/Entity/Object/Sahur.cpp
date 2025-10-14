@@ -29,7 +29,7 @@ bool CSahur::Init()
 	mRootComponent->AddChild(mSprite);
 
 	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_SahurHitbox");
-	hitbox->SetProfile("PlayerHitBox");
+	hitbox->SetProfile("PlayerHitbox");
 	hitbox->GetTransform()->SetRelativeScale(25.0f, 50.0f);
 	hitbox->GetTransform()->SetRelativePos(0.0f, -8.0f);
 	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);

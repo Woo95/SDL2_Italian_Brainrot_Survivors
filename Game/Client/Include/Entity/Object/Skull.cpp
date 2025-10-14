@@ -24,12 +24,12 @@ bool CSkull::Init()
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CCircleCollider>("CircleCollider_SkullHitbox");
-	hitbox->SetProfile("EnemyHitBox");
-	hitbox->GetTransform()->SetRelativeScale(30.0f, 30.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, -2.5f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CCircleCollider>("CircleCollider_SkullHitbox");
+	mHitbox->SetProfile("EnemyHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(30.0f, 30.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, -2.5f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	return CEnemy::Init();
 }

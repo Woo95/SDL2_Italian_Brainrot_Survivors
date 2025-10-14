@@ -24,12 +24,12 @@ bool CSkeletonPanther::Init()
 	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonPantherHitbox");
-	hitbox->SetProfile("EnemyHitBox");
-	hitbox->GetTransform()->SetRelativeScale(40.0f, 27.5f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, 5.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonPantherHitbox");
+	mHitbox->SetProfile("EnemyHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(40.0f, 27.5f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, 5.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_SkeletonPantherFoot");
 	foot->SetProfile("EnemyFoot");
