@@ -40,7 +40,6 @@ void CEnemy::Update(float deltaTime)
 		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	}
 
-	TakeDamage(deltaTime * 20.0f);
 	if (mIsDead && mSprite->GetAnimation()->IsPlayedOnce())
 	{
 		Destroy();
@@ -61,6 +60,7 @@ void CEnemy::TakeDamage(float amount)
 	if (mStatus->GetHP() <= 0.0f)
 	{
 		mHitbox->Disable();
+		mChase->Disable();
 		mSprite->GetAnimation()->SetState(EAnimationState::DEAD);
 		mIsDead = true;
 	}
@@ -69,5 +69,6 @@ void CEnemy::TakeDamage(float amount)
 void CEnemy::DropGem()
 {
 	CGem* gem = GetScene()->InstantiateObject<CGem, 50>("Object_Gem", ELayer::Type::OBJECT);
+	gem->SetExp(mStatus->GetExp());
 	gem->GetTransform()->SetWorldPos(GetTransform()->GetWorldPos());
 }
