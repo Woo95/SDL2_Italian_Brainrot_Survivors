@@ -28,13 +28,12 @@ bool CBananini::Init()
 	mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_BananiniHitbox");
-	hitbox->SetProfile("PlayerHitbox");
-	hitbox->GetTransform()->SetRelativeScale(25.f, 55.f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, 0.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_BananiniHitbox");
+	mHitbox->SetProfile("PlayerHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(25.f, 55.f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, 0.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_BananiniFoot");
 	foot->SetProfile("PlayerFoot");

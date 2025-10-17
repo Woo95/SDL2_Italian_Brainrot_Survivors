@@ -84,6 +84,20 @@ void CPlayUI::BindEventListeners()
 		mPlay->SetExpPercent(percent);
 	});
 
+	// 경험치 관련
+	EM->AddListener(EEventType::PLAYER_ENEMY_KILLED, [this](void* data)
+	{
+		int killCount = *(int*)data;
+		mPlay->SetKillCounter(killCount);
+	});
+
+	// 경험치 관련
+	EM->AddListener(EEventType::PLAYER_GOLD_EARNED, [this](void* data)
+	{
+		int goldEarned = *(int*)data;
+		mPlay->SetCoinCounter(goldEarned);
+	});
+
 	// 레벨업 관련
 	EM->AddListener(EEventType::PLAYER_LEVEL_UP_BEGIN, [this](void* data)
 	{

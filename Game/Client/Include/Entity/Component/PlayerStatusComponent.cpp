@@ -75,6 +75,18 @@ void CPlayerStatusComponent::AddExp(float exp)
 	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_EXP_GAINED, &percent);
 }
 
+void CPlayerStatusComponent::AddKill()
+{
+	mKillCount++;
+	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_ENEMY_KILLED, &mKillCount);
+}
+
+void CPlayerStatusComponent::AddGold(int money)
+{
+	mGoldEarned += money;
+	CEventManager::GetInst()->Broadcast(EEventType::PLAYER_GOLD_EARNED, &mGoldEarned);
+}
+
 void CPlayerStatusComponent::ProcessPendingLevelUp(float delayTime)
 {
 	if (mPendingLevelUps)

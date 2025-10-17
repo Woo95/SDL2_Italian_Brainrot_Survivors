@@ -62,14 +62,8 @@ public:
 private:
 	void AddHP(float hp);
 	void AddExp(float exp);
-	void AddKill()
-	{
-		mKillCount++;
-	}
-	void AddGold(int money)
-	{
-		mGoldEarned += money;
-	}
+	void AddKill();
+	void AddGold(int money);
 
 	float GetStatModifier(EPowerUpType type) const { return mPowerUpModifiers[(int)type]; }
 	int GetMenuPowerUpLvl(EPowerUpType type) const { return mMenuPowerUps[(int)type]; }

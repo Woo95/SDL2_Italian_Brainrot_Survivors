@@ -135,7 +135,7 @@ void CPlayScene::LoadResources()
 	LoadSFX("SFX_Gem", "sfx_gem.wav");
 	LoadSFX("SFX_Bat", "sfx_bat.wav");
 	LoadSFX("SFX_Bubble", "sfx_bubble.wav");
-	LoadSFX("SFX_EnemyHit", "sfx_enemyHit.wav");
+	LoadSFX("SFX_Hit", "sfx_hit.wav");
 }
 
 void CPlayScene::SetSubState(EPlaySubState state)
