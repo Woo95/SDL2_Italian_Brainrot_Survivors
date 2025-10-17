@@ -2,13 +2,9 @@
 #include "AllObjects.h"
 #include "../Component/AllComponents.h"
 #include "../../Manager/InputManager.h"
-#include "../../Manager/Data/Resource/AssetManager.h"
-#include "../../Manager/Data/Resource/SoundManager.h"
 
 CPlayer::CPlayer()
 {
-	mSoundManager = CAssetManager::GetInst()->GetSoundManager();
-
 	mHealTimer = CONST_HEAL_TIMER;
 }
 
@@ -60,16 +56,6 @@ void CPlayer::Update(float deltaTime)
 	{
 		mHealTimer = CONST_HEAL_TIMER;
 		Heal(GetRecoveryHP());
-	}
-}
-
-void CPlayer::OnHit(CCollider* self, CCollider* other)
-{
-	if (CGem* gem = dynamic_cast<CGem*>(other->GetObject()))
-	{
-		mSoundManager->GetSound<CSFX>("SFX_Gem")->Play();
-		AddExp(gem->GetExp());
-		gem->Destroy();
 	}
 }
 

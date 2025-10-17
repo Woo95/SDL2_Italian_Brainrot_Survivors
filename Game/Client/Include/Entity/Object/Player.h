@@ -21,8 +21,6 @@ public:
 	virtual ~CPlayer();
 
 protected:
-	CSoundManager* mSoundManager = nullptr;
-
 	CPlayerStatusComponent* mStatus = nullptr;
 	CInventoryComponent* mInventory = nullptr;
 	CMovementComponent* mMovement = nullptr;
@@ -30,6 +28,7 @@ protected:
 	CInputComponent* mInput = nullptr;
 	CRigidbody* mRigidbody = nullptr;
 	CCollider* mPickUpZone = nullptr;
+	CCollider* mHitbox = nullptr;
 
 	float mHealTimer = 0.0f;
 	const float CONST_HEAL_TIMER = 1.0f;
@@ -46,9 +45,8 @@ public:
 	CInventoryComponent* GetInventory() const { return mInventory; }
 	CMovementComponent* GetMovement() const { return mMovement; }
 	CSpriteComponent* GetSprite() const { return mSprite; }
-
-	// Collision Events //
-	void OnHit(CCollider* self, CCollider* other);
+	CCollider* GetPickUpZone() const { return mPickUpZone; }
+	CCollider* GetHitbox() const { return mHitbox; }
 
 	void TakeDamage(float amount);
 	void Heal(float amount);

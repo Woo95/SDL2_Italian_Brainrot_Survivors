@@ -28,13 +28,12 @@ bool CSahur::Init()
 	mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_SahurHitbox");
-	hitbox->SetProfile("PlayerHitbox");
-	hitbox->GetTransform()->SetRelativeScale(25.0f, 50.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, -8.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_SahurHitbox");
+	mHitbox->SetProfile("PlayerHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(25.0f, 50.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, -8.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_SahurFoot");
 	foot->SetProfile("PlayerFoot");

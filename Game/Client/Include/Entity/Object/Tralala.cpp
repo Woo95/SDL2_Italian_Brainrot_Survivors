@@ -29,13 +29,12 @@ bool CTralala::Init()
 	mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	mRootComponent->AddChild(mSprite);
 
-	CCollider* hitbox = AllocateComponent<CBoxCollider>("BoxCollider_TralalaHitbox");
-	hitbox->SetProfile("PlayerHitbox");
-	hitbox->GetTransform()->SetRelativeScale(62.5f, 22.0f);
-	hitbox->GetTransform()->SetRelativePos(0.0f, -7.0f);
-	hitbox->GetTransform()->SetPivot(0.5f, 0.5f);
-	hitbox->AddCallbackFunc<CPlayer>(ECollider::OnCollision::ENTER, this, &CPlayer::OnHit);
-	mRootComponent->AddChild(hitbox);
+	mHitbox = AllocateComponent<CBoxCollider>("BoxCollider_TralalaHitbox");
+	mHitbox->SetProfile("PlayerHitbox");
+	mHitbox->GetTransform()->SetRelativeScale(62.5f, 22.0f);
+	mHitbox->GetTransform()->SetRelativePos(0.0f, -7.0f);
+	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitbox);
 
 	mFootCollider = AllocateComponent<CBoxCollider>("BoxCollider_TralalaFoot");
 	mFootCollider->SetProfile("PlayerFoot");

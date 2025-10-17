@@ -23,7 +23,7 @@ private:
 	virtual void Release() final;
 
 public:
-	void OnHit(CCollider* self, CCollider* other);
+	void OnCollisionEnter(CCollider* self, CCollider* other);
 
 	float GetExp() const { return mExp; }
 	void SetExp(float exp)
