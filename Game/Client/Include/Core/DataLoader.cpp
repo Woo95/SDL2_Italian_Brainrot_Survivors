@@ -401,7 +401,6 @@ void CDataLoader::LoadAllRegularMobData()
 		const int attackIdx    = 2;
 		const int moveSpeedIdx = 3;
 		const int expIdx       = 4;
-		const int goldIdx      = 5;
 
 		{
 			FRegularMobData data;
@@ -410,7 +409,6 @@ void CDataLoader::LoadAllRegularMobData()
 			data.baseAttack    = std::stof(row[attackIdx]);
 			data.baseMoveSpeed = std::stof(row[moveSpeedIdx]);
 			data.baseExp       = std::stof(row[expIdx]);
-			data.baseGold      = std::stoi(row[goldIdx]);
 
 			MDM->mRegularMobData[(int)data.type] = data;
 		}
@@ -448,7 +446,6 @@ void CDataLoader::LoadAllSubBossMobData()
 		const int attackIdx    = 2;
 		const int moveSpeedIdx = 3;
 		const int expIdx       = 4;
-		const int goldIdx      = 5;
 
 		{
 			FSubBossMobData data;
@@ -457,7 +454,6 @@ void CDataLoader::LoadAllSubBossMobData()
 			data.baseAttack    = std::stof(row[attackIdx]);
 			data.baseMoveSpeed = std::stof(row[moveSpeedIdx]);
 			data.baseExp       = std::stof(row[expIdx]);
-			data.baseGold      = std::stoi(row[goldIdx]);
 
 			MDM->mSubBossMobData[(int)data.type] = data;
 		}

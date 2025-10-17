@@ -139,10 +139,10 @@ void CPlayer::AddConsumable(EConsumableType type)
 	switch (type)
 	{
 	case EConsumableType::COIN_BAG:
-		mStatus->AddGold(100);
+		AddGold(100);
 		break;
 	case EConsumableType::CHICKEN:
-		mStatus->AddHP(50.0f);
+		Heal(50.0f);
 		break;
 	}
 }

@@ -115,7 +115,6 @@ struct FRegularMobData
 	float baseAttack    = 0.0f;
 	float baseMoveSpeed = 0.0f;
 	float baseExp       = 0.0f;
-	int   baseGold      = 0;
 };
 
 struct FSubBossMobData
@@ -125,7 +124,6 @@ struct FSubBossMobData
 	float baseAttack    = 0.0f;
 	float baseMoveSpeed = 0.0f;
 	float baseExp       = 0.0f;
-	int   baseGold      = 0;
 };
 
 struct FCharacterData
