@@ -1,4 +1,5 @@
 #include "Banana.h"
+#include "Enemy.h"
 #include "../Component/AllComponents.h"
 
 CBanana::CBanana()
@@ -22,6 +23,7 @@ bool CBanana::Init()
 	mCollider->SetProfile("PlayerWeapon");
 	mCollider->GetTransform()->SetWorldScale(mScale);
 	mCollider->GetTransform()->SetPivot(0.5f, 0.5f);
+	mCollider->AddCallbackFunc<CBanana>(ECollider::OnCollision::STAY, this, &CBanana::OnCollisionStay);
 	mRootComponent->AddChild(mCollider);
 
 	return CObject::Init();
@@ -38,4 +40,12 @@ void CBanana::SetScale(const FVector2D& scale)
 
 	mSprite->GetTransform()->SetWorldScale(mScale);
 	mCollider->GetTransform()->SetWorldScale(mScale);
+}
+
+void CBanana::OnCollisionStay(CCollider* self, CCollider* other)
+{
+	if (CEnemy* enemy = dynamic_cast<CEnemy*>(other->GetObject()))
+	{
+		enemy->TakeDamage(mDamage, true);
+	}
 }

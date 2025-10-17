@@ -4,6 +4,7 @@
 
 class CSpriteComponent;
 class CRigidbody;
+class CCollider;
 
 class CBat : public CObject
 {
@@ -33,4 +34,7 @@ public:
 	{
 		mDamage = damage;
 	}
+
+private:
+	void OnCollisionEnter(CCollider* self, CCollider* other);
 };

@@ -6,6 +6,7 @@
 #include "../../Scene/Scene.h"
 #include "../../Manager/Data/Resource/AssetManager.h"
 #include "../../Manager/Data/Resource/SoundManager.h"
+#include "../../Scene/PlayScene.h"
 
 CEnemy::CEnemy()
 {
@@ -35,6 +36,19 @@ void CEnemy::Update(float deltaTime)
 {
 	CObject::Update(deltaTime);
 
+	mInvincibleTimer -= deltaTime;
+	if (mInvincibleTimer <= 0.0f)
+	{
+		mIsInvincible = false;
+		mInvincibleTimer = CONST_INVINCIBLE_TIMER;
+	}
+
+	if (mTarget)
+	{
+		// 초당 데미지
+		mTarget->TakeDamage(mStatus->GetAttack() * deltaTime);
+	}
+
 	if (mChase->GetFacingDir().x < 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_NONE);
@@ -44,31 +58,34 @@ void CEnemy::Update(float deltaTime)
 		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	}
 
-	if (mIsDead && mSprite->GetAnimation()->IsPlayedOnce())
+	if (mSprite->GetAnimation()->GetState() == EAnimationState::DEAD)
 	{
-		Destroy();
-		if (Chance(0.5f))
-			DropGem();
-	}
-
-	if (mPlayer)
-	{
-		// 초당 데미지
-		mPlayer->TakeDamage(mStatus->GetAttack() * deltaTime);
+		if (mSprite->GetAnimation()->IsPlayedOnce())
+		{
+			Destroy();
+			if (Chance(0.5f))
+				DropGem();
+		}
 	}
 }
 
-void CEnemy::TakeDamage(float amount)
+void CEnemy::TakeDamage(float amount, bool useInvincibility)
 {
+	if (useInvincibility && mIsInvincible)
+		return;
+
+	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Hit")->Play();
 	mStatus->AddHP(-amount);
 
 	if (mStatus->GetHP() <= 0.0f)
 	{
+		((CPlayScene*)mScene)->GetPlayer()->AddKill();
+		mSprite->GetAnimation()->SetState(EAnimationState::DEAD);
 		mHitbox->Disable();
 		mChase->Disable();
-		mSprite->GetAnimation()->SetState(EAnimationState::DEAD);
-		mIsDead = true;
 	}
+
+	mIsInvincible = true;
 }
 
 void CEnemy::DropGem()
@@ -82,12 +99,11 @@ void CEnemy::OnCollisionEnter(CCollider* self, CCollider* other)
 {
 	if (CPlayer* player = dynamic_cast<CPlayer*>(other->GetObject()))
 	{
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Hit")->Play();
-		mPlayer = player;
+		mTarget = player;
 	}
 }
 
 void CEnemy::OnCollisionExit(CCollider* self, CCollider* other)
 {
-	mPlayer = nullptr;
+	mTarget = nullptr;
 }

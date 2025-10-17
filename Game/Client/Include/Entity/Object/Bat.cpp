@@ -1,4 +1,5 @@
 #include "Bat.h"
+#include "Enemy.h"
 #include "../Component/AllComponents.h"
 #include "../../Resource/Animation.h"
 
@@ -24,6 +25,7 @@ bool CBat::Init()
 	collider->SetProfile("PlayerWeapon");
 	collider->GetTransform()->SetWorldScale(35.0f, 35.0f);
 	collider->GetTransform()->SetPivot(0.5f, 0.5f);
+	collider->AddCallbackFunc<CBat>(ECollider::OnCollision::ENTER, this, &CBat::OnCollisionEnter);
 	mRootComponent->AddChild(collider);
 
 	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Bat");
@@ -50,4 +52,12 @@ void CBat::Release()
 void CBat::SetFlip(SDL_RendererFlip flip)
 {
 	mSprite->SetFlip(flip);
+}
+
+void CBat::OnCollisionEnter(CCollider* self, CCollider* other)
+{
+	if (CEnemy* enemy = dynamic_cast<CEnemy*>(other->GetObject()))
+	{
+		enemy->TakeDamage(mDamage);
+	}
 }

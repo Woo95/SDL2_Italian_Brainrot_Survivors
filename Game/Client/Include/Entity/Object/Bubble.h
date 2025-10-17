@@ -3,6 +3,7 @@
 #include "Object.h"
 
 class CMovementComponent;
+class CCollider;
 
 class CBubble : public CObject
 {
@@ -33,4 +34,7 @@ public:
 	{
 		mDamage = damage;
 	}
+
+private:
+	void OnCollisionEnter(CCollider* self, CCollider* other);
 };

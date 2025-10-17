@@ -16,7 +16,7 @@ public:
 	virtual ~CEnemy();
 
 protected:
-	CPlayer* mPlayer = nullptr;
+	CPlayer* mTarget = nullptr;
 
 	CEnemyStatusComponent* mStatus = nullptr;
 	CSpriteComponent* mSprite = nullptr;
@@ -24,7 +24,9 @@ protected:
 	CRigidbody* mRigidbody = nullptr;
 	CCollider* mHitbox = nullptr;
 
-	bool mIsDead = false;
+	bool mIsInvincible = false;
+	float mInvincibleTimer = 0.0f;
+	const float CONST_INVINCIBLE_TIMER = 0.5f;
 
 protected:
 	virtual bool Init() override;
@@ -34,7 +36,7 @@ protected:
 public:
 	CChaseComponent* GetChase() const { return mChase; }
 
-	void TakeDamage(float amount);
+	void TakeDamage(float amount, bool useInvincibility = false);
 
 protected:
 	bool Chance(float probability)

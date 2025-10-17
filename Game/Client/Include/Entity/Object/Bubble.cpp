@@ -1,4 +1,5 @@
 #include "Bubble.h"
+#include "Enemy.h"
 #include "../Component/AllComponents.h"
 
 CBubble::CBubble()
@@ -26,6 +27,7 @@ bool CBubble::Init()
 	collider->SetProfile("PlayerWeapon");
 	collider->GetTransform()->SetWorldScale(20.0f, 20.0f);
 	collider->GetTransform()->SetPivot(0.5f, 0.5f);
+	collider->AddCallbackFunc<CBubble>(ECollider::OnCollision::ENTER, this, &CBubble::OnCollisionEnter);
 	mRootComponent->AddChild(collider);
 
 	return CObject::Init();
@@ -45,4 +47,12 @@ void CBubble::Update(float deltaTime)
 void CBubble::Release()
 {
 	CMemoryPoolManager::GetInst()->Deallocate<CBubble>(this);
+}
+
+void CBubble::OnCollisionEnter(CCollider* self, CCollider* other)
+{
+	if (CEnemy* enemy = dynamic_cast<CEnemy*>(other->GetObject()))
+	{
+		enemy->TakeDamage(mDamage);
+	}
 }

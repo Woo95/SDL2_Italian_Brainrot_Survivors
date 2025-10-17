@@ -4,6 +4,7 @@
 
 class CSpriteComponent;
 class CCircleCollider;
+class CCollider;
 
 class CBanana : public CObject
 {
@@ -32,4 +33,7 @@ public:
 	{
 		mDamage = damage;
 	}
+
+private:
+	void OnCollisionStay(CCollider* self, CCollider* other);
 };
