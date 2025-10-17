@@ -29,7 +29,6 @@ void CPlayerStatusComponent::SetStatus(ECharacterType type)
 
 		mBaseMaxHP       = data.baseMaxHP;
 		mBaseAttack      = data.baseAttack;
-		mBaseDefense     = data.baseDefense;
 		mBaseMoveSpeed   = data.baseMoveSpeed;
 		mBasePickUpRange = data.basePickUpRange;
 	}

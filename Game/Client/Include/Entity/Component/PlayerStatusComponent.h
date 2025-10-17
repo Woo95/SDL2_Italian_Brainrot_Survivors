@@ -21,7 +21,6 @@ private:
 	// 초기 스탯
 	float mBaseMaxHP       = 0.0f;
 	float mBaseAttack      = 0.0f;
-	float mBaseDefense     = 0.0f;
 	float mBaseMoveSpeed   = 0.0f;
 	float mBasePickUpRange = 0.0f;
 
@@ -70,7 +69,6 @@ private:
 
 	float GetBaseMaxHP()       const { return mBaseMaxHP; }
 	float GetBaseAttack()      const { return mBaseAttack; }
-	float GetBaseDefense()     const { return mBaseDefense; }
 	float GetBaseMoveSpeed()   const { return mBaseMoveSpeed; }
 	float GetBasePickUpRange() const { return mBasePickUpRange; }
 };

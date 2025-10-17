@@ -24,7 +24,6 @@ void CEnemyStatusComponent::SetStatus(ERegularMobType type)
 	mAttack		= mobData.baseAttack;
 	mMoveSpeed	= mobData.baseMoveSpeed;
 	mExp		= mobData.baseExp;
-	mGold		= mobData.baseGold;
 }
 
 void CEnemyStatusComponent::SetStatus(ESubBossMobType type)
@@ -35,5 +34,4 @@ void CEnemyStatusComponent::SetStatus(ESubBossMobType type)
 	mAttack		= mobData.baseAttack;
 	mMoveSpeed	= mobData.baseMoveSpeed;
 	mExp		= mobData.baseExp;
-	mGold		= mobData.baseGold;
 }

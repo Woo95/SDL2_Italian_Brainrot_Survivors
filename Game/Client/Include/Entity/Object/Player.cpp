@@ -61,8 +61,8 @@ void CPlayer::Update(float deltaTime)
 
 void CPlayer::TakeDamage(float amount)
 {
-	float damage = std::max(0.0f, amount - GetDefense());
-	mStatus->AddHP(-damage + GetDefense());
+	float damage = std::max(0.0f, amount * GetDefense());
+	mStatus->AddHP(-damage);
 }
 
 void CPlayer::Heal(float amount)
@@ -158,9 +158,9 @@ float CPlayer::GetAttack() const
 float CPlayer::GetDefense() const
 {
 	int itemLevel = mStatus->GetMenuPowerUpLvl(EPowerUpType::ARMOR) + mInventory->GetPowerUpLevel(EPowerUpType::ARMOR);
-	const float itemArmor = itemLevel * mStatus->GetStatModifier(EPowerUpType::ARMOR);
+	const float itemArmor = 1.0f - itemLevel * mStatus->GetStatModifier(EPowerUpType::ARMOR);
 
-	return mStatus->GetBaseDefense() + itemArmor;
+	return itemArmor;
 }
 
 float CPlayer::GetMaxHP() const

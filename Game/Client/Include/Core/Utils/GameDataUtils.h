@@ -137,7 +137,6 @@ struct FCharacterData
 
 	float baseMaxHP;
 	float baseAttack;
-	float baseDefense;
 	float baseMoveSpeed;
 	float basePickUpRange;
 };
