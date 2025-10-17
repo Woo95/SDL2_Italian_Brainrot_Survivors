@@ -7,6 +7,7 @@ class CSpriteComponent;
 class CChaseComponent;
 class CRigidbody;
 class CCollider;
+class CPlayer;
 
 class CEnemy abstract : public CObject
 {
@@ -15,6 +16,8 @@ public:
 	virtual ~CEnemy();
 
 protected:
+	CPlayer* mPlayer = nullptr;
+
 	CEnemyStatusComponent* mStatus = nullptr;
 	CSpriteComponent* mSprite = nullptr;
 	CChaseComponent* mChase = nullptr;
@@ -31,9 +34,6 @@ protected:
 public:
 	CChaseComponent* GetChase() const { return mChase; }
 
-	// Collision Events //
-	void OnHit(CCollider* self, CCollider* other);
-
 	void TakeDamage(float amount);
 
 protected:
@@ -42,4 +42,9 @@ protected:
 		return ((float)std::rand() / RAND_MAX) < probability;
 	}
 	void DropGem();
+
+private:
+	// Collision Events //
+	void OnCollisionEnter(CCollider* self, CCollider* other);
+	void OnCollisionExit(CCollider* self, CCollider* other);
 };

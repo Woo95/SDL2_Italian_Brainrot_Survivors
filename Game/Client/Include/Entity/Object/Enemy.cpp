@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "Player.h"
 #include "Gem.h"
 #include "../Component/AllComponents.h"
 #include "../../Resource/Animation.h"
@@ -22,6 +23,9 @@ bool CEnemy::Init()
 	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Enemy");
 	mRootComponent->AddChild(mRigidbody);
 
+	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::ENTER, this, &CEnemy::OnCollisionEnter);
+	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::EXIT, this, &CEnemy::OnCollisionExit);
+
 	mChase->SetSpeed(mStatus->GetMoveSpeed());
 
 	return CObject::Init();
@@ -43,18 +47,19 @@ void CEnemy::Update(float deltaTime)
 	if (mIsDead && mSprite->GetAnimation()->IsPlayedOnce())
 	{
 		Destroy();
-		if (Chance(0.75f))
+		if (Chance(0.5f))
 			DropGem();
 	}
-}
 
-void CEnemy::OnHit(CCollider* self, CCollider* other)
-{
+	if (mPlayer)
+	{
+		// 초당 데미지
+		mPlayer->TakeDamage(mStatus->GetAttack() * deltaTime);
+	}
 }
 
 void CEnemy::TakeDamage(float amount)
 {
-	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_EnemyHit")->Play();
 	mStatus->AddHP(-amount);
 
 	if (mStatus->GetHP() <= 0.0f)
@@ -71,4 +76,18 @@ void CEnemy::DropGem()
 	CGem* gem = GetScene()->InstantiateObject<CGem, 50>("Object_Gem", ELayer::Type::OBJECT);
 	gem->SetExp(mStatus->GetExp());
 	gem->GetTransform()->SetWorldPos(GetTransform()->GetWorldPos());
+}
+
+void CEnemy::OnCollisionEnter(CCollider* self, CCollider* other)
+{
+	if (CPlayer* player = dynamic_cast<CPlayer*>(other->GetObject()))
+	{
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Hit")->Play();
+		mPlayer = player;
+	}
+}
+
+void CEnemy::OnCollisionExit(CCollider* self, CCollider* other)
+{
+	mPlayer = nullptr;
 }
