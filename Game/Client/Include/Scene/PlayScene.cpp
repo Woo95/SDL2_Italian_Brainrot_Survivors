@@ -139,7 +139,8 @@ void CPlayScene::LoadResources()
 	LoadSFX("SFX_Gem", "sfx_gem.wav");
 	LoadSFX("SFX_Bat", "sfx_bat.wav");
 	LoadSFX("SFX_Bubble", "sfx_bubble.wav");
-	LoadSFX("SFX_Hit", "sfx_hit.wav");
+	LoadSFX("SFX_PlayerHit", "sfx_playerHit.wav");
+	LoadSFX("SFX_EnemyHit", "sfx_enemyHit.wav");
 }
 
 void CPlayScene::SetSubState(EPlaySubState state)
@@ -203,6 +204,7 @@ void CPlayScene::BindEventListeners()
 	});
 	EM->AddListener(EEventType::GOTO_PLAY_SUB_STATE_LVLUP, [this](void*)
 	{
+		CAssetManager::GetInst()->GetSoundManager()->StopSFX();
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_LevelUp")->Play();
 		SetSubState(EPlaySubState::LVLUP);
 	});
@@ -213,7 +215,8 @@ void CPlayScene::BindEventListeners()
 	});
 	EM->AddListener(EEventType::GOTO_PLAY_SUB_STATE_GAMEOVER, [this](void*)
 	{
-		CAssetManager::GetInst()->GetSoundManager()->GetSound<CBGM>("BGM_MadForest")->Stop();
+		CAssetManager::GetInst()->GetSoundManager()->StopSFX();
+		CAssetManager::GetInst()->GetSoundManager()->StopBGM();
 		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_GameOver")->Play();
 		SetSubState(EPlaySubState::GAMEOVER);
 	});

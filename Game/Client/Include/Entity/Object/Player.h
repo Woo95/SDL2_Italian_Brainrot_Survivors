@@ -11,6 +11,7 @@ class CInventoryComponent;
 class CMovementComponent;
 class CSpriteComponent;
 class CInputComponent;
+class CVFXComponent;
 class CRigidbody;
 class CCollider;
 
@@ -26,6 +27,7 @@ protected:
 	CMovementComponent* mMovement = nullptr;
 	CSpriteComponent* mSprite = nullptr;
 	CInputComponent* mInput = nullptr;
+	CVFXComponent* mHitVfx = nullptr;
 	CRigidbody* mRigidbody = nullptr;
 	CCollider* mPickUpZone = nullptr;
 	CCollider* mHitbox = nullptr;

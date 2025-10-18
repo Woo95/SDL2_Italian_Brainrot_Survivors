@@ -2,6 +2,9 @@
 #include "AllObjects.h"
 #include "../Component/AllComponents.h"
 #include "../../Manager/InputManager.h"
+#include "../../Resource/Animation.h"
+#include "../../Manager/Data/Resource/AssetManager.h"
+#include "../../Manager/Data/Resource/SoundManager.h"
 
 CPlayer::CPlayer()
 {
@@ -25,6 +28,14 @@ bool CPlayer::Init()
 {
 	mMovement = AllocateComponent<CMovementComponent, 1>("Movement_Player");
 	mRootComponent->AddChild(mMovement);
+
+	mHitVfx = AllocateComponent<CVFXComponent, 50>("VFX_Player");
+	mHitVfx->SetTexture("Texture_VfxAtlas");
+	mHitVfx->SetAnimation("HitVFX");
+	mHitVfx->GetAnimation()->SetState(EAnimationState::VFX);
+	mHitVfx->GetTransform()->SetWorldScale(35.f, 45.0f);
+	mHitVfx->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitVfx);
 
 	mRigidbody = AllocateComponent<CRigidbody, 50>("Rigidbody_Player");
 	mRootComponent->AddChild(mRigidbody);
@@ -61,6 +72,11 @@ void CPlayer::Update(float deltaTime)
 
 void CPlayer::TakeDamage(float amount)
 {
+	if (!CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PlayerHit")->IsPlaying())
+		CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_PlayerHit")->Play();
+
+	mHitVfx->PlayVFX(mHitbox->GetHitPoint());
+
 	float damage = std::max(0.0f, amount * GetDefense());
 	mStatus->AddHP(-damage);
 }

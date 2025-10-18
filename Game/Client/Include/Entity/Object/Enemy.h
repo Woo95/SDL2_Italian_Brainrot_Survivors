@@ -41,7 +41,6 @@ public:
 	void TakeDamage(float amount, bool useInvincibility = false);
 
 private:
-	// Collision Events //
 	void OnCollisionEnter(CCollider* self, CCollider* other);
 	void OnCollisionStay(CCollider* self, CCollider* other);
 	void OnCollisionExit(CCollider* self, CCollider* other);

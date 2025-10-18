@@ -26,7 +26,7 @@ bool CEnemy::Init()
 	mHitVfx->SetTexture("Texture_VfxAtlas");
 	mHitVfx->SetAnimation("HitVFX");
 	mHitVfx->GetAnimation()->SetState(EAnimationState::VFX);
-	mHitVfx->GetTransform()->SetWorldScale(25.f, 35.7f);
+	mHitVfx->GetTransform()->SetWorldScale(25.0f, 36.0f);
 	mHitVfx->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mHitVfx);
 
@@ -84,11 +84,11 @@ void CEnemy::TakeDamage(float amount, bool useInvincibility)
 	if (useInvincibility && mIsInvincible)
 		return;
 
-	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Hit")->Play();
+	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_EnemyHit")->Play();
 	mHitVfx->PlayVFX(mHitbox->GetHitPoint());
+	mIsInvincible = true;
 
 	mStatus->AddHP(-amount);
-
 	if (mStatus->GetHP() <= 0.0f)
 	{
 		((CPlayScene*)mScene)->GetPlayer()->AddKill();
@@ -96,8 +96,6 @@ void CEnemy::TakeDamage(float amount, bool useInvincibility)
 		mHitbox->Disable();
 		mChase->Disable();
 	}
-
-	mIsInvincible = true;
 }
 
 void CEnemy::OnCollisionEnter(CCollider* self, CCollider* other)
