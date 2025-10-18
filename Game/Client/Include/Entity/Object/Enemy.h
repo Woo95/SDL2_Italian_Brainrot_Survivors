@@ -5,6 +5,7 @@
 class CEnemyStatusComponent;
 class CSpriteComponent;
 class CChaseComponent;
+class CVFXComponent;
 class CRigidbody;
 class CCollider;
 class CPlayer;
@@ -21,6 +22,7 @@ protected:
 	CEnemyStatusComponent* mStatus = nullptr;
 	CSpriteComponent* mSprite = nullptr;
 	CChaseComponent* mChase = nullptr;
+	CVFXComponent* mHitVfx = nullptr;
 	CRigidbody* mRigidbody = nullptr;
 	CCollider* mHitbox = nullptr;
 
@@ -38,15 +40,14 @@ public:
 
 	void TakeDamage(float amount, bool useInvincibility = false);
 
-protected:
+private:
+	// Collision Events //
+	void OnCollisionEnter(CCollider* self, CCollider* other);
+	void OnCollisionStay(CCollider* self, CCollider* other);
+	void OnCollisionExit(CCollider* self, CCollider* other);
+
 	bool Chance(float probability)
 	{
 		return ((float)std::rand() / RAND_MAX) < probability;
 	}
-	void DropGem();
-
-private:
-	// Collision Events //
-	void OnCollisionEnter(CCollider* self, CCollider* other);
-	void OnCollisionExit(CCollider* self, CCollider* other);
 };

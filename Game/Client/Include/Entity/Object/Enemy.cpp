@@ -7,6 +7,7 @@
 #include "../../Manager/Data/Resource/AssetManager.h"
 #include "../../Manager/Data/Resource/SoundManager.h"
 #include "../../Scene/PlayScene.h"
+#include "../../Core/Timer.h"
 
 CEnemy::CEnemy()
 {
@@ -21,10 +22,19 @@ bool CEnemy::Init()
 	mChase = AllocateComponent<CChaseComponent, 50>("Chase_Enemy");
 	mRootComponent->AddChild(mChase);
 
+	mHitVfx = AllocateComponent<CVFXComponent, 50>("VFX_Enemy");
+	mHitVfx->SetTexture("Texture_VfxAtlas");
+	mHitVfx->SetAnimation("HitVFX");
+	mHitVfx->GetAnimation()->SetState(EAnimationState::VFX);
+	mHitVfx->GetTransform()->SetWorldScale(25.f, 35.7f);
+	mHitVfx->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mHitVfx);
+
 	mRigidbody = AllocateComponent<CRigidbody>("Rigidbody_Enemy");
 	mRootComponent->AddChild(mRigidbody);
 
 	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::ENTER, this, &CEnemy::OnCollisionEnter);
+	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::STAY, this, &CEnemy::OnCollisionStay);
 	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::EXIT, this, &CEnemy::OnCollisionExit);
 
 	mChase->SetSpeed(mStatus->GetMoveSpeed());
@@ -43,12 +53,7 @@ void CEnemy::Update(float deltaTime)
 		mInvincibleTimer = CONST_INVINCIBLE_TIMER;
 	}
 
-	if (mTarget)
-	{
-		// 초당 데미지
-		mTarget->TakeDamage(mStatus->GetAttack() * deltaTime);
-	}
-
+	// UpdateFacingDir
 	if (mChase->GetFacingDir().x < 0)
 	{
 		mSprite->SetFlip(SDL_FLIP_NONE);
@@ -58,13 +63,18 @@ void CEnemy::Update(float deltaTime)
 		mSprite->SetFlip(SDL_FLIP_HORIZONTAL);
 	}
 
+	// UpdateDeadState
 	if (mSprite->GetAnimation()->GetState() == EAnimationState::DEAD)
 	{
 		if (mSprite->GetAnimation()->IsPlayedOnce())
 		{
-			Destroy();
 			if (Chance(0.5f))
-				DropGem();
+			{
+				CGem* gem = GetScene()->InstantiateObject<CGem, 50>("Object_Gem", ELayer::Type::OBJECT);
+				gem->SetExp(mStatus->GetExp());
+				gem->GetTransform()->SetWorldPos(GetTransform()->GetWorldPos());
+			}
+			Destroy();
 		}
 	}
 }
@@ -75,6 +85,8 @@ void CEnemy::TakeDamage(float amount, bool useInvincibility)
 		return;
 
 	CAssetManager::GetInst()->GetSoundManager()->GetSound<CSFX>("SFX_Hit")->Play();
+	mHitVfx->PlayVFX(mHitbox->GetHitPoint());
+
 	mStatus->AddHP(-amount);
 
 	if (mStatus->GetHP() <= 0.0f)
@@ -88,22 +100,23 @@ void CEnemy::TakeDamage(float amount, bool useInvincibility)
 	mIsInvincible = true;
 }
 
-void CEnemy::DropGem()
-{
-	CGem* gem = GetScene()->InstantiateObject<CGem, 50>("Object_Gem", ELayer::Type::OBJECT);
-	gem->SetExp(mStatus->GetExp());
-	gem->GetTransform()->SetWorldPos(GetTransform()->GetWorldPos());
-}
-
 void CEnemy::OnCollisionEnter(CCollider* self, CCollider* other)
 {
-	if (CPlayer* player = dynamic_cast<CPlayer*>(other->GetObject()))
-	{
-		mTarget = player;
-	}
+	mTarget = dynamic_cast<CPlayer*>(other->GetObject());
+}
+
+void CEnemy::OnCollisionStay(CCollider* self, CCollider* other)
+{
+	if (!mTarget)
+		return;
+
+	mTarget->TakeDamage(mStatus->GetAttack() * CTimer::GetInst()->GetDeltaTime());
 }
 
 void CEnemy::OnCollisionExit(CCollider* self, CCollider* other)
 {
+	if (!mTarget)
+		return;
+
 	mTarget = nullptr;
 }
