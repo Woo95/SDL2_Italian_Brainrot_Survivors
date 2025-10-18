@@ -81,9 +81,14 @@ public:
 		}
 	}
 
-	void StopSound();
-	void PauseSound();
-	void ResumeSound();
+	void StopSFX();
+	void StopBGM();
+
+	void PauseSFX();
+	void PauseBGM();
+
+	void ResumeSFX();
+	void ResumeBGM();
 
 private:
 	template <SoundType T>
