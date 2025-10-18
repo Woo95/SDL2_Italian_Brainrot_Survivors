@@ -79,11 +79,15 @@ void CPlayScene::Update(float deltaTime)
 	switch (mSubState)
 	{
 	case EPlaySubState::PLAY:
+	{
+		CScene::Update(deltaTime);
+
 		mTime += deltaTime;
 		((CPlayUI*)mSceneUI)->GetPlayPanel()->SetGameTime(mTime);
-		CScene::Update(deltaTime);
 		mMobSpawner->Update(deltaTime);
+
 		break;
+	}
 	case EPlaySubState::PAUSE:
 	case EPlaySubState::LVLUP:
 	case EPlaySubState::GAMEOVER:

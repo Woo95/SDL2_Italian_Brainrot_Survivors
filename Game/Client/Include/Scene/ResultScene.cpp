@@ -23,6 +23,7 @@ bool CResultScene::Enter(void* payload)
 	mSceneUI->Init();
 
 	FResultData* resultData = static_cast<FResultData*>(payload);
+	CGameDataManager::GetInst()->GetPlayerProfile()->AddBalance(resultData->goldEarned);
 	((CResultUI*)mSceneUI)->GetResultPanel()->UpdateSurvivedTime(resultData->survivedTime);
 	((CResultUI*)mSceneUI)->GetResultPanel()->UpdateGoldEarned(resultData->goldEarned);
 	((CResultUI*)mSceneUI)->GetResultPanel()->UpdateLevelReached(resultData->levelReached);

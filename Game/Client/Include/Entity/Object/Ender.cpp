@@ -31,13 +31,6 @@ bool CEnder::Init()
 	mHitbox->GetTransform()->SetPivot(0.5f, 0.5f);
 	mRootComponent->AddChild(mHitbox);
 
-	CCollider* foot = AllocateComponent<CBoxCollider>("BoxCollider_EnderFoot");
-	foot->SetProfile("EnemyFoot");
-	foot->GetTransform()->SetRelativeScale(32.0f, 10.0f);
-	foot->GetTransform()->SetRelativePos(0.0f, 28.0f);
-	foot->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(foot);
-
 	return CEnemy::Init();
 }
 
