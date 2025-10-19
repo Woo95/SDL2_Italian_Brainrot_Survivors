@@ -45,7 +45,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(31.75f, 50.35f);
 	evnObj->GetTransform()->SetWorldPos(355.0f, 127.5f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Gravestone1");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.3f);
@@ -56,7 +56,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(31.75f, 50.35f);
 	evnObj->GetTransform()->SetWorldPos(410.0f, 127.5f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Gravestone1");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.3f);
@@ -67,7 +67,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(29.2f, 51.0f);
 	evnObj->GetTransform()->SetWorldPos(518.0f, 118.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Gravestone2");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.1f);
@@ -80,7 +80,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(44.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(247.0f, 279.8f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Column");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -91,7 +91,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(44.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(633.73f, 279.8f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Column");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -104,7 +104,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(856.75f, 115.24f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -115,7 +115,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(525.06f, 337.8f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -126,7 +126,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(745.0f, 281.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -137,7 +137,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(964.5f, 224.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -148,7 +148,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(416.0f, 612.5f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -159,7 +159,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(802.84f, 557.26f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -170,7 +170,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(2565.0f, 445.6f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -181,7 +181,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(3066.0f, 887.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -192,7 +192,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(3122.0f, 887.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -203,7 +203,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(3231.4f, 887.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -214,7 +214,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(3287.4f, 887.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -225,7 +225,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(3398.0f, 887.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1NoLeaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -236,7 +236,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(52.0f, 110.0f);
 	evnObj->GetTransform()->SetWorldPos(3454.0f, 887.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree1Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.6f);
@@ -247,7 +247,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(2399.1f, 1659.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -258,7 +258,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(2896.3f, 1659.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -269,7 +269,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(2785.7f, 2653.3f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.7f);
@@ -280,7 +280,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(87.45f, 140.25f);
 	evnObj->GetTransform()->SetWorldPos(3012.76f, 2653.3f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Tree2Leaf");
 	evnObj->GetComponent<CSpriteComponent>()->SetFlip(SDL_FLIP_HORIZONTAL);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
@@ -294,7 +294,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(34.0f, 57.8f);
 	evnObj->GetTransform()->SetWorldPos(2455.5f, 1700.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Totem4");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.45f);
@@ -305,7 +305,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(33.0f, 72.6f);
 	evnObj->GetTransform()->SetWorldPos(2841.9f, 1698.6f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Totem1");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.45f);
@@ -316,7 +316,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(32.3f, 57.8f);
 	evnObj->GetTransform()->SetWorldPos(2886.5f, 1696.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Totem2");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.45f);
@@ -327,7 +327,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(FVector2D(14.0f, 48.0f) * 1.7f);
 	evnObj->GetTransform()->SetWorldPos(2916.16f, 1696.3f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Totem3");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.45f);
@@ -338,7 +338,7 @@ void CMadForest::SetEnvObjects()
 	evnObj->SetMapScale(mapScale);
 	evnObj->GetTransform()->SetWorldScale(34.0f, 57.8f);
 	evnObj->GetTransform()->SetWorldPos(2953.0f, 1865.0f);
-	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestTexturePack");
+	evnObj->GetComponent<CSpriteComponent>()->SetTexture("Texture_MadForestObjAtlas");
 	evnObj->GetComponent<CSpriteComponent>()->SetFrame("Totem4");
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetRelativeScale(1.0f, 1.0f);
 	evnObj->GetComponent<CSpriteComponent>()->GetTransform()->SetPivot(0.5f, 0.45f);

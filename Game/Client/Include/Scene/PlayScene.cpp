@@ -119,7 +119,7 @@ void CPlayScene::LoadResources()
 	LoadTexture("Texture_GameOver", "GameOver.png");
 
     LoadTexture("Texture_MadForest", "MadForest.png");
-    LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
+    LoadTexture("Texture_MadForestObjAtlas", "MadForestObjAtlas.png");
 
 	LoadTexture("Texture_Player", "PlayerAtlas.png");
 	LoadTexture("Texture_Boss", "BossAtlas.png");
