@@ -45,9 +45,7 @@ void CMenuScene::LoadResources()
     LoadTexture("Texture_UIAtlas", "UIAtlas.png");
     LoadTexture("Texture_ItemAtlas", "ItemAtlas.png");
 
-    LoadTexture("Texture_Tralala", "Tralala.png");
-    LoadTexture("Texture_Sahur", "Sahur.png");
-    LoadTexture("Texture_Bananini", "Bananini.png");
+    LoadTexture("Texture_Player", "PlayerAtlas.png");
 
     LoadFont("Font32_CourierPrime_Regular", "CourierPrime_Regular.ttf", 32);
     LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);

@@ -20,7 +20,7 @@ bool CBananini::Init()
 	mRootComponent->AddChild(mInventory);
 
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Bananini");
-	mSprite->SetTexture("Texture_Bananini");
+	mSprite->SetTexture("Texture_Player");
 	mSprite->SetAnimation("Bananini");
 	mSprite->GetAnimation()->SetState(EAnimationState::WALK);
 	mSprite->GetTransform()->SetWorldScale(FVector2D(59.0f, 50.0f) * 1.2f);

@@ -52,6 +52,7 @@ void CCharacterInfoPanel::Construct()
     mCharacter = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_Character");
     mCharacter->GetTransform()->SetRelativePos(0.035f, 5.85f);
     mCharacter->GetTransform()->SetPivot(0.0f, 1.0f);
+    mCharacter->SetTexture("Texture_Player");
     AddChild(mCharacter);
 
     CImage* weaponBox = CWidgetUtils::AllocateWidget<CImage>("CharInfoPanel_Image_WeaponBox");
@@ -83,7 +84,6 @@ void CCharacterInfoPanel::ShowInfo(CCharacterSlot* slot)
     mDescription1->SetText(characterData.description1);
     mDescription2->SetText(characterData.description2);
     mWeaponIcon->SetFrame(characterData.startingWeapon);
-    mCharacter->SetTexture("Texture_" + characterData.lastName);
     mCharacter->SetFrame(characterData.lastName);
     mCharacter->GetTransform()->SetWorldScale(slot->GetAnimatedImage()->GetTransform()->GetWorldScale());
 }

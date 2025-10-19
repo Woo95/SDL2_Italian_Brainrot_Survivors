@@ -169,7 +169,6 @@ CCharacterSlot* CCharacterSelectPanel::CreateCharacterSlot(ECharacterType type, 
 
     slot->SetSFX("SFX_Character_" + characterData.lastName);
 
-    slot->GetAnimatedImage()->SetTexture("Texture_" + characterData.lastName);
     slot->GetAnimatedImage()->SetFrame(characterData.lastName);
 
     AddChild(slot);

@@ -20,7 +20,7 @@ bool CSahur::Init()
 	mRootComponent->AddChild(mInventory);
 
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Sahur");
-	mSprite->SetTexture("Texture_Sahur");
+	mSprite->SetTexture("Texture_Player");
 	mSprite->SetAnimation("Sahur");
 	mSprite->GetAnimation()->SetState(EAnimationState::WALK);
 	mSprite->GetTransform()->SetWorldScale(FVector2D(38.0f, 45.0f) * 1.5f);

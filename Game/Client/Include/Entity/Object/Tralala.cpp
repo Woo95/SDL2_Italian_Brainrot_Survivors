@@ -21,7 +21,7 @@ bool CTralala::Init()
 	mRootComponent->AddChild(mInventory);
 
 	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Tralala");
-	mSprite->SetTexture("Texture_Tralala");
+	mSprite->SetTexture("Texture_Player");
 	mSprite->SetAnimation("Tralala");
 	mSprite->GetAnimation()->SetState(EAnimationState::WALK);
 	mSprite->GetTransform()->SetWorldScale(FVector2D(62.0f, 45.0f) * 1.3f);

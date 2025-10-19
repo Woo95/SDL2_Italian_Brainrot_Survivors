@@ -130,7 +130,7 @@ void CResultPanel::Construct()
 	playerImage->GetTransform()->SetRelativeScale(playerScale * FVector2D(0.004f, 0.0055f));
 	playerImage->GetTransform()->SetRelativePos(FVector2D(0.25f, -0.12f));
 	playerImage->GetTransform()->SetPivot(FVector2D(0.5f, 0.5f));
-	playerImage->SetTexture("Texture_" + playerProfile->GetName());
+	playerImage->SetTexture("Texture_Player");
 	playerImage->SetFrame(playerProfile->GetName());
 	AddChild(playerImage);
 

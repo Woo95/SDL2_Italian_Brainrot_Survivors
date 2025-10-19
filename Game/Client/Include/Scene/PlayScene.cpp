@@ -121,9 +121,7 @@ void CPlayScene::LoadResources()
     LoadTexture("Texture_MadForest", "MadForest.png");
     LoadTexture("Texture_MadForestTexturePack", "MadForestTexturePack.png");
 
-    std::string charName = CGameDataManager::GetInst()->GetPlayerProfile()->GetName();
-    LoadTexture("Texture_" + charName, (charName + ".png").c_str());
-
+	LoadTexture("Texture_Player", "PlayerAtlas.png");
 	LoadTexture("Texture_Boss", "BossAtlas.png");
 	LoadTexture("Texture_Mob", "MobAtlas.png");
 

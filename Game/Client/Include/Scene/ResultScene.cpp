@@ -45,8 +45,7 @@ void CResultScene::LoadResources()
 	LoadTexture("Texture_OverlayBG", "OverlayBG.png");
 	LoadTexture("Texture_UIAtlas", "UIAtlas.png");
 
-	std::string charName = CGameDataManager::GetInst()->GetPlayerProfile()->GetName();
-	LoadTexture("Texture_" + charName, (charName + ".png").c_str());
+	LoadTexture("Texture_Player", "PlayerAtlas.png");
 
 	LoadFont("Font64_CourierPrime_Regular", "CourierPrime_Regular.ttf", 64);
 

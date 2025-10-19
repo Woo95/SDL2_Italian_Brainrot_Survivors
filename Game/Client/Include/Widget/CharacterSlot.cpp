@@ -34,6 +34,7 @@ void CCharacterSlot::Construct()
     panel->AddChild(mNameText);
 
     mCharacter = CWidgetUtils::AllocateWidget<CAnimatedImage, 3>("CharSlot_AnimatedImage_Character");
+    mCharacter->SetTexture("Texture_Player");
     mCharacter->SetAnimating(false);
     panel->AddChild(mCharacter);
 
