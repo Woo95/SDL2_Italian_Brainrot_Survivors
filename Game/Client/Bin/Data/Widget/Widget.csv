@@ -40,18 +40,18 @@ AnimatedImage,Sahur,4,"47, 55, 38, 45","91, 55, 38, 45","136, 55, 38, 45","180, 
 AnimatedImage,Bananini,4,"5, 105, 59, 50","70, 105, 59, 50","135, 105, 59, 50","200, 105, 59, 50",
 ########################################,
 #Type,#Name,#frames | ItemAtlas
-Image,Might,1,"525, 942, 10, 14",
-Image,Armor,1,"481, 424, 18, 18",
-Image,Max Health,1,"560, 895, 16, 13",
-Image,Recovery,1,"76, 698, 12, 10",
-Image,Move Speed,1,"669, 358, 16, 18",
-Image,Magnet,1,"620, 586, 12, 12",
-Image,Growth,1,"634, 193, 15, 18",
-Image,Greed,1,"558, 662, 16, 18",
-Image,Bubble,1,"624, 550, 13, 13",
-Image,Bat,1,"640, 568, 16, 16",
-Image,Banana,1,"641, 549, 16, 13",
-Image,Coin Bag,1,"712, 94, 14, 14"
-Image,Chicken,1,"510, 706, 18, 16"
-Image,XSymbol,1,"504, 895, 18, 18"
+Image,Might,1,"9, 46, 10, 14",
+Image,Armor,1,"31, 45, 18, 18",
+Image,Max Health,1,"61, 46, 16, 13",
+Image,Recovery,1,"91, 48, 12, 10",
+Image,Move Speed,1,"5, 63, 16, 18",
+Image,Magnet,1,"34, 66, 12, 12",
+Image,Growth,1,"62, 64, 15, 18",
+Image,Greed,1,"88, 64, 16, 18",
+Image,Bubble,1,"7, 86, 13, 12",
+Image,Bat,1,"33, 84, 16, 16",
+Image,Banana,1,"61, 86, 16, 13",
+Image,Coin Bag,1,"6, 6, 14, 14"
+Image,Chicken,1,"32, 5, 18, 16"
+Image,XSymbol,1,"59, 4, 18, 18"
 ########################################,
