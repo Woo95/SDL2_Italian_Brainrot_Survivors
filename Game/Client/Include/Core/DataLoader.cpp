@@ -220,10 +220,10 @@ void CDataLoader::LoadAllCharacterData()
 		const int desc2Idx     = 4;
 		const int weaponIdx    = 5;
 
-		const int hpIdx          = 6;
-		const int attackIdx      = 7;
-		const int moveSpeedIdx   = 8;
-		const int pickUpIdx      = 9;
+		const int hpIdx        = 6;
+		const int attackIdx    = 7;
+		const int moveSpeedIdx = 8;
+		const int pickUpIdx    = 9;
 
 		{
 			FCharacterData data;
