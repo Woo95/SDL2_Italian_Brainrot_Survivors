@@ -323,6 +323,17 @@ void CDataLoader::LoadAllWeaponData()
 			data.name = row[nameIdx];
 			data.description = row[descIdx];
 
+			int level = 1;
+			int loop = std::stoi(row[3]) * 2;
+			for (int i = 0; i < loop; i+=2)
+			{
+				int projectile = std::stoi(row[4 + i].substr(1));
+				float attack = std::stof(row[5 + i].substr(0, row[5 + i].length() - 1));
+
+				data.levelData.emplace_back(FWeaponLevelData{ level, projectile, attack });
+
+				level++;
+			}
 			IDM->mWeaponData[(int)data.type] = data;
 		}
 		row.clear();

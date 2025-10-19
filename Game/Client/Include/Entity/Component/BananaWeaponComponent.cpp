@@ -1,8 +1,10 @@
 #include "BananaWeaponComponent.h"
-#include "../Component/AllComponents.h"
-#include "../../Entity/Object/Player.h"
-#include "../../Entity/Object/Banana.h"
+#include "AllComponents.h"
+#include "../Object/Player.h"
+#include "../Object/Banana.h"
 #include "../../Scene/Scene.h"
+#include "../../Manager/Data/GameData/GameDataManager.h"
+#include "../../Manager/Data/GameData/ItemDataManager.h"
 
 CBananaWeaponComponent::CBananaWeaponComponent()
 {
@@ -39,41 +41,11 @@ void CBananaWeaponComponent::Upgrade()
 
 	mLevel++;
 
-	switch (mLevel)
-	{
-	case 1:
-		mWeaponAttack += 1.0f;
-		break;
-	case 2:
-		mWeaponAttack += 1.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.08f);
-		break;
-	case 3:
-		mWeaponAttack += 1.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.08f);
-		break;
-	case 4:
-		mWeaponAttack += 2.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.08f);
-		break;
-	case 5:
-		mWeaponAttack += 2.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.08f);
-		break;
-	case 6:
-		mWeaponAttack += 3.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.08f);
-		break;
-	case 7:
-		mWeaponAttack += 3.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.08f);
-		break;
-	case 8:
-		mWeaponAttack += 4.0f;
-		mBanana->SetScale(mBanana->GetScale() * 1.075f);
-		break;
-	default:
-		break;
-	}
+	const FWeaponData& weaponData = 
+		CGameDataManager::GetInst()->GetItemDataManager()->GetWeaponData(EWeaponType::BANANA);
+	mWeaponAttack = weaponData.levelData[mLevel-1].weaponAttack;
+	mProjectile = weaponData.levelData[mLevel-1].projectile;
+
+	mBanana->SetScale(mBanana->GetScale() * 1.08f);
 	mBanana->SetDamage(((CPlayer*)mObject)->GetAttack() + mWeaponAttack);
 }

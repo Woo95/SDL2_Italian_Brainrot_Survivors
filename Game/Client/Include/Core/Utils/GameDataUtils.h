@@ -150,11 +150,19 @@ struct FPowerUpData
 	float statModifier = 0.0f;
 };
 
+struct FWeaponLevelData
+{
+	int level = 0;
+	int projectile = 0;
+	float weaponAttack = 0.0f;
+};
+
 struct FWeaponData
 {
 	EWeaponType type = EWeaponType::NONE;
 	std::string name;
 	std::string description;
+	std::vector<FWeaponLevelData> levelData;
 };
 
 struct FConsumableData

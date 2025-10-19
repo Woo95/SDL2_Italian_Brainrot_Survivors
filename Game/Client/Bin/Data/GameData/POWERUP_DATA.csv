@@ -3,7 +3,7 @@
 1,Armor,Reduces incoming Damage by 10%.,200,0.1
 2,Max Health,Augments Max Health by 10%.,300,0.1
 3,Recovery,Recovers 1 HP per second.,400,1
-4,Move Speed,Character moves 10% faster.,500,0.1
+4,Move Speed,Character moves 5% faster.,500,0.05
 5,Magnet,Pickup range increases by 10%.,600,0.1
 6,Growth,Gains 10% more experience.,700,0.1
 7,Greed,Gains 10% more gold.,800,0.1

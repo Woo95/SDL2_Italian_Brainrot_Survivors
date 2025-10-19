@@ -13,7 +13,7 @@ protected:
 	EWeaponType mWeaponType = EWeaponType::NONE;
 	int mLevel = 0;
 	int mProjectile = 0;
-	float mWeaponAttack = 1.0f;
+	float mWeaponAttack = 0.0f;
 
 public:
 	virtual bool Init() override { return true; };

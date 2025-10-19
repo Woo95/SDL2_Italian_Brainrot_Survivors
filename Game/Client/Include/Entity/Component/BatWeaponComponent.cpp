@@ -1,8 +1,10 @@
 #include "BatWeaponComponent.h"
-#include "../Component/AllComponents.h"
-#include "../../Entity/Object/Player.h"
-#include "../../Entity/Object/Bat.h"
+#include "AllComponents.h"
+#include "../Object/Player.h"
+#include "../Object/Bat.h"
 #include "../../Scene/Scene.h"
+#include "../../Manager/Data/GameData/GameDataManager.h"
+#include "../../Manager/Data/GameData/ItemDataManager.h"
 #include "../../Manager/Data/Resource/AssetManager.h"
 #include "../../Manager/Data/Resource/SoundManager.h"
 
@@ -54,39 +56,10 @@ void CBatWeaponComponent::Upgrade()
 
 	mLevel++;
 
-	switch (mLevel)
-	{
-	case 1:
-		mWeaponAttack += 1.0f;
-		mProjectile += 1;
-		break;
-	case 2:
-		mWeaponAttack += 2.0f;
-		break;
-	case 3:
-		mWeaponAttack += 3.0f;
-		mProjectile += 1;
-		break;
-	case 4:
-		mWeaponAttack += 2.0f;
-		break;
-	case 5:
-		mWeaponAttack += 3.0f;
-		mProjectile += 1;
-		break;
-	case 6:
-		mWeaponAttack += 4.0f;
-		break;
-	case 7:
-		mWeaponAttack += 4.0f;
-		break;
-	case 8:
-		mWeaponAttack += 5.0f;
-		mProjectile += 1;
-		break;
-	default:
-		break;
-	}
+	const FWeaponData& weaponData = 
+		CGameDataManager::GetInst()->GetItemDataManager()->GetWeaponData(EWeaponType::BAT);
+	mWeaponAttack = weaponData.levelData[mLevel-1].weaponAttack;
+	mProjectile = weaponData.levelData[mLevel-1].projectile;
 }
 
 void CBatWeaponComponent::Attack()
