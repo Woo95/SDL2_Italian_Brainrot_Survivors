@@ -29,7 +29,7 @@ bool CGem::Init()
 	mRootComponent->AddChild(collider);
 
 	mChase = AllocateComponent<CChaseComponent>("Chase_Gem");
-	mChase->SetSpeed(300.0f);
+	mChase->SetSpeed(400.0f);
 	mRootComponent->AddChild(mChase);
 
 	return CObject::Init();

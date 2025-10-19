@@ -32,8 +32,8 @@ private:
 	float mDespawnThreshold = 0.0f;
 
 	// Constants
-	const int   CONST_REGULAR_MOB_SPAWN_AMOUNT   = 35;
-	const float CONST_REGULAR_MOB_SPAWN_INTERVAL = 0.75f;
+	const int   CONST_REGULAR_MOB_SPAWN_AMOUNT   = 50;
+	const float CONST_REGULAR_MOB_SPAWN_INTERVAL = 0.5f;
 	const float CONST_SUBBOSS_MOB_SPAWN_INTERVAL = 50.0f;
 
 private:

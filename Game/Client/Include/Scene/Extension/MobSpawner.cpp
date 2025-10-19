@@ -136,31 +136,31 @@ void CMobSpawner::BindEventListeners()
 		switch (type)
 		{
 		case ERegularMobType::SKELETON:
-			mob = mScene->InstantiateObject<CSkeleton, 35>("Enemy_Mob_Skeleton");
+			mob = mScene->InstantiateObject<CSkeleton, 50>("Enemy_Mob_Skeleton");
 			break;
 		case ERegularMobType::SKELETON_KNIFE:
-			mob = mScene->InstantiateObject<CSkeletonKnife, 35>("Enemy_Mob_SkeletonKnife");
+			mob = mScene->InstantiateObject<CSkeletonKnife, 50>("Enemy_Mob_SkeletonKnife");
 			break;
 		case ERegularMobType::SKULL:
-			mob = mScene->InstantiateObject<CSkull, 35>("Enemy_Mob_Skull");
+			mob = mScene->InstantiateObject<CSkull, 50>("Enemy_Mob_Skull");
 			break;
 		case ERegularMobType::SKELETON_PANTHER:
-			mob = mScene->InstantiateObject<CSkeletonPanther, 35>("Enemy_Mob_SkeletonPanther");
+			mob = mScene->InstantiateObject<CSkeletonPanther, 50>("Enemy_Mob_SkeletonPanther");
 			break;
 		case ERegularMobType::SKELETON_XL:
-			mob = mScene->InstantiateObject<CSkeletonXL, 35>("Enemy_Mob_SkeletonXL");
+			mob = mScene->InstantiateObject<CSkeletonXL, 50>("Enemy_Mob_SkeletonXL");
 			break;
 		case ERegularMobType::SKELETON_MAD:
-			mob = mScene->InstantiateObject<CSkeletonMad, 35>("Enemy_Mob_SkeletonMad");
+			mob = mScene->InstantiateObject<CSkeletonMad, 50>("Enemy_Mob_SkeletonMad");
 			break;
 		case ERegularMobType::SKELETON_ANGEL:
-			mob = mScene->InstantiateObject<CSkeletonAngel, 35>("Enemy_Mob_SSkeletonAngel");
+			mob = mScene->InstantiateObject<CSkeletonAngel, 50>("Enemy_Mob_SSkeletonAngel");
 			break;
 		case ERegularMobType::SKELETON_NINJA:
-			mob = mScene->InstantiateObject<CSkeletonNinja, 35>("Enemy_Mob_SkeletonNinja");
+			mob = mScene->InstantiateObject<CSkeletonNinja, 50>("Enemy_Mob_SkeletonNinja");
 			break;
 		case ERegularMobType::SKELETON_DRAGON:
-			mob = mScene->InstantiateObject<CSkeletonDragon, 35>("Enemy_Mob_SkeletonDragon");
+			mob = mScene->InstantiateObject<CSkeletonDragon, 50>("Enemy_Mob_SkeletonDragon");
 			break;
 		}
 

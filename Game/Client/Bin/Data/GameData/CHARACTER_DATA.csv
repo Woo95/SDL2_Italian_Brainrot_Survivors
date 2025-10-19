@@ -1,4 +1,4 @@
 #Type{ NONE / TRALALA / SAHUR / BANANINI / MAX },#Lastname,#FirstName,#Description1,#Description2,#StartingWeapon,#Hp,#Attack,#MoveSpeed,#PickupRange
-0,Tralala,Tralalero,My name is Tralalero Tralala., ,Bubble,100,3,275,75
-1,Sahur,Tung Tung Tung Tung Tung Tung Tung Tung Tung,My name is Tung Tung Tung Tung,Tung Tung Tung Tung Tung Sahur.,Bat,90,6,300,75
-2,Bananini,Chimpanzini,My name is Chimpanzini Bananini., ,Banana,80,4,325,75
+0,Tralala,Tralalero,My name is Tralalero Tralala., ,Bubble,100,3,280,75
+1,Sahur,Tung Tung Tung Tung Tung Tung Tung Tung Tung,My name is Tung Tung Tung Tung,Tung Tung Tung Tung Tung Sahur.,Bat,90,3,300,75
+2,Bananini,Chimpanzini,My name is Chimpanzini Bananini., ,Banana,80,3,320,75
