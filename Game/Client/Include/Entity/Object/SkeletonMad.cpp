@@ -4,6 +4,8 @@
 
 CSkeletonMad::CSkeletonMad()
 {
+	mGemType = CEnemy::BLUE;
+	mGemSpawnRate = 0.5f;
 }
 
 CSkeletonMad::~CSkeletonMad()

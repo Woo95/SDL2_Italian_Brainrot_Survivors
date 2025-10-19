@@ -14,16 +14,16 @@ CGem::~CGem()
 
 bool CGem::Init()
 {
-	CSpriteComponent* sprite = AllocateComponent<CSpriteComponent>("Sprite_Gem");
-	sprite->SetTexture("Texture_ItemAtlas");
-	sprite->SetFrame("Gem");
-	sprite->GetTransform()->SetWorldScale(FVector2D(9.0f, 12.0f) * 1.5f);
-	sprite->GetTransform()->SetPivot(0.5f, 0.5f);
-	mRootComponent->AddChild(sprite);
+	mSprite = AllocateComponent<CSpriteComponent>("Sprite_Gem");
+	mSprite->SetTexture("Texture_ItemAtlas");
+	mSprite->SetFrame("Empty");
+	mSprite->GetTransform()->SetWorldScale(FVector2D(9.0f, 12.0f) * 1.5f);
+	mSprite->GetTransform()->SetPivot(0.5f, 0.5f);
+	mRootComponent->AddChild(mSprite);
 
 	CBoxCollider* collider = AllocateComponent<CBoxCollider>("BoxCollider_Gem");
 	collider->SetProfile("PickableItem");
-	collider->GetTransform()->SetWorldScale(sprite->GetTransform()->GetWorldScale());
+	collider->GetTransform()->SetWorldScale(mSprite->GetTransform()->GetWorldScale());
 	collider->GetTransform()->SetPivot(0.5f, 0.5f);
 	collider->AddCallbackFunc<CGem>(ECollider::OnCollision::ENTER, this, &CGem::OnCollisionEnter);
 	mRootComponent->AddChild(collider);

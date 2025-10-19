@@ -4,6 +4,8 @@
 
 CReaper::CReaper()
 {
+	mGemType = CEnemy::RED;
+	mGemSpawnRate = 1.0f;
 }
 
 CReaper::~CReaper()

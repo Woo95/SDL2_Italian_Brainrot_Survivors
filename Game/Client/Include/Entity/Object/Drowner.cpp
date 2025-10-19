@@ -4,6 +4,8 @@
 
 CDrowner::CDrowner()
 {
+	mGemType = CEnemy::RED;
+	mGemSpawnRate = 1.0f;
 }
 
 CDrowner::~CDrowner()

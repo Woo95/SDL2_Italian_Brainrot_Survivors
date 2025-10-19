@@ -4,6 +4,8 @@
 
 CEnder::CEnder()
 {
+	mGemType = CEnemy::RED;
+	mGemSpawnRate = 1.0f;
 }
 
 CEnder::~CEnder()

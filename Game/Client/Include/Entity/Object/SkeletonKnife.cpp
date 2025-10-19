@@ -4,6 +4,8 @@
 
 CSkeletonKnife::CSkeletonKnife()
 {
+	mGemType = CEnemy::BLUE;
+	mGemSpawnRate = 0.5f;
 }
 
 CSkeletonKnife::~CSkeletonKnife()

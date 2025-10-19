@@ -4,6 +4,8 @@
 
 CSkeletonAngel::CSkeletonAngel()
 {
+	mGemType = CEnemy::BLUE;
+	mGemSpawnRate = 0.5f;
 }
 
 CSkeletonAngel::~CSkeletonAngel()

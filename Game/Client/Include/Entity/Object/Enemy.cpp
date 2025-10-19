@@ -68,11 +68,20 @@ void CEnemy::Update(float deltaTime)
 	{
 		if (mSprite->GetAnimation()->IsPlayedOnce())
 		{
-			if (Chance(0.5f))
+			if (Chance(mGemSpawnRate))
 			{
 				CGem* gem = GetScene()->InstantiateObject<CGem, 50>("Object_Gem", ELayer::Type::OBJECT);
-				gem->SetExp(mStatus->GetExp());
 				gem->GetTransform()->SetWorldPos(GetTransform()->GetWorldPos());
+				gem->SetExp(mStatus->GetExp());
+				switch (mGemType)
+				{
+				case EGem::BLUE:
+					gem->GetSprite()->SetFrame("BlueGem");
+					break;
+				case EGem::RED:
+					gem->GetSprite()->SetFrame("RedGem");
+					break;
+				}
 			}
 			Destroy();
 		}

@@ -30,6 +30,10 @@ protected:
 	float mInvincibleTimer = 0.0f;
 	const float CONST_INVINCIBLE_TIMER = 0.5f;
 
+	enum EGem { NONE, BLUE, RED };
+	EGem mGemType = EGem::NONE;
+	float mGemSpawnRate = 0.0f;
+
 protected:
 	virtual bool Init() override;
 	virtual void Update(float deltaTime) override;

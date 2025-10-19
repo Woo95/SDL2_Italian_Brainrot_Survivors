@@ -4,6 +4,8 @@
 
 CStalker::CStalker()
 {
+	mGemType = CEnemy::RED;
+	mGemSpawnRate = 1.0f;
 }
 
 CStalker::~CStalker()

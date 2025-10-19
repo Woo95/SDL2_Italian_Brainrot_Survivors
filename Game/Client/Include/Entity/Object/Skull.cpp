@@ -4,6 +4,8 @@
 
 CSkull::CSkull()
 {
+	mGemType = CEnemy::BLUE;
+	mGemSpawnRate = 0.5f;
 }
 
 CSkull::~CSkull()

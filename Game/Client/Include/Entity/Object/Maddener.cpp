@@ -4,6 +4,8 @@
 
 CMaddener::CMaddener()
 {
+	mGemType = CEnemy::RED;
+	mGemSpawnRate = 1.0f;
 }
 
 CMaddener::~CMaddener()

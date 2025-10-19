@@ -4,6 +4,8 @@
 
 CTrickster::CTrickster()
 {
+	mGemType = CEnemy::RED;
+	mGemSpawnRate = 1.0f;
 }
 
 CTrickster::~CTrickster()

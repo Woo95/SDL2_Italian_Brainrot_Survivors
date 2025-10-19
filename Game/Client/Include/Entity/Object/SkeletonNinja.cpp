@@ -4,6 +4,8 @@
 
 CSkeletonNinja::CSkeletonNinja()
 {
+	mGemType = CEnemy::BLUE;
+	mGemSpawnRate = 0.5f;
 }
 
 CSkeletonNinja::~CSkeletonNinja()

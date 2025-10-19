@@ -4,6 +4,8 @@
 
 CSkeletonPanther::CSkeletonPanther()
 {
+	mGemType = CEnemy::BLUE;
+	mGemSpawnRate = 0.5f;
 }
 
 CSkeletonPanther::~CSkeletonPanther()

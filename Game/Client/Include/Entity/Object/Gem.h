@@ -2,6 +2,7 @@
 
 #include "Object.h"
 
+class CSpriteComponent;
 class CChaseComponent;
 class CCollider;
 
@@ -12,6 +13,7 @@ public:
 	virtual ~CGem();
 
 private:
+	CSpriteComponent* mSprite = nullptr;
 	CChaseComponent* mChase = nullptr;
 
 	float mExp = 0.0f;
@@ -23,6 +25,8 @@ private:
 	virtual void Release() final;
 
 public:
+	CSpriteComponent* GetSprite() const { return mSprite; }
+
 	float GetExp() const { return mExp; }
 	void SetExp(float exp)
 	{
