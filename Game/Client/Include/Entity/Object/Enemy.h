@@ -40,17 +40,17 @@ protected:
 	virtual void Release() = 0;
 
 public:
-	CChaseComponent* GetChase() const { return mChase; }
-
 	void TakeDamage(float amount, bool useInvincibility = false);
 
-private:
-	void OnCollisionEnter(CCollider* self, CCollider* other);
-	void OnCollisionStay(CCollider* self, CCollider* other);
-	void OnCollisionExit(CCollider* self, CCollider* other);
+	CChaseComponent* GetChase() const { return mChase; }
 
+private:
 	bool Chance(float probability)
 	{
 		return ((float)std::rand() / RAND_MAX) < probability;
 	}
+
+	void OnCollisionEnter(CCollider* self, CCollider* other);
+	void OnCollisionStay(CCollider* self, CCollider* other);
+	void OnCollisionExit(CCollider* self, CCollider* other);
 };

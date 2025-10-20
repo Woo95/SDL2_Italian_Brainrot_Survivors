@@ -20,6 +20,7 @@ CEnemy::~CEnemy()
 bool CEnemy::Init()
 {
 	mChase = AllocateComponent<CChaseComponent, 50>("Chase_Enemy");
+	mChase->SetSpeed(mStatus->GetMoveSpeed());
 	mRootComponent->AddChild(mChase);
 
 	mHitVfx = AllocateComponent<CVFXComponent, 50>("VFX_Enemy");
@@ -34,10 +35,8 @@ bool CEnemy::Init()
 	mRootComponent->AddChild(mRigidbody);
 
 	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::ENTER, this, &CEnemy::OnCollisionEnter);
-	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::STAY, this, &CEnemy::OnCollisionStay);
-	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::EXIT, this, &CEnemy::OnCollisionExit);
-
-	mChase->SetSpeed(mStatus->GetMoveSpeed());
+	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::STAY,  this, &CEnemy::OnCollisionStay);
+	mHitbox->AddCallbackFunc<CEnemy>(ECollider::OnCollision::EXIT,  this, &CEnemy::OnCollisionExit);
 
 	return CObject::Init();
 }
@@ -109,7 +108,8 @@ void CEnemy::TakeDamage(float amount, bool useInvincibility)
 
 void CEnemy::OnCollisionEnter(CCollider* self, CCollider* other)
 {
-	mTarget = dynamic_cast<CPlayer*>(other->GetObject());
+	if (CPlayer* player = dynamic_cast<CPlayer*>(other->GetObject()))
+		mTarget = player;
 }
 
 void CEnemy::OnCollisionStay(CCollider* self, CCollider* other)
