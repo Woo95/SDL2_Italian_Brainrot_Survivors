@@ -24,7 +24,7 @@ bool CEnemy::Init()
 
 	mHitVfx = AllocateComponent<CVFXComponent, 50>("VFX_Enemy");
 	mHitVfx->SetTexture("Texture_VfxAtlas");
-	mHitVfx->SetAnimation("HitVFX");
+	mHitVfx->SetAnimation("EnemyHitVFX");
 	mHitVfx->GetAnimation()->SetState(EAnimationState::VFX);
 	mHitVfx->GetTransform()->SetWorldScale(25.0f, 36.0f);
 	mHitVfx->GetTransform()->SetPivot(0.5f, 0.5f);

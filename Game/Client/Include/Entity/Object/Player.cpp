@@ -31,7 +31,7 @@ bool CPlayer::Init()
 
 	mHitVfx = AllocateComponent<CVFXComponent, 50>("VFX_Player");
 	mHitVfx->SetTexture("Texture_VfxAtlas");
-	mHitVfx->SetAnimation("HitVFX");
+	mHitVfx->SetAnimation("PlayerHitVFX");
 	mHitVfx->GetAnimation()->SetState(EAnimationState::VFX);
 	mHitVfx->GetTransform()->SetWorldScale(35.f, 45.0f);
 	mHitVfx->GetTransform()->SetPivot(0.5f, 0.5f);
