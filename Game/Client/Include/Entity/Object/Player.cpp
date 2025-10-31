@@ -158,7 +158,7 @@ void CPlayer::AddWeapon(EWeaponType type)
 			weaponComponent = AllocateComponent<CBananaWeaponComponent, 1>("BananaWeapon_Bananini");
 			break;
 		}
-		mRootComponent->AddChild(weaponComponent);
+		mInventory->AddChild(weaponComponent);
 		weaponComponent->Init();
 		mInventory->AddWeapon(type, weaponComponent);
 	}
