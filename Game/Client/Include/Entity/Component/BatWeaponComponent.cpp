@@ -26,20 +26,18 @@ void CBatWeaponComponent::Update(float deltaTime)
 	mCooldownTimer -= deltaTime;
 	if (mCooldownTimer <= 0.0f)
 	{
-		Attack();
-		mCooldownTimer = CONST_COOLDOWN_TIMER;
-		mFiredProjectile = 0;
-		mProjectileTimer = 0.0f;
-	}
-
-	if (mFiredProjectile < mProjectile)
-	{
 		mProjectileTimer -= deltaTime;
 		if (mProjectileTimer <= 0.0f)
 		{
 			Attack();
 			mFiredProjectile++;
 			mProjectileTimer = CONST_PROJECTILE_TIMER;
+		}
+		if (mFiredProjectile >= mProjectile)
+		{
+			mFiredProjectile = 0;
+			mProjectileTimer = 0.0f;
+			mCooldownTimer = CONST_COOLDOWN_TIMER;
 		}
 	}
 }

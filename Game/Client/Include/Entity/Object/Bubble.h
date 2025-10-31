@@ -16,7 +16,7 @@ private:
 	FVector2D mMoveDir = FVector2D::ZERO;
 
 	float mDamage = 0.0f;
-	float mDestroyTime = 3.0f;
+	float mDestroyTime = 2.0f;
 
 public:
 	virtual bool Init() final;
